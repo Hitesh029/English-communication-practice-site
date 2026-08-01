@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="30-Day English Communication Course Roadmap — Complete curriculum from Basic to Corporate Professional for Software Engineers.">
+  <title>30-Day Roadmap | English Communication Master Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dark.css">
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="toast-container" id="toast-container" role="alert" aria-live="polite"></div>
+
+  <!-- Top Navigation (same as index.html) -->
+  <nav id="topbar" role="navigation" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="brand-name">English Master<span>30-Day Communication Course</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html"          class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="dashboard.html"       class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+        <li><a href="roadmap.html"         class="nav-link active" aria-current="page"><i class="fas fa-route"></i> Roadmap</a></li>
+        <li><a href="lessons/day01.html"   class="nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+        <li><a href="about.html"           class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+      </ul>
+      <div class="topbar-actions">
+        <button id="search-toggle" aria-label="Open search"><i class="fas fa-search"></i><span>Search...</span><kbd class="search-kbd">⌘K</kbd></button>
+        <button id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon" id="theme-icon"></i></button>
+        <button id="mobile-menu-toggle" aria-label="Toggle mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html"        class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="dashboard.html"    class="mobile-nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="roadmap.html"      class="mobile-nav-link active"><i class="fas fa-route"></i> Roadmap</a></li>
+      <li><a href="lessons/day01.html" class="mobile-nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+    </ul>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-dialog search-modal">
+      <div class="search-input-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search-input" placeholder="Search words, grammar, idioms, lessons..." autocomplete="off">
+        <button class="btn btn-ghost btn-xs" id="search-close"><kbd>Esc</kbd></button>
+      </div>
+      <div id="search-results" class="search-results-list" role="listbox"></div>
+    </div>
+  </div>
+
+  <main id="main-content" style="padding-top: var(--topbar-h);">
+
+    <!-- Page Hero -->
+    <section style="background: var(--gradient-hero); padding: var(--sp-16) 0; position: relative; overflow: hidden;">
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="container" style="position:relative; z-index:1; color:white;">
+        <nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+          <span class="breadcrumb-item"><a href="index.html" style="color:rgba(255,255,255,0.7);">Home</a></span>
+          <span class="breadcrumb-sep"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i></span>
+          <span class="breadcrumb-item active" style="color:white;">30-Day Roadmap</span>
+        </nav>
+        <span class="section-tag" style="background:rgba(255,255,255,0.15); color:white; border-color:rgba(255,255,255,0.3); margin-bottom:var(--sp-4);">
+          <i class="fas fa-route"></i> Complete Course Map
+        </span>
+        <h1 style="color:white; font-size:clamp(2rem,5vw,3.5rem); margin-bottom:var(--sp-4);">30-Day Learning Roadmap</h1>
+        <p style="color:rgba(255,255,255,0.85); font-size:var(--text-xl); max-width:600px; line-height:var(--leading-relaxed);">
+          Your complete journey from basic English foundations to corporate professional fluency, designed specifically for software engineering placement success.
+        </p>
+        <div class="flex flex-wrap gap-6 mt-8" style="color:rgba(255,255,255,0.8); font-size:var(--text-sm); font-weight:600;">
+          <span><i class="fas fa-clock"></i> 60–90 min/day</span>
+          <span><i class="fas fa-layer-group"></i> 21 modules/day</span>
+          <span><i class="fas fa-book"></i> 750+ vocabulary words</span>
+          <span><i class="fas fa-graduation-cap"></i> Certificate on completion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tier Legend -->
+    <section style="background:var(--bg-surface); border-bottom:1px solid var(--border-subtle); padding-block:var(--sp-4);">
+      <div class="container">
+        <div class="flex flex-wrap gap-4 items-center">
+          <span style="font-size:var(--text-sm); font-weight:700; color:var(--text-tertiary);">TIER LEGEND:</span>
+          <span class="tier-badge tier-basic"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Basic (Days 1–7)</span>
+          <span class="tier-badge tier-intermediate"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Intermediate (Days 8–14)</span>
+          <span class="tier-badge tier-professional"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Professional (Days 15–21)</span>
+          <span class="tier-badge tier-corporate"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Corporate (Days 22–28)</span>
+          <span class="tier-badge tier-mock"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Mock Interviews (Days 29–30)</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container section">
+
+      <!-- PHASE 1: BASIC -->
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-header">
+          <div class="phase-icon" style="background:hsl(158,64%,94%); color:var(--success-600);">📗</div>
+          <div>
+            <div class="badge badge-success mb-2">Phase 1 · Days 1–7</div>
+            <div class="phase-info-title">Basic English Foundations</div>
+            <div class="phase-info-desc">Build confidence, master core vocabulary, and understand essential grammar tenses for everyday and interview communication.</div>
+          </div>
+        </div>
+        <div class="days-grid stagger-children" id="phase1-grid"></div>
+      </div>
+
+      <!-- PHASE 2: INTERMEDIATE -->
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-header">
+          <div class="phase-icon" style="background:hsl(38,92%,94%); color:hsl(38,80%,35%);">📙</div>
+          <div>
+            <div class="badge badge-warning mb-2">Phase 2 · Days 8–14</div>
+            <div class="phase-info-title">Intermediate Business English</div>
+            <div class="phase-info-desc">Master professional email writing, STAR method behavioral interviews, technical presentations, and workplace communication.</div>
+          </div>
+        </div>
+        <div class="days-grid stagger-children" id="phase2-grid"></div>
+      </div>
+
+      <!-- PHASE 3: PROFESSIONAL -->
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-header">
+          <div class="phase-icon" style="background:var(--primary-50); color:var(--primary-600);">📘</div>
+          <div>
+            <div class="badge badge-primary mb-2">Phase 3 · Days 15–21</div>
+            <div class="phase-info-title">Professional Technical Communication</div>
+            <div class="phase-info-desc">Explain complex technical concepts with clarity — data structures, system design, AI/ML, databases, and software architecture.</div>
+          </div>
+        </div>
+        <div class="days-grid stagger-children" id="phase3-grid"></div>
+      </div>
+
+      <!-- PHASE 4: CORPORATE -->
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-header">
+          <div class="phase-icon" style="background:hsl(258,90%,96%); color:var(--accent-600);">🏢</div>
+          <div>
+            <div class="badge badge-accent mb-2">Phase 4 · Days 22–28</div>
+            <div class="phase-info-title">Corporate Communication & Leadership</div>
+            <div class="phase-info-desc">Executive presence, salary negotiation, crisis communication, global remote work, body language, and public speaking mastery.</div>
+          </div>
+        </div>
+        <div class="days-grid stagger-children" id="phase4-grid"></div>
+      </div>
+
+      <!-- PHASE 5: MOCK INTERVIEWS -->
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-header">
+          <div class="phase-icon" style="background:hsl(350,89%,96%); color:hsl(350,60%,45%);">🎯</div>
+          <div>
+            <div class="badge badge-error mb-2">Phase 5 · Days 29–30</div>
+            <div class="phase-info-title">Complete Mock Interviews & Graduation</div>
+            <div class="phase-info-desc">Day 29: Full HR Mock Interview. Day 30: Complete Technical + HR Interview with final evaluation and course certificate.</div>
+          </div>
+        </div>
+        <div class="days-grid stagger-children" id="phase5-grid"></div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <section style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding-block:var(--sp-16); text-align:center;">
+      <div class="container">
+        <h2 class="gradient-text" style="margin-bottom:var(--sp-4);">Ready to Begin?</h2>
+        <p style="font-size:var(--text-xl); color:var(--text-secondary); max-width:500px; margin:0 auto var(--sp-8);">Start with Day 1 and let the structured curriculum guide you to placement success.</p>
+        <a href="lessons/day01.html" class="btn btn-gradient btn-xl ripple">
+          <i class="fas fa-rocket"></i> Begin Day 1 Now
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 English Communication Master Course. All rights reserved.</p>
+        <a href="index.html" class="btn btn-ghost btn-sm"><i class="fas fa-home"></i> Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    // ── Roadmap Data ──
+    const ROADMAP = [
+      // Phase 1 - Basic
+      { day:1,  title:'Foundations of Professional Identity & Self-Introduction', tier:'basic',        topic:'Present Simple & Continuous', grammar:'Present Tenses' },
+      { day:2,  title:'Professional Background & Past Projects',                  tier:'basic',        topic:'Past Simple & Present Perfect', grammar:'Past Tenses' },
+      { day:3,  title:'Describing Strengths & Core Capabilities',                  tier:'basic',        topic:'Modal Verbs of Ability', grammar:'Modals' },
+      { day:4,  title:'Explaining Technical Architectures & Workflows',            tier:'basic',        topic:'Passive Voice in Technical Writing', grammar:'Passive Voice' },
+      { day:5,  title:'Effective Problem Solving Communication',                   tier:'basic',        topic:'Conditional Sentences (Types 0,1,2)', grammar:'Conditionals' },
+      { day:6,  title:'Team Collaboration & Conflict Resolution',                  tier:'basic',        topic:'Reported Speech & Diplomacy', grammar:'Indirect Speech' },
+      { day:7,  title:'Week 1 Review & Diagnostic Speech Test',                   tier:'basic',        topic:'Articles & Determiners Review', grammar:'Articles' },
+      // Phase 2 - Intermediate
+      { day:8,  title:'Professional Email Etiquette & Business Writing',           tier:'intermediate', topic:'Formal Sentence Structures', grammar:'Connectors' },
+      { day:9,  title:'Navigating Sprint Meetings & Daily Standups',               tier:'intermediate', topic:'Future Tenses (will/going to)', grammar:'Future Tenses' },
+      { day:10, title:'Delivering Impactful Technical Demos & Presentations',      tier:'intermediate', topic:'Signposting & Transition Language', grammar:'Signposting' },
+      { day:11, title:'STAR Method for Behavioral Interview Questions',            tier:'intermediate', topic:'Action Verbs & Metric Expressions', grammar:'Action Verbs' },
+      { day:12, title:'Handling Difficult Questions & High Pressure Situations',   tier:'intermediate', topic:'Polite Refusal & Deflection Strategies', grammar:'Polite Language' },
+      { day:13, title:'Networking on LinkedIn & Professional Platforms',            tier:'intermediate', topic:'Concise Summarization & Value Propositions', grammar:'Conciseness' },
+      { day:14, title:'Mid-Course Assessment & Placement Readiness Check',         tier:'intermediate', topic:'Complex Sentences & Relative Clauses', grammar:'Complex Grammar' },
+      // Phase 3 - Professional
+      { day:15, title:'Data Structures & Algorithms Professional Explanation',     tier:'professional', topic:'Comparative & Superlative in Performance', grammar:'Comparatives' },
+      { day:16, title:'System Design Communication & Scalability Concepts',        tier:'professional', topic:'Causal Connectors & Impact Statements', grammar:'Causality' },
+      { day:17, title:'Database Management & SQL Logic Explanation',               tier:'professional', topic:'Sequential Adverbs & Process Flow Language', grammar:'Sequencing' },
+      { day:18, title:'Web Development, APIs & Cloud Architecture',                tier:'professional', topic:'Technical Terminology Integration', grammar:'Tech Vocab' },
+      { day:19, title:'AI, Machine Learning & Modern Tech Stack Communication',    tier:'professional', topic:'Speculative Language & Future Probability', grammar:'Speculation' },
+      { day:20, title:'OOP, Code Review Feedback & Design Patterns',              tier:'professional', topic:'Diplomatic Feedback & Constructive Imperatives', grammar:'Feedback Language' },
+      { day:21, title:'Group Discussion Dynamics & Consensus Building',           tier:'professional', topic:'Interrupting Politely & Counter-arguing', grammar:'Discussion Skills' },
+      // Phase 4 - Corporate
+      { day:22, title:'Executive Presence & Corporate Leadership Pitching',        tier:'corporate',    topic:'Persuasive Rhetoric & Vocal Emphasis', grammar:'Persuasion' },
+      { day:23, title:'Cross-Functional Client Meetings & Requirement Gathering',  tier:'corporate',    topic:'Clarifying Questions & Active Listening', grammar:'Clarification' },
+      { day:24, title:'Salary Negotiation & Corporate Offer Evaluation',           tier:'corporate',    topic:'Conditional Negotiation Language', grammar:'Negotiation' },
+      { day:25, title:'Public Speaking & Storytelling for Tech Leaders',           tier:'corporate',    topic:'Narrative Arc & Emotional Hooks', grammar:'Storytelling' },
+      { day:26, title:'Crisis Communication & Production Downtime Retrospectives', tier:'corporate',    topic:'Root Cause Analysis Phrases', grammar:'Crisis Language' },
+      { day:27, title:'Global Remote Work & Intercultural Communication',          tier:'corporate',    topic:'Neutral Accent Clarity & Inclusive Language', grammar:'Inclusive Language' },
+      { day:28, title:'Executive Polish: Body Language & Vocal Variety',           tier:'corporate',    topic:'Non-Verbal Cues & Cadence Tuning', grammar:'Non-verbal Communication' },
+      // Phase 5 - Mock
+      { day:29, title:'Complete HR Mock Interview Simulation',                     tier:'mock',         topic:'Full HR Response Integration', grammar:'HR Mastery' },
+      { day:30, title:'Full Technical + HR Capstone Interview & Graduation',       tier:'mock',         topic:'Mastery Synthesis & Placement Pitch', grammar:'Final Evaluation' },
+    ];
+
+    const TIER_META = {
+      basic:        { label:'Basic',        badge:'badge-success', icon:'📗' },
+      intermediate: { label:'Intermediate', badge:'badge-warning', icon:'📙' },
+      professional: { label:'Professional', badge:'badge-primary', icon:'📘' },
+      corporate:    { label:'Corporate',    badge:'badge-accent',  icon:'🏢' },
+      mock:         { label:'Mock',         badge:'badge-error',   icon:'🎯' },
+    };
+
+    const PHASE_RANGES = {
+      phase1: [1, 7],
+      phase2: [8, 14],
+      phase3: [15, 21],
+      phase4: [22, 28],
+      phase5: [29, 30],
+    };
+
+    function getDayProgress(day) {
+      try {
+        const p = JSON.parse(localStorage.getItem('ecm-progress') || '{}');
+        return p.dayProgress?.[day] || { complete: false, progress: 0 };
+      } catch { return { complete: false, progress: 0 }; }
+    }
+
+    function renderDayCard(dayData) {
+      const meta   = TIER_META[dayData.tier];
+      const prog   = getDayProgress(dayData.day);
+      const isLocked    = dayData.day > 7 && !prog.complete && dayData.day > 1;
+      const isCompleted = prog.complete;
+      const inProgress  = !isCompleted && prog.progress > 0;
+      const pct = prog.progress || (isCompleted ? 100 : 0);
+
+      const statusBadge = isCompleted
+        ? '<span class="badge badge-success"><i class="fas fa-check-circle"></i> Completed</span>'
+        : inProgress
+          ? '<span class="badge badge-primary"><i class="fas fa-spinner"></i> In Progress</span>'
+          : dayData.day <= 7
+            ? '<span class="badge badge-neutral"><i class="fas fa-lock-open"></i> Available</span>'
+            : '<span class="badge badge-neutral"><i class="fas fa-lock"></i> Locked</span>';
+
+      const link = dayData.day <= 30
+        ? `lessons/day${String(dayData.day).padStart(2,'0')}.html`
+        : '#';
+
+      return `
+        <article class="day-card reveal ${isLocked ? 'opacity-50' : ''}" aria-label="Day ${dayData.day}">
+          <div class="day-card-header">
+            <span class="day-num">Day ${dayData.day}</span>
+            <span class="day-badge-tier">${meta.icon} ${meta.label}</span>
+          </div>
+          <div class="day-card-body">
+            <h3 class="day-title">${dayData.title}</h3>
+            <div class="day-meta">
+              ${statusBadge}
+              <span class="badge badge-neutral"><i class="fas fa-language"></i> ${dayData.grammar}</span>
+            </div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${pct}% complete">
+              <div class="progress-fill" style="width:${pct}%"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-top:4px; font-size:var(--text-xs); color:var(--text-tertiary);">
+              <span>21 modules</span>
+              <span>${pct}% complete</span>
+            </div>
+          </div>
+          <div class="day-card-footer">
+            <a href="${isLocked ? '#' : link}" class="btn btn-primary btn-sm btn-pill ${isLocked ? 'opacity-50 pointer-none' : ''} ripple">
+              ${isCompleted ? '<i class="fas fa-redo"></i> Review' : inProgress ? '<i class="fas fa-play"></i> Continue' : '<i class="fas fa-play"></i> Start'}
+            </a>
+            <div class="completion-dot ${isCompleted ? 'complete' : ''}"></div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Render all phases
+    Object.entries(PHASE_RANGES).forEach(([phaseId, [start, end]]) => {
+      const grid = document.getElementById(`${phaseId}-grid`);
+      if (!grid) return;
+      const html = ROADMAP
+        .filter(d => d.day >= start && d.day <= end)
+        .map(renderDayCard)
+        .join('');
+      grid.innerHTML = html;
+    });
+
+    // Trigger reveal observer (app.js handles this, but re-check)
+    document.querySelectorAll('.reveal').forEach(el => {
+      const obs = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) { el.classList.add('visible'); obs.unobserve(el); }
+      }, { threshold: 0.1 });
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>

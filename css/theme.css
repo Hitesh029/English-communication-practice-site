@@ -1,0 +1,9 @@
+﻿/*
+ * theme.css - Theme variables and dark mode
+ * This file provides CSS custom properties for the platform's design system.
+ * References: used by lessons/day01.html through day30.html
+ */
+
+/* Import the main stylesheet which contains all design tokens */
+@import url("style.css");
+@import url("dark.css");

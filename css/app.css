@@ -1,0 +1,9 @@
+﻿/*
+ * app.css - Application styles
+ * Provides component styles, animations, and responsive layout.
+ * References: used by lessons/day01.html through day30.html
+ */
+
+@import url("style.css");
+@import url("animations.css");
+@import url("responsive.css");

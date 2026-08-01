@@ -1,0 +1,578 @@
+{
+  "days": {
+    "1": [
+      {
+        "idiom": "Break the ice",
+        "meaning": "Make people feel comfortable in a new situation",
+        "origin": "From icebreaker ships clearing frozen waterways",
+        "example_daily": "I told a joke to break the ice at the party.",
+        "example_interview": "The interviewer broke the ice by asking about my hobbies.",
+        "example_corporate": "Let's break the ice before we start the meeting."
+      },
+      {
+        "idiom": "Bite the bullet",
+        "meaning": "To endure a painful or otherwise unpleasant situation that is seen as unavoidable",
+        "origin": "From the historical practice of having a patient bite on a bullet during surgery without anesthesia",
+        "example_daily": "I have to bite the bullet and go to the dentist.",
+        "example_interview": "I decided to bite the bullet and apply for the senior role.",
+        "example_corporate": "We need to bite the bullet and cut the budget."
+      },
+      {
+        "idiom": "Cut corners",
+        "meaning": "To do something badly or cheaply to save time or money",
+        "origin": "Likely from taking a shortcut by literally cutting across a corner",
+        "example_daily": "Don't cut corners when painting the house.",
+        "example_interview": "I never cut corners when it comes to code quality.",
+        "example_corporate": "Cutting corners on safety is unacceptable."
+      },
+      {
+        "idiom": "Get out of hand",
+        "meaning": "To lose control of things",
+        "origin": "From horseback riding, where the reins slip out of the rider's hand",
+        "example_daily": "The party got out of hand.",
+        "example_interview": "I implemented a new system before the technical debt got out of hand.",
+        "example_corporate": "Project scope creep is getting out of hand."
+      },
+      {
+        "idiom": "Hang in there",
+        "meaning": "Don't give up",
+        "origin": "From an iconic 1970s poster featuring a cat clinging to a branch",
+        "example_daily": "Hang in there, the weekend is almost here.",
+        "example_interview": "I learned to hang in there when solving complex bugs.",
+        "example_corporate": "We need to hang in there until the merger is complete."
+      },
+      {
+        "idiom": "Miss the boat",
+        "meaning": "To be too late",
+        "origin": "From arriving at the dock after the boat has departed",
+        "example_daily": "I missed the boat on buying those concert tickets.",
+        "example_interview": "I don't want to miss the boat on AI technology.",
+        "example_corporate": "If we don't launch soon, we'll miss the boat."
+      },
+      {
+        "idiom": "No pain, no gain",
+        "meaning": "You have to work for what you want",
+        "origin": "A proverb dating back to the second century",
+        "example_daily": "My legs ache from the gym, but no pain, no gain.",
+        "example_interview": "Learning that framework was tough, but no pain, no gain.",
+        "example_corporate": "The restructuring will be difficult, but no pain, no gain."
+      },
+      {
+        "idiom": "On the ball",
+        "meaning": "Doing a good job, being quick to understand",
+        "origin": "From sports, keeping your eye on the ball",
+        "example_daily": "She's really on the ball today.",
+        "example_interview": "I make sure to stay on the ball with industry trends.",
+        "example_corporate": "We need a manager who is on the ball."
+      },
+      {
+        "idiom": "Pull someone's leg",
+        "meaning": "To joke with someone",
+        "origin": "Possibly from the 18th century street thieves who tripped their victims",
+        "example_daily": "Are you pulling my leg?",
+        "example_interview": "I thought he was pulling my leg when he offered me the job.",
+        "example_corporate": "I was just pulling your leg about the weekend work."
+      },
+      {
+        "idiom": "Wrap your head around something",
+        "meaning": "To understand something complicated",
+        "origin": "Modern idiom from the idea of physically embracing a concept",
+        "example_daily": "I can't wrap my head around this math problem.",
+        "example_interview": "It took me a while to wrap my head around the legacy codebase.",
+        "example_corporate": "We need to wrap our heads around the new regulations."
+      }
+    ],
+    "2": [
+      {
+        "idiom": "A blessing in disguise",
+        "meaning": "A good thing that seemed bad at first",
+        "origin": "Mid-18th century poem by James Hervey",
+        "example_daily": "Losing my job was a blessing in disguise.",
+        "example_interview": "That failed project was a blessing in disguise as it taught me a lot.",
+        "example_corporate": "The delayed launch might be a blessing in disguise."
+      },
+      {
+        "idiom": "A dime a dozen",
+        "meaning": "Something common",
+        "origin": "From the 19th century when goods were sold by the dozen",
+        "example_daily": "Those vintage shirts are a dime a dozen.",
+        "example_interview": "Basic coding skills are a dime a dozen; problem-solving is rare.",
+        "example_corporate": "Consultants like that are a dime a dozen."
+      },
+      {
+        "idiom": "Beat around the bush",
+        "meaning": "Avoid saying what you mean, usually because it is uncomfortable",
+        "origin": "From bird hunting, beating bushes to flush out birds",
+        "example_daily": "Stop beating around the bush and tell me the truth.",
+        "example_interview": "I prefer direct communication rather than beating around the bush.",
+        "example_corporate": "Let's not beat around the bush; the Q3 numbers are bad."
+      },
+      {
+        "idiom": "Better late than never",
+        "meaning": "Better to arrive late than not to come at all",
+        "origin": "Traced back to Geoffrey Chaucer's 'The Canterbury Tales'",
+        "example_daily": "He finally finished the report. Better late than never.",
+        "example_interview": "I started my tech career later in life, but better late than never.",
+        "example_corporate": "The update is delayed, but better late than never."
+      },
+      {
+        "idiom": "Call it a day",
+        "meaning": "Stop working on something",
+        "origin": "From the phrase 'call it a half-day' in the mid-19th century",
+        "example_daily": "I'm tired, let's call it a day.",
+        "example_interview": "I don't call it a day until my code compiles successfully.",
+        "example_corporate": "It's 6 PM, let's call it a day."
+      },
+      {
+        "idiom": "Give someone the benefit of the doubt",
+        "meaning": "Trust what someone says",
+        "origin": "Originated in the late 19th century",
+        "example_daily": "I'll give him the benefit of the doubt this time.",
+        "example_interview": "I try to give my teammates the benefit of the doubt.",
+        "example_corporate": "We should give the vendor the benefit of the doubt regarding the delay."
+      },
+      {
+        "idiom": "Hit the sack",
+        "meaning": "Go to sleep",
+        "origin": "From WWII era when mattresses were often sacks filled with hay",
+        "example_daily": "I'm exhausted, time to hit the sack.",
+        "example_interview": "I ensure I hit the sack early before a big release.",
+        "example_corporate": "After this long flight, I just want to hit the sack."
+      },
+      {
+        "idiom": "It's not rocket science",
+        "meaning": "It's not complicated",
+        "origin": "Emerged in America during the 1980s space program",
+        "example_daily": "Just plug it in, it's not rocket science.",
+        "example_interview": "Learning HTML isn't rocket science, but mastering it takes time.",
+        "example_corporate": "Fixing this process is not rocket science."
+      },
+      {
+        "idiom": "Make a long story short",
+        "meaning": "Tell something briefly",
+        "origin": "Dates back to the 1800s",
+        "example_daily": "To make a long story short, we broke up.",
+        "example_interview": "To make a long story short, I led the migration to AWS.",
+        "example_corporate": "Make a long story short: did we get the contract?"
+      },
+      {
+        "idiom": "So far so good",
+        "meaning": "Things are going well so far",
+        "origin": "First recorded in a 1718 Scottish proverb collection",
+        "example_daily": "How is the new house? So far so good.",
+        "example_interview": "My transition to the new framework has been so far so good.",
+        "example_corporate": "Phase one is complete. So far so good."
+      }
+    ],
+    "3": [
+      {
+        "idiom": "Under the weather",
+        "meaning": "Sick",
+        "origin": "Nautical origin, sailors going below deck when ill",
+        "example_daily": "I'm feeling a bit under the weather.",
+        "example_interview": "Even when under the weather, I ensure my tasks are delegated.",
+        "example_corporate": "The CEO is under the weather and will miss the meeting."
+      },
+      {
+        "idiom": "You can say that again",
+        "meaning": "That's true, I agree",
+        "origin": "American colloquialism from the 1940s",
+        "example_daily": "It's hot today. You can say that again!",
+        "example_interview": "Tech is moving fast. You can say that again.",
+        "example_corporate": "This merger is stressful. You can say that again."
+      },
+      {
+        "idiom": "Your guess is as good as mine",
+        "meaning": "I have no idea",
+        "origin": "Originated in the mid-20th century",
+        "example_daily": "What time does the bus arrive? Your guess is as good as mine.",
+        "example_interview": "When will the legacy system be retired? Your guess is as good as mine.",
+        "example_corporate": "How the market will react is anyone's guess."
+      },
+      {
+        "idiom": "A bird in the hand is worth two in the bush",
+        "meaning": "What you have is worth more than what you might have later",
+        "origin": "Medieval falconry term",
+        "example_daily": "I'll take this offer; a bird in the hand.",
+        "example_interview": "I focus on delivering MVP first; a bird in the hand is worth two in the bush.",
+        "example_corporate": "Let's secure this client now rather than wait for a bigger one."
+      },
+      {
+        "idiom": "A penny for your thoughts",
+        "meaning": "Tell me what you're thinking",
+        "origin": "Coined by Sir Thomas More in 1522",
+        "example_daily": "You look sad, a penny for your thoughts?",
+        "example_interview": "A penny for your thoughts on this new architecture.",
+        "example_corporate": "We need fresh ideas; a penny for your thoughts, team."
+      },
+      {
+        "idiom": "A picture is worth 1000 words",
+        "meaning": "Better to show than tell",
+        "origin": "Used in advertising in the early 1900s",
+        "example_daily": "Look at this photo; a picture is worth a thousand words.",
+        "example_interview": "I prefer using flowcharts because a picture is worth 1000 words.",
+        "example_corporate": "Include a graph in the report, a picture is worth a thousand words."
+      },
+      {
+        "idiom": "Actions speak louder than words",
+        "meaning": "Believe what people do and not what they say",
+        "origin": "Appeared in print in 1628",
+        "example_daily": "He said he'd help, but actions speak louder than words.",
+        "example_interview": "I can list my skills, but my GitHub shows that actions speak louder.",
+        "example_corporate": "Our commitment to diversity must be shown through action."
+      },
+      {
+        "idiom": "Add insult to injury",
+        "meaning": "To make a bad situation worse",
+        "origin": "From a fable by Phaedrus",
+        "example_daily": "My car broke down, and to add insult to injury, it started raining.",
+        "example_interview": "The server crashed, and to add insult to injury, the backup failed.",
+        "example_corporate": "Losing the client added insult to injury after a bad quarter."
+      },
+      {
+        "idiom": "Barking up the wrong tree",
+        "meaning": "To be mistaken, to be looking for solutions in the wrong place",
+        "origin": "From hunting dogs barking at the wrong tree after prey has escaped",
+        "example_daily": "If you think I broke it, you're barking up the wrong tree.",
+        "example_interview": "I realized we were barking up the wrong tree with that database schema.",
+        "example_corporate": "The marketing team is barking up the wrong tree with this demographic."
+      },
+      {
+        "idiom": "Bite off more than you can chew",
+        "meaning": "Take on a project that you cannot finish",
+        "origin": "Late 19th-century American phrase",
+        "example_daily": "I bit off more than I could chew by taking three classes.",
+        "example_interview": "I learned early in my career not to bite off more than I can chew.",
+        "example_corporate": "We bit off more than we could chew with the Q2 roadmap."
+      }
+    ],
+    "4": [
+      {
+        "idiom": "By the skin of your teeth",
+        "meaning": "Just barely",
+        "origin": "From the Book of Job in the Bible",
+        "example_daily": "I caught the train by the skin of my teeth.",
+        "example_interview": "We met the deployment deadline by the skin of our teeth.",
+        "example_corporate": "The company avoided bankruptcy by the skin of its teeth."
+      },
+      {
+        "idiom": "Don't cry over spilt milk",
+        "meaning": "There's no reason to complain about something that can't be fixed",
+        "origin": "An old proverb dating back to the 17th century",
+        "example_daily": "I broke the glass, but don't cry over spilt milk.",
+        "example_interview": "When a bug goes to production, I fix it rather than cry over spilt milk.",
+        "example_corporate": "We lost the bid, but there's no use crying over spilt milk."
+      },
+      {
+        "idiom": "Don't put all your eggs in one basket",
+        "meaning": "What you're doing is too risky",
+        "origin": "From Don Quixote by Miguel de Cervantes",
+        "example_daily": "Apply to multiple colleges; don't put all your eggs in one basket.",
+        "example_interview": "I learned multiple programming languages so I wouldn't put all my eggs in one basket.",
+        "example_corporate": "Diversify our investments; don't put all your eggs in one basket."
+      },
+      {
+        "idiom": "Every cloud has a silver lining",
+        "meaning": "Good things come after bad things",
+        "origin": "Coined by John Milton in 1634",
+        "example_daily": "I lost my phone, but I got a better one. Every cloud has a silver lining.",
+        "example_interview": "The project failure taught us a lot; every cloud has a silver lining.",
+        "example_corporate": "The market crash led to better regulations; every cloud has a silver lining."
+      },
+      {
+        "idiom": "Get a taste of your own medicine",
+        "meaning": "Get treated the way you've been treating others",
+        "origin": "From one of Aesop's Fables",
+        "example_daily": "He finally got a taste of his own medicine.",
+        "example_interview": "I learned empathy when I got a taste of my own medicine in a difficult review.",
+        "example_corporate": "The aggressive competitor got a taste of its own medicine."
+      },
+      {
+        "idiom": "Give someone the cold shoulder",
+        "meaning": "Ignore someone",
+        "origin": "Possibly from serving unwanted guests cold meat",
+        "example_daily": "She gave me the cold shoulder at the party.",
+        "example_interview": "I never give junior devs the cold shoulder when they ask for help.",
+        "example_corporate": "The investors gave us the cold shoulder."
+      },
+      {
+        "idiom": "Go on a wild goose chase",
+        "meaning": "To do something pointless",
+        "origin": "Used by Shakespeare in Romeo and Juliet",
+        "example_daily": "Looking for my keys was a wild goose chase.",
+        "example_interview": "Debugging without logs is a wild goose chase.",
+        "example_corporate": "This investigation is a wild goose chase."
+      },
+      {
+        "idiom": "Ignorance is bliss",
+        "meaning": "You're better off not knowing",
+        "origin": "From a poem by Thomas Gray",
+        "example_daily": "I didn't know what was in the hot dog; ignorance is bliss.",
+        "example_interview": "Sometimes concerning legacy code, ignorance is bliss.",
+        "example_corporate": "When it comes to office politics, ignorance is bliss."
+      },
+      {
+        "idiom": "Leave no stone unturned",
+        "meaning": "Look everywhere",
+        "origin": "An ancient Greek proverb",
+        "example_daily": "I left no stone unturned looking for my wallet.",
+        "example_interview": "When resolving a critical outage, I leave no stone unturned.",
+        "example_corporate": "The auditors left no stone unturned."
+      },
+      {
+        "idiom": "Let the cat out of the bag",
+        "meaning": "Give away a secret",
+        "origin": "From the scam of selling a cat instead of a pig in a bag",
+        "example_daily": "Who let the cat out of the bag about the surprise party?",
+        "example_interview": "I accidentally let the cat out of the bag about the new feature.",
+        "example_corporate": "The press release let the cat out of the bag early."
+      }
+    ],
+    "5": [
+      {
+        "idiom": "On the fence",
+        "meaning": "Undecided",
+        "origin": "Literally sitting on a fence between two properties",
+        "example_daily": "I'm on the fence about which movie to watch.",
+        "example_interview": "I was on the fence between React and Angular, but chose React.",
+        "example_corporate": "The board is still on the fence regarding the acquisition."
+      },
+      {
+        "idiom": "Once in a blue moon",
+        "meaning": "Rarely",
+        "origin": "From the rare occurrence of two full moons in one month",
+        "example_daily": "I eat fast food once in a blue moon.",
+        "example_interview": "Server crashes like that only happen once in a blue moon.",
+        "example_corporate": "The CEO visits this office once in a blue moon."
+      },
+      {
+        "idiom": "Piece of cake",
+        "meaning": "A job, task or other activity that is easy or simple",
+        "origin": "From the 1930s, likely related to the cakewalk dance",
+        "example_daily": "That test was a piece of cake.",
+        "example_interview": "Setting up the development environment was a piece of cake.",
+        "example_corporate": "The integration should be a piece of cake."
+      },
+      {
+        "idiom": "Pull yourself together",
+        "meaning": "Calm down",
+        "origin": "To physically bring oneself into an upright, composed posture",
+        "example_daily": "You need to pull yourself together before the exam.",
+        "example_interview": "I took a deep breath to pull myself together before the interview.",
+        "example_corporate": "The team needs to pull itself together after the failed launch."
+      },
+      {
+        "idiom": "Save for a rainy day",
+        "meaning": "Save money for later",
+        "origin": "Dates back to the 16th century",
+        "example_daily": "I'm saving this bonus for a rainy day.",
+        "example_interview": "I like to optimize resources and save compute power for a rainy day.",
+        "example_corporate": "We need strong cash reserves to save for a rainy day."
+      },
+      {
+        "idiom": "Speak of the devil",
+        "meaning": "The person we were just talking about showed up",
+        "origin": "From the phrase 'Speak of the devil and he will appear'",
+        "example_daily": "Speak of the devil, here comes John.",
+        "example_interview": "We were just discussing the database, and speak of the devil, the DBA joined the call.",
+        "example_corporate": "Speak of the devil, the client just emailed."
+      },
+      {
+        "idiom": "Steal someone's thunder",
+        "meaning": "Take credit for someone else's work",
+        "origin": "From playwright John Dennis whose thunder machine was copied",
+        "example_daily": "She wore white to the wedding to steal the bride's thunder.",
+        "example_interview": "I always credit my team and never steal their thunder.",
+        "example_corporate": "The competitor launched their product early to steal our thunder."
+      },
+      {
+        "idiom": "Take it with a grain of salt",
+        "meaning": "Don't take it too seriously",
+        "origin": "From the Roman idea that poison is more easily swallowed with salt",
+        "example_daily": "Take his advice with a grain of salt.",
+        "example_interview": "I take online tutorials with a grain of salt and read the official docs.",
+        "example_corporate": "Take these early sales projections with a grain of salt."
+      },
+      {
+        "idiom": "The best of both worlds",
+        "meaning": "An ideal situation",
+        "origin": "Late 20th century",
+        "example_daily": "Working from home offers the best of both worlds.",
+        "example_interview": "Using TypeScript gives us the best of both worlds: JavaScript flexibility and type safety.",
+        "example_corporate": "This hybrid approach gives us the best of both worlds."
+      },
+      {
+        "idiom": "The elephant in the room",
+        "meaning": "The big issue, the problem people are avoiding",
+        "origin": "First used in 1959 by The New York Times",
+        "example_daily": "Let's address the elephant in the room: who broke the vase?",
+        "example_interview": "I brought up the elephant in the room: our mounting technical debt.",
+        "example_corporate": "We need to discuss the elephant in the room: budget cuts."
+      }
+    ],
+    "6": [
+      {
+        "idiom": "Throw caution to the wind",
+        "meaning": "Take a risk",
+        "origin": "From a poem by Shakespeare",
+        "example_daily": "Let's throw caution to the wind and go on a road trip.",
+        "example_interview": "I don't usually throw caution to the wind when deploying to production.",
+        "example_corporate": "The company threw caution to the wind with this aggressive expansion."
+      },
+      {
+        "idiom": "Time is money",
+        "meaning": "Work quickly",
+        "origin": "Attributed to Benjamin Franklin",
+        "example_daily": "Hurry up, time is money.",
+        "example_interview": "I automate repetitive tasks because time is money.",
+        "example_corporate": "We must streamline operations; time is money."
+      },
+      {
+        "idiom": "Under the bridge",
+        "meaning": "Past and no longer important",
+        "origin": "From the phrase 'water under the bridge'",
+        "example_daily": "We fought, but it's water under the bridge now.",
+        "example_interview": "My initial struggles with Git are water under the bridge.",
+        "example_corporate": "The previous dispute with the vendor is water under the bridge."
+      },
+      {
+        "idiom": "Burn the midnight oil",
+        "meaning": "Work late into the night",
+        "origin": "From the days of oil lamps",
+        "example_daily": "I have to burn the midnight oil to finish this essay.",
+        "example_interview": "I'm willing to burn the midnight oil to ensure a successful release.",
+        "example_corporate": "The legal team is burning the midnight oil on this contract."
+      },
+      {
+        "idiom": "By the book",
+        "meaning": "Strictly according to the rules",
+        "origin": "Refers to playing games by the rulebook",
+        "example_daily": "He does everything by the book.",
+        "example_interview": "I follow coding standards and do things by the book.",
+        "example_corporate": "The compliance audit requires us to do everything by the book."
+      },
+      {
+        "idiom": "Get down to business",
+        "meaning": "Start working seriously",
+        "origin": "Mid 19th century colloquialism",
+        "example_daily": "Enough chatting, let's get down to business.",
+        "example_interview": "After introductions, the interviewer got down to business.",
+        "example_corporate": "Let's review the agenda and get down to business."
+      },
+      {
+        "idiom": "Go the extra mile",
+        "meaning": "Do more than is expected",
+        "origin": "From the Bible, Sermon on the Mount",
+        "example_daily": "She always goes the extra mile for her friends.",
+        "example_interview": "I always go the extra mile to write comprehensive unit tests.",
+        "example_corporate": "Our customer service team is trained to go the extra mile."
+      },
+      {
+        "idiom": "In a nutshell",
+        "meaning": "In a few words",
+        "origin": "From Pliny the Elder who claimed a copy of the Iliad could fit in a nutshell",
+        "example_daily": "In a nutshell, it was a terrible movie.",
+        "example_interview": "In a nutshell, my role was to optimize the backend API.",
+        "example_corporate": "In a nutshell, we need to increase revenue by 10%."
+      },
+      {
+        "idiom": "Keep your eye on the prize",
+        "meaning": "Stay focused on the goal",
+        "origin": "From a folk song popularized during the Civil Rights Movement",
+        "example_daily": "Studying is hard, but keep your eye on the prize.",
+        "example_interview": "During long sprints, I keep my eye on the prize of a stable product.",
+        "example_corporate": "We have setbacks, but let's keep our eye on the prize: market dominance."
+      },
+      {
+        "idiom": "Learn the ropes",
+        "meaning": "Learn how to do a job",
+        "origin": "From sailing, learning how to handle the ropes on a ship",
+        "example_daily": "It takes time to learn the ropes at a new school.",
+        "example_interview": "It took me a month to learn the ropes of the new tech stack.",
+        "example_corporate": "The new hires are still learning the ropes."
+      }
+    ],
+    "7": [
+      {
+        "idiom": "On the same page",
+        "meaning": "Thinking the same way",
+        "origin": "From reading from the same page in a book",
+        "example_daily": "Are we on the same page about dinner plans?",
+        "example_interview": "I have daily standups to ensure the whole team is on the same page.",
+        "example_corporate": "Before we sign, let's make sure we are all on the same page."
+      },
+      {
+        "idiom": "Rule of thumb",
+        "meaning": "A general rule",
+        "origin": "From brewers testing the temperature of beer with their thumb",
+        "example_daily": "As a rule of thumb, I drink two liters of water a day.",
+        "example_interview": "A good rule of thumb is to keep functions small and focused.",
+        "example_corporate": "Our rule of thumb is to respond to clients within 24 hours."
+      },
+      {
+        "idiom": "See eye to eye",
+        "meaning": "Agree",
+        "origin": "From the Bible, Isaiah 52:8",
+        "example_daily": "My sister and I don't see eye to eye.",
+        "example_interview": "Even if we don't see eye to eye, I can respectfully compromise.",
+        "example_corporate": "Management and the union finally see eye to eye."
+      },
+      {
+        "idiom": "Stand one's ground",
+        "meaning": "Refuse to yield",
+        "origin": "Military term for holding a position",
+        "example_daily": "He stood his ground during the argument.",
+        "example_interview": "I stood my ground on using the more secure encryption method.",
+        "example_corporate": "The negotiator stood his ground on the price."
+      },
+      {
+        "idiom": "Take the bull by the horns",
+        "meaning": "Face a problem directly",
+        "origin": "From the American West, wrestling steers",
+        "example_daily": "I need to take the bull by the horns and clean my room.",
+        "example_interview": "I took the bull by the horns and refactored the legacy module myself.",
+        "example_corporate": "The CEO took the bull by the horns to solve the PR crisis."
+      },
+      {
+        "idiom": "Think outside the box",
+        "meaning": "Think creatively",
+        "origin": "From the nine-dot puzzle",
+        "example_daily": "We need to think outside the box for this art project.",
+        "example_interview": "I think outside the box when designing scalable architectures.",
+        "example_corporate": "The marketing campaign requires us to think outside the box."
+      },
+      {
+        "idiom": "Touch base",
+        "meaning": "Make contact",
+        "origin": "From baseball, touching a base to be safe",
+        "example_daily": "I'll touch base with you tomorrow.",
+        "example_interview": "I like to touch base with product managers weekly.",
+        "example_corporate": "Let's touch base after the conference."
+      },
+      {
+        "idiom": "Up in the air",
+        "meaning": "Undecided",
+        "origin": "From a coin toss before it lands",
+        "example_daily": "Our vacation plans are still up in the air.",
+        "example_interview": "The choice of database was up in the air until we ran benchmarks.",
+        "example_corporate": "The Q4 budget is still up in the air."
+      },
+      {
+        "idiom": "Word of mouth",
+        "meaning": "Gossip, news spoken",
+        "origin": "From storytelling before written records",
+        "example_daily": "I heard about the restaurant through word of mouth.",
+        "example_interview": "Many open-source tools gain popularity through word of mouth.",
+        "example_corporate": "Word of mouth marketing is our biggest growth driver."
+      },
+      {
+        "idiom": "At the end of the day",
+        "meaning": "Ultimately",
+        "origin": "Emerged in the late 20th century",
+        "example_daily": "At the end of the day, family is what matters most.",
+        "example_interview": "At the end of the day, delivering value to the user is key.",
+        "example_corporate": "At the end of the day, the bottom line is profit."
+      }
+    ]
+  }
+}

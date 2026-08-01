@@ -1,0 +1,29 @@
+{
+  "name": "english-communication-master-course",
+  "version": "1.0.0",
+  "description": "English Communication Master Course — 30-Day placement-ready English program for software engineers",
+  "main": "generate_pdf.js",
+  "scripts": {
+    "start": "npx serve . --port 3000 --cors",
+    "generate-pdf": "node generate_pdf.js",
+    "generate-day": "node generate_pdf.js --day",
+    "validate": "node validate.js"
+  },
+  "keywords": [
+    "english",
+    "communication",
+    "software engineering",
+    "placement",
+    "HR interview",
+    "IELTS",
+    "corporate English"
+  ],
+  "author": "English Communication Master Course Team",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

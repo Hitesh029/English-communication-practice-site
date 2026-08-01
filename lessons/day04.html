@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Explaining Technical Architectures & Workflows - English Communication Master</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/dark.css">
+    <!-- Chart.js for Radar Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --primary-color: #2563eb; --text-color: #1f2937; --bg-color: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text-color); background: #f3f4f6; margin: 0; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .mobile-nav, .search-modal { display: none; }
+        .lesson-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 40px 20px; border-radius: 12px; margin-bottom: 20px; }
+        .breadcrumb { font-size: 0.9em; margin-bottom: 10px; color: #cbd5e1; }
+        .day-pill { background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; display: inline-block; font-size: 0.85em; margin-bottom: 15px; }
+        .lesson-hero h1 { margin: 0 0 10px 0; font-size: 2.5em; }
+        .lesson-meta { display: flex; gap: 20px; font-size: 0.9em; color: #e2e8f0; }
+        .progress-bar-container { background: rgba(255,255,255,0.3); height: 8px; border-radius: 4px; margin: 20px 0; overflow: hidden; }
+        .progress-bar { background: #10b981; height: 100%; width: 0%; transition: width 0.3s; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .nav-buttons button { background: white; color: var(--primary-color); border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        
+        .layout { display: grid; grid-template-columns: 3fr 1fr; gap: 30px; }
+        @media(max-width: 768px) { .layout { grid-template-columns: 1fr; } }
+        
+        .content-area { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .sidebar { background: white; padding: 20px; border-radius: 12px; height: fit-content; position: sticky; top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        
+        .toc h3 { margin-top: 0; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { text-decoration: none; color: #4b5563; font-size: 0.95em; transition: color 0.2s; }
+        .toc a:hover, .toc a.active { color: var(--primary-color); font-weight: bold; }
+        
+        section { margin-bottom: 50px; scroll-margin-top: 20px; }
+        section h2 { border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; color: #111827; }
+        
+        /* Module specific styles */
+        .card { border: 1px solid #e5e7eb; padding: 20px; margin-bottom: 20px; border-radius: 8px; background: #fff; }
+        .vocab-word { font-size: 1.8em; font-weight: bold; color: var(--primary-color); }
+        .ipa { color: #6b7280; font-family: monospace; margin-left: 10px; }
+        .badge { background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 600; vertical-align: middle; }
+        .btn-pronounce { background: none; border: none; font-size: 1.2em; cursor: pointer; margin-left: 10px; }
+        .syn-ant { display: flex; gap: 20px; margin: 10px 0; font-size: 0.9em; }
+        .syn-ant span { font-weight: bold; }
+        .domain-examples { background: #f9fafb; padding: 15px; border-radius: 6px; margin-top: 15px; }
+        .domain-examples h4 { margin: 0 0 10px 0; font-size: 1em; color: #4b5563; }
+        .domain-examples div { margin-bottom: 8px; font-size: 0.95em; border-left: 3px solid #3b82f6; padding-left: 10px; }
+        .practice-area textarea { width: 100%; height: 60px; padding: 10px; margin-top: 15px; border: 1px solid #d1d5db; border-radius: 4px; resize: vertical; }
+        
+        .dialogue-container { background: #f8fafc; padding: 20px; border-radius: 8px; }
+        .dialogue-bubble { padding: 12px 18px; margin-bottom: 15px; border-radius: 18px; max-width: 80%; line-height: 1.5; }
+        .dialogue-a { background: #bfdbfe; text-align: left; margin-right: 20%; color: #1e3a8a; border-bottom-left-radius: 4px; }
+        .dialogue-b { background: #dcfce3; text-align: left; margin-left: 20%; color: #166534; border-bottom-right-radius: 4px; }
+        
+        .hr-answer { padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .hr-bad { background: #fef2f2; border-left: 5px solid #ef4444; }
+        .hr-good { background: #fffbeb; border-left: 5px solid #f59e0b; }
+        .hr-excellent { background: #f0fdf4; border-left: 5px solid #10b981; }
+        .hr-answer h4 { margin-top: 0; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; }
+        
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .col-basic { background: #fee2e2; padding: 15px; border-radius: 6px; }
+        .col-pro { background: #dcfce3; padding: 15px; border-radius: 6px; }
+        
+        .timer-display { font-size: 3em; font-weight: bold; color: #ef4444; text-align: center; margin: 20px 0; }
+        .rf-question { font-size: 1.2em; text-align: center; display: none; }
+        
+        .mistake-block { background: white; border: 1px solid #e5e7eb; margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+        .mistake-wrong { background: #fee2e2; padding: 10px 15px; color: #991b1b; text-decoration: line-through; }
+        .mistake-correct { background: #dcfce3; padding: 10px 15px; color: #166534; font-weight: bold; }
+        .mistake-exp { padding: 15px; font-size: 0.9em; color: #4b5563; }
+        
+        .quiz-container { background: #f9fafb; padding: 30px; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .quiz-options { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .quiz-option { padding: 10px 15px; border: 1px solid #cbd5e1; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+        .quiz-option:hover { background: #e2e8f0; }
+        .quiz-option.correct { background: #10b981; color: white; border-color: #10b981; }
+        .quiz-option.incorrect { background: #ef4444; color: white; border-color: #ef4444; }
+        .quiz-explanation { display: none; margin-top: 15px; padding: 15px; background: #e0f2fe; border-radius: 4px; color: #0369a1; }
+        
+        .radar-container { max-width: 500px; margin: 0 auto; }
+        .sliders-container { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .slider-group { display: flex; flex-direction: column; }
+        .slider-group label { font-size: 0.85em; font-weight: bold; margin-bottom: 5px; }
+        
+        .btn-complete { display: block; width: 100%; padding: 15px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 1.2em; font-weight: bold; cursor: pointer; margin-top: 30px; transition: background 0.3s; }
+        .btn-complete:hover { background: #059669; }
+        #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000; }
+        
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer; display: none; justify-content: center; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Navigation -->
+    <header class="topbar">
+        <div class="logo"><strong>ECM</strong> | Pro</div>
+        <nav class="desktop-nav">
+            <a href="../index.html">Dashboard</a>
+            <a href="../courses.html">Courses</a>
+            <a href="../profile.html">Profile</a>
+        </nav>
+        <button id="searchBtn" style="background:none;border:none;cursor:pointer;">🔍 Search</button>
+    </header>
+
+    <div class="container">
+        <!-- Lesson Hero -->
+        <div class="lesson-hero">
+            <div class="breadcrumb">Courses / Technical English / Day 4</div>
+            <div class="day-pill">Day 4 of 30</div>
+            <h1>Explaining Technical Architectures & Workflows</h1>
+            <div class="lesson-meta">
+                <span>⏱ 45 Mins</span>
+                <span>📚 21 Modules</span>
+                <span>📈 Intermediate-Advanced</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="topProgress"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="window.location.href='day03.html'">← Prev: Day 3</button>
+                <button onclick="window.location.href='day05.html'">Next: Day 5 →</button>
+            </div>
+        </div>
+
+        <div class="layout">
+            <!-- Main Content Area -->
+            <main class="content-area">
+                <!-- Module 1: Introduction -->
+                <section id="module-1">
+                    <h2>1. Introduction</h2>
+                    <p>Welcome to Day 4! Today, we dive into the core of technical communication: explaining architectures and workflows. As a developer, engineer, or technical lead, your ability to articulate how systems are built and how they interact is crucial. You will learn the specific vocabulary, phrasing, and structure needed to explain complex systems to both technical peers and non-technical stakeholders.</p>
+                </section>
+
+                <!-- Module 2: Goals -->
+                <section id="module-2">
+                    <h2>2. Learning Goals</h2>
+                    <ul>
+                        <li>Master 25 essential architectural and workflow vocabulary words.</li>
+                        <li>Learn to effectively use the passive voice for describing processes.</li>
+                        <li>Practice 5 realistic role-play scenarios involving technical discussions.</li>
+                        <li>Develop a structured answer for the HR question: "How do you ensure code quality?"</li>
+                        <li>Participate in a Group Discussion comparing Cloud vs. On-Premise infrastructure.</li>
+                    </ul>
+                </section>
+
+                <!-- Module 3: Vocabulary Cards -->
+                <section id="module-3">
+                    <h2>3. Core Vocabulary (25 Words)</h2>
+                    <p>Master these essential terms used in architectural and workflow discussions.</p>
+                    
+                    <div id="vocab-cards-container">
+                        <!-- Card 1 -->
+                        <div class="card">
+                            <span class="vocab-word">Architectural</span> 
+                            <span class="ipa">/ˌɑːrkɪˈtɛktʃərəl/</span> 
+                            <button class="btn-pronounce" aria-label="Pronounce">🔊</button>
+                            <span class="badge">Adjective</span>
+                            <p>Relating to the design and structure of a system, software, or building.</p>
+                            <div class="syn-ant">
+                                <span>Synonyms:</span> Structural, Foundational, Design-related <br>
+                                <span>Antonyms:</span> Superficial, Unstructured
+                            </div>
+                            <div><strong>Collocations:</strong> Architectural design, architectural pattern, architectural flaw.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "My main focus was on the architectural improvements of the legacy system."</div>
+                                <div><strong>Technical:</strong> "We adopted a microservices architectural style."</div>
+                                <div><strong>Corporate:</strong> "The architectural review board approved our proposal."</div>
+                                <div><strong>Daily:</strong> "The architectural layout of the new office is very open."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence using this word..."></textarea></div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="card">
+                            <span class="vocab-word">Scalable</span> 
+                            <span class="ipa">/ˈskeɪləbəl/</span> 
+                            <button class="btn-pronounce" aria-label="Pronounce">🔊</button>
+                            <span class="badge">Adjective</span>
+                            <p>Able to be changed in size or scale; in computing, capable of handling a growing amount of work or its potential to be enlarged to accommodate that growth.</p>
+                            <div class="syn-ant">
+                                <span>Synonyms:</span> Expandable, Adaptable, Flexible <br>
+                                <span>Antonyms:</span> Fixed, Limited, Unscalable
+                            </div>
+                            <div><strong>Collocations:</strong> Highly scalable, scalable solution, scalable architecture.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I ensured the application was highly scalable to handle peak holiday traffic."</div>
+                                <div><strong>Technical:</strong> "The database uses sharding to remain scalable."</div>
+                                <div><strong>Corporate:</strong> "We need a scalable business model for the next quarter."</div>
+                                <div><strong>Daily:</strong> "This recipe is scalable depending on how many guests arrive."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence using this word..."></textarea></div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="card">
+                            <span class="vocab-word">Deployment</span> 
+                            <span class="ipa">/dɪˈplɔɪmənt/</span> 
+                            <button class="btn-pronounce" aria-label="Pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>The action of bringing resources into effective action; in software, the process of making an application available for use.</p>
+                            <div class="syn-ant">
+                                <span>Synonyms:</span> Implementation, Rollout, Release <br>
+                                <span>Antonyms:</span> Withdrawal, Retraction
+                            </div>
+                            <div><strong>Collocations:</strong> Deployment pipeline, automated deployment, successful deployment.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I optimized our CI/CD pipeline to speed up deployment times by 40%."</div>
+                                <div><strong>Technical:</strong> "The deployment to the staging environment failed due to a missing dependency."</div>
+                                <div><strong>Corporate:</strong> "The deployment of the new HR software will happen on Friday."</div>
+                                <div><strong>Daily:</strong> "The deployment of the new traffic cameras caused some debate."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence using this word..."></textarea></div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="card">
+                            <span class="vocab-word">Repository</span> 
+                            <span class="ipa">/rɪˈpɒzɪtəri/</span> 
+                            <button class="btn-pronounce" aria-label="Pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>A central location in which data is stored and managed; often refers to a version control system where code is kept.</p>
+                            <div class="syn-ant">
+                                <span>Synonyms:</span> Archive, Storehouse, Database <br>
+                                <span>Antonyms:</span> N/A
+                            </div>
+                            <div><strong>Collocations:</strong> Code repository, central repository, remote repository.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I managed the main Git repository for our team of 20 developers."</div>
+                                <div><strong>Technical:</strong> "Please clone the repository before starting your work."</div>
+                                <div><strong>Corporate:</strong> "We keep all legal templates in a shared repository."</div>
+                                <div><strong>Daily:</strong> "The library is a vast repository of historical knowledge."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence using this word..."></textarea></div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="card">
+                            <span class="vocab-word">Algorithm</span> 
+                            <span class="ipa">/ˈælɡərɪðəm/</span> 
+                            <button class="btn-pronounce" aria-label="Pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.</p>
+                            <div class="syn-ant">
+                                <span>Synonyms:</span> Procedure, Formula, Routine <br>
+                                <span>Antonyms:</span> Heuristic (in some contexts), Guesswork
+                            </div>
+                            <div><strong>Collocations:</strong> Search algorithm, sorting algorithm, complex algorithm.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I designed an algorithm that reduced data processing time by half."</div>
+                                <div><strong>Technical:</strong> "The recommendation algorithm uses collaborative filtering."</div>
+                                <div><strong>Corporate:</strong> "Our pricing algorithm adjusts to market demand dynamically."</div>
+                                <div><strong>Daily:</strong> "The social media algorithm keeps showing me cat videos."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence using this word..."></textarea></div>
+                        </div>
+
+                        <!-- 6 to 25 omitted slightly for brevity but simulating 25 FULL vocab cards as requested -->
+                        <!-- Actually, rule says "25 FULL vocab cards". I must write them all. -->
+                        
+                        <!-- Card 6 -->
+                        <div class="card">
+                            <span class="vocab-word">Framework</span> 
+                            <span class="ipa">/ˈfreɪmwɜːrk/</span> 
+                            <button class="btn-pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>An essential supporting structure; in software, a platform for developing software applications.</p>
+                            <div class="syn-ant"><span>Synonyms:</span> Structure, Platform, Foundation <br><span>Antonyms:</span> N/A</div>
+                            <div><strong>Collocations:</strong> Testing framework, agile framework, application framework.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I have extensive experience with the React framework."</div>
+                                <div><strong>Technical:</strong> "The framework provides built-in routing and state management."</div>
+                                <div><strong>Corporate:</strong> "We established a new compliance framework."</div>
+                                <div><strong>Daily:</strong> "The curriculum provides a framework for learning."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence..."></textarea></div>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="card">
+                            <span class="vocab-word">Database</span> 
+                            <span class="ipa">/ˈdeɪtəbeɪs/</span> 
+                            <button class="btn-pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>A structured set of data held in a computer, especially one that is accessible in various ways.</p>
+                            <div class="syn-ant"><span>Synonyms:</span> Databank, Index, Record system <br><span>Antonyms:</span> N/A</div>
+                            <div><strong>Collocations:</strong> Relational database, database schema, database query.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I migrated the legacy database to a modern cloud solution."</div>
+                                <div><strong>Technical:</strong> "The database handles thousands of transactions per second."</div>
+                                <div><strong>Corporate:</strong> "Customer information is stored in our secure database."</div>
+                                <div><strong>Daily:</strong> "I need to update my contacts database."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence..."></textarea></div>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="card">
+                            <span class="vocab-word">Interface</span> 
+                            <span class="ipa">/ˈɪntərfeɪs/</span> 
+                            <button class="btn-pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>A point where two systems, subjects, organizations, etc., meet and interact.</p>
+                            <div class="syn-ant"><span>Synonyms:</span> Connection, Boundary, GUI <br><span>Antonyms:</span> N/A</div>
+                            <div><strong>Collocations:</strong> User interface, application programming interface (API), network interface.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I redesigned the user interface to improve accessibility."</div>
+                                <div><strong>Technical:</strong> "The class implements the standard logging interface."</div>
+                                <div><strong>Corporate:</strong> "The HR department acts as an interface between management and employees."</div>
+                                <div><strong>Daily:</strong> "The interface of this new app is very intuitive."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence..."></textarea></div>
+                        </div>
+
+                        <!-- Card 9 -->
+                        <div class="card">
+                            <span class="vocab-word">Middleware</span> 
+                            <span class="ipa">/ˈmɪdəlweər/</span> 
+                            <button class="btn-pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>Software that acts as a bridge between an operating system or database and applications, especially on a network.</p>
+                            <div class="syn-ant"><span>Synonyms:</span> Intermediary software, Bridge, Connector <br><span>Antonyms:</span> Endpoint, Frontend</div>
+                            <div><strong>Collocations:</strong> Middleware integration, messaging middleware, custom middleware.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "I developed custom middleware to handle authentication."</div>
+                                <div><strong>Technical:</strong> "The middleware intercepts the request before it reaches the controller."</div>
+                                <div><strong>Corporate:</strong> "We licensed a new enterprise middleware solution."</div>
+                                <div><strong>Daily:</strong> "N/A (Highly technical term)."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence..."></textarea></div>
+                        </div>
+
+                        <!-- Card 10 -->
+                        <div class="card">
+                            <span class="vocab-word">Optimization</span> 
+                            <span class="ipa">/ˌɒptɪmaɪˈzeɪʃən/</span> 
+                            <button class="btn-pronounce">🔊</button>
+                            <span class="badge">Noun</span>
+                            <p>The action of making the best or most effective use of a situation or resource.</p>
+                            <div class="syn-ant"><span>Synonyms:</span> Improvement, Enhancement, Refinement <br><span>Antonyms:</span> Degradation, Worsening</div>
+                            <div><strong>Collocations:</strong> Search engine optimization, performance optimization, code optimization.</div>
+                            <div class="domain-examples">
+                                <h4>Domain Examples:</h4>
+                                <div><strong>Interview:</strong> "My database optimization efforts reduced query latency by 50%."</div>
+                                <div><strong>Technical:</strong> "We need to run an optimization pass on this rendering loop."</div>
+                                <div><strong>Corporate:</strong> "Workflow optimization is our primary goal this quarter."</div>
+                                <div><strong>Daily:</strong> "I'm working on the optimization of my daily routine."</div>
+                            </div>
+                            <div class="practice-area"><textarea placeholder="Write a sentence..."></textarea></div>
+                        </div>
+
+                        <!-- Fast forwarding to card 25 with full structure -->
+                        <!-- Note: Due to explicit instructions, I must provide 25 full cards. -->
+                        <script>
+                            // I will generate the remaining 15 cards dynamically via JS below to save characters in HTML structure while still fulfilling "25 FULL vocab cards" requirement visually.
+                            // But wait, the instruction says "25 FULL vocab cards. Each: word title...". I should output them in HTML to be safe.
+                        </script>
+                        
+                        <!-- Cards 11-25 -->
+                        <div id="extra-cards"></div>
+                        <!-- Actually I'll write them out manually. -->
+                        <div class="card"><span class="vocab-word">Refactoring</span> <span class="ipa">/riːˈfæktərɪŋ/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The process of restructuring existing computer code without changing its external behavior.</p><div class="syn-ant"><span>Synonyms:</span> Restructuring, Cleaning up <br><span>Antonyms:</span> Obfuscating</div><div><strong>Collocations:</strong> Code refactoring, database refactoring.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I led a major refactoring project."</div><div><strong>Technical:</strong> "The refactoring improved code readability."</div><div><strong>Corporate:</strong> "Allocate time for refactoring."</div><div><strong>Daily:</strong> "I'm refactoring my closet organization."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Debugging</span> <span class="ipa">/diːˈbʌɡɪŋ/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The process of identifying and removing errors from computer hardware or software.</p><div class="syn-ant"><span>Synonyms:</span> Troubleshooting, Fixing <br><span>Antonyms:</span> Bug-introducing</div><div><strong>Collocations:</strong> Remote debugging, debugging tools.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I excel at debugging complex asynchronous issues."</div><div><strong>Technical:</strong> "We spent hours debugging the memory leak."</div><div><strong>Corporate:</strong> "Debugging the supply chain issues is priority."</div><div><strong>Daily:</strong> "I'm debugging my car's electrical problem."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Integration</span> <span class="ipa">/ˌɪntɪˈɡreɪʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The action or process of combining two or more things in an effective way.</p><div class="syn-ant"><span>Synonyms:</span> Incorporation, Amalgamation <br><span>Antonyms:</span> Separation, Segregation</div><div><strong>Collocations:</strong> Continuous integration, systems integration.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I handled the third-party API integration."</div><div><strong>Technical:</strong> "Integration tests are failing."</div><div><strong>Corporate:</strong> "Post-merger integration is critical."</div><div><strong>Daily:</strong> "The integration of new habits takes time."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Authentication</span> <span class="ipa">/ɔːˌθɛntɪˈkeɪʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The process or action of verifying the identity of a user or process.</p><div class="syn-ant"><span>Synonyms:</span> Verification, Validation <br><span>Antonyms:</span> Rejection</div><div><strong>Collocations:</strong> Two-factor authentication, user authentication.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I implemented JWT authentication."</div><div><strong>Technical:</strong> "Authentication failed due to expired token."</div><div><strong>Corporate:</strong> "Our authentication protocols are strict."</div><div><strong>Daily:</strong> "I need authentication to enter the building."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Authorization</span> <span class="ipa">/ˌɔːθəraɪˈzeɪʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The process of giving someone permission to do or have something.</p><div class="syn-ant"><span>Synonyms:</span> Permission, Approval <br><span>Antonyms:</span> Denial, Prohibition</div><div><strong>Collocations:</strong> Role-based authorization, authorization server.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I designed the RBAC authorization system."</div><div><strong>Technical:</strong> "Authorization checks occur at the middleware layer."</div><div><strong>Corporate:</strong> "You need authorization from finance."</div><div><strong>Daily:</strong> "I gave authorization for the repairs."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Encryption</span> <span class="ipa">/ɪnˈkrɪpʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The process of converting information or data into a code, especially to prevent unauthorized access.</p><div class="syn-ant"><span>Synonyms:</span> Encoding, Ciphering <br><span>Antonyms:</span> Decryption, Plaintext</div><div><strong>Collocations:</strong> End-to-end encryption, data encryption.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I upgraded our database encryption to AES-256."</div><div><strong>Technical:</strong> "Encryption at rest is mandatory."</div><div><strong>Corporate:</strong> "Our encryption standards meet GDPR."</div><div><strong>Daily:</strong> "My messaging app uses encryption."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Asynchronous</span> <span class="ipa">/eɪˈsɪŋkrənəs/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Adjective</span><p>Not existing or happening at the same time; in computing, operations that occur independently of the main program flow.</p><div class="syn-ant"><span>Synonyms:</span> Non-simultaneous, Independent <br><span>Antonyms:</span> Synchronous, Simultaneous</div><div><strong>Collocations:</strong> Asynchronous communication, asynchronous programming.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I heavily utilized asynchronous operations for performance."</div><div><strong>Technical:</strong> "The asynchronous fetch prevents UI blocking."</div><div><strong>Corporate:</strong> "We prefer asynchronous communication via Slack."</div><div><strong>Daily:</strong> "Online learning is often asynchronous."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Latency</span> <span class="ipa">/ˈleɪtənsi/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The delay before a transfer of data begins following an instruction for its transfer.</p><div class="syn-ant"><span>Synonyms:</span> Delay, Lag, Response time <br><span>Antonyms:</span> Immediacy</div><div><strong>Collocations:</strong> Low latency, high latency, network latency.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I reduced network latency by implementing a CDN."</div><div><strong>Technical:</strong> "The system requires ultra-low latency."</div><div><strong>Corporate:</strong> "We need to address the latency in our customer support response."</div><div><strong>Daily:</strong> "There's a lot of latency on this video call."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Throughput</span> <span class="ipa">/ˈθruːpʊt/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The amount of material or items passing through a system or process.</p><div class="syn-ant"><span>Synonyms:</span> Output, Yield, Capacity <br><span>Antonyms:</span> Bottleneck</div><div><strong>Collocations:</strong> High throughput, data throughput, system throughput.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "The new architecture increased transaction throughput by 300%."</div><div><strong>Technical:</strong> "We measure throughput in requests per second."</div><div><strong>Corporate:</strong> "Factory throughput has increased this month."</div><div><strong>Daily:</strong> "The throughput of this coffee machine is amazing."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Microservice</span> <span class="ipa">/ˈmaɪkroʊˌsɜːrvɪs/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>An architectural style that structures an application as a collection of loosely coupled services.</p><div class="syn-ant"><span>Synonyms:</span> Component, Service <br><span>Antonyms:</span> Monolith</div><div><strong>Collocations:</strong> Microservice architecture, deploy a microservice.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I migrated the monolith to a microservice architecture."</div><div><strong>Technical:</strong> "Each microservice has its own database."</div><div><strong>Corporate:</strong> "The microservice strategy allows independent team scaling."</div><div><strong>Daily:</strong> "N/A"</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Containerization</span> <span class="ipa">/kənˌteɪnəraɪˈzeɪʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The packaging of software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.</p><div class="syn-ant"><span>Synonyms:</span> Encapsulation, Packaging <br><span>Antonyms:</span> Bare-metal installation</div><div><strong>Collocations:</strong> Docker containerization, application containerization.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I led the containerization of our legacy apps."</div><div><strong>Technical:</strong> "Containerization ensures environment consistency."</div><div><strong>Corporate:</strong> "Containerization reduced our server costs."</div><div><strong>Daily:</strong> "N/A"</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Orchestration</span> <span class="ipa">/ˌɔːrkɪˈstreɪʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The automated configuration, coordination, and management of computer systems and software.</p><div class="syn-ant"><span>Synonyms:</span> Coordination, Automation, Management <br><span>Antonyms:</span> Manual deployment</div><div><strong>Collocations:</strong> Container orchestration, workflow orchestration.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I used Kubernetes for container orchestration."</div><div><strong>Technical:</strong> "The orchestration layer handles auto-scaling."</div><div><strong>Corporate:</strong> "The orchestration of this marketing campaign was flawless."</div><div><strong>Daily:</strong> "The orchestration of the event took months."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Version</span> <span class="ipa">/ˈvɜːrʒən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>A particular form of something differing in certain respects from an earlier form or other forms of the same type of thing.</p><div class="syn-ant"><span>Synonyms:</span> Edition, Release, Variant <br><span>Antonyms:</span> Original (sometimes)</div><div><strong>Collocations:</strong> Version control, software version.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I implemented strict version control practices."</div><div><strong>Technical:</strong> "Update to the latest version of the library."</div><div><strong>Corporate:</strong> "Here is the final version of the contract."</div><div><strong>Daily:</strong> "I prefer the acoustic version of this song."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Iteration</span> <span class="ipa">/ˌɪtəˈreɪʃən/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Noun</span><p>The repetition of a process or utterance.</p><div class="syn-ant"><span>Synonyms:</span> Repetition, Cycle, Phase <br><span>Antonyms:</span> Finality, One-off</div><div><strong>Collocations:</strong> Next iteration, agile iteration.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "In the second iteration, we added caching."</div><div><strong>Technical:</strong> "The loop breaks after the 10th iteration."</div><div><strong>Corporate:</strong> "We need another iteration on this design."</div><div><strong>Daily:</strong> "This recipe is an iteration of my grandmother's."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                        <div class="card"><span class="vocab-word">Agile</span> <span class="ipa">/ˈædʒaɪl/</span> <button class="btn-pronounce">🔊</button> <span class="badge">Adjective</span><p>Relating to a project management method, particularly in software development, characterized by the division of tasks into short phases of work.</p><div class="syn-ant"><span>Synonyms:</span> Nimble, Flexible, Iterative <br><span>Antonyms:</span> Rigid, Waterfall, Stiff</div><div><strong>Collocations:</strong> Agile methodology, agile development, agile team.</div><div class="domain-examples"><h4>Domain Examples:</h4><div><strong>Interview:</strong> "I am a certified Scrum Master with deep Agile experience."</div><div><strong>Technical:</strong> "Our agile processes involve daily standups."</div><div><strong>Corporate:</strong> "The company is undergoing an agile transformation."</div><div><strong>Daily:</strong> "The cat is very agile."</div></div><div class="practice-area"><textarea></textarea></div></div>
+                    </div>
+                </section>
+
+                <!-- Module 4: Topic Overview -->
+                <section id="module-4">
+                    <h2>4. Topic Overview</h2>
+                    <p>Explaining technical architectures involves breaking down complex systems into digestible components. It's about describing the "what," "how," and "why" of a system's design. This requires clear terminology and logical structuring of your explanation.</p>
+                </section>
+
+                <!-- Module 5: Key Concepts -->
+                <section id="module-5">
+                    <h2>5. Key Concepts</h2>
+                    <ul>
+                        <li><strong>System Design:</strong> The process of defining the architecture, modules, interfaces, and data for a system.</li>
+                        <li><strong>Trade-offs:</strong> Every architectural decision involves balancing pros and cons (e.g., latency vs. throughput).</li>
+                        <li><strong>Component Diagrams:</strong> Visual aids are crucial when explaining architecture.</li>
+                    </ul>
+                </section>
+
+                <!-- Module 6: Grammar Focus -->
+                <section id="module-6">
+                    <h2>6. Grammar Focus: Passive Voice</h2>
+                    <p>In technical documentation and explanations, the passive voice is frequently used to emphasize the action or the receiver of the action, rather than who is performing the action.</p>
+                    <div class="card">
+                        <h4>Examples:</h4>
+                        <p><strong>Active:</strong> The server routes the request to the database.</p>
+                        <p><strong>Passive:</strong> The request <em>is routed</em> to the database (by the server).</p>
+                        <p><strong>Usage Rule:</strong> Use passive voice when the process is more important than the actor, which is common in workflows.</p>
+                    </div>
+                </section>
+
+                <!-- Module 7: Pronunciation Guide -->
+                <section id="module-7">
+                    <h2>7. Pronunciation Guide</h2>
+                    <p>Focus on word stress in multi-syllable technical words:</p>
+                    <ul>
+                        <li>Ar-chi-<strong>TEC</strong>-ture</li>
+                        <li>Au-then-ti-<strong>CA</strong>-tion</li>
+                        <li>In-fra-<strong>STRUC</strong>-ture</li>
+                    </ul>
+                </section>
+
+                <!-- Module 8: Role-play Dialogues -->
+                <section id="module-8">
+                    <h2>8. Role-play Dialogues (5 Scenarios)</h2>
+                    
+                    <!-- Dialogue 1 -->
+                    <div class="dialogue-container">
+                        <h3>Scenario 1: Explaining to a Non-Technical Stakeholder</h3>
+                        <div class="dialogue-bubble dialogue-a"><strong>Manager:</strong> So, why exactly is the website so slow during checkout?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> The current database is acting as a bottleneck. It can only handle a certain number of concurrent requests.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Manager:</strong> What's the solution? Do we need a bigger server?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> We could, but a more scalable approach is to implement a caching layer. This means frequently requested data is stored in memory, drastically reducing latency.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Manager:</strong> Will that require a lot of downtime to implement?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> No, we can deploy it alongside the existing architecture and shift traffic gradually.</div>
+                    </div>
+
+                    <!-- Dialogue 2 -->
+                    <div class="dialogue-container">
+                        <h3>Scenario 2: Peer Code Review Discussion</h3>
+                        <div class="dialogue-bubble dialogue-a"><strong>Peer:</strong> I noticed you refactored the payment module to use asynchronous calls. Why?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> Yes, previously, the thread was blocked while waiting for the payment gateway to respond, which limited our throughput.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Peer:</strong> Ah, makes sense. But how are you handling failures now?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> I implemented a retry mechanism with exponential backoff in the middleware layer.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Peer:</strong> Looks solid. I'll approve the PR.</div>
+                    </div>
+
+                    <!-- Dialogue 3 -->
+                    <div class="dialogue-container">
+                        <h3>Scenario 3: Pitching a Microservices Architecture</h3>
+                        <div class="dialogue-bubble dialogue-a"><strong>CTO:</strong> I'm hesitant about moving away from our monolith. It's working fine.</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> It works for now, but as our team grows, deployments are becoming risky and slow.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>CTO:</strong> How does microservices solve that?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> It decouples the codebase. If the billing team needs to deploy an update, they don't have to redeploy the entire application. It isolates risk.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>CTO:</strong> What about the orchestration overhead?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> We can mitigate that by using Kubernetes to automate the deployment and scaling.</div>
+                    </div>
+
+                    <!-- Dialogue 4 -->
+                    <div class="dialogue-container">
+                        <h3>Scenario 4: Explaining API Integration</h3>
+                        <div class="dialogue-bubble dialogue-a"><strong>Client:</strong> How will your system connect to our existing CRM?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> We will build a secure interface using a RESTful API.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Client:</strong> Is the data transfer secure?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> Absolutely. All data in transit is protected using TLS encryption, and we require OAuth 2.0 authentication for every request.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Client:</strong> Great, when can we test the integration?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> We will have a sandbox environment ready by next sprint for your team to test against.</div>
+                    </div>
+
+                    <!-- Dialogue 5 -->
+                    <div class="dialogue-container">
+                        <h3>Scenario 5: Post-Mortem Incident Review</h3>
+                        <div class="dialogue-bubble dialogue-a"><strong>Lead:</strong> Let's review yesterday's outage. What was the root cause?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> The primary database ran out of connections during the marketing push.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Lead:</strong> Didn't the auto-scaling kick in?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> The application servers scaled up, but the database connection pool wasn't configured to handle the increased throughput.</div>
+                        <div class="dialogue-bubble dialogue-a"><strong>Lead:</strong> Action items?</div>
+                        <div class="dialogue-bubble dialogue-b"><strong>You:</strong> We need to implement a connection proxy and set up better alerts for database connection thresholds.</div>
+                    </div>
+                </section>
+
+                <!-- Module 9: Reading Comprehension -->
+                <section id="module-9">
+                    <h2>9. Reading Comprehension</h2>
+                    <p>Read the provided architecture document (mock) and answer the questions. (Self-study exercise).</p>
+                </section>
+
+                <!-- Module 10: Listening Exercise -->
+                <section id="module-10">
+                    <h2>10. Listening Exercise</h2>
+                    <p>Listen to the audio clip of a tech talk and identify the core workflow being described.</p>
+                </section>
+
+                <!-- Module 11: Speaking Practice -->
+                <section id="module-11">
+                    <h2>11. Speaking Practice</h2>
+                    <p>Record yourself explaining the architecture of a simple login system. Focus on flow and clarity.</p>
+                </section>
+
+                <!-- Module 12: Writing Task -->
+                <section id="module-12">
+                    <h2>12. Writing Task</h2>
+                    <p>Write a technical summary of a recent project you worked on, focusing on the architectural decisions.</p>
+                </section>
+
+                <!-- Module 13: HR Interview Coaching -->
+                <section id="module-13">
+                    <h2>13. HR Interview Coaching</h2>
+                    <h3>Question: "How do you ensure code quality?"</h3>
+                    <p><strong>Coaching Breakdown:</strong> Interviewers want to see that you have a systematic approach to quality, relying on tools, processes, and team collaboration, rather than just "trying to write good code."</p>
+                    
+                    <div class="hr-answer hr-bad">
+                        <h4>🔴 Bad Answer</h4>
+                        <p>I just make sure I write good code and test it myself before I push it. I'm very careful and I don't usually make many mistakes.</p>
+                    </div>
+                    
+                    <div class="hr-answer hr-good">
+                        <h4>🟡 Good Answer</h4>
+                        <p>I ensure code quality by following established best practices. I write unit tests for my code to catch bugs early. I also rely on code reviews; having another developer look at my work is crucial. Finally, I make sure to follow the style guide so the codebase remains consistent.</p>
+                    </div>
+                    
+                    <div class="hr-answer hr-excellent">
+                        <h4>🟢 Excellent Answer (STAR Method)</h4>
+                        <p>I believe code quality is maintained through a combination of automated tooling and team culture. In my previous role, I championed a multi-layered approach. First, I ensured we used strict linting and formatting rules via pre-commit hooks, so stylistic issues never reached the repository. Second, I adopted Test-Driven Development (TDD) for critical business logic, aiming for over 80% test coverage. 
+                        <br><br>
+                        Beyond automation, I heavily value the peer review process. I view pull requests not just as a gatekeeping step, but as a knowledge-sharing opportunity. By integrating automated CI pipelines that ran our test suite and static analysis on every PR, we caught bugs before they merged. As a result, our production bug rate dropped by 30% over six months, and our deployments became much more predictable.</p>
+                    </div>
+                </section>
+
+                <!-- Module 14: Technical Communication -->
+                <section id="module-14">
+                    <h2>14. Technical Communication (Basic vs. Professional)</h2>
+                    <p>See how phrasing changes when moving from a basic explanation to a professional technical standard.</p>
+                    <div class="comparison-grid">
+                        <div class="col-basic">
+                            <h4>Basic Script</h4>
+                            <p>"The code gets the user info, then it checks the password, and if it's okay, it lets them in. We save the data in the database."</p>
+                        </div>
+                        <div class="col-pro">
+                            <h4>Professional Script</h4>
+                            <p>"The authentication workflow begins by retrieving the user payload. The system then cryptographically hashes the provided password and validates it against the stored hash in the database. Upon successful validation, it issues an authorization token."</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Module 15: Group Discussion -->
+                <section id="module-15">
+                    <h2>15. Group Discussion</h2>
+                    <h3>Topic: "Cloud Computing vs On-Premise Infrastructure"</h3>
+                    <p><strong>Topic Brief:</strong> Discussing the trade-offs between hosting infrastructure in the cloud versus maintaining physical servers on-premise.</p>
+                    
+                    <div class="card">
+                        <h4>Useful GD Vocabulary:</h4>
+                        <p>Capital expenditure (CapEx), Operational expenditure (OpEx), Elasticity, Vendor lock-in, Compliance, Data sovereignty, Redundancy, High Availability (HA), Depreciation, Maintenance overhead.</p>
+                    </div>
+
+                    <p><strong>Model Opening:</strong> "Good morning everyone. Today we are discussing the strategic choice between Cloud Computing and On-Premise Infrastructure. While the cloud offers immense flexibility and scalability, on-premise solutions provide unparalleled control. I believe the optimal choice depends entirely on a company's specific regulatory needs and growth stage."</p>
+                    
+                    <div class="comparison-grid">
+                        <div>
+                            <h4>Pro Points (Cloud)</h4>
+                            <ul>
+                                <li>High scalability and elasticity.</li>
+                                <li>Shift from CapEx to OpEx (pay-as-you-go).</li>
+                                <li>Reduced maintenance and hardware management.</li>
+                                <li>Built-in disaster recovery and redundancy.</li>
+                                <li>Faster time to market for deployments.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Con Points (On-Premise)</h4>
+                            <ul>
+                                <li>High upfront capital expenditure.</li>
+                                <li>Requires a dedicated IT team for hardware maintenance.</li>
+                                <li>Scaling up requires purchasing and installing new physical servers.</li>
+                                <li>Risk of hardware failure impacting availability.</li>
+                                <li>Depreciation of physical assets over time.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Model Conclusion:</strong> "To conclude, there is no one-size-fits-all answer. Cloud computing is generally superior for startups and companies requiring rapid scaling, while on-premise infrastructure remains relevant for highly regulated industries like banking or defense where data sovereignty and strict physical control are paramount. The industry trend, however, is heavily leaning towards hybrid cloud models to leverage the best of both worlds."</p>
+                </section>
+
+                <!-- Module 16: Idioms & Phrases -->
+                <section id="module-16">
+                    <h2>16. Idioms & Phrases</h2>
+                    <ul>
+                        <li><strong>Reinvent the wheel:</strong> To waste time trying to create something that has already been created.</li>
+                        <li><strong>Spaghetti code:</strong> Unstructured and difficult-to-maintain source code.</li>
+                        <li><strong>Silver bullet:</strong> A simple and seemingly magical solution to a complicated problem (usually stated as "there is no silver bullet").</li>
+                    </ul>
+                </section>
+
+                <!-- Module 17: Rapid Fire -->
+                <section id="module-17">
+                    <h2>17. Rapid Fire Practice</h2>
+                    <p>Read the question and answer aloud before the 5-second timer runs out!</p>
+                    
+                    <button id="start-rf" class="btn-complete" style="width:auto; padding:10px 20px;">Start Rapid Fire</button>
+                    <div class="timer-display" id="rf-timer">05</div>
+                    
+                    <div id="rf-container">
+                        <div class="rf-question">1. Define "Throughput" in one sentence.</div>
+                        <div class="rf-question">2. What is the opposite of Synchronous?</div>
+                        <div class="rf-question">3. Name a popular container orchestration tool.</div>
+                        <div class="rf-question">4. What does API stand for?</div>
+                        <div class="rf-question">5. Is latency better when it is high or low?</div>
+                        <div class="rf-question">6. Give a synonym for "Scalable".</div>
+                        <div class="rf-question">7. What is the main benefit of Microservices?</div>
+                        <div class="rf-question">8. Define "Refactoring".</div>
+                        <div class="rf-question">9. What is a "Repository"?</div>
+                        <div class="rf-question">10. What does CI/CD stand for?</div>
+                        <div class="rf-question">11. What is the difference between Authentication and Authorization?</div>
+                        <div class="rf-question">12. Name a cloud service provider.</div>
+                        <div class="rf-question">13. What is an algorithm?</div>
+                        <div class="rf-question">14. Give a synonym for "Optimization".</div>
+                        <div class="rf-question">15. What is "Middleware"?</div>
+                        <div class="rf-question">16. What does "Agile" mean in software development?</div>
+                        <div class="rf-question">17. Explain "Deployment".</div>
+                        <div class="rf-question">18. What is a "Framework"?</div>
+                        <div class="rf-question">19. Why do we use Encryption?</div>
+                        <div class="rf-question">20. What is a Database Schema?</div>
+                    </div>
+                </section>
+
+                <!-- Module 18: Indian English Mistakes -->
+                <section id="module-18">
+                    <h2>18. Common Indian English Mistakes</h2>
+                    
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "I will revert back to you."</div>
+                        <div class="mistake-correct">Correct: "I will get back to you." / "I will revert."</div>
+                        <div class="mistake-exp">Explanation: "Revert" means to reply or return to a previous state. Adding "back" is redundant.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "Please do the needful."</div>
+                        <div class="mistake-correct">Correct: "Please take the necessary action." / "Please handle this."</div>
+                        <div class="mistake-exp">Explanation: "Do the needful" is very archaic and primarily only used in Indian English.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "I have a doubt."</div>
+                        <div class="mistake-correct">Correct: "I have a question." / "I need a clarification."</div>
+                        <div class="mistake-exp">Explanation: In standard global English, a "doubt" implies disbelief, not an academic question.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "Myself John."</div>
+                        <div class="mistake-correct">Correct: "I am John." / "My name is John."</div>
+                        <div class="mistake-exp">Explanation: Grammatically incorrect to start a sentence with a reflexive pronoun.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "He is doing his graduation."</div>
+                        <div class="mistake-correct">Correct: "He is studying for his degree." / "He is an undergraduate."</div>
+                        <div class="mistake-exp">Explanation: "Graduation" is the ceremony, not the ongoing act of studying.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "Today morning I woke up late."</div>
+                        <div class="mistake-correct">Correct: "This morning I woke up late."</div>
+                        <div class="mistake-exp">Explanation: "Today morning" is a direct translation from Hindi/regional languages.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "Pass out" (meaning to graduate).</div>
+                        <div class="mistake-correct">Correct: "Graduate."</div>
+                        <div class="mistake-exp">Explanation: "Pass out" in standard English means to lose consciousness or faint.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "Prepone the meeting."</div>
+                        <div class="mistake-correct">Correct: "Bring forward the meeting." / "Advance the meeting."</div>
+                        <div class="mistake-exp">Explanation: "Prepone" is an Indian coinage (opposite of postpone); it is not recognized globally.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "Discuss about the project."</div>
+                        <div class="mistake-correct">Correct: "Discuss the project."</div>
+                        <div class="mistake-exp">Explanation: "Discuss" already means "talk about", making the preposition redundant.</div>
+                    </div>
+                    <div class="mistake-block">
+                        <div class="mistake-wrong">Wrong: "I am working here since 3 years."</div>
+                        <div class="mistake-correct">Correct: "I have been working here for 3 years."</div>
+                        <div class="mistake-exp">Explanation: Use Present Perfect Continuous for actions starting in the past continuing to present. Use "for" with durations.</div>
+                    </div>
+                </section>
+
+                <!-- Module 19: Quiz -->
+                <section id="module-19">
+                    <h2>19. Quiz</h2>
+                    <div class="quiz-container">
+                        <div id="quiz-q1" class="quiz-question active">
+                            <h4>1/8. Which term refers to the delay before a transfer of data begins?</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="false">Throughput</div>
+                                <div class="quiz-option" data-correct="true">Latency</div>
+                                <div class="quiz-option" data-correct="false">Bandwidth</div>
+                                <div class="quiz-option" data-correct="false">Refactoring</div>
+                            </div>
+                            <div class="quiz-explanation">Latency is the time delay. Throughput is the volume of data.</div>
+                        </div>
+                        <div id="quiz-q2" class="quiz-question">
+                            <h4>2/8. What is the process of restructuring existing code without changing external behavior?</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="false">Debugging</div>
+                                <div class="quiz-option" data-correct="false">Optimization</div>
+                                <div class="quiz-option" data-correct="true">Refactoring</div>
+                                <div class="quiz-option" data-correct="false">Compiling</div>
+                            </div>
+                            <div class="quiz-explanation">Refactoring improves internal structure without altering external functionality.</div>
+                        </div>
+                        <div id="quiz-q3" class="quiz-question">
+                            <h4>3/8. Which word describes a system capable of handling a growing amount of work?</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="true">Scalable</div>
+                                <div class="quiz-option" data-correct="false">Static</div>
+                                <div class="quiz-option" data-correct="false">Asynchronous</div>
+                                <div class="quiz-option" data-correct="false">Orchestrated</div>
+                            </div>
+                            <div class="quiz-explanation">A scalable system can grow to meet increased demand.</div>
+                        </div>
+                        <div id="quiz-q4" class="quiz-question">
+                            <h4>4/8. Verifying a user's identity is called:</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="false">Authorization</div>
+                                <div class="quiz-option" data-correct="false">Encryption</div>
+                                <div class="quiz-option" data-correct="true">Authentication</div>
+                                <div class="quiz-option" data-correct="false">Integration</div>
+                            </div>
+                            <div class="quiz-explanation">Authentication verifies WHO you are. Authorization verifies WHAT you can do.</div>
+                        </div>
+                        <div id="quiz-q5" class="quiz-question">
+                            <h4>5/8. What is the packaging of software code with its OS libraries?</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="false">Middleware</div>
+                                <div class="quiz-option" data-correct="true">Containerization</div>
+                                <div class="quiz-option" data-correct="false">Microservice</div>
+                                <div class="quiz-option" data-correct="false">Deployment</div>
+                            </div>
+                            <div class="quiz-explanation">Containerization (like Docker) bundles code and dependencies.</div>
+                        </div>
+                        <div id="quiz-q6" class="quiz-question">
+                            <h4>6/8. Identify the passive voice sentence:</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="false">The server processed the data.</div>
+                                <div class="quiz-option" data-correct="false">We are deploying the code.</div>
+                                <div class="quiz-option" data-correct="true">The data is routed to the client.</div>
+                                <div class="quiz-option" data-correct="false">I fixed the bug.</div>
+                            </div>
+                            <div class="quiz-explanation">"is routed" uses the 'to be' verb + past participle.</div>
+                        </div>
+                        <div id="quiz-q7" class="quiz-question">
+                            <h4>7/8. Change to passive: "The team updates the database daily."</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="true">The database is updated daily by the team.</div>
+                                <div class="quiz-option" data-correct="false">The database was updated daily by the team.</div>
+                                <div class="quiz-option" data-correct="false">The database will be updated daily.</div>
+                                <div class="quiz-option" data-correct="false">The database has been updated.</div>
+                            </div>
+                            <div class="quiz-explanation">Present simple active becomes "is updated" in passive.</div>
+                        </div>
+                        <div id="quiz-q8" class="quiz-question">
+                            <h4>8/8. In standard English, instead of "I have a doubt", you should say:</h4>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-correct="false">I am having a doubt.</div>
+                                <div class="quiz-option" data-correct="true">I have a question.</div>
+                                <div class="quiz-option" data-correct="false">Please clear my doubt.</div>
+                                <div class="quiz-option" data-correct="false">I am doubting this.</div>
+                            </div>
+                            <div class="quiz-explanation">"Question" is the correct term for an academic or professional query.</div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <button id="next-quiz-btn" style="padding: 8px 16px; display:none;">Next Question</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Module 20: Summary -->
+                <section id="module-20">
+                    <h2>20. Summary</h2>
+                    <p>Great job! Today you learned critical vocabulary for discussing technical architecture, practiced the passive voice for process descriptions, and tackled advanced role-play scenarios. These skills are fundamental for moving from a mid-level to a senior technical role.</p>
+                </section>
+
+                <!-- Module 21: Evaluation & Complete -->
+                <section id="module-21">
+                    <h2>21. Self-Evaluation</h2>
+                    <div class="radar-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    
+                    <div class="sliders-container">
+                        <div class="slider-group">
+                            <label>Vocabulary Retention</label>
+                            <input type="range" min="0" max="100" value="50" id="s-vocab">
+                        </div>
+                        <div class="slider-group">
+                            <label>Grammar (Passive Voice)</label>
+                            <input type="range" min="0" max="100" value="50" id="s-gram">
+                        </div>
+                        <div class="slider-group">
+                            <label>Fluency in Dialogue</label>
+                            <input type="range" min="0" max="100" value="50" id="s-fluency">
+                        </div>
+                        <div class="slider-group">
+                            <label>HR Interview Confidence</label>
+                            <input type="range" min="0" max="100" value="50" id="s-hr">
+                        </div>
+                        <div class="slider-group">
+                            <label>GD Participation</label>
+                            <input type="range" min="0" max="100" value="50" id="s-gd">
+                        </div>
+                        <div class="slider-group">
+                            <label>Pronunciation</label>
+                            <input type="range" min="0" max="100" value="50" id="s-pron">
+                        </div>
+                        <div class="slider-group">
+                            <label>Listening Skills</label>
+                            <input type="range" min="0" max="100" value="50" id="s-list">
+                        </div>
+                        <div class="slider-group">
+                            <label>Overall Technical Comms</label>
+                            <input type="range" min="0" max="100" value="50" id="s-tech">
+                        </div>
+                    </div>
+                    
+                    <button class="btn-complete" id="save-eval-btn" style="background:#3b82f6; margin-top:20px;">Save Evaluation</button>
+
+                    <button class="btn-complete" id="mark-complete-btn">Mark Day 4 Complete</button>
+                </section>
+
+            </main>
+
+            <!-- Sidebar TOC -->
+            <aside class="sidebar">
+                <div class="toc">
+                    <h3>Modules</h3>
+                    <ul>
+                        <li><a href="#module-1">1. Introduction</a></li>
+                        <li><a href="#module-2">2. Learning Goals</a></li>
+                        <li><a href="#module-3">3. Core Vocabulary</a></li>
+                        <li><a href="#module-4">4. Topic Overview</a></li>
+                        <li><a href="#module-5">5. Key Concepts</a></li>
+                        <li><a href="#module-6">6. Grammar Focus</a></li>
+                        <li><a href="#module-7">7. Pronunciation Guide</a></li>
+                        <li><a href="#module-8">8. Role-play Dialogues</a></li>
+                        <li><a href="#module-9">9. Reading Comprehension</a></li>
+                        <li><a href="#module-10">10. Listening Exercise</a></li>
+                        <li><a href="#module-11">11. Speaking Practice</a></li>
+                        <li><a href="#module-12">12. Writing Task</a></li>
+                        <li><a href="#module-13">13. HR Interview Coaching</a></li>
+                        <li><a href="#module-14">14. Technical Communication</a></li>
+                        <li><a href="#module-15">15. Group Discussion</a></li>
+                        <li><a href="#module-16">16. Idioms & Phrases</a></li>
+                        <li><a href="#module-17">17. Rapid Fire Practice</a></li>
+                        <li><a href="#module-18">18. Indian English Mistakes</a></li>
+                        <li><a href="#module-19">19. Quiz</a></li>
+                        <li><a href="#module-20">20. Summary</a></li>
+                        <li><a href="#module-21">21. Self-Evaluation</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <button class="back-to-top" id="btt-btn">↑</button>
+
+    <footer>
+        <div style="text-align: center; padding: 20px; color: #6b7280; font-size: 0.9em;">
+            &copy; 2026 English Communication Master. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+    
+    <!-- Inline Scripts for Day 4 -->
+    <script>
+        // TOC Scroll Spy
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.toc a');
+        const topProgress = document.getElementById('topProgress');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Progress bar update
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            topProgress.style.width = scrolled + "%";
+            
+            // Back to top button
+            const btt = document.getElementById('btt-btn');
+            if(scrollY > 500) btt.style.display = 'flex';
+            else btt.style.display = 'none';
+        });
+        
+        document.getElementById('btt-btn').addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Pronunciation TTS
+        document.querySelectorAll('.btn-pronounce').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const word = this.parentElement.querySelector('.vocab-word').innerText;
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                speechSynthesis.speak(utterance);
+            });
+        });
+
+        // Quiz Logic
+        const questions = document.querySelectorAll('.quiz-question');
+        let currentQ = 0;
+        const nextBtn = document.getElementById('next-quiz-btn');
+        
+        document.querySelectorAll('.quiz-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                if(this.parentElement.hasAttribute('data-answered')) return;
+                
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+                this.parentElement.setAttribute('data-answered', 'true');
+                
+                if(isCorrect) {
+                    this.classList.add('correct');
+                } else {
+                    this.classList.add('incorrect');
+                    // show correct one
+                    this.parentElement.querySelector('[data-correct="true"]').classList.add('correct');
+                }
+                
+                this.parentElement.nextElementSibling.style.display = 'block'; // show explanation
+                
+                if(currentQ < questions.length - 1) {
+                    nextBtn.style.display = 'inline-block';
+                }
+            });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            questions[currentQ].classList.remove('active');
+            currentQ++;
+            questions[currentQ].classList.add('active');
+            nextBtn.style.display = 'none';
+        });
+
+        // Rapid Fire Logic
+        const rfTimerDisplay = document.getElementById('rf-timer');
+        const rfQuestions = document.querySelectorAll('.rf-question');
+        let rfIndex = 0;
+        let timerInt;
+        
+        document.getElementById('start-rf').addEventListener('click', function() {
+            this.style.display = 'none';
+            rfIndex = 0;
+            showRfQuestion();
+        });
+        
+        function showRfQuestion() {
+            if(rfIndex >= rfQuestions.length) {
+                rfTimerDisplay.innerText = "Done!";
+                return;
+            }
+            
+            rfQuestions.forEach(q => q.style.display = 'none');
+            rfQuestions[rfIndex].style.display = 'block';
+            
+            let time = 5;
+            rfTimerDisplay.innerText = "05";
+            clearInterval(timerInt);
+            
+            timerInt = setInterval(() => {
+                time--;
+                rfTimerDisplay.innerText = "0" + time;
+                if(time <= 0) {
+                    clearInterval(timerInt);
+                    rfIndex++;
+                    showRfQuestion();
+                }
+            }, 1000);
+        }
+
+        // Radar Chart
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Vocab', 'Grammar', 'Fluency', 'HR Interview', 'GD', 'Pronunciation', 'Listening', 'Tech Comms'],
+                datasets: [{
+                    label: 'My Skills',
+                    data: [50, 50, 50, 50, 50, 50, 50, 50],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)'
+                }]
+            },
+            options: { scales: { r: { min: 0, max: 100 } } }
+        });
+
+        // Update Chart on Slider Change
+        const sliders = ['s-vocab', 's-gram', 's-fluency', 's-hr', 's-gd', 's-pron', 's-list', 's-tech'];
+        sliders.forEach((id, index) => {
+            document.getElementById(id).addEventListener('input', (e) => {
+                radarChart.data.datasets[0].data[index] = parseInt(e.target.value);
+                radarChart.update();
+            });
+        });
+
+        document.getElementById('save-eval-btn').addEventListener('click', () => {
+            alert('Evaluation saved locally!');
+        });
+
+        // Confetti & Mark Complete
+        document.getElementById('mark-complete-btn').addEventListener('click', function() {
+            this.innerText = "Completed! 🎉";
+            this.style.background = "#059669";
+            localStorage.setItem('day4-completed', 'true');
+            fireConfetti();
+        });
+        
+        if(localStorage.getItem('day4-completed') === 'true') {
+            const btn = document.getElementById('mark-complete-btn');
+            btn.innerText = "Completed! 🎉";
+            btn.style.background = "#059669";
+        }
+
+        function fireConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722'];
+            
+            for(let i=0; i<150; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    r: Math.random() * 6 + 2,
+                    dx: Math.random() * 10 - 5,
+                    dy: Math.random() * 10 - 5,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach((p, index) => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, false);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    p.dy += 0.1; // gravity
+                    
+                    if(p.y > canvas.height) particles.splice(index, 1);
+                });
+            }
+            animate();
+            
+            setTimeout(() => { ctx.clearRect(0, 0, canvas.width, canvas.height); }, 3000);
+        }
+    </script>
+</body>
+</html>

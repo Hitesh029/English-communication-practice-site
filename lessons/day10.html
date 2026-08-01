@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - Delivering Impactful Technical Demos & Presentations | English Communication Master</title>
+    <meta name="description" content="Learn how to deliver impactful technical demos and presentations. Master signposting language and essential vocabulary.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/dark.css">
+    <!-- Chart.js for Radar Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom inline styles for module specifics */
+        .dialogue-bubble { margin: 10px 0; padding: 15px; border-radius: 10px; max-width: 80%; position: relative; }
+        .dialogue-bubble.speaker-a { background: var(--bg-a, #e3f2fd); margin-right: auto; }
+        .dialogue-bubble.speaker-b { background: var(--bg-b, #f1f8e9); margin-left: auto; text-align: right; }
+        .hr-card { padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 5px solid; }
+        .hr-bad { background: #ffebee; border-left-color: #f44336; }
+        .hr-good { background: #fff8e1; border-left-color: #ffc107; }
+        .hr-excellent { background: #e8f5e9; border-left-color: #4caf50; }
+        .mistake-block { background: #fff; padding: 15px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 6px; }
+        .vocab-card { border: 1px solid #eee; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .pos-badge { display: inline-block; padding: 3px 8px; background: #e0e0e0; border-radius: 12px; font-size: 0.8em; margin-left: 10px; }
+        .domain-examples { margin-top: 15px; font-size: 0.9em; }
+        .domain-examples strong { display: inline-block; width: 100px; color: #555; }
+        .quiz-container { background: #f9f9f9; padding: 20px; border-radius: 8px; }
+        .quiz-question { margin-bottom: 20px; }
+        .quiz-options button { display: block; width: 100%; text-align: left; margin: 5px 0; padding: 10px; cursor: pointer; border: 1px solid #ccc; background: #fff; border-radius: 4px; transition: 0.3s; }
+        .quiz-options button:hover { background: #eef; }
+        .quiz-options button.correct { background: #c8e6c9; border-color: #4caf50; }
+        .quiz-options button.wrong { background: #ffcdd2; border-color: #f44336; }
+        .explanation { display: none; margin-top: 10px; padding: 10px; background: #e3f2fd; border-radius: 4px; font-size: 0.9em; }
+        .toc { position: sticky; top: 20px; max-height: 90vh; overflow-y: auto; }
+        .toc a { display: block; padding: 5px 0; color: #333; text-decoration: none; }
+        .toc a:hover, .toc a.active { color: #007bff; font-weight: bold; }
+        .back-to-top { position: fixed; bottom: 20px; right: 20px; background: #007bff; color: #fff; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar & Mobile Nav -->
+    <header class="topbar">
+        <div class="logo">EngMaster</div>
+        <nav class="desktop-nav">
+            <a href="../index.html">Home</a>
+            <a href="../syllabus.html">Syllabus</a>
+            <button id="searchBtn">Search</button>
+        </nav>
+        <button class="mobile-nav-toggle">☰</button>
+    </header>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+        <div class="modal-content" style="background:#fff; width:80%; max-width:500px; margin:10% auto; padding:20px; border-radius:8px;">
+            <input type="text" id="searchInput" placeholder="Search lessons..." style="width:100%; padding:10px;">
+            <button onclick="document.getElementById('searchModal').style.display='none'" style="margin-top:10px;">Close</button>
+        </div>
+    </div>
+
+    <!-- Lesson Hero -->
+    <section class="lesson-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a> > <a href="../syllabus.html">Syllabus</a> > Day 10</div>
+            <span class="day-pill">Day 10</span>
+            <h1>Delivering Impactful Technical Demos & Presentations</h1>
+            <div class="meta">
+                <span>Topic: Presentation Skills</span> | <span>Duration: ~2 hours</span>
+            </div>
+            <div class="progress-bar-container" style="background:#eee; height:10px; border-radius:5px; margin: 15px 0;">
+                <div id="lessonProgress" style="width: 0%; height:100%; background:#4caf50; border-radius:5px; transition: 0.3s;"></div>
+            </div>
+            <div class="nav-links" style="display:flex; justify-content:space-between; margin-top:20px;">
+                <a href="day9.html" class="btn btn-secondary">&laquo; Prev: Day 9</a>
+                <a href="day11.html" class="btn btn-primary">Next: Day 11 &raquo;</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container layout-2col" style="display:flex; gap: 30px; margin-top: 30px;">
+        
+        <!-- Sidebar TOC -->
+        <aside class="sidebar" style="flex: 1; min-width: 250px;">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <a href="#mod1">1. Introduction</a>
+                <a href="#mod2">2. Why It Matters</a>
+                <a href="#mod3">3. Vocabulary Arsenal (25 Cards)</a>
+                <a href="#mod4">4. Structuring a Demo</a>
+                <a href="#mod5">5. Signposting Language</a>
+                <a href="#mod6">6. Engaging the Audience</a>
+                <a href="#mod7">7. Visual Aids</a>
+                <a href="#mod8">8. Role-Play Dialogues</a>
+                <a href="#mod9">9. Body Language</a>
+                <a href="#mod10">10. Handling Q&A</a>
+                <a href="#mod11">11. Pitfalls to Avoid</a>
+                <a href="#mod12">12. Online vs In-person</a>
+                <a href="#mod13">13. HR Interview Coaching</a>
+                <a href="#mod14">14. Technical Communication</a>
+                <a href="#mod15">15. Group Discussion</a>
+                <a href="#mod16">16. Presentation Checklist</a>
+                <a href="#mod17">17. Rapid Fire</a>
+                <a href="#mod18">18. Indian English Mistakes</a>
+                <a href="#mod19">19. Quiz</a>
+                <a href="#mod20">20. Final Tips</a>
+                <a href="#mod21">21. Evaluation & Completion</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lesson-content" style="flex: 3;">
+
+            <section id="mod1">
+                <h2>1. Introduction</h2>
+                <p>Welcome to Day 10! Today we focus on a crucial skill for any tech professional: delivering impactful technical demonstrations and presentations. Whether you are showcasing a new feature to stakeholders, presenting a technical architecture to your team, or pitching a product, your delivery matters.</p>
+            </section>
+
+            <section id="mod2">
+                <h2>2. Why It Matters</h2>
+                <p>A brilliant piece of code or a robust architecture can easily be overlooked if it's not communicated effectively. Impactful presentations build trust, secure buy-in from management, and establish your authority as a subject matter expert. Poor presentations lead to confusion and lack of adoption.</p>
+            </section>
+
+            <section id="mod3">
+                <h2>3. Vocabulary Arsenal (25 Key Words)</h2>
+                <p>Master these words to elevate your presentation vocabulary.</p>
+                <div id="vocab-cards-container"></div>
+                <script>
+                    const vocabData = [
+                        { word: "Demonstrate", ipa: "/ˈdɛmənˌstreɪt/", pos: "Verb", def: "To clearly show the existence or truth of something by giving proof or evidence.", syn: "Show, Prove, Exhibit", ant: "Hide, Conceal", ex: ["Int: Let me demonstrate my problem-solving approach.", "Tech: We will demonstrate the new API endpoints.", "Corp: The Q3 report demonstrates significant growth.", "Daily: Can you demonstrate how to use this coffee machine?"] },
+                        { word: "Showcase", ipa: "/ˈʃoʊˌkeɪs/", pos: "Verb/Noun", def: "To exhibit or display something, highlighting its best qualities.", syn: "Display, Feature, Present", ant: "Conceal", ex: ["Int: My portfolio showcases my frontend skills.", "Tech: This demo will showcase the real-time analytics feature.", "Corp: We are showcasing our products at the expo.", "Daily: The gallery showcases local talent."] },
+                        { word: "Illustrate", ipa: "/ˈɪləˌstreɪt/", pos: "Verb", def: "To explain or make something clear by using examples, charts, or pictures.", syn: "Explain, Depict, Clarify", ant: "Confuse, Obscure", ex: ["Int: Let me illustrate with a past example.", "Tech: This diagram illustrates the data flow.", "Corp: The figures illustrate our market share.", "Daily: He illustrated his point with a funny story."] },
+                        { word: "Highlight", ipa: "/ˈhaɪˌlaɪt/", pos: "Verb/Noun", def: "To attract attention to or emphasize something important.", syn: "Emphasize, Underline, Spotlight", ant: "Downplay, Ignore", ex: ["Int: I'd like to highlight my leadership experience.", "Tech: Let's highlight the security improvements.", "Corp: The CEO highlighted the importance of teamwork.", "Daily: I highlighted the key chapters in the book."] },
+                        { word: "Emphasize", ipa: "/ˈɛmfəˌsaɪz/", pos: "Verb", def: "To give special importance or prominence to something in speaking or writing.", syn: "Stress, Highlight, Underline", ant: "De-emphasize, Understate", ex: ["Int: I emphasize continuous learning in my career.", "Tech: I must emphasize that this feature is in beta.", "Corp: The memo emphasizes cost-cutting.", "Daily: She emphasized the need to leave early."] },
+                        { word: "Clarify", ipa: "/ˈklærəˌfaɪ/", pos: "Verb", def: "To make a statement or situation less confused and more comprehensible.", syn: "Explain, Simplify, Elucidate", ant: "Confuse, Complicate", ex: ["Int: Could you clarify the responsibilities of this role?", "Tech: Let me clarify how the caching mechanism works.", "Corp: We need to clarify our refund policy.", "Daily: Can you clarify what time we are meeting?"] },
+                        { word: "Summarize", ipa: "/ˈsʌməˌraɪz/", pos: "Verb", def: "To give a brief statement of the main points of something.", syn: "Outline, Recap, Condense", ant: "Expand, Elaborate", ex: ["Int: To summarize, my background perfectly fits your needs.", "Tech: Let me summarize the system requirements.", "Corp: The manager summarized the meeting minutes.", "Daily: Can you summarize the movie for me?"] },
+                        { word: "Conclude", ipa: "/kənˈklud/", pos: "Verb", def: "To bring something to an end; to arrive at a judgment or opinion by reasoning.", syn: "Finish, Resolve, Deduce", ant: "Begin, Start", ex: ["Int: I'll conclude by thanking you for your time.", "Tech: We conclude that the new server is 20% faster.", "Corp: The board concluded the session at 5 PM.", "Daily: The event will conclude with a dinner."] },
+                        { word: "Transition", ipa: "/trænˈzɪʃən/", pos: "Noun/Verb", def: "The process or a period of changing from one state or condition to another.", syn: "Shift, Change, Move", ant: "Stagnation", ex: ["Int: I am looking to transition into a managerial role.", "Tech: We are transitioning from monolith to microservices.", "Corp: The company is in a period of transition.", "Daily: The transition from summer to fall is abrupt here."] },
+                        { word: "Engage", ipa: "/ɪnˈgeɪdʒ/", pos: "Verb", def: "To occupy, attract, or involve someone's interest or attention.", syn: "Involve, Attract, Captivate", ant: "Bore, Alienate", ex: ["Int: I try to engage team members in brainstorming.", "Tech: The app is designed to engage young users.", "Corp: We must engage our stakeholders early.", "Daily: The book really engaged my attention."] },
+                        { word: "Captivate", ipa: "/ˈkæptəˌveɪt/", pos: "Verb", def: "To attract and hold the interest and attention of; charm.", syn: "Fascinate, Enthrall, Charm", ant: "Repel, Bore", ex: ["Int: I aim to captivate the audience during my pitches.", "Tech: The sleek UI captivates the users instantly.", "Corp: His keynote captivated the entire industry.", "Daily: The magician captivated the children."] },
+                        { word: "Articulate", ipa: "/ɑrˈtɪkjələt/", pos: "Adjective/Verb", def: "Having or showing the ability to speak fluently and coherently.", syn: "Eloquent, Clear, Express", ant: "Inarticulate, Mumble", ex: ["Int: I can clearly articulate technical concepts to non-tech folks.", "Tech: The doc articulates the deployment steps.", "Corp: She is an articulate speaker.", "Daily: He struggled to articulate his feelings."] },
+                        { word: "Convey", ipa: "/kənˈveɪ/", pos: "Verb", def: "To make an idea, impression, or feeling known or understandable to someone.", syn: "Communicate, Express, Transmit", ant: "Withhold, Hide", ex: ["Int: I want to convey my enthusiasm for this project.", "Tech: The error message should convey what went wrong.", "Corp: Please convey my apologies to the team.", "Daily: Words cannot convey how happy I am."] },
+                        { word: "Present", ipa: "/prɪˈzɛnt/", pos: "Verb", def: "To show or offer something for others to consider.", syn: "Introduce, Show, Offer", ant: "Withhold", ex: ["Int: I presented my findings to the CTO.", "Tech: Today I will present the new dashboard.", "Corp: The CFO presented the annual budget.", "Daily: He presented her with a gift."] },
+                        { word: "Structure", ipa: "/ˈstrʌktʃər/", pos: "Noun/Verb", def: "The arrangement of and relations between the parts or elements of something complex.", syn: "Framework, Organization, Arrange", ant: "Disorganization, Chaos", ex: ["Int: I structure my days using time-blocking.", "Tech: The database structure needs optimization.", "Corp: The corporate structure is very hierarchical.", "Daily: The structure of the building is sound."] },
+                        { word: "Framework", ipa: "/ˈfreɪmˌwɜrk/", pos: "Noun", def: "An essential supporting structure of a building, vehicle, or object; a basic structure underlying a system.", syn: "Structure, Skeleton, Foundation", ant: "Disorganization", ex: ["Int: I use the STAR framework for interviews.", "Tech: We built this using the React framework.", "Corp: The policy provides a framework for decisions.", "Daily: The framework of the tent snapped."] },
+                        { word: "Overview", ipa: "/ˈoʊvərˌvju/", pos: "Noun", def: "A general review or summary of a subject.", syn: "Summary, Outline, Synopsis", ant: "Detail", ex: ["Int: Here is a brief overview of my career.", "Tech: I'll give an overview of the system architecture.", "Corp: The CEO gave an overview of Q1 performance.", "Daily: Read the overview before buying the book."] },
+                        { word: "Walkthrough", ipa: "/ˈwɔkˌθru/", pos: "Noun", def: "A step-by-step demonstration or explanation of a process.", syn: "Demonstration, Guide, Tutorial", ant: "Summary", ex: ["Int: I can give a walkthrough of a recent project.", "Tech: Let's do a code walkthrough.", "Corp: HR provided a walkthrough of the benefits portal.", "Daily: I watched a game walkthrough online."] },
+                        { word: "Handoff", ipa: "/ˈhændˌɔf/", pos: "Noun", def: "The transfer of responsibility or control from one person or group to another.", syn: "Transfer, Delegation, Handover", ant: "Retention", ex: ["Int: I ensure a smooth handoff between teams.", "Tech: The design-to-development handoff is critical.", "Corp: The project handoff document is ready.", "Daily: The baton handoff in the relay race was flawless."] },
+                        { word: "Q&A", ipa: "/ˌkju ənd ˈeɪ/", pos: "Noun", def: "An exchange of questions and answers.", syn: "Interview, Interrogation, Discussion", ant: "Monologue", ex: ["Int: I am prepared for the technical Q&A.", "Tech: We will have a 10-minute Q&A after the demo.", "Corp: The town hall ended with an open Q&A.", "Daily: The author did a Q&A after the reading."] },
+                        { word: "Feedback", ipa: "/ˈfidˌbæk/", pos: "Noun", def: "Information about reactions to a product, a person's performance of a task, etc.", syn: "Response, Criticism, Evaluation", ant: "Silence", ex: ["Int: I actively seek constructive feedback.", "Tech: The user feedback on the new feature is positive.", "Corp: We are collecting feedback from clients.", "Daily: I'd love your feedback on my outfit."] },
+                        { word: "Iteration", ipa: "/ˌɪtəˈreɪʃən/", pos: "Noun", def: "The repetition of a process or utterance.", syn: "Repetition, Cycle, Version", ant: "Stagnation", ex: ["Int: I believe in rapid iteration based on testing.", "Tech: This is the third iteration of our software.", "Corp: Product iterations happen every sprint.", "Daily: It took several iterations to get the recipe right."] },
+                        { word: "Polish", ipa: "/ˈpɑlɪʃ/", pos: "Verb/Noun", def: "To make something smooth, shiny, or refined; refinement or elegance.", syn: "Refine, Perfect, Shine", ant: "Tarnish, Dull", ex: ["Int: I like to polish my presentations thoroughly.", "Tech: The UI needs a bit more polish.", "Corp: The proposal has a high degree of polish.", "Daily: I need to polish my shoes."] },
+                        { word: "Delivery", ipa: "/dɪˈlɪvəri/", pos: "Noun", def: "The manner or style of giving a speech or presentation.", syn: "Presentation, Execution, Execution", ant: "Retention", ex: ["Int: I have practiced the delivery of my pitch.", "Tech: The delivery of the new update was delayed.", "Corp: Her delivery was confident and persuasive.", "Daily: The food delivery took an hour."] },
+                        { word: "Impact", ipa: "/ˈɪmpækt/", pos: "Noun/Verb", def: "A marked effect or influence.", syn: "Effect, Influence, Consequence", ant: "Insignificance", ex: ["Int: I want to make a measurable impact here.", "Tech: What is the performance impact of this query?", "Corp: The new policy had a positive impact on morale.", "Daily: The storm had a huge impact on travel."] }
+                    ];
+
+                    let vocabHTML = '';
+                    vocabData.forEach((v, idx) => {
+                        vocabHTML += `
+                        <div class="vocab-card">
+                            <h3>${idx + 1}. ${v.word} <button onclick="alert('Pronouncing: ${v.word}')">🔊</button></h3>
+                            <div style="font-size:0.85em; color:#666; margin-bottom:10px;">IPA: ${v.ipa} <span class="pos-badge">${v.pos}</span></div>
+                            <p><strong>Definition:</strong> ${v.def}</p>
+                            <p><strong>Synonyms:</strong> <span style="color:#2196f3">${v.syn}</span> | <strong>Antonyms:</strong> <span style="color:#f44336">${v.ant}</span></p>
+                            <div class="domain-examples">
+                                <div><strong>Interview:</strong> ${v.ex[0]}</div>
+                                <div><strong>Technical:</strong> ${v.ex[1]}</div>
+                                <div><strong>Corporate:</strong> ${v.ex[2]}</div>
+                                <div><strong>Daily:</strong> ${v.ex[3]}</div>
+                            </div>
+                            <textarea placeholder="Write your own practice sentence here..." style="width:100%; margin-top:10px; padding:5px;"></textarea>
+                        </div>`;
+                    });
+                    document.getElementById('vocab-cards-container').innerHTML = vocabHTML;
+                </script>
+            </section>
+
+            <section id="mod4">
+                <h2>4. Structuring a Demo</h2>
+                <p>A good technical demo shouldn't just be a random clicking of buttons. Follow this structure:</p>
+                <ol>
+                    <li><strong>The Hook (Context):</strong> Why are we here? What problem does this solve?</li>
+                    <li><strong>The Journey (The Demo):</strong> Show the happy path first. Tell a user story.</li>
+                    <li><strong>Under the Hood (Tech Details):</strong> Briefly explain the architecture or clever code, tailored to your audience.</li>
+                    <li><strong>The Value (Impact):</strong> Reiterate the benefits (speed, cost, UX).</li>
+                    <li><strong>The Ask/Next Steps:</strong> Q&A, feedback, or deployment plans.</li>
+                </ol>
+            </section>
+
+            <section id="mod5">
+                <h2>5. Grammar Focus: Signposting Language</h2>
+                <p>Signposting words guide your audience through your presentation, telling them where you are and where you're going.</p>
+                <ul>
+                    <li><strong>Starting:</strong> "First of all, let me thank you for...", "I've divided my presentation into..."</li>
+                    <li><strong>Moving to a new point:</strong> "Moving on to...", "Let's turn our attention to..."</li>
+                    <li><strong>Expanding:</strong> "To elaborate on that...", "Let me illustrate this point..."</li>
+                    <li><strong>Concluding:</strong> "To sum up...", "In conclusion...", "Let's quickly recap..."</li>
+                </ul>
+            </section>
+
+            <section id="mod6">
+                <h2>6. Engaging the Audience</h2>
+                <p>Keep your audience awake during technical topics by asking rhetorical questions ("Have you ever noticed how slow X is?"), using analogies ("Think of this cache like a bookshelf..."), and checking in ("Does that make sense so far?").</p>
+            </section>
+
+            <section id="mod7">
+                <h2>7. Visual Aids</h2>
+                <p>Don't put paragraphs of text on slides. Use high-contrast diagrams, architecture maps, and bold metrics. In a live demo, ensure your font size in the IDE/browser is large enough for the back row (Cmd/Ctrl +).</p>
+            </section>
+
+            <section id="mod8">
+                <h2>8. Role-Play Dialogues</h2>
+                <p>Read through these 5 realistic technical demo situations.</p>
+
+                <h4>Dialogue 1: The New Feature Demo</h4>
+                <div class="dialogue-bubble speaker-a">Dev (Alex): Thanks for joining. Today, I'll demonstrate the new bulk-upload feature. Let's start by looking at the previous manual process.</div>
+                <div class="dialogue-bubble speaker-b">PM (Sarah): Great. The clients have been asking for this for months.</div>
+                <div class="dialogue-bubble speaker-a">Dev (Alex): As you can see, I just drag and drop the CSV here. Notice how it instantly validates the rows.</div>
+                <div class="dialogue-bubble speaker-b">PM (Sarah): Wow, that's fast. What happens if there's an error in the file?</div>
+                <div class="dialogue-bubble speaker-a">Dev (Alex): Let me illustrate that. I'll upload a malformed file. See? It highlights the specific row and column with the error without rejecting the whole batch.</div>
+                <div class="dialogue-bubble speaker-b">PM (Sarah): Excellent. That's a huge time-saver.</div>
+
+                <h4>Dialogue 2: Explaining Architecture</h4>
+                <div class="dialogue-bubble speaker-a">Lead (John): Let's transition to the backend changes. We've introduced Redis for caching.</div>
+                <div class="dialogue-bubble speaker-b">Junior (Mike): Could you clarify why we chose Redis over Memcached?</div>
+                <div class="dialogue-bubble speaker-a">Lead (John): Sure. I want to highlight that Redis supports complex data types like Hashes and Sets, which we need for our new tagging system.</div>
+                <div class="dialogue-bubble speaker-b">Junior (Mike): Ah, that makes sense. Does it impact our deployment pipeline?</div>
+                <div class="dialogue-bubble speaker-a">Lead (John): Only slightly. I'll provide a walkthrough of the updated CI/CD script next.</div>
+
+                <h4>Dialogue 3: Handling a Live Bug</h4>
+                <div class="dialogue-bubble speaker-a">Dev (Priya): ...and when we click 'Submit', it should process the payment. (Clicks) Oh, wait.</div>
+                <div class="dialogue-bubble speaker-b">Client (Tom): Is it supposed to show a 500 error?</div>
+                <div class="dialogue-bubble speaker-a">Dev (Priya): Apologies for that. It seems the sandbox payment gateway is currently timing out. Let me pivot and show you the reporting dashboard while that recovers.</div>
+                <div class="dialogue-bubble speaker-b">Client (Tom): No problem, these things happen. Yes, let's see the reports.</div>
+                <div class="dialogue-bubble speaker-a">Dev (Priya): Thanks. Moving on to reports, you'll see we have integrated...</div>
+
+                <h4>Dialogue 4: Handoff to QA</h4>
+                <div class="dialogue-bubble speaker-a">Dev (Sam): That concludes the demo of the auth module. Are there any questions before handoff?</div>
+                <div class="dialogue-bubble speaker-b">QA (Lisa): Yes, did you include edge cases for expired tokens in the test coverage?</div>
+                <div class="dialogue-bubble speaker-a">Dev (Sam): Yes, I've outlined them in the PR description. I also wrote a script to generate expired tokens for you.</div>
+                <div class="dialogue-bubble speaker-b">QA (Lisa): Perfect, that will speed up my testing. I'll start on this iteration today.</div>
+                <div class="dialogue-bubble speaker-a">Dev (Sam): Great, let me know if you need any clarification.</div>
+
+                <h4>Dialogue 5: Executive Pitch</h4>
+                <div class="dialogue-bubble speaker-a">CTO (David): To summarize, migrating to AWS will cut our server costs by 30%.</div>
+                <div class="dialogue-bubble speaker-b">CEO (Elena): What about the transition period? Will there be downtime?</div>
+                <div class="dialogue-bubble speaker-a">CTO (David): We've structured a blue-green deployment model. The impact on users will be zero.</div>
+                <div class="dialogue-bubble speaker-b">CEO (Elena): That sounds promising. How long will the entire migration take?</div>
+                <div class="dialogue-bubble speaker-a">CTO (David): We estimate three months. I'll share the detailed framework by Friday.</div>
+
+            </section>
+
+            <section id="mod9">
+                <h2>9. Body Language</h2>
+                <p>Even on Zoom, body language matters. Look at the camera (not the screen) to make eye contact. Use hand gestures to emphasize points. Sit up straight to project confidence. Don't slouch or cross your arms defensively.</p>
+            </section>
+
+            <section id="mod10">
+                <h2>10. Handling Q&A</h2>
+                <p>Anticipate questions beforehand. If you don't know the answer, don't bluff. Say: "That's a great question. I don't have the exact figures in front of me, but I will look into it and get back to you by this afternoon." Always repeat the question so everyone hears it before answering.</p>
+            </section>
+
+            <section id="mod11">
+                <h2>11. Common Presentation Pitfalls</h2>
+                <ul>
+                    <li><strong>Speaking too fast:</strong> Nerves make us rush. Consciously slow down and pause between slides.</li>
+                    <li><strong>Reading slides:</strong> The slides are a guide, not a script. Your audience can read.</li>
+                    <li><strong>Ignoring failures:</strong> If a demo breaks, acknowledge it calmly, don't panic.</li>
+                </ul>
+            </section>
+
+            <section id="mod12">
+                <h2>12. Online vs In-person</h2>
+                <p>Online demos require more explicit check-ins ("Is everyone able to see my IDE?"). In-person demos require managing the room's energy and moving around physically to engage different sections of the audience.</p>
+            </section>
+
+            <section id="mod13">
+                <h2>13. HR Interview Coaching</h2>
+                <p><strong>Question: "How do you prepare and deliver technical presentations?"</strong></p>
+                
+                <div class="hr-card hr-bad">
+                    <strong>🔴 Bad Answer:</strong> "I just make some slides the night before and show my code. I usually just talk through what I did and answer questions if they have any."
+                    <br><em>Coaching: Too casual, lacks structure, doesn't mention audience consideration.</em>
+                </div>
+
+                <div class="hr-card hr-good">
+                    <strong>🟡 Good Answer:</strong> "I start by understanding my audience. If it's managers, I focus on business value. If it's developers, I focus on the architecture. I prepare a few slides, make sure my local environment is working for a live demo, and leave time for Q&A."
+                    <br><em>Coaching: Better. Mentions audience tailoring and basic preparation.</em>
+                </div>
+
+                <div class="hr-card hr-excellent">
+                    <strong>🟢 Excellent Answer (STAR Method):</strong> "I approach technical presentations by first analyzing the audience to tailor my depth—business impact for stakeholders, technical specifics for engineers. For instance, last month I had to demo our new microservices architecture. (Task) I structured the presentation into three parts: the problem with our old monolith, a live demo of the new faster deployment, and the architectural diagram. (Action) I created backup recordings in case the live demo failed, and used clear signposting language. (Result) The presentation was well-received, and leadership immediately approved the rollout phase. I always prioritize clarity, engaging visuals, and robust preparation."
+                    <br><em>Coaching: Perfect. Structured, provides a specific example, mentions contingency planning, and highlights the result.</em>
+                </div>
+            </section>
+
+            <section id="mod14">
+                <h2>14. Technical Communication: Basic vs Professional</h2>
+                <table style="width:100%; border-collapse: collapse; text-align: left;">
+                    <tr><th style="border-bottom: 2px solid #333; padding: 10px;">Basic Script</th><th style="border-bottom: 2px solid #333; padding: 10px;">Professional Script</th></tr>
+                    <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">"So, I made this button. When you click it, it saves data."</td><td style="padding: 10px; border-bottom: 1px solid #eee;">"I've implemented a new save feature. Triggering this action persists the data asynchronously."</td></tr>
+                    <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">"The old code was bad and slow."</td><td style="padding: 10px; border-bottom: 1px solid #eee;">"The legacy system had performance bottlenecks which we've now optimized."</td></tr>
+                    <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">"Wait, it's not working. Uh oh."</td><td style="padding: 10px; border-bottom: 1px solid #eee;">"It appears we have a slight hiccup in the staging environment. Let's pivot to the diagrams."</td></tr>
+                    <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">"That's all I have."</td><td style="padding: 10px; border-bottom: 1px solid #eee;">"That concludes the demo. I'd be happy to open the floor for any questions."</td></tr>
+                </table>
+            </section>
+
+            <section id="mod15">
+                <h2>15. Group Discussion</h2>
+                <div style="background: #f4f6f8; padding: 20px; border-radius: 8px;">
+                    <h3>Topic: Open Source vs Proprietary Software</h3>
+                    <p><strong>Brief:</strong> Discuss the merits and demerits of using open-source software versus proprietary (closed-source) software in enterprise environments.</p>
+                    
+                    <strong>Model Opening:</strong> "Good morning everyone. Today we are discussing 'Open Source versus Proprietary Software'. In an era where tech stacks are evolving rapidly, this is a crucial debate for any enterprise balancing cost, security, and innovation. Let's explore both sides."
+
+                    <div style="display: flex; gap: 20px; margin-top: 15px;">
+                        <div style="flex: 1;">
+                            <strong>Pro (Open Source) Points:</strong>
+                            <ul>
+                                <li>Cost-effective (no licensing fees).</li>
+                                <li>Community-driven rapid innovation.</li>
+                                <li>Avoids vendor lock-in.</li>
+                                <li>Transparent code allows custom security audits.</li>
+                                <li>High flexibility and customization.</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <strong>Pro (Proprietary) / Con (OS) Points:</strong>
+                            <ul>
+                                <li>Dedicated professional support and SLAs.</li>
+                                <li>Out-of-the-box polished user experience.</li>
+                                <li>Clear liability and indemnification.</li>
+                                <li>Often more secure by default (security through obscurity/dedicated teams).</li>
+                                <li>Better integration within specific ecosystems (e.g., Apple, Microsoft).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <strong>Useful GD Vocabulary:</strong> Vendor lock-in, SLA (Service Level Agreement), Ecosystem, Transparent, Customization, Licensing, Indemnification, Overhead, Community-driven, Proprietary.
+
+                    <br><br>
+                    <strong>Model Conclusion:</strong> "To conclude, neither approach is a silver bullet. The choice depends on the organization's specific needs, budget, and internal technical expertise. A hybrid approach often yields the best results."
+                </div>
+            </section>
+
+            <section id="mod16">
+                <h2>16. Presentation Checklist</h2>
+                <ul>
+                    <li><input type="checkbox"> Test microphone and camera.</li>
+                    <li><input type="checkbox"> Clear desktop and close distracting tabs (e.g., Slack).</li>
+                    <li><input type="checkbox"> Increase font size in IDE/Terminal.</li>
+                    <li><input type="checkbox"> Have a backup plan if live demo fails (screenshots/video).</li>
+                    <li><input type="checkbox"> Keep water nearby.</li>
+                </ul>
+            </section>
+
+            <section id="mod17">
+                <h2>17. Rapid Fire (Speaking Practice)</h2>
+                <p>Read the question, start the timer, and speak your answer out loud for 5 seconds continuously.</p>
+                
+                <div id="rapid-timer" style="font-size: 2em; font-weight: bold; color: #d32f2f; text-align: center; margin: 10px 0;">00:05</div>
+                
+                <div id="rapid-questions" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+                    <ol>
+                        <li>What is your favorite tech stack? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Define API in simple terms. <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Why is documentation important? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Explain cloud computing briefly. <button onclick="startTimer()">Start Timer</button></li>
+                        <li>What was your biggest coding bug? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>How do you handle negative feedback? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Mac, Windows, or Linux? Why? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>What does Agile mean to you? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>How do you stay updated with tech? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Describe a great UI. <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Why did you choose your career? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>What is a microservice? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>How do you prioritize tasks? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Explain OOP concepts quickly. <button onclick="startTimer()">Start Timer</button></li>
+                        <li>What's your preferred IDE? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>How do you test your code? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>What is version control? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Describe a successful team. <button onclick="startTimer()">Start Timer</button></li>
+                        <li>What is your weakness? <button onclick="startTimer()">Start Timer</button></li>
+                        <li>Where do you see yourself in 3 years? <button onclick="startTimer()">Start Timer</button></li>
+                    </ol>
+                </div>
+                <script>
+                    let interval;
+                    function startTimer() {
+                        clearInterval(interval);
+                        let time = 5;
+                        const display = document.getElementById('rapid-timer');
+                        display.innerText = "00:05";
+                        display.style.color = "#4caf50";
+                        interval = setInterval(() => {
+                            time--;
+                            display.innerText = "00:0" + time;
+                            if (time <= 3) display.style.color = "#d32f2f";
+                            if (time <= 0) {
+                                clearInterval(interval);
+                                display.innerText = "TIME'S UP!";
+                            }
+                        }, 1000);
+                    }
+                </script>
+            </section>
+
+            <section id="mod18">
+                <h2>18. Common Indian English Mistakes</h2>
+                
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "I will demonstrate about the new feature."<br>
+                    <strong>✅ Correct:</strong> "I will demonstrate the new feature."<br>
+                    <em>Explanation: 'Demonstrate' is a transitive verb and does not need the preposition 'about'.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "Please revert back to me."<br>
+                    <strong>✅ Correct:</strong> "Please revert to me." or "Please reply to me."<br>
+                    <em>Explanation: 'Revert' already means to go back, so 'revert back' is redundant.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "I have a doubt in this slide."<br>
+                    <strong>✅ Correct:</strong> "I have a question about this slide."<br>
+                    <em>Explanation: In standard global English, 'doubt' implies suspicion. Use 'question' for queries.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "We will discuss about the architecture."<br>
+                    <strong>✅ Correct:</strong> "We will discuss the architecture."<br>
+                    <em>Explanation: Like 'demonstrate', 'discuss' does not take 'about'.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "Let's prepone the demo."<br>
+                    <strong>✅ Correct:</strong> "Let's bring the demo forward." or "Let's advance the demo."<br>
+                    <em>Explanation: 'Prepone' is an Indian English colloquialism; globally, use 'bring forward'.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "I am doing this project since two months."<br>
+                    <strong>✅ Correct:</strong> "I have been doing this project for two months."<br>
+                    <em>Explanation: Use 'for' with a duration, and present perfect continuous tense.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "He is not in his cabin."<br>
+                    <strong>✅ Correct:</strong> "He is not in his office."<br>
+                    <em>Explanation: 'Cabin' usually refers to a log house in the woods. Use 'office' or 'cubicle'.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "Pass out from college."<br>
+                    <strong>✅ Correct:</strong> "Graduate from college."<br>
+                    <em>Explanation: 'Pass out' generally means to faint or lose consciousness.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "I am having 5 years of experience."<br>
+                    <strong>✅ Correct:</strong> "I have 5 years of experience."<br>
+                    <em>Explanation: 'Have' (indicating possession) is not used in the continuous form here.</em>
+                </div>
+                <div class="mistake-block">
+                    <strong>❌ Wrong:</strong> "Myself John, I am the lead dev."<br>
+                    <strong>✅ Correct:</strong> "I am John, the lead dev." or "My name is John..."<br>
+                    <em>Explanation: 'Myself' is a reflexive pronoun and cannot be the subject of a sentence.</em>
+                </div>
+            </section>
+
+            <section id="mod19">
+                <h2>19. Quiz</h2>
+                <div class="quiz-container" id="quiz-block">
+                    <!-- Quiz generated by JS -->
+                </div>
+                <script>
+                    const questions = [
+                        { q: "Which word means to attract and hold the interest of someone?", opts: ["Highlight", "Captivate", "Articulate", "Structure"], correct: 1, exp: "Captivate means to attract and hold interest." },
+                        { q: "What is the synonym of 'Summarize'?", opts: ["Condense", "Expand", "Illustrate", "Transition"], correct: 0, exp: "Condense and summarize both mean to make brief." },
+                        { q: "Which word represents the transfer of responsibility?", opts: ["Iteration", "Handoff", "Overview", "Framework"], correct: 1, exp: "Handoff is the transfer of control." },
+                        { q: "To make something clear using examples is to:", opts: ["Convey", "Emphasize", "Illustrate", "Polish"], correct: 2, exp: "Illustrate means to explain with examples or pictures." },
+                        { q: "A step-by-step demonstration is called a:", opts: ["Walkthrough", "Structure", "Delivery", "Impact"], correct: 0, exp: "A walkthrough guides someone through a process step-by-step." },
+                        { q: "[Grammar] 'Moving on to the next point' is an example of:", opts: ["Concluding language", "Signposting language", "Aggressive language", "Passive voice"], correct: 1, exp: "Signposting helps navigate the structure of the presentation." },
+                        { q: "[Grammar] Choose the correct sentence:", opts: ["We will discuss about the issue.", "We will discuss the issue.", "We will discussing the issue.", "We discuss on the issue."], correct: 1, exp: "Discuss does not take 'about'." },
+                        { q: "[Grammar] Choose the correct sentence:", opts: ["I have a doubt.", "I have a question.", "I am having a doubt.", "I have doubting."], correct: 1, exp: "Use 'question' instead of 'doubt' in standard global English." }
+                    ];
+
+                    let quizHTML = '';
+                    questions.forEach((qu, i) => {
+                        quizHTML += `
+                        <div class="quiz-question">
+                            <p><strong>Q${i+1}. ${qu.q}</strong></p>
+                            <div class="quiz-options">
+                                ${qu.opts.map((opt, j) => `<button onclick="checkAnswer(this, ${qu.correct}, ${j}, 'exp${i}')">${opt}</button>`).join('')}
+                            </div>
+                            <div id="exp${i}" class="explanation">${qu.exp}</div>
+                        </div>`;
+                    });
+                    document.getElementById('quiz-block').innerHTML = quizHTML;
+
+                    function checkAnswer(btn, correctIdx, selectedIdx, expId) {
+                        const siblings = btn.parentElement.children;
+                        for(let b of siblings) { b.disabled = true; }
+                        if(correctIdx === selectedIdx) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('wrong');
+                            siblings[correctIdx].classList.add('correct');
+                        }
+                        document.getElementById(expId).style.display = 'block';
+                    }
+                </script>
+            </section>
+
+            <section id="mod20">
+                <h2>20. Final Tips</h2>
+                <p>Practice in front of a mirror or record yourself. The more you practice your delivery, the less you have to think about the words, allowing you to focus on the audience's reaction. Remember, confidence is key!</p>
+            </section>
+
+            <section id="mod21">
+                <h2>21. Evaluation & Completion</h2>
+                <p>Rate your comfort level (1-10) on the following presentation skills:</p>
+                <div style="display:flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <label>Structuring: <input type="range" id="sk1" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Signposting: <input type="range" id="sk2" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Vocab Usage: <input type="range" id="sk3" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Confidence: <input type="range" id="sk4" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Q&A Handling: <input type="range" id="sk5" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Body Language: <input type="range" id="sk6" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Visuals: <input type="range" id="sk7" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <label>Grammar: <input type="range" id="sk8" min="1" max="10" value="5" oninput="updateChart()"></label><br>
+                        <button class="btn btn-secondary" onclick="saveEval()" style="margin-top:10px;">Save Evaluation</button>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px; padding: 30px; background: #e8f5e9; border-radius: 8px;">
+                    <h3>Ready to complete Day 10?</h3>
+                    <button class="btn btn-primary" id="completeBtn" style="font-size: 1.2em; padding: 15px 30px;" onclick="markComplete()">Mark Day 10 Complete ✅</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scroll to top -->
+    <button class="back-to-top" id="bttBtn" onclick="window.scrollTo(0,0)">↑</button>
+
+    <footer style="text-align:center; padding: 20px; background:#333; color:#fff; margin-top:40px;">
+        <p>&copy; 2026 English Communication Master. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // TOC Scroll Spy
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 60) { current = section.getAttribute('id'); }
+            });
+            document.querySelectorAll('.toc a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
+            });
+
+            // Back to top button
+            const btt = document.getElementById('bttBtn');
+            if(window.scrollY > 300) btt.style.display = 'block';
+            else btt.style.display = 'none';
+        });
+
+        // Radar Chart
+        let chart;
+        function initChart() {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Structuring', 'Signposting', 'Vocab Usage', 'Confidence', 'Q&A Handling', 'Body Language', 'Visuals', 'Grammar'],
+                    datasets: [{
+                        label: 'My Skills',
+                        data: [5,5,5,5,5,5,5,5],
+                        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                        borderColor: 'rgba(76, 175, 80, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: { scales: { r: { min: 0, max: 10 } } }
+            });
+        }
+        initChart();
+
+        function updateChart() {
+            const data = [];
+            for(let i=1; i<=8; i++) {
+                data.push(parseInt(document.getElementById('sk'+i).value));
+            }
+            chart.data.datasets[0].data = data;
+            chart.update();
+        }
+
+        function saveEval() {
+            alert('Evaluation saved to localStorage!');
+            localStorage.setItem('day10_eval', JSON.stringify(chart.data.datasets[0].data));
+        }
+
+        // Confetti implementation
+        function fireConfetti() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+            for(let i=0; i<100; i++) {
+                const conf = document.createElement('div');
+                conf.style.position = 'fixed';
+                conf.style.width = '10px';
+                conf.style.height = '10px';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-10px';
+                conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                conf.style.zIndex = '9999';
+                document.body.appendChild(conf);
+
+                const anim = conf.animate([
+                    { transform: `translate3d(0,0,0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translate3d(${Math.random()*200 - 100}px, 100vh, 0) rotate(${Math.random()*720}deg)`, opacity: 0 }
+                ], { duration: Math.random() * 2000 + 1000, easing: 'cubic-bezier(.37,0,.63,1)' });
+                
+                anim.onfinish = () => conf.remove();
+            }
+        }
+
+        function markComplete() {
+            localStorage.setItem('day10_completed', 'true');
+            document.getElementById('completeBtn').innerText = "Completed! 🎉";
+            document.getElementById('completeBtn').classList.replace('btn-primary', 'btn-secondary');
+            document.getElementById('lessonProgress').style.width = '100%';
+            fireConfetti();
+        }
+
+        // Check completion on load
+        window.onload = () => {
+            if(localStorage.getItem('day10_completed') === 'true') {
+                document.getElementById('completeBtn').innerText = "Completed! 🎉";
+                document.getElementById('completeBtn').classList.replace('btn-primary', 'btn-secondary');
+                document.getElementById('lessonProgress').style.width = '100%';
+            } else {
+                document.getElementById('lessonProgress').style.width = '50%'; // Arbitrary in-progress
+            }
+
+            const savedEval = localStorage.getItem('day10_eval');
+            if(savedEval) {
+                const data = JSON.parse(savedEval);
+                for(let i=0; i<8; i++) {
+                    document.getElementById('sk'+(i+1)).value = data[i];
+                }
+                updateChart();
+            }
+        };
+    </script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+</body>
+</html>

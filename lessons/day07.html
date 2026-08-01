@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7: Week 1 Review & Diagnostic Speech Test</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --secondary: #10B981;
+            --bg-color: #0F172A;
+            --text-color: #F8FAFC;
+            --card-bg: #1E293B;
+            --accent: #F43F5E;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .module-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .module-number {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: var(--text-color);
+        }
+
+        .module-content {
+            color: #94A3B8;
+            margin-bottom: 1.5rem;
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .task-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: #CBD5E1;
+        }
+
+        .task-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .interactive-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+        }
+
+        .interactive-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .accent-text {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #64748B;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Day 7: Week 1 Review & Diagnostic Speech Test</h1>
+        <p>Consolidate your learning from Week 1 and set your baseline with a comprehensive diagnostic speech test.</p>
+    </header>
+
+    <div style="max-width: 1400px; margin: 0 auto; padding: 2rem; display: flex; gap: 2rem; align-items: flex-start;">
+
+        <!-- TOC Sidebar -->
+        <aside style="flex: 0 0 240px; width: 240px; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h3 style="margin-top:0; font-size:1rem; border-bottom: 2px solid #e2e8f0; padding-bottom:.75rem; margin-bottom:1rem;">📋 Modules</h3>
+            <nav>
+                <a href="#mod-1"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'; this.style.borderLeftColor='#93c5fd'" onmouseout="this.style.background=''; this.style.color='#475569'; this.style.borderLeftColor='transparent'">○ 1. Warm-up & Setup</a>
+                <a href="#mod-2"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 2. Vocabulary Review</a>
+                <a href="#mod-3"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 3. Grammar Review</a>
+                <a href="#mod-4"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 4. Speaking Fluency</a>
+                <a href="#mod-5"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 5. Self-Introduction Test</a>
+                <a href="#mod-6"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 6. Diagnostic Test</a>
+                <a href="#mod-7"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 7. Interview Q&A</a>
+                <a href="#mod-8"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 8. Error Analysis</a>
+                <a href="#mod-9"  style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 9. Writing Review</a>
+                <a href="#mod-10" style="display:flex; gap:.5rem; padding:.4rem .6rem; color:#475569; text-decoration:none; border-radius:6px; border-left:3px solid transparent; font-size:.85rem; transition: all .15s ease;" onmouseover="this.style.background='#eff6ff'; this.style.color='#2563eb'" onmouseout="this.style.background=''; this.style.color='#475569'">○ 10. Final Week Score</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main style="flex: 1; min-width: 0;">
+        <div class="container">
+        <div class="module-grid">
+            
+            <!-- Module 1 --><div id="mod-1" class="module-card">
+
+                <span class="module-number">Module 1</span>
+                <h2 class="module-title">Warm-up & Setup</h2>
+                <div class="module-content">
+                    <p>Prepare your environment and mindset for a deep review and testing session.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Find a quiet, distraction-free space.</li>
+                    <li>Set up your microphone and recording device.</li>
+                    <li>Do a 2-minute vocal warm-up (lip trills, humming).</li>
+                </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card">
+                <span class="module-number">Module 2</span>
+                <h2 class="module-title">Week 1 Vocabulary Review</h2>
+                <div class="module-content">
+                    <p>Review the high-frequency words and idioms covered in Days 1-6.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Review your flashcards or vocabulary journal.</li>
+                    <li>Use 5 target words in new, spontaneous sentences.</li>
+                    <li>Identify any words you still struggle to pronounce.</li>
+                </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card">
+                <span class="module-number">Module 3</span>
+                <h2 class="module-title">Grammar Review: Tenses</h2>
+                <div class="module-content">
+                    <p>Solidify your understanding of foundational tenses used for self-introductions and daily routines.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Write 3 sentences in Simple Present.</li>
+                    <li>Write 3 sentences in Present Continuous.</li>
+                    <li>Write 3 sentences in Simple Past.</li>
+                </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-card">
+                <span class="module-number">Module 4</span>
+                <h2 class="module-title">Pronunciation Checkpoint</h2>
+                <div class="module-content">
+                    <p>Focus on common challenging sounds from the past week (e.g., TH, R vs L, V vs W).</p>
+                </div>
+                <ul class="task-list">
+                    <li>Record yourself reading a list of minimal pairs.</li>
+                    <li>Compare your recording against native speaker audio.</li>
+                    <li>Practice difficult sounds isolated and in context.</li>
+                </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-card">
+                <span class="module-number">Module 5</span>
+                <h2 class="module-title">Fluency Drill: Tongue Twisters</h2>
+                <div class="module-content">
+                    <p>Improve articulation and speed with targeted tongue twisters.</p>
+                </div>
+                <ul class="task-list">
+                    <li>"She sells seashells by the seashore." (Repeat 3x)</li>
+                    <li>"Red lorry, yellow lorry." (Repeat 5x)</li>
+                    <li>Focus on clarity over speed initially.</li>
+                </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module-card">
+                <span class="module-number">Module 6</span>
+                <h2 class="module-title">Listening Comprehension Test</h2>
+                <div class="module-content">
+                    <p>Evaluate your ability to understand native speakers at natural speed.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Listen to a 2-minute provided audio clip.</li>
+                    <li>Answer 5 comprehension questions.</li>
+                    <li>Identify 3 linked sounds or reductions used by the speaker.</li>
+                </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module-card">
+                <span class="module-number">Module 7</span>
+                <h2 class="module-title">Reading Aloud & Intonation</h2>
+                <div class="module-content">
+                    <p>Practice reading a short paragraph with appropriate stress, rhythm, and emotion.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Mark thought groups and stressed words on the text.</li>
+                    <li>Read the text aloud with feeling.</li>
+                    <li>Record and review your pacing.</li>
+                </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module-card">
+                <span class="module-number">Module 8</span>
+                <h2 class="module-title">Shadowing Practice</h2>
+                <div class="module-content">
+                    <p>Mimic a native speaker to absorb natural speech patterns.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Listen to a 30-second dialogue.</li>
+                    <li>Shadow (repeat simultaneously) with the audio.</li>
+                    <li>Focus on matching the exact melody and rhythm.</li>
+                </ul>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module-card">
+                <span class="module-number">Module 9</span>
+                <h2 class="module-title">Impromptu Speaking: 1-Min</h2>
+                <div class="module-content">
+                    <p>Think on your feet with short, spontaneous speaking prompts.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Prompt: "Describe your favorite meal."</li>
+                    <li>Speak for exactly 60 seconds without stopping.</li>
+                    <li>Do not worry about mistakes; focus on flow.</li>
+                </ul>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="module-card">
+                <span class="module-number">Module 10</span>
+                <h2 class="module-title">Diagnostic Test: Instructions</h2>
+                <div class="module-content">
+                    <p>Understand the structure and goals of your baseline diagnostic speech.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Duration: 3 to 5 minutes.</li>
+                    <li>Format: Audio or video recording.</li>
+                    <li>Goal: Assess current fluency, grammar, and pronunciation.</li>
+                </ul>
+            </div>
+
+            <!-- Module 11 -->
+            <div class="module-card">
+                <span class="module-number">Module 11</span>
+                <h2 class="module-title">Test Topic Selection</h2>
+                <div class="module-content">
+                    <p>Choose a topic for your diagnostic speech.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Option A: A significant turning point in your life.</li>
+                    <li>Option B: Your career goals and why you chose them.</li>
+                    <li>Option C: A detailed review of a book or movie.</li>
+                </ul>
+            </div>
+
+            <!-- Module 12 -->
+            <div class="module-card">
+                <span class="module-number">Module 12</span>
+                <h2 class="module-title">Preparation & Outlining</h2>
+                <div class="module-content">
+                    <p>Take 5 minutes to outline your speech. Do NOT write a full script.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Introduction: Hook and thesis.</li>
+                    <li>Body: 2-3 main points with examples.</li>
+                    <li>Conclusion: Summary and closing thought.</li>
+                </ul>
+            </div>
+
+            <!-- Module 13 -->
+            <div class="module-card">
+                <span class="module-number">Module 13</span>
+                <h2 class="module-title">Diagnostic Speech Delivery</h2>
+                <div class="module-content">
+                    <p>Record your speech. This is your <span class="accent-text">baseline metric</span>.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Hit record on your device.</li>
+                    <li>Deliver your speech using only your outline.</li>
+                    <li>Save the file as "Week1_Diagnostic_[YourName]".</li>
+                </ul>
+                <button class="interactive-btn">Start Recording Timer (5:00)</button>
+            </div>
+
+            <!-- Module 14 -->
+            <div class="module-card">
+                <span class="module-number">Module 14</span>
+                <h2 class="module-title">Self-Evaluation & Analysis</h2>
+                <div class="module-content">
+                    <p>Listen back to your recording and objectively grade yourself.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Rate your fluency (1-10).</li>
+                    <li>Rate your vocabulary usage (1-10).</li>
+                    <li>Note the number of long pauses or "um"s.</li>
+                </ul>
+            </div>
+
+            <!-- Module 15 -->
+            <div class="module-card">
+                <span class="module-number">Module 15</span>
+                <h2 class="module-title">Identifying Weaknesses</h2>
+                <div class="module-content">
+                    <p>Pinpoint the specific areas holding you back.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Did you struggle with finding words? (Vocab)</li>
+                    <li>Did you use incorrect tenses? (Grammar)</li>
+                    <li>Were some words unclear? (Pronunciation)</li>
+                </ul>
+            </div>
+
+            <!-- Module 16 -->
+            <div class="module-card">
+                <span class="module-number">Module 16</span>
+                <h2 class="module-title">Setting Goals for Week 2</h2>
+                <div class="module-content">
+                    <p>Based on your diagnostic, what will you focus on next week?</p>
+                </div>
+                <ul class="task-list">
+                    <li>Set 1 primary goal (e.g., "Reduce filler words").</li>
+                    <li>Set 1 secondary goal (e.g., "Master past tense").</li>
+                    <li>Write these goals down in your journal.</li>
+                </ul>
+            </div>
+
+            <!-- Module 17 -->
+            <div class="module-card">
+                <span class="module-number">Module 17</span>
+                <h2 class="module-title">Common Mistakes & Fixes</h2>
+                <div class="module-content">
+                    <p>Review the most frequent errors made by learners at this stage.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Subject-Verb Agreement errors.</li>
+                    <li>Translating directly from native language.</li>
+                    <li>Ignoring word stress.</li>
+                </ul>
+            </div>
+
+            <!-- Module 18 -->
+            <div class="module-card">
+                <span class="module-number">Module 18</span>
+                <h2 class="module-title">Peer Feedback (Optional)</h2>
+                <div class="module-content">
+                    <p>If you have a study partner, exchange recordings.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Provide constructive criticism.</li>
+                    <li>Highlight one thing they did well.</li>
+                    <li>Suggest one area for improvement.</li>
+                </ul>
+            </div>
+
+            <!-- Module 19 -->
+            <div class="module-card">
+                <span class="module-number">Module 19</span>
+                <h2 class="module-title">Building a Study Plan</h2>
+                <div class="module-content">
+                    <p>Organize your schedule for the upcoming week.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Block out 30-60 minutes daily for practice.</li>
+                    <li>Assign specific tasks (e.g., Mon: Vocab, Tue: Listening).</li>
+                    <li>Commit to consistency.</li>
+                </ul>
+            </div>
+
+            <!-- Module 20 -->
+            <div class="module-card">
+                <span class="module-number">Module 20</span>
+                <h2 class="module-title">Mindset & Confidence</h2>
+                <div class="module-content">
+                    <p>Address language anxiety and build speaking confidence.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Acknowledge that mistakes are proof of trying.</li>
+                    <li>Visualize yourself speaking fluently.</li>
+                    <li>Celebrate completing Week 1!</li>
+                </ul>
+            </div>
+
+            <!-- Module 21 -->
+            <div class="module-card">
+                <span class="module-number">Module 21</span>
+                <h2 class="module-title">Action Items & Wrap-up</h2>
+                <div class="module-content">
+                    <p>Final checklist before you close out Day 7.</p>
+                </div>
+                <ul class="task-list">
+                    <li>Save your diagnostic recording securely.</li>
+                    <li>Review your Week 2 goals.</li>
+                    <li>Rest and prepare for Day 8.</li>
+                </ul>
+                <button class="interactive-btn" style="background-color: var(--secondary);">Mark Week 1 Complete</button>
+            </div>
+
+        </div><!-- /.module-grid -->
+        </div><!-- /.container -->
+        </main><!-- end main content -->
+
+    </div><!-- end flex layout wrapper -->
+
+    <footer>
+        <p>&copy; 2026 English Communication Masterclass. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

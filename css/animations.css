@@ -1,0 +1,381 @@
+/* ============================================================
+   ENGLISH COMMUNICATION MASTER COURSE
+   animations.css — Keyframes, Micro-interactions & Transitions
+   ============================================================ */
+
+/* ── Intersection Observer Reveal Animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s var(--ease-out-expo),
+              transform 0.65s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.65s var(--ease-out-expo),
+              transform 0.65s var(--ease-out-expo);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.65s var(--ease-out-expo),
+              transform 0.65s var(--ease-out-expo);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.55s var(--ease-out-expo),
+              transform 0.55s var(--ease-out-expo);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Stagger delays for children ── */
+.stagger-children > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 80ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 160ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 240ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 320ms; }
+.stagger-children > *:nth-child(6) { transition-delay: 400ms; }
+.stagger-children > *:nth-child(n+7) { transition-delay: 480ms; }
+
+/* ── Hover Lift ── */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ── Hover Glow ── */
+.hover-glow {
+  transition: box-shadow var(--duration-normal) var(--ease-in-out);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.25),
+              var(--shadow-lg);
+}
+
+/* ── Ripple Effect on Buttons ── */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-wave {
+  position: absolute;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple-anim 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ── Number Counter Animation ── */
+.count-up {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Typewriter Effect ── */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--primary-500);
+  animation: typewriter-cursor 0.75s step-end infinite;
+}
+
+@keyframes typewriter-cursor {
+  0%, 100% { border-color: var(--primary-500); }
+  50%       { border-color: transparent; }
+}
+
+/* ── Gradient Moving Background ── */
+.gradient-animate {
+  background-size: 300% 300%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Floating Particles (Hero) ── */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: var(--radius-full);
+  background: var(--gradient-hero);
+  opacity: 0.15;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.15; }
+  90%  { opacity: 0.15; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+
+/* ── Word Highlight Animation ── */
+.word-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.word-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--gradient-hero);
+  border-radius: var(--radius-full);
+  transition: width 0.5s var(--ease-out-expo);
+}
+
+.word-highlight:hover::after,
+.word-highlight.active::after {
+  width: 100%;
+}
+
+/* ── Shimmer Text ── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--text-primary) 0%,
+    var(--primary-400) 30%,
+    var(--accent-400) 60%,
+    var(--text-primary) 100%
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text-anim 3s linear infinite;
+}
+
+@keyframes shimmer-text-anim {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Quiz Answer Feedback ── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%  { transform: translateX(-8px); }
+  40%  { transform: translateX(8px); }
+  60%  { transform: translateX(-6px); }
+  80%  { transform: translateX(6px); }
+}
+
+@keyframes bounce-in {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.08); opacity: 1; }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes celebrate {
+  0%   { transform: scale(1); }
+  15%  { transform: scale(1.25) rotate(-5deg); }
+  30%  { transform: scale(1.1) rotate(5deg); }
+  45%  { transform: scale(1.2) rotate(-3deg); }
+  60%  { transform: scale(1.05) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.animate-shake    { animation: shake 0.5s var(--ease-in-out); }
+.animate-bounce-in { animation: bounce-in 0.5s var(--ease-out-expo); }
+.animate-celebrate { animation: celebrate 0.7s var(--ease-out-expo); }
+
+/* ── Progress Ring Animation ── */
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  fill: none;
+  stroke: var(--primary-500);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s var(--ease-out-expo);
+}
+
+/* ── Card Flip ── */
+.card-flip-container {
+  perspective: 1200px;
+}
+
+.card-flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.card-flip-container.flipped .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.card-flip-back { transform: rotateY(180deg); }
+
+/* ── Notification Badge Pulse ── */
+.badge-pulse {
+  position: relative;
+}
+
+.badge-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: inherit;
+  opacity: 0;
+  animation: badge-pulse-anim 1.5s ease-out infinite;
+}
+
+@keyframes badge-pulse-anim {
+  0%   { transform: scale(0.95); opacity: 0.4; }
+  100% { transform: scale(1.6);  opacity: 0; }
+}
+
+/* ── Achievement Unlock ── */
+@keyframes unlock {
+  0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(5deg); opacity: 1; }
+  80%  { transform: scale(0.97) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.achievement-unlock { animation: unlock 0.8s var(--ease-out-expo); }
+
+/* ── Smooth Page Transitions ── */
+.page-transition {
+  animation: fadeIn 0.4s var(--ease-out-expo) both;
+}
+
+/* ── Audio Visualizer Bars ── */
+.audio-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+
+.audio-bar {
+  width: 4px;
+  border-radius: 2px;
+  background: var(--primary-500);
+  animation: audio-bar-anim 0.8s ease-in-out infinite alternate;
+}
+
+.audio-bar:nth-child(2) { animation-delay: 0.1s; }
+.audio-bar:nth-child(3) { animation-delay: 0.2s; }
+.audio-bar:nth-child(4) { animation-delay: 0.15s; }
+.audio-bar:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes audio-bar-anim {
+  from { height: 4px; }
+  to   { height: 24px; }
+}
+
+.audio-bars.paused .audio-bar { animation-play-state: paused; height: 8px; }
+
+/* ── Loading Spinner ── */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border-default);
+  border-top-color: var(--primary-500);
+  border-radius: var(--radius-full);
+  animation: spin 0.8s linear infinite;
+}
+
+.spinner-lg { width: 48px; height: 48px; border-width: 4px; }
+
+/* ── Focus Visible Outlines (Accessibility) ── */
+*:focus-visible {
+  outline: 3px solid var(--primary-400);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Smooth Scrollbar ── */
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: var(--border-default) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-full);
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Drag Handle ── */
+.drag-handle {
+  cursor: grab;
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+.drag-handle:active { cursor: grabbing; }
+
+/* ── Highlighted text (search results) ── */
+mark {
+  background: rgba(245, 208, 0, 0.35);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+[data-theme="dark"] mark { background: rgba(245, 208, 0, 0.2); }

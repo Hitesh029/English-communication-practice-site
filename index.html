@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="English Communication Master Course — From Beginner to Corporate Professional for Software Engineers. Complete 30-Day placement-ready English program.">
+  <meta name="keywords" content="English communication course, software engineering English, HR interview English, placement preparation, IELTS corporate English">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="English Communication Master Course">
+  <meta property="og:description" content="Complete 30-Day English Communication Program for Software Engineers. Master HR interviews, technical interviews, group discussions, and corporate communication.">
+  <meta property="og:type" content="website">
+  <title>English Communication Master Course | Placement-Ready English for Software Engineers</title>
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dark.css">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       TOAST CONTAINER
+  ══════════════════════════════════════════════════════ -->
+  <div class="toast-container" id="toast-container" role="alert" aria-live="polite"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+       TOP NAVIGATION BAR
+  ══════════════════════════════════════════════════════ -->
+  <nav id="topbar" role="navigation" aria-label="Main navigation">
+    <div class="topbar-inner">
+
+      <!-- Brand -->
+      <a href="index.html" class="brand" aria-label="English Communication Master Course Home">
+        <div class="brand-icon" aria-hidden="true">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-name">
+          English Master
+          <span>30-Day Communication Course</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"     class="nav-link active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fas fa-th-large" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="roadmap.html"   class="nav-link"><i class="fas fa-route" aria-hidden="true"></i> Roadmap</a></li>
+        <li><a href="lessons/day01.html" class="nav-link"><i class="fas fa-book-open" aria-hidden="true"></i> Start Learning</a></li>
+        <li><a href="about.html"     class="nav-link"><i class="fas fa-info-circle" aria-hidden="true"></i> About</a></li>
+      </ul>
+
+      <!-- Topbar Actions -->
+      <div class="topbar-actions">
+        <button id="search-toggle" aria-label="Open search (Ctrl+K)" title="Search (Ctrl+K)">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <span>Search...</span>
+          <kbd class="search-kbd">⌘K</kbd>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
+        </button>
+        <button id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div id="mobile-nav" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="index.html"     class="mobile-nav-link active"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="roadmap.html"   class="mobile-nav-link"><i class="fas fa-route"></i> Roadmap</a></li>
+      <li><a href="lessons/day01.html" class="mobile-nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+      <li><a href="about.html"     class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="contact.html"   class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SEARCH MODAL
+  ══════════════════════════════════════════════════════ -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+    <div class="modal-dialog search-modal">
+      <div class="search-input-wrapper">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input type="text" id="search-input" placeholder="Search words, grammar, idioms, lessons..." autocomplete="off" spellcheck="false" aria-label="Search course content">
+        <button class="btn btn-ghost btn-xs" id="search-close" aria-label="Close search">
+          <kbd>Esc</kbd>
+        </button>
+      </div>
+      <div id="search-results" class="search-results-list" role="listbox" aria-label="Search results"></div>
+      <div id="search-empty" style="display:none; padding: 2rem; text-align:center; color:var(--text-tertiary);">
+        <i class="fas fa-search" style="font-size:2rem; margin-bottom:0.5rem; display:block;"></i>
+        No results found. Try different keywords.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="grid-2" style="gap: var(--sp-16); align-items: center;">
+
+          <!-- Left: Text Content -->
+          <div class="hero-content animate-fade-in">
+            <div class="hero-tag animate-slide-up delay-100">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              #1 English Course for Software Engineers
+            </div>
+
+            <h1 id="hero-heading" class="animate-slide-up delay-200">
+              Master English<br>
+              <span class="gradient-text">Communication</span><br>
+              for Tech Careers
+            </h1>
+
+            <p class="hero-desc animate-slide-up delay-300">
+              From beginner to corporate professional in <strong>30 structured days</strong>. 
+              Designed specifically for software engineers targeting placement, HR interviews, 
+              technical interviews, group discussions, and corporate communication.
+            </p>
+
+            <div class="hero-cta animate-slide-up delay-400">
+              <a href="lessons/day01.html" class="btn btn-gradient btn-xl ripple" id="cta-start">
+                <i class="fas fa-play-circle" aria-hidden="true"></i>
+                Start Day 1 — Free
+              </a>
+              <a href="dashboard.html" class="btn btn-outline btn-xl ripple">
+                <i class="fas fa-th-large" aria-hidden="true"></i>
+                View Dashboard
+              </a>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="hero-stats animate-fade-in delay-500">
+              <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="30">0</div>
+                <div class="hero-stat-label">Daily Lessons</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="750">0</div>
+                <div class="hero-stat-label">New Vocabulary Words</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="21">0</div>
+                <div class="hero-stat-label">Modules Per Day</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="300">0</div>
+                <div class="hero-stat-label">Phrasal Verbs & Idioms</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Mockup -->
+          <div class="hero-visual animate-slide-left delay-300">
+            <div class="hero-mockup animate-float">
+              <!-- Browser Mockup Dots -->
+              <div class="mockup-topbar">
+                <div class="mockup-dot mockup-dot-red"></div>
+                <div class="mockup-dot mockup-dot-yellow"></div>
+                <div class="mockup-dot mockup-dot-green"></div>
+                <div class="mockup-day-pill">Day 1 — Active</div>
+              </div>
+
+              <!-- Word of Day Card -->
+              <div class="mockup-word-card">
+                <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; opacity:0.75; margin-bottom:4px;">Word of the Day</div>
+                <div class="mockup-word">Articulate</div>
+                <div class="mockup-ipa">/ɑːrˈtɪk.jə.lət/ · Adjective</div>
+                <div style="margin-top:8px; font-size:0.85rem; opacity:0.85;">Expressing thoughts fluently & coherently</div>
+              </div>
+
+              <!-- Progress Bars -->
+              <div style="padding: 0 4px;">
+                <div class="mockup-progress-row">
+                  <div class="mockup-progress-label">Vocabulary</div>
+                  <div class="mockup-mini-bar"><div class="mockup-mini-fill" style="width:72%"></div></div>
+                  <span style="font-size:0.75rem; color:var(--text-tertiary);">18/25</span>
+                </div>
+                <div class="mockup-progress-row">
+                  <div class="mockup-progress-label">Grammar</div>
+                  <div class="mockup-mini-bar"><div class="mockup-mini-fill" style="width:100%; background:var(--gradient-success)"></div></div>
+                  <span style="font-size:0.75rem; color:var(--success-500);">✓</span>
+                </div>
+                <div class="mockup-progress-row">
+                  <div class="mockup-progress-label">Speaking</div>
+                  <div class="mockup-mini-bar"><div class="mockup-mini-fill" style="width:40%"></div></div>
+                  <span style="font-size:0.75rem; color:var(--text-tertiary);">8/20</span>
+                </div>
+                <div class="mockup-progress-row">
+                  <div class="mockup-progress-label">Quiz Score</div>
+                  <div class="mockup-mini-bar"><div class="mockup-mini-fill" style="width:88%; background:var(--gradient-success)"></div></div>
+                  <span style="font-size:0.75rem; color:var(--success-500);">88%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST BAR ── -->
+    <section style="background: var(--bg-surface); border-block: 1px solid var(--border-subtle); padding-block: var(--sp-5);">
+      <div class="container">
+        <div class="flex items-center justify-center flex-wrap gap-8" style="opacity:0.6; font-size:var(--text-sm); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-tertiary);">
+          <span><i class="fas fa-check-circle text-primary" aria-hidden="true"></i> IELTS-Level Content</span>
+          <span><i class="fas fa-check-circle text-primary" aria-hidden="true"></i> Placement-Focused</span>
+          <span><i class="fas fa-check-circle text-primary" aria-hidden="true"></i> Corporate English</span>
+          <span><i class="fas fa-check-circle text-primary" aria-hidden="true"></i> HR Interview Ready</span>
+          <span><i class="fas fa-check-circle text-primary" aria-hidden="true"></i> Zero Repeat Vocabulary</span>
+          <span><i class="fas fa-check-circle text-primary" aria-hidden="true"></i> 100% Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES SECTION ── -->
+    <section class="section" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-bolt" aria-hidden="true"></i> What You'll Master</span>
+        </div>
+        <h2 id="features-heading" class="section-headline gradient-text">
+          Everything You Need to Succeed
+        </h2>
+        <p class="section-subhead">
+          A comprehensive English communication curriculum designed exclusively for software engineering placement, corporate readiness, and lifelong communication confidence.
+        </p>
+
+        <div class="grid-3 stagger-children" style="gap: var(--sp-6);">
+
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <i class="fas fa-microphone-alt"></i>
+            </div>
+            <div class="feature-title">HR Interview Mastery</div>
+            <p>Learn Bad → Good → Excellent answer progression for every HR question. Tell me about yourself, strengths, weaknesses, leadership — covered completely.</p>
+          </div>
+
+          <div class="feature-card reveal delay-100">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(258,89%,58%) 0%, hsl(187,85%,45%) 100%);" aria-hidden="true">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="feature-title">Technical Communication</div>
+            <p>Explain OOP, DBMS, algorithms, system design, APIs, and machine learning in professional interview-grade English that impresses technical recruiters.</p>
+          </div>
+
+          <div class="feature-card reveal delay-200">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(158,64%,44%) 0%, hsl(38,92%,50%) 100%);" aria-hidden="true">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="feature-title">Group Discussion Skills</div>
+            <p>Master opening statements, counter-arguments, building consensus, and structured conclusions for competitive group discussions in campus placements.</p>
+          </div>
+
+          <div class="feature-card reveal delay-100">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(350,89%,60%) 0%, hsl(38,92%,50%) 100%);" aria-hidden="true">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="feature-title">750 Vocabulary Words</div>
+            <p>25 new power words daily with IPA pronunciation, part of speech, synonyms, antonyms, and 4 real-world examples: interview, technical, corporate, and daily life.</p>
+          </div>
+
+          <div class="feature-card reveal delay-200">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(187,85%,45%) 0%, hsl(221,83%,53%) 100%);" aria-hidden="true">
+              <i class="fas fa-spell-check"></i>
+            </div>
+            <div class="feature-title">Grammar Mastery</div>
+            <p>30 deep-dive grammar lessons with rules, formulas, timelines, common Indian English mistakes corrected, and 5 types of practice exercises per day.</p>
+          </div>
+
+          <div class="feature-card reveal delay-300">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(38,92%,50%) 0%, hsl(350,89%,60%) 100%);" aria-hidden="true">
+              <i class="fas fa-volume-up"></i>
+            </div>
+            <div class="feature-title">Pronunciation Training</div>
+            <p>20 difficult words daily with IPA notation, syllable stress mapping, minimal pairs, common mispronunciations, and interactive audio shadowing practice.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(270,91%,65%) 0%, hsl(221,83%,53%) 100%);" aria-hidden="true">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="feature-title">Progress Tracking</div>
+            <p>Smart progress tracker saves your daily scores, vocabulary mastered, streak count, XP earned, and generates your completion certificate automatically.</p>
+          </div>
+
+          <div class="feature-card reveal delay-100">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(158,64%,44%) 0%, hsl(187,85%,45%) 100%);" aria-hidden="true">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="feature-title">Flashcard System</div>
+            <p>750 interactive flashcards with flip animations, swipe gestures, and spaced repetition algorithm that automatically identifies which words need review.</p>
+          </div>
+
+          <div class="feature-card reveal delay-200">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg, hsl(221,83%,53%) 0%, hsl(350,89%,60%) 100%);" aria-hidden="true">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="feature-title">Corporate Communication</div>
+            <p>Professional emails, meeting vocabulary, presentation language, salary negotiation, crisis communication, and global remote work communication skills.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COURSE ROADMAP PREVIEW ── -->
+    <section class="section" style="background: var(--bg-surface);" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-route" aria-hidden="true"></i> Course Roadmap</span>
+        </div>
+        <h2 id="roadmap-heading" class="section-headline">Your 30-Day Journey</h2>
+        <p class="section-subhead">Four progressive tiers designed to take you from basic conversational English to corporate-level professional fluency.</p>
+
+        <div class="grid-2" style="gap: var(--sp-8);">
+
+          <!-- Tier 1 -->
+          <div class="card reveal" style="border-left: 4px solid var(--success-500);">
+            <div class="card-body">
+              <div class="flex items-center gap-4 mb-4">
+                <div style="width:52px; height:52px; border-radius:var(--radius-lg); background:hsl(158,64%,94%); display:flex; align-items:center; justify-content:center; font-size:1.4rem;" aria-hidden="true">📗</div>
+                <div>
+                  <div class="badge badge-success mb-2">Days 1–7</div>
+                  <h3 style="font-size:var(--text-xl); margin:0;">Basic English Foundations</h3>
+                </div>
+              </div>
+              <p>Master self-introduction, everyday vocabulary, Present tenses, past narration, and build the confidence to speak without hesitation.</p>
+              <ul style="list-style:none; margin-top:var(--sp-4);" role="list">
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-success" aria-hidden="true"></i> &nbsp;25 vocabulary words daily with 4 examples each</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-success" aria-hidden="true"></i> &nbsp;Present Simple, Past Simple, Perfect tenses</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-success" aria-hidden="true"></i> &nbsp;10 phrasal verbs + 10 idioms per day</li>
+                <li style="padding:var(--sp-2) 0; font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-success" aria-hidden="true"></i> &nbsp;Basic HR interview answers & role-plays</li>
+              </ul>
+              <a href="lessons/day01.html" class="btn btn-outline mt-4 btn-sm ripple">
+                <i class="fas fa-play" aria-hidden="true"></i> Start Day 1
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="card reveal delay-100" style="border-left: 4px solid var(--warning-500);">
+            <div class="card-body">
+              <div class="flex items-center gap-4 mb-4">
+                <div style="width:52px; height:52px; border-radius:var(--radius-lg); background:hsl(38,92%,94%); display:flex; align-items:center; justify-content:center; font-size:1.4rem;" aria-hidden="true">📙</div>
+                <div>
+                  <div class="badge badge-warning mb-2">Days 8–14</div>
+                  <h3 style="font-size:var(--text-xl); margin:0;">Intermediate Business English</h3>
+                </div>
+              </div>
+              <p>Email etiquette, sprint standups, technical demos, STAR method behavioral answers, and LinkedIn professional networking language.</p>
+              <ul style="list-style:none; margin-top:var(--sp-4);" role="list">
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-warning" aria-hidden="true"></i> &nbsp;Formal email writing & professional correspondence</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-warning" aria-hidden="true"></i> &nbsp;STAR method for behavioral interview answers</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-warning" aria-hidden="true"></i> &nbsp;Future tenses, complex sentences, relative clauses</li>
+                <li style="padding:var(--sp-2) 0; font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-warning" aria-hidden="true"></i> &nbsp;Technical demos & sprint meeting language</li>
+              </ul>
+              <a href="lessons/day08.html" class="btn btn-outline mt-4 btn-sm ripple">
+                <i class="fas fa-play" aria-hidden="true"></i> Start Day 8
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="card reveal delay-200" style="border-left: 4px solid var(--primary-500);">
+            <div class="card-body">
+              <div class="flex items-center gap-4 mb-4">
+                <div style="width:52px; height:52px; border-radius:var(--radius-lg); background:var(--primary-50); display:flex; align-items:center; justify-content:center; font-size:1.4rem;" aria-hidden="true">📘</div>
+                <div>
+                  <div class="badge badge-primary mb-2">Days 15–21</div>
+                  <h3 style="font-size:var(--text-xl); margin:0;">Professional Technical English</h3>
+                </div>
+              </div>
+              <p>Explain data structures, system design, databases, APIs, AI/ML concepts, and OOP in professional interview-grade English that impresses senior engineers.</p>
+              <ul style="list-style:none; margin-top:var(--sp-4);" role="list">
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-primary" aria-hidden="true"></i> &nbsp;Data structures & algorithm explanation techniques</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-primary" aria-hidden="true"></i> &nbsp;System design communication & scalability talk</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-primary" aria-hidden="true"></i> &nbsp;AI, ML & cloud architecture explanation fluency</li>
+                <li style="padding:var(--sp-2) 0; font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-primary" aria-hidden="true"></i> &nbsp;Group discussion dynamics & consensus building</li>
+              </ul>
+              <a href="lessons/day15.html" class="btn btn-outline mt-4 btn-sm ripple">
+                <i class="fas fa-play" aria-hidden="true"></i> Start Day 15
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 4 + Mock -->
+          <div class="card reveal delay-300" style="border-left: 4px solid var(--accent-500);">
+            <div class="card-body">
+              <div class="flex items-center gap-4 mb-4">
+                <div style="width:52px; height:52px; border-radius:var(--radius-lg); background:hsl(258,90%,96%); display:flex; align-items:center; justify-content:center; font-size:1.4rem;" aria-hidden="true">🏆</div>
+                <div>
+                  <div class="badge badge-accent mb-2">Days 22–30</div>
+                  <h3 style="font-size:var(--text-xl); margin:0;">Corporate + Full Mock Interviews</h3>
+                </div>
+              </div>
+              <p>Executive presence, salary negotiation, crisis communication, global remote work, and complete HR + Technical mock interviews on Days 29 & 30.</p>
+              <ul style="list-style:none; margin-top:var(--sp-4);" role="list">
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-accent" aria-hidden="true"></i> &nbsp;Salary negotiation & corporate offer evaluation</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-accent" aria-hidden="true"></i> &nbsp;Public speaking, storytelling & executive presence</li>
+                <li style="padding:var(--sp-2) 0; border-bottom:1px solid var(--border-subtle); font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-accent" aria-hidden="true"></i> &nbsp;Day 29: Complete HR Mock Interview simulation</li>
+                <li style="padding:var(--sp-2) 0; font-size:var(--text-sm); color:var(--text-secondary);"><i class="fas fa-check text-accent" aria-hidden="true"></i> &nbsp;Day 30: Full Technical + HR Interview + Certificate</li>
+              </ul>
+              <a href="lessons/day22.html" class="btn btn-gradient mt-4 btn-sm ripple">
+                <i class="fas fa-trophy" aria-hidden="true"></i> Final Phase
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="roadmap.html" class="btn btn-outline btn-lg ripple">
+            <i class="fas fa-map" aria-hidden="true"></i>
+            View Complete 30-Day Roadmap
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INTERACTIVE FEATURES SECTION ── -->
+    <section class="section" aria-labelledby="interactive-heading">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-gamepad" aria-hidden="true"></i> Interactive Learning</span>
+        </div>
+        <h2 id="interactive-heading" class="section-headline">Learn by Doing</h2>
+        <p class="section-subhead">Unlike static PDFs, every lesson is interactive with real-time quizzes, audio pronunciation, flashcards, and instant grammar feedback.</p>
+
+        <div class="grid-4 stagger-children">
+          <div class="card reveal text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);" aria-hidden="true">🃏</div>
+            <h4>Flashcards</h4>
+            <p style="font-size:var(--text-sm);">750 vocabulary flashcards with spaced repetition. Flip, swipe, and master every word.</p>
+          </div>
+
+          <div class="card reveal delay-100 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);" aria-hidden="true">🧠</div>
+            <h4>Smart Quizzes</h4>
+            <p style="font-size:var(--text-sm);">Vocabulary, grammar, idiom, and phrasal verb quizzes with instant correct/incorrect feedback.</p>
+          </div>
+
+          <div class="card reveal delay-200 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);" aria-hidden="true">🎙️</div>
+            <h4>Audio Pronunciation</h4>
+            <p style="font-size:var(--text-sm);">Click-to-listen for every word. Shadowing exercises with Web Speech API integration.</p>
+          </div>
+
+          <div class="card reveal delay-300 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);" aria-hidden="true">📊</div>
+            <h4>Progress Analytics</h4>
+            <p style="font-size:var(--text-sm);">Daily streak tracking, XP system, achievement badges, and completion certificate on Day 30.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ACHIEVEMENTS PREVIEW ── -->
+    <section class="section" style="background: var(--bg-surface);" aria-labelledby="achievements-heading">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-medal" aria-hidden="true"></i> Achievements</span>
+        </div>
+        <h2 id="achievements-heading" class="section-headline">Earn Badges as You Progress</h2>
+
+        <div class="grid-4 stagger-children">
+          <div class="achievement reveal">
+            <div class="achievement-icon" aria-hidden="true">🌟</div>
+            <div class="achievement-name">First Step</div>
+            <div class="achievement-desc">Complete Day 1</div>
+          </div>
+          <div class="achievement reveal delay-100">
+            <div class="achievement-icon" aria-hidden="true">🔥</div>
+            <div class="achievement-name">7-Day Streak</div>
+            <div class="achievement-desc">Study 7 days in a row</div>
+          </div>
+          <div class="achievement reveal delay-200">
+            <div class="achievement-icon" aria-hidden="true">📚</div>
+            <div class="achievement-name">Word Wizard</div>
+            <div class="achievement-desc">Learn 250 vocabulary words</div>
+          </div>
+          <div class="achievement reveal delay-300 locked">
+            <div class="achievement-icon" aria-hidden="true">🎓</div>
+            <div class="achievement-name">Graduate</div>
+            <div class="achievement-desc">Complete all 30 days</div>
+          </div>
+          <div class="achievement reveal locked">
+            <div class="achievement-icon" aria-hidden="true">💼</div>
+            <div class="achievement-name">HR Ready</div>
+            <div class="achievement-desc">Pass the HR mock interview</div>
+          </div>
+          <div class="achievement reveal delay-100 locked">
+            <div class="achievement-icon" aria-hidden="true">⚡</div>
+            <div class="achievement-name">Speed Learner</div>
+            <div class="achievement-desc">Score 90%+ on 5 quizzes</div>
+          </div>
+          <div class="achievement reveal delay-200 locked">
+            <div class="achievement-icon" aria-hidden="true">🏆</div>
+            <div class="achievement-name">Corporate Pro</div>
+            <div class="achievement-desc">Complete Phase 4 (Days 22–28)</div>
+          </div>
+          <div class="achievement reveal delay-300 locked">
+            <div class="achievement-icon" aria-hidden="true">🌍</div>
+            <div class="achievement-name">Global Ready</div>
+            <div class="achievement-desc">Master intercultural communication</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DAILY MODULE OVERVIEW ── -->
+    <section class="section" aria-labelledby="modules-heading">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-list-check" aria-hidden="true"></i> Daily Structure</span>
+        </div>
+        <h2 id="modules-heading" class="section-headline">21 Modules Every Single Day</h2>
+        <p class="section-subhead">Each 60–90 minute lesson contains 21 structured modules, guaranteeing comprehensive coverage across all English communication skills.</p>
+
+        <div class="table-wrapper reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Module</th>
+                <th>Content</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>01</strong></td><td><i class="fas fa-sun text-warning" aria-hidden="true"></i> Daily Motivation</td><td>Motivational quote + success mindset lesson</td><td>~3 min</td></tr>
+              <tr><td><strong>02</strong></td><td><i class="fas fa-comments text-primary" aria-hidden="true"></i> Warm-up Conversation</td><td>10 interactive practice questions with grammar feedback</td><td>~10 min</td></tr>
+              <tr><td><strong>03</strong></td><td><i class="fas fa-book text-accent" aria-hidden="true"></i> Vocabulary (25 Words)</td><td>IPA, POS, meaning, synonyms, antonyms, 4 real-world examples</td><td>~20 min</td></tr>
+              <tr><td><strong>04</strong></td><td><i class="fas fa-arrow-right text-success" aria-hidden="true"></i> Phrasal Verbs (10)</td><td>Meanings, usage, 3 domain examples, fill-in-blank exercises</td><td>~8 min</td></tr>
+              <tr><td><strong>05</strong></td><td><i class="fas fa-lightbulb text-warning" aria-hidden="true"></i> Idioms (10)</td><td>Origins, meanings, interview, corporate & daily examples</td><td>~8 min</td></tr>
+              <tr><td><strong>06</strong></td><td><i class="fas fa-language text-primary" aria-hidden="true"></i> Grammar Deep Dive</td><td>Rules, formulas, timelines, 5 exercise types, interview usage</td><td>~15 min</td></tr>
+              <tr><td><strong>07</strong></td><td><i class="fas fa-microphone text-error" aria-hidden="true"></i> Speaking Practice (20 Qs)</td><td>Escalating difficulty speaking questions with model answers</td><td>~10 min</td></tr>
+              <tr><td><strong>08</strong></td><td><i class="fas fa-theater-masks text-accent" aria-hidden="true"></i> Role-Play Conversations (5)</td><td>Friend, Teacher, HR, Manager, Customer dialogue scripts</td><td>~8 min</td></tr>
+              <tr><td><strong>09</strong></td><td><i class="fas fa-volume-up text-success" aria-hidden="true"></i> Pronunciation (20 Words)</td><td>IPA, syllable stress, minimal pairs, shadowing + audio</td><td>~10 min</td></tr>
+              <tr><td><strong>10</strong></td><td><i class="fas fa-newspaper text-primary" aria-hidden="true"></i> Reading Practice</td><td>300–500 word tech article, vocabulary, questions, summary</td><td>~8 min</td></tr>
+              <tr><td><strong>11</strong></td><td><i class="fas fa-headphones text-warning" aria-hidden="true"></i> Listening Practice</td><td>TED Talk / speech recommendation with guided focus questions</td><td>~12 min</td></tr>
+              <tr><td><strong>12</strong></td><td><i class="fas fa-pen text-accent" aria-hidden="true"></i> Writing Practice</td><td>Email, post, letter, or paragraph with model professional answer</td><td>~8 min</td></tr>
+              <tr><td><strong>13</strong></td><td><i class="fas fa-user-tie text-primary" aria-hidden="true"></i> HR Interview Coaching</td><td>Bad → Good → Excellent model answers with trainer breakdown</td><td>~5 min</td></tr>
+              <tr><td><strong>14</strong></td><td><i class="fas fa-code text-success" aria-hidden="true"></i> Technical Communication</td><td>CS concepts explained in professional interview-grade English</td><td>~5 min</td></tr>
+              <tr><td><strong>15</strong></td><td><i class="fas fa-people-arrows text-warning" aria-hidden="true"></i> Group Discussion</td><td>Topic, opening, counter-arguments, conclusion, useful vocabulary</td><td>~5 min</td></tr>
+              <tr><td><strong>16</strong></td><td><i class="fas fa-comment-dots text-error" aria-hidden="true"></i> Storytelling Challenge</td><td>2-minute scenario speech with model response and coaching notes</td><td>~5 min</td></tr>
+              <tr><td><strong>17</strong></td><td><i class="fas fa-bolt text-accent" aria-hidden="true"></i> Rapid Fire (20 Qs)</td><td>20 quick 5-second answer challenges for interview speed</td><td>~3 min</td></tr>
+              <tr><td><strong>18</strong></td><td><i class="fas fa-exclamation-triangle text-warning" aria-hidden="true"></i> Indian English Mistakes (10)</td><td>Common errors corrected with linguistic explanations</td><td>~5 min</td></tr>
+              <tr><td><strong>19</strong></td><td><i class="fas fa-brain text-primary" aria-hidden="true"></i> Daily Revision Quiz</td><td>Vocabulary, grammar, idiom quizzes with instant scoring</td><td>~8 min</td></tr>
+              <tr><td><strong>20</strong></td><td><i class="fas fa-home text-success" aria-hidden="true"></i> Homework (7 Tasks)</td><td>Mirror practice, recording, shadowing, reading, writing tasks</td><td>~10 min</td></tr>
+              <tr><td><strong>21</strong></td><td><i class="fas fa-star text-warning" aria-hidden="true"></i> Daily Evaluation</td><td>8-dimension scoring: Grammar, Vocab, Pronunciation, Fluency...</td><td>~3 min</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA SECTION ── -->
+    <section class="section" style="background: var(--gradient-hero); position: relative; overflow: hidden;" aria-labelledby="cta-heading">
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 1; text-align: center;">
+        <h2 id="cta-heading" style="color: white; font-size: var(--text-5xl); margin-bottom: var(--sp-4);">
+          Start Your Journey Today
+        </h2>
+        <p style="color: rgba(255,255,255,0.85); font-size: var(--text-xl); max-width: 540px; margin: 0 auto var(--sp-8);">
+          Join thousands of software engineering students who transformed their communication and cracked placements at top companies.
+        </p>
+        <div class="flex justify-center flex-wrap gap-4">
+          <a href="lessons/day01.html" class="btn btn-xl ripple" style="background:white; color:var(--primary-600); font-weight:800; box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+            Begin Day 1 Now — Free
+          </a>
+          <a href="roadmap.html" class="btn btn-xl btn-outline ripple" style="border-color:rgba(255,255,255,0.5); color:white;">
+            <i class="fas fa-map" aria-hidden="true"></i>
+            View Full Roadmap
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <a href="index.html" class="brand footer-brand" aria-label="Home">
+            <div class="brand-icon" aria-hidden="true">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="brand-name">
+              English Master
+              <span>30-Day Communication Course</span>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            A complete English communication masterclass designed for software engineers targeting placement at top technology companies. From beginner to corporate professional in 30 days.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Course</div>
+          <ul class="footer-links" role="list">
+            <li><a href="dashboard.html"     class="footer-link">Dashboard</a></li>
+            <li><a href="roadmap.html"        class="footer-link">30-Day Roadmap</a></li>
+            <li><a href="lessons/day01.html"  class="footer-link">Day 1: Foundations</a></li>
+            <li><a href="lessons/day08.html"  class="footer-link">Day 8: Intermediate</a></li>
+            <li><a href="lessons/day15.html"  class="footer-link">Day 15: Professional</a></li>
+            <li><a href="lessons/day29.html"  class="footer-link">Day 29: HR Mock</a></li>
+            <li><a href="lessons/day30.html"  class="footer-link">Day 30: Full Mock</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Topics</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#" class="footer-link">HR Interview Preparation</a></li>
+            <li><a href="#" class="footer-link">Technical Communication</a></li>
+            <li><a href="#" class="footer-link">Group Discussions</a></li>
+            <li><a href="#" class="footer-link">Corporate English</a></li>
+            <li><a href="#" class="footer-link">Public Speaking</a></li>
+            <li><a href="#" class="footer-link">Pronunciation Training</a></li>
+            <li><a href="#" class="footer-link">Vocabulary Builder</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Resources</div>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html"   class="footer-link">About This Course</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="#"            class="footer-link">Download PDF</a></li>
+            <li><a href="#"            class="footer-link">Export Progress</a></li>
+            <li><a href="#"            class="footer-link">Flashcard Mode</a></li>
+            <li><a href="#"            class="footer-link">Quiz Mode</a></li>
+            <li><a href="#"            class="footer-link">Certificate</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; 2025 English Communication Master Course. Built with dedication for software engineering aspirants.
+        </p>
+        <div class="flex gap-3">
+          <a href="#" class="footer-link" aria-label="Share on Twitter">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="footer-link" aria-label="Share on LinkedIn">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="footer-link" aria-label="Visit GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ══════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════ -->
+  <script src="js/theme.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/pronunciation.js"></script>
+</body>
+</html>

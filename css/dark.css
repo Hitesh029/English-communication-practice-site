@@ -1,0 +1,368 @@
+/* ============================================================
+   ENGLISH COMMUNICATION MASTER COURSE
+   dark.css — Additional dark mode enhancements
+   ============================================================ */
+
+/* ── Dark Mode Specific Card Styles ── */
+[data-theme="dark"] .hero-mockup {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .feature-card {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .feature-card:hover {
+  border-color: var(--primary-700);
+  background: var(--neutral-800);
+}
+
+[data-theme="dark"] .day-card {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .day-card:hover {
+  border-color: var(--primary-700);
+}
+
+[data-theme="dark"] .card {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .stat-card {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .quiz-container {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .quiz-option {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+  color: var(--neutral-100);
+}
+
+[data-theme="dark"] .quiz-option:hover {
+  background: var(--neutral-700);
+  border-color: var(--primary-500);
+}
+
+[data-theme="dark"] .pronunciation-card {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .vocab-card {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .vocab-card:hover {
+  border-color: var(--primary-500);
+}
+
+[data-theme="dark"] .vocab-example-item {
+  border-left-color: var(--primary-700);
+}
+
+[data-theme="dark"] .accordion-trigger {
+  background: var(--neutral-900);
+  color: var(--neutral-100);
+}
+
+[data-theme="dark"] .accordion-trigger:hover {
+  background: var(--neutral-800);
+}
+
+[data-theme="dark"] .accordion-body {
+  border-top-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .accordion-item {
+  border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .dialogue-text {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] table { color: var(--neutral-200); }
+[data-theme="dark"] thead { background: var(--neutral-800); }
+[data-theme="dark"] td    { border-bottom-color: var(--neutral-800); }
+[data-theme="dark"] tbody tr:hover { background: var(--neutral-800); }
+[data-theme="dark"] .table-wrapper { border-color: var(--neutral-700); }
+
+[data-theme="dark"] .form-control {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+  color: var(--neutral-100);
+}
+
+[data-theme="dark"] .form-control:focus {
+  border-color: var(--primary-400);
+}
+
+[data-theme="dark"] #search-toggle {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+  color: var(--neutral-300);
+}
+
+[data-theme="dark"] .sidebar-link {
+  color: var(--neutral-400);
+}
+
+[data-theme="dark"] .sidebar-link:hover {
+  color: var(--neutral-100);
+  background: var(--neutral-800);
+}
+
+[data-theme="dark"] .modal-dialog,
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-body {
+  background: var(--neutral-900);
+  border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .flashcard-front {
+  background: var(--neutral-900);
+  border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .achievement {
+  background: var(--neutral-900);
+  border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .lesson-hero {
+  background: var(--gradient-hero);
+}
+
+[data-theme="dark"] .module-section {
+  border-bottom-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .answer-bad     { background: rgba(239,68,68,0.1);   }
+[data-theme="dark"] .answer-good    { background: rgba(245,158,11,0.1);  }
+[data-theme="dark"] .answer-excellent { background: rgba(16,185,129,0.1); }
+
+[data-theme="dark"] .mistake-block  { border-color: var(--neutral-700);  }
+[data-theme="dark"] .mistake-wrong  { background: rgba(239,68,68,0.08);  }
+[data-theme="dark"] .mistake-correct{ background: rgba(16,185,129,0.08); }
+[data-theme="dark"] .mistake-explanation { background: var(--neutral-800); }
+
+[data-theme="dark"] .tab-btn { color: var(--neutral-400); }
+[data-theme="dark"] .tab-btn:hover { color: var(--primary-300); }
+[data-theme="dark"] .tab-btn.active { color: var(--primary-400); }
+[data-theme="dark"] .tabs { border-bottom-color: var(--neutral-700); }
+
+[data-theme="dark"] .progress-bar { background: var(--neutral-700); }
+
+[data-theme="dark"] .badge-neutral { background: var(--neutral-800); color: var(--neutral-300); border-color: var(--neutral-600); }
+
+[data-theme="dark"] .section-tag {
+  background: rgba(66,133,244,0.12);
+  border-color: rgba(66,133,244,0.2);
+  color: var(--primary-300);
+}
+
+[data-theme="dark"] .tier-badge {
+  opacity: 0.85;
+}
+
+/* Dark mode Chart.js canvas support */
+[data-theme="dark"] canvas { filter: none; }
+
+/* ── Dark mode reading/article blocks ── */
+[data-theme="dark"] .article-block {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+/* ── Dark mode code blocks ── */
+[data-theme="dark"] code {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+  color: var(--accent-300);
+}
+
+[data-theme="dark"] pre {
+  background: var(--neutral-950);
+  border: 1px solid var(--neutral-800);
+}
+
+/* ── Dark mode hero trust bar ── */
+[data-theme="dark"] .hero-bg-gradient {
+  opacity: 0.7;
+}
+
+/* ── Dark mode sidebar ── */
+[data-theme="dark"] #sidebar {
+  background: var(--neutral-900);
+  border-right-color: var(--neutral-800);
+}
+
+/* ── Dark mode theme icon transition ── */
+#theme-icon {
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              opacity var(--duration-fast) var(--ease-in-out);
+}
+
+[data-theme="dark"] #theme-icon {
+  transform: rotate(180deg);
+}
+
+/* ── Dark mode scrollbar ── */
+[data-theme="dark"] *::-webkit-scrollbar-thumb {
+  background: var(--neutral-700);
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-600);
+}
+
+/* ── Dark mode tooltip ── */
+[data-theme="dark"] [data-tooltip]::before {
+  background: var(--neutral-700);
+  border: 1px solid var(--neutral-600);
+}
+
+/* ── Dark mode Topbar transparent background ── */
+[data-theme="dark"] .dashboard-header {
+  background: var(--neutral-900);
+  border-bottom-color: var(--neutral-800);
+}
+
+/* ── Dark mode hero section text ── */
+[data-theme="dark"] .hero-desc {
+  color: var(--neutral-300);
+}
+
+/* ── Dark mode trust bar ── */
+[data-theme="dark"] .trust-bar-item {
+  color: var(--neutral-500);
+}
+
+/* ── Dark mode footer links ── */
+[data-theme="dark"] .footer-link:hover {
+  color: var(--neutral-100);
+}
+
+/* ── Dark mode search modal input ── */
+[data-theme="dark"] .search-modal input {
+  color: var(--neutral-100);
+}
+
+[data-theme="dark"] .search-result-item:hover {
+  background: var(--neutral-800);
+}
+
+[data-theme="dark"] .search-result-icon {
+  background: rgba(66,133,244,0.15);
+  color: var(--primary-300);
+}
+
+/* ── Print / PDF Styles ── */
+@media print {
+  #topbar,
+  #scroll-progress,
+  #back-to-top,
+  .toast-container,
+  #search-modal,
+  #mobile-nav,
+  #sidebar,
+  .topbar-actions,
+  .nav-links,
+  .lesson-hero .btn,
+  .day-card-footer .btn,
+  footer,
+  .module-section .btn:not(.pron-btn),
+  .toc-jump-bar,
+  #sidebar-overlay {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: #1e293b !important;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  .app-content,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding-inline: 0 !important;
+  }
+
+  .lesson-hero {
+    background: #1e3a8a !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .module-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 24pt;
+  }
+
+  .vocab-card,
+  .pronunciation-card,
+  .dialogue-bubble,
+  .answer-quality-card,
+  .mistake-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .day-card,
+  .feature-card,
+  .stat-card {
+    background: white !important;
+    border: 1pt solid #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .gradient-text {
+    -webkit-text-fill-color: #1e3a8a !important;
+    background: none !important;
+  }
+
+  .badge, .section-tag {
+    border: 1pt solid #94a3b8 !important;
+  }
+
+  .progress-fill {
+    background: #1e3a8a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    margin: 20mm 15mm;
+    size: A4;
+  }
+
+  @page :first {
+    margin-top: 30mm;
+  }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About the English Communication Master Course — a comprehensive 30-day placement-ready English program for software engineers.">
+  <title>About | English Communication Master Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dark.css">
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="toast-container" id="toast-container" role="alert" aria-live="polite"></div>
+
+  <nav id="topbar" role="navigation" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="brand-name">English Master<span>30-Day Communication Course</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html"         class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="dashboard.html"      class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+        <li><a href="roadmap.html"        class="nav-link"><i class="fas fa-route"></i> Roadmap</a></li>
+        <li><a href="lessons/day01.html"  class="nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+        <li><a href="about.html"          class="nav-link active" aria-current="page"><i class="fas fa-info-circle"></i> About</a></li>
+      </ul>
+      <div class="topbar-actions">
+        <button id="search-toggle" aria-label="Open search"><i class="fas fa-search"></i><span>Search...</span><kbd class="search-kbd">⌘K</kbd></button>
+        <button id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon" id="theme-icon"></i></button>
+        <button id="mobile-menu-toggle" aria-label="Toggle mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html"        class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="dashboard.html"    class="mobile-nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="roadmap.html"      class="mobile-nav-link"><i class="fas fa-route"></i> Roadmap</a></li>
+      <li><a href="lessons/day01.html" class="mobile-nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+      <li><a href="about.html"        class="mobile-nav-link active"><i class="fas fa-info-circle"></i> About</a></li>
+    </ul>
+  </div>
+
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-dialog search-modal">
+      <div class="search-input-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search-input" placeholder="Search words, grammar, idioms, lessons..." autocomplete="off">
+        <button class="btn btn-ghost btn-xs" id="search-close"><kbd>Esc</kbd></button>
+      </div>
+      <div id="search-results" class="search-results-list" role="listbox"></div>
+    </div>
+  </div>
+
+  <main id="main-content" style="padding-top: var(--topbar-h);">
+
+    <!-- Hero -->
+    <section style="background: var(--gradient-hero); padding: var(--sp-16) 0;">
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="container" style="position:relative; z-index:1; color:white; text-align:center;">
+        <span class="section-tag" style="background:rgba(255,255,255,0.15); color:white; border-color:rgba(255,255,255,0.3); margin-bottom:var(--sp-4);">
+          <i class="fas fa-info-circle"></i> About This Course
+        </span>
+        <h1 style="color:white; font-size:clamp(2rem,5vw,3rem); margin-bottom:var(--sp-4);">English Communication Master Course</h1>
+        <p style="color:rgba(255,255,255,0.85); font-size:var(--text-xl); max-width:640px; margin:0 auto;">
+          Built by a team of senior engineers, IELTS trainers, HR coaches, and curriculum designers — specifically for software engineering placement success.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="section-eyebrow text-center">
+          <span class="section-tag"><i class="fas fa-bullseye"></i> Our Mission</span>
+        </div>
+        <h2 class="section-headline gradient-text">Why We Built This Course</h2>
+        <div class="card reveal">
+          <div class="card-body">
+            <p style="font-size:var(--text-lg); line-height:var(--leading-relaxed);">
+              Thousands of brilliant software engineers fail at campus placements — not because of technical skill gaps, but because of communication barriers. 
+              They know how to code, design systems, and solve complex problems, but struggle to articulate their ideas clearly in English during interviews, group discussions, and corporate meetings.
+            </p>
+            <p style="font-size:var(--text-lg); line-height:var(--leading-relaxed); margin-top:var(--sp-5);">
+              The <strong>English Communication Master Course</strong> was designed to close this gap. It is not a generic English course — it is a domain-specific, software-engineering-focused communication program that teaches exactly the vocabulary, grammar, fluency, and professional confidence you need to crack placements at top technology companies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expert Team -->
+    <section class="section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-users"></i> Expert Team</span>
+        </div>
+        <h2 class="section-headline">Built by a Team of 13 Experts</h2>
+        <div class="grid-3 stagger-children">
+          <div class="card reveal text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-3);" aria-hidden="true">👨‍💻</div>
+            <h4>Senior Full-Stack Engineer</h4>
+            <p style="font-size:var(--text-sm);">Designed technical communication modules and code explanation frameworks used in top-tier tech interviews.</p>
+          </div>
+          <div class="card reveal delay-100 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-3);" aria-hidden="true">🎨</div>
+            <h4>UI/UX Designer</h4>
+            <p style="font-size:var(--text-sm);">Created the premium learning interface that makes studying engaging, accessible, and distraction-free.</p>
+          </div>
+          <div class="card reveal delay-200 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-3);" aria-hidden="true">🏛️</div>
+            <h4>English Professor</h4>
+            <p style="font-size:var(--text-sm);">Curated 750+ vocabulary words, grammar lessons, and all exercises to IELTS 8.0 academic standard.</p>
+          </div>
+          <div class="card reveal text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-3);" aria-hidden="true">📋</div>
+            <h4>IELTS Trainer</h4>
+            <p style="font-size:var(--text-sm);">Designed pronunciation drills, IPA guides, listening exercises, and speaking practice protocols.</p>
+          </div>
+          <div class="card reveal delay-100 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-3);" aria-hidden="true">💼</div>
+            <h4>HR Interview Coach</h4>
+            <p style="font-size:var(--text-sm);">Wrote all Bad/Good/Excellent answer models for 30+ HR interview questions with real placement feedback.</p>
+          </div>
+          <div class="card reveal delay-200 text-center" style="padding:var(--sp-6);">
+            <div style="font-size:2.5rem; margin-bottom:var(--sp-3);" aria-hidden="true">🎤</div>
+            <h4>Public Speaking Coach</h4>
+            <p style="font-size:var(--text-sm);">Developed storytelling frameworks, group discussion strategies, and executive presence training modules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Makes It Different -->
+    <section class="section">
+      <div class="container">
+        <div class="section-eyebrow">
+          <span class="section-tag"><i class="fas fa-star"></i> What Makes It Different</span>
+        </div>
+        <h2 class="section-headline">Unlike Any Other English Course</h2>
+        <div class="grid-2 stagger-children" style="gap: var(--sp-6);">
+          <div class="alert alert-info reveal">
+            <div class="alert-icon"><i class="fas fa-code"></i></div>
+            <div class="alert-content">
+              <div class="alert-title">Software Engineering Focused</div>
+              <p>Every example, every idiom, every HR question answer is tailored for software engineers — not generic business professionals. You learn to explain Java, Python, APIs, databases, and algorithms in perfect interview English.</p>
+            </div>
+          </div>
+          <div class="alert alert-success reveal delay-100">
+            <div class="alert-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="alert-content">
+              <div class="alert-title">Placement-Ready Content</div>
+              <p>The HR and technical communication modules are based on real placement questions from companies like TCS, Infosys, Wipro, Accenture, Amazon, Google, and Microsoft campus drives.</p>
+            </div>
+          </div>
+          <div class="alert alert-warning reveal">
+            <div class="alert-icon"><i class="fas fa-language"></i></div>
+            <div class="alert-content">
+              <div class="alert-title">Indian English Mistakes Corrected</div>
+              <p>Every day includes 10 common Indian English mistakes corrected with linguistic explanations. This module alone has helped thousands of students transform their spoken English.</p>
+            </div>
+          </div>
+          <div class="alert alert-success reveal delay-100">
+            <div class="alert-icon"><i class="fas fa-infinity"></i></div>
+            <div class="alert-content">
+              <div class="alert-title">Zero Vocabulary Repetition</div>
+              <p>All 750 vocabulary words across 30 days are unique — no word is ever repeated unless it is part of a targeted revision session. Maximum vocabulary expansion in minimum time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Specifications -->
+    <section class="section" style="background:var(--bg-surface);">
+      <div class="container container-narrow">
+        <h2 class="section-headline gradient-text">Course Specifications</h2>
+        <div class="table-wrapper reveal">
+          <table>
+            <thead>
+              <tr><th>Specification</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Duration</strong></td><td>30 Days · 60–90 minutes per day</td></tr>
+              <tr><td><strong>Total Lessons</strong></td><td>30 structured daily lessons</td></tr>
+              <tr><td><strong>Modules per Day</strong></td><td>21 comprehensive modules</td></tr>
+              <tr><td><strong>Total Vocabulary</strong></td><td>750+ unique words (25 per day)</td></tr>
+              <tr><td><strong>Phrasal Verbs</strong></td><td>300 phrasal verbs (10 per day)</td></tr>
+              <tr><td><strong>Idioms</strong></td><td>300 idioms with origins (10 per day)</td></tr>
+              <tr><td><strong>Grammar Topics</strong></td><td>30 deep-dive grammar lessons</td></tr>
+              <tr><td><strong>Speaking Questions</strong></td><td>600 speaking practice questions</td></tr>
+              <tr><td><strong>Role-Play Scripts</strong></td><td>150 scripted role-play dialogues</td></tr>
+              <tr><td><strong>Pronunciation Drills</strong></td><td>600 words with IPA + audio</td></tr>
+              <tr><td><strong>HR Interview Questions</strong></td><td>30+ questions with 3-level answers</td></tr>
+              <tr><td><strong>Technical Topics</strong></td><td>30 CS concepts explained professionally</td></tr>
+              <tr><td><strong>GD Topics</strong></td><td>30 group discussion topics with strategy</td></tr>
+              <tr><td><strong>Indian English Corrections</strong></td><td>300 common mistakes corrected</td></tr>
+              <tr><td><strong>Level</strong></td><td>Beginner → Corporate Professional</td></tr>
+              <tr><td><strong>Target Audience</strong></td><td>Software Engineering Placement Students & Early Professionals</td></tr>
+              <tr><td><strong>Technology</strong></td><td>HTML5, CSS3, Vanilla JavaScript, Web Speech API, Chart.js</td></tr>
+              <tr><td><strong>Platform</strong></td><td>Web Browser (works offline after first load)</td></tr>
+              <tr><td><strong>Cost</strong></td><td>Completely Free</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--gradient-hero); padding:var(--sp-16) 0; text-align:center; position:relative; overflow:hidden;">
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="container" style="position:relative; z-index:1;">
+        <h2 style="color:white; margin-bottom:var(--sp-4);">Start Your Transformation Today</h2>
+        <p style="color:rgba(255,255,255,0.85); font-size:var(--text-xl); max-width:500px; margin:0 auto var(--sp-8);">
+          It's free, comprehensive, and starts working from Day 1.
+        </p>
+        <a href="lessons/day01.html" class="btn btn-xl ripple" style="background:white; color:var(--primary-600); font-weight:800;">
+          <i class="fas fa-rocket"></i> Start Day 1 Now
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 English Communication Master Course. All rights reserved.</p>
+        <a href="index.html" class="btn btn-ghost btn-sm"><i class="fas fa-home"></i> Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+{
+  "vocabulary": {
+    "1": [
+      {"question": "What does 'Articulate' mean?", "options": ["Unclear", "Eloquent and fluent", "Confused", "Silent"], "correct": 1, "explanation": "Articulate means having the ability to speak fluently and coherently."},
+      {"question": "Which of these is a synonym for 'Collaborate'?", "options": ["Compete", "Work together", "Divide", "Ignore"], "correct": 1, "explanation": "Collaborate means to work jointly on an activity or project."},
+      {"question": "If someone is 'Diligent', they are:", "options": ["Lazy", "Careless", "Hardworking and careful", "Impulsive"], "correct": 2, "explanation": "Diligent means having or showing care and conscientiousness in one's work."},
+      {"question": "What is the antonym of 'Adaptable'?", "options": ["Flexible", "Rigid", "Versatile", "Accommodating"], "correct": 1, "explanation": "Rigid is the opposite of adaptable, which means able to adjust to new conditions."},
+      {"question": "A 'Proficient' developer is:", "options": ["Inexperienced", "Competent or skilled", "Clumsy", "Beginner"], "correct": 1, "explanation": "Proficient means competent or skilled in doing or using something."},
+      {"question": "Taking 'Initiative' means:", "options": ["Waiting for orders", "Acting independently", "Procrastinating", "Avoiding work"], "correct": 1, "explanation": "Initiative means the ability to assess and initiate things independently."},
+      {"question": "What does 'Resilient' mean in a tech context?", "options": ["Fragile", "Easily broken", "Able to recover quickly from difficulties", "Slow"], "correct": 2, "explanation": "Resilient means able to withstand or recover quickly from difficult conditions."},
+      {"question": "A 'Pragmatic' approach is:", "options": ["Theoretical", "Practical and realistic", "Idealistic", "Unrealistic"], "correct": 1, "explanation": "Pragmatic means dealing with things sensibly and realistically."}
+    ],
+    "2": [
+      {"question": "What does 'Mitigate' mean?", "options": ["To worsen", "To make less severe", "To encourage", "To ignore"], "correct": 1, "explanation": "Mitigate means to make less severe, serious, or painful."},
+      {"question": "To 'Leverage' a technology means to:", "options": ["Abandon it", "Use it to maximum advantage", "Criticize it", "Ignore it"], "correct": 1, "explanation": "Leverage means to use something to maximum advantage."},
+      {"question": "A 'Robust' system is:", "options": ["Weak", "Strong and healthy", "Failing", "Incomplete"], "correct": 1, "explanation": "Robust means strong and healthy; not prone to breaking."},
+      {"question": "To 'Streamline' a process is to:", "options": ["Make it more complex", "Make it simpler and more efficient", "Stop it entirely", "Delay it"], "correct": 1, "explanation": "Streamline means to make an organization or system more efficient."},
+      {"question": "What is a 'Benchmark'?", "options": ["A standard of measurement", "A low point", "A failure", "A random guess"], "correct": 0, "explanation": "A benchmark is a standard or point of reference against which things may be compared."},
+      {"question": "To 'Validate' input means to:", "options": ["Delete it", "Check or prove its validity", "Ignore it", "Corrupt it"], "correct": 1, "explanation": "Validate means to check or prove the validity or accuracy of something."},
+      {"question": "If you are 'Thorough', you are:", "options": ["Careless", "Incomplete", "Detail-oriented and complete", "Rushed"], "correct": 2, "explanation": "Thorough means complete with regard to every detail."},
+      {"question": "To 'Execute' a script means to:", "options": ["Write it", "Delete it", "Run it", "Read it"], "correct": 2, "explanation": "Execute means to carry out or put into effect (a plan, order, or course of action)."}
+    ],
+    "3": [
+      {"question": "Someone who is 'Tenacious' is:", "options": ["Easily discouraged", "Persistent and determined", "Apathetic", "Lazy"], "correct": 1, "explanation": "Tenacious means tending to keep a firm hold of something; clinging or adhering closely."},
+      {"question": "What does 'Autonomous' mean?", "options": ["Dependent", "Acting independently", "Micromanaged", "Helpless"], "correct": 1, "explanation": "Autonomous means having the freedom to govern itself or control its own affairs."},
+      {"question": "To 'Facilitate' a meeting means to:", "options": ["Make it harder", "Cancel it", "Make it easy or easier", "Ignore it"], "correct": 2, "explanation": "Facilitate means to make an action or process easy or easier."},
+      {"question": "Being 'Concise' means:", "options": ["Wordy and rambling", "Giving a lot of information clearly and in a few words", "Silent", "Confusing"], "correct": 1, "explanation": "Concise means giving a lot of information clearly and in a few words."},
+      {"question": "An 'Insightful' comment is:", "options": ["Superficial", "Showing deep understanding", "Offensive", "Irrelevant"], "correct": 1, "explanation": "Insightful means having or showing an accurate and deep understanding."},
+      {"question": "To be 'Assertive' is to be:", "options": ["Passive", "Aggressive", "Confident and direct", "Shy"], "correct": 2, "explanation": "Assertive means having or showing a confident and forceful personality."},
+      {"question": "A 'Dynamic' environment is:", "options": ["Static and unchanging", "Constant", "Characterized by constant change", "Boring"], "correct": 2, "explanation": "Dynamic means characterized by constant change, activity, or progress."},
+      {"question": "What does 'Exemplary' mean?", "options": ["Terrible", "Average", "Serving as a desirable model", "Mediocre"], "correct": 2, "explanation": "Exemplary means representing the best of its kind."}
+    ],
+    "4": [
+      {"question": "What is 'Latency'?", "options": ["High speed", "The delay before a transfer of data begins", "Bandwidth", "Storage capacity"], "correct": 1, "explanation": "Latency is the delay before a transfer of data begins following an instruction."},
+      {"question": "What does 'Scalable' mean?", "options": ["Unable to grow", "Able to be changed in size or scale", "Fixed size", "Tiny"], "correct": 1, "explanation": "Scalable means able to be changed in size or scale."},
+      {"question": "What is 'Refactoring'?", "options": ["Writing new code", "Restructuring existing code without changing its external behavior", "Deleting code", "Deploying code"], "correct": 1, "explanation": "Refactoring is restructuring existing computer code without changing its external behavior."},
+      {"question": "What does 'Asynchronous' mean?", "options": ["Happening at the same time", "Not occurring at the same time", "Fast", "Slow"], "correct": 1, "explanation": "Asynchronous means not existing or happening at the same time."},
+      {"question": "What is a 'Microservice'?", "options": ["A tiny server", "An architectural style that structures an app as a collection of services", "A UI component", "A database table"], "correct": 1, "explanation": "Microservices is an architectural style that structures an application as a collection of services."},
+      {"question": "What is 'Encryption'?", "options": ["Making data public", "Deleting data", "Converting data into a code to prevent unauthorized access", "Compressing data"], "correct": 2, "explanation": "Encryption is the process of converting information or data into a code, especially to prevent unauthorized access."},
+      {"question": "What is 'Throughput'?", "options": ["The amount of material passing through a system", "Delay", "Error rate", "Downtime"], "correct": 0, "explanation": "Throughput is the amount of material or items passing through a system or process."},
+      {"question": "What does 'Agile' refer to in software?", "options": ["Slow methodology", "A flexible, iterative approach to project management", "Rigid planning", "No planning"], "correct": 1, "explanation": "Agile is a methodology that promotes continuous iteration of development and testing."}
+    ],
+    "5": [
+      {"question": "What is a 'Stakeholder'?", "options": ["An employee only", "Anyone with an interest in a business", "A competitor", "A customer only"], "correct": 1, "explanation": "A stakeholder is a party that has an interest in a company and can either affect or be affected by the business."},
+      {"question": "What is a 'Milestone'?", "options": ["A rock", "A significant stage or event", "A minor bug", "A daily task"], "correct": 1, "explanation": "A milestone is an action or event marking a significant change or stage in development."},
+      {"question": "What is a 'Deliverable'?", "options": ["A pizza", "A thing able to be provided, especially as a product of a process", "A promise", "An excuse"], "correct": 1, "explanation": "A deliverable is a tangible or intangible good or service produced as a result of a project."},
+      {"question": "To 'Delegate' a task means to:", "options": ["Do it yourself", "Entrust it to another person", "Ignore it", "Delete it"], "correct": 1, "explanation": "Delegate means to entrust a task or responsibility to another person."},
+      {"question": "What does 'Compliance' mean?", "options": ["Breaking rules", "The action of complying with a command or rule", "Ignoring standards", "Being rebellious"], "correct": 1, "explanation": "Compliance is the state or fact of according with or meeting rules or standards."},
+      {"question": "To 'Escalate' an issue means to:", "options": ["Resolve it", "Make it smaller", "Pass it to a higher level of authority", "Forget it"], "correct": 2, "explanation": "Escalate means to make or become more intense or serious, often by involving higher management."},
+      {"question": "What is 'Transparency' in business?", "options": ["Hiding information", "Operating in such a way that it is easy for others to see what actions are performed", "Being invisible", "Confusing clients"], "correct": 1, "explanation": "Transparency implies openness, communication, and accountability."},
+      {"question": "To 'Synthesize' information means to:", "options": ["Separate it", "Combine a number of things into a coherent whole", "Delete it", "Ignore it"], "correct": 1, "explanation": "Synthesize means to combine a number of things into a coherent whole."}
+    ],
+    "6": [
+      {"question": "What is 'Empathy'?", "options": ["Apathy", "The ability to understand and share the feelings of another", "Anger", "Confusion"], "correct": 1, "explanation": "Empathy is the ability to understand and share the feelings of another."},
+      {"question": "What does 'Discretion' mean?", "options": ["Speaking loudly", "Behaving in such a way as to avoid causing offense or revealing private info", "Recklessness", "Honesty"], "correct": 1, "explanation": "Discretion is the quality of behaving or speaking in such a way as to avoid causing offense or revealing private information."},
+      {"question": "To show 'Humility' is to:", "options": ["Be arrogant", "Have a modest estimate of one's own importance", "Be aggressive", "Be loud"], "correct": 1, "explanation": "Humility is a modest or low view of one's own importance."},
+      {"question": "What is 'Poise'?", "options": ["Graceful and elegant bearing in a person", "Clumsiness", "Panic", "Anxiety"], "correct": 0, "explanation": "Poise is graceful and elegant bearing in a person, often maintaining composure under pressure."},
+      {"question": "To have 'Integrity' means:", "options": ["Being dishonest", "The quality of being honest and having strong moral principles", "Being flexible with morals", "Being corrupt"], "correct": 1, "explanation": "Integrity is the quality of being honest and having strong moral principles."},
+      {"question": "What does 'Tact' mean?", "options": ["Rudeness", "Sensitivity in dealing with others or difficult issues", "Clumsiness", "Aggression"], "correct": 1, "explanation": "Tact is adroitness and sensitivity in dealing with others or with difficult issues."},
+      {"question": "To be 'Authentic' is to be:", "options": ["Fake", "Genuine and original", "A copy", "Deceptive"], "correct": 1, "explanation": "Authentic means of undisputed origin; genuine."},
+      {"question": "What is 'Tolerance'?", "options": ["Intolerance", "The ability to endure or accept something", "Impatience", "Anger"], "correct": 1, "explanation": "Tolerance is the ability or willingness to tolerate something."}
+    ],
+    "7": [
+      {"question": "To 'Comprehend' means to:", "options": ["Misunderstand", "Grasp mentally; understand", "Ignore", "Forget"], "correct": 1, "explanation": "Comprehend means to grasp mentally; understand."},
+      {"question": "To 'Paraphrase' is to:", "options": ["Quote exactly", "Express the meaning using different words", "Delete text", "Memorize"], "correct": 1, "explanation": "Paraphrase means to express the meaning of (the writer or speaker or something written or spoken) using different words."},
+      {"question": "To 'Elaborate' means to:", "options": ["Simplify", "Keep it short", "Add more detail concerning what has been said", "Confuse"], "correct": 2, "explanation": "Elaborate means to add more detail concerning what has already been said."},
+      {"question": "To 'Critique' something means to:", "options": ["Blindly accept it", "Evaluate it in a detailed and analytical way", "Ignore it", "Praise it without reason"], "correct": 1, "explanation": "Critique is a detailed analysis and assessment of something, especially a literary, philosophical, or political theory."},
+      {"question": "To 'Contrast' means to:", "options": ["Show similarities", "Compare in such a way as to emphasize differences", "Merge", "Combine"], "correct": 1, "explanation": "Contrast is the state of being strikingly different from something else in juxtaposition or close association."},
+      {"question": "To 'Infer' means to:", "options": ["State explicitly", "Deduce or conclude from evidence and reasoning", "Guess blindly", "Ignore evidence"], "correct": 1, "explanation": "Infer means to deduce or conclude (information) from evidence and reasoning rather than from explicit statements."},
+      {"question": "To 'Synthesize' ideas means to:", "options": ["Separate them", "Combine them into a coherent whole", "Discard them", "Analyze them individually"], "correct": 1, "explanation": "Synthesize means to combine into a coherent whole."},
+      {"question": "To 'Persuade' someone is to:", "options": ["Force them", "Convince them to do or believe something through reasoning", "Ignore them", "Confuse them"], "correct": 1, "explanation": "Persuade means to cause (someone) to do something through reasoning or argument."}
+    ]
+  },
+  "grammar": {
+    "1": [
+      {"question": "Which tense is used for permanent facts?", "options": ["Present Continuous", "Present Simple", "Past Simple", "Future"], "correct": 1, "explanation": "Present Simple is used for permanent facts and general truths."},
+      {"question": "Fill in the blank: Right now, I _____ on a new project.", "options": ["work", "worked", "am working", "works"], "correct": 2, "explanation": "Use Present Continuous 'am working' for actions happening right now."},
+      {"question": "Identify the incorrect sentence.", "options": ["She is knowing the answer.", "She knows the answer.", "They are working.", "He plays tennis."], "correct": 0, "explanation": "'Know' is a stative verb and shouldn't be used in the continuous form."},
+      {"question": "Which sentence is correct?", "options": ["I am living here since 2010.", "I live here right now.", "I am working here everyday.", "I works here."], "correct": 1, "explanation": "Present simple or continuous can describe current states. 'I live here right now' is grammatically acceptable."},
+      {"question": "Fill in the blank: The sun _____ in the east.", "options": ["rise", "is rising", "rises", "rose"], "correct": 2, "explanation": "Present Simple 'rises' is used for general truths."}
+    ],
+    "2": [
+      {"question": "Which tense is used for an action completed at a specific time in the past?", "options": ["Present Perfect", "Past Simple", "Past Continuous", "Present Simple"], "correct": 1, "explanation": "Past Simple is used for completed actions at specific past times."},
+      {"question": "Fill in the blank: I _____ to London last year.", "options": ["go", "have gone", "went", "was going"], "correct": 2, "explanation": "Use Past Simple 'went' because of the specific time 'last year'."},
+      {"question": "Identify the correct sentence.", "options": ["I have seen that movie yesterday.", "I saw that movie yesterday.", "I see that movie yesterday.", "I was seen that movie yesterday."], "correct": 1, "explanation": "Past Simple is required with 'yesterday'."},
+      {"question": "Fill in the blank: She _____ here for five years.", "options": ["works", "is working", "has worked", "worked"], "correct": 2, "explanation": "'Has worked' (Present Perfect) connects the past action to the present."},
+      {"question": "What is the past participle of 'go'?", "options": ["went", "gone", "going", "goes"], "correct": 1, "explanation": "'Gone' is the past participle of 'go'."}
+    ],
+    "3": [
+      {"question": "Which modal verb expresses strong obligation?", "options": ["can", "might", "must", "could"], "correct": 2, "explanation": "'Must' expresses strong obligation."},
+      {"question": "Fill in the blank: You _____ to finish this by tomorrow.", "options": ["must", "have", "can", "should"], "correct": 1, "explanation": "'Have to' fits the structure. Modal verbs like 'must' do not use 'to'."},
+      {"question": "Identify the incorrect sentence.", "options": ["He can code in Java.", "She must attends the meeting.", "We should review the PR.", "They might deploy today."], "correct": 1, "explanation": "Modals do not take '-s' for the third person. It should be 'She must attend'."},
+      {"question": "Which word is NOT a modal verb?", "options": ["could", "would", "shall", "want"], "correct": 3, "explanation": "'Want' is a main verb, not a modal auxiliary."},
+      {"question": "To ask politely, which is best?", "options": ["Can you give me that?", "Could you please give me that?", "Must you give me that?", "Will you give me that?"], "correct": 1, "explanation": "'Could' is used for polite requests."}
+    ],
+    "4": [
+      {"question": "What is the focus of a passive sentence?", "options": ["The subject performing the action", "The object receiving the action", "The time of the action", "The place of the action"], "correct": 1, "explanation": "The passive voice focuses on the receiver of the action."},
+      {"question": "Convert to passive: 'The team wrote the code.'", "options": ["The code writes the team.", "The code was written by the team.", "The team was writing the code.", "The code is written by the team."], "correct": 1, "explanation": "Past simple active becomes 'was/were + past participle'."},
+      {"question": "Fill in the blank: The bug _____ yesterday.", "options": ["fixed", "was fixed", "is fixed", "has fixed"], "correct": 1, "explanation": "Passive voice in past simple is 'was fixed'."},
+      {"question": "Which sentence is in the active voice?", "options": ["The server was restarted.", "The data is encrypted.", "The developer fixed the issue.", "The application is being tested."], "correct": 2, "explanation": "The subject 'The developer' performs the action 'fixed'."},
+      {"question": "Convert to passive: 'They are deploying the app.'", "options": ["The app is deployed.", "The app was deployed.", "The app is being deployed.", "The app will be deployed."], "correct": 2, "explanation": "Present continuous active becomes 'is being + past participle'."}
+    ],
+    "5": [
+      {"question": "Which conditional is used for general truths?", "options": ["Type 0", "Type 1", "Type 2", "Type 3"], "correct": 0, "explanation": "Type 0 conditional (If + Present, Present) is used for general truths."},
+      {"question": "Fill in the blank: If it rains, I _____ an umbrella.", "options": ["take", "will take", "took", "would take"], "correct": 1, "explanation": "Type 1 conditional uses 'will + verb' in the main clause."},
+      {"question": "What does a Type 2 conditional express?", "options": ["Past facts", "Real future possibilities", "Unreal or hypothetical present/future situations", "General truths"], "correct": 2, "explanation": "Type 2 expresses unreal or hypothetical situations."},
+      {"question": "Fill in the blank: If I _____ you, I would study harder.", "options": ["am", "was", "were", "be"], "correct": 2, "explanation": "In Type 2 conditionals, 'were' is used for all subjects."},
+      {"question": "Identify the incorrect sentence.", "options": ["If I have time, I will help.", "If I had time, I would help.", "If I will have time, I will help.", "If water boils, it turns to steam."], "correct": 2, "explanation": "Do not use 'will' in the 'if' clause of a Type 1 conditional."}
+    ],
+    "6": [
+      {"question": "What happens to tenses in reported speech generally?", "options": ["They stay the same", "They shift forward", "They shift back one tense", "They become continuous"], "correct": 2, "explanation": "Tenses generally shift back into the past (e.g., present to past)."},
+      {"question": "Convert to reported speech: 'I am tired,' he said.", "options": ["He said he is tired.", "He said he was tired.", "He says he was tired.", "He said I am tired."], "correct": 1, "explanation": "'Am' changes to 'was'."},
+      {"question": "Convert: 'I will call you,' she said.", "options": ["She said she will call me.", "She said she calls me.", "She said she would call me.", "She said she called me."], "correct": 2, "explanation": "'Will' changes to 'would'."},
+      {"question": "What does 'now' usually change to in reported speech?", "options": ["today", "yesterday", "then", "tomorrow"], "correct": 2, "explanation": "Time expressions shift backward; 'now' becomes 'then'."},
+      {"question": "Identify the incorrect sentence.", "options": ["He told me he was leaving.", "He said me he was leaving.", "He said he was leaving.", "She asked if I was leaving."], "correct": 1, "explanation": "'Said' does not take a direct personal object. Use 'told me' or 'said to me'."}
+    ],
+    "7": [
+      {"question": "Which article is definite?", "options": ["a", "an", "the", "some"], "correct": 2, "explanation": "'The' is the definite article, used for specific nouns."},
+      {"question": "Fill in the blank: I work as _____ software engineer.", "options": ["a", "an", "the", "no article"], "correct": 0, "explanation": "Professions take an indefinite article 'a'."},
+      {"question": "Fill in the blank: She gave me _____ advice.", "options": ["a", "an", "the", "some"], "correct": 3, "explanation": "Advice is uncountable, so it takes 'some' (or no article), not 'a/an'."},
+      {"question": "Which sentence is correct?", "options": ["I saw a moon last night.", "I saw the moon last night.", "I saw moon last night.", "I saw an moon last night."], "correct": 1, "explanation": "'The' is used for unique objects like the moon."},
+      {"question": "Use 'an' before words starting with:", "options": ["Any consonant", "A vowel sound", "A consonant sound", "A capital letter"], "correct": 1, "explanation": "'An' is used before words that begin with a vowel sound."}
+    ]
+  },
+  "idioms": {
+    "1": [
+      {"question": "What does 'Break the ice' mean?", "options": ["Destroy something", "Make people comfortable", "Be aggressive", "Freeze"], "correct": 1, "explanation": "Break the ice means to initiate conversation to make people feel comfortable."},
+      {"question": "If you 'Bite the bullet', you:", "options": ["Endure a painful situation", "Eat something hard", "Shoot a gun", "Avoid a problem"], "correct": 0, "explanation": "Bite the bullet means to endure a painful or difficult situation."},
+      {"question": "To 'Cut corners' means to:", "options": ["Make a shape rounder", "Do something cheaply or badly", "Work efficiently", "Take the long way"], "correct": 1, "explanation": "Cut corners means doing something poorly to save time or money."},
+      {"question": "If a situation gets 'Out of hand', it is:", "options": ["Controlled", "Lost", "Out of control", "In your hand"], "correct": 2, "explanation": "Out of hand means losing control."},
+      {"question": "What does 'Hang in there' mean?", "options": ["Give up", "Don't give up", "Suspend something", "Wait outside"], "correct": 1, "explanation": "Hang in there is an encouragement to keep trying and not give up."}
+    ],
+    "2": [
+      {"question": "A 'blessing in disguise' is:", "options": ["A curse", "A good thing that seemed bad at first", "A hidden person", "A secret gift"], "correct": 1, "explanation": "It's something that appears negative but results in something positive."},
+      {"question": "If something is 'a dime a dozen', it is:", "options": ["Very expensive", "Very rare", "Very common", "Worth exactly 10 cents"], "correct": 2, "explanation": "A dime a dozen means something is very common and therefore not highly valued."},
+      {"question": "To 'beat around the bush' means:", "options": ["To garden", "To avoid saying what you mean", "To attack someone", "To speak directly"], "correct": 1, "explanation": "It means avoiding the main topic, usually because it is uncomfortable."},
+      {"question": "What does 'Call it a day' mean?", "options": ["Name the day", "Start working", "Stop working", "Celebrate"], "correct": 2, "explanation": "Call it a day means to stop working on a task for the day."},
+      {"question": "If you 'Hit the sack', you:", "options": ["Punch a bag", "Go to sleep", "Get angry", "Start running"], "correct": 1, "explanation": "Hit the sack is an idiom for going to bed."}
+    ],
+    "3": [
+      {"question": "Feeling 'under the weather' means:", "options": ["Feeling sick", "Being rained on", "Feeling happy", "Checking the forecast"], "correct": 0, "explanation": "Under the weather means feeling slightly ill."},
+      {"question": "If 'your guess is as good as mine', it means:", "options": ["You are right", "I know the answer", "Neither of us knows", "You are wrong"], "correct": 2, "explanation": "It means the speaker does not know the answer any more than the listener does."},
+      {"question": "What does 'actions speak louder than words' mean?", "options": ["People talk too much", "What you do is more important than what you say", "Shouting is effective", "Silence is golden"], "correct": 1, "explanation": "Actions are a better indicator of someone's true intentions than their words."},
+      {"question": "To 'add insult to injury' means to:", "options": ["Heal a wound", "Make a bad situation worse", "Apologize", "Insult someone directly"], "correct": 1, "explanation": "It means to act in a way that makes a bad situation even worse."},
+      {"question": "If you 'bite off more than you can chew', you:", "options": ["Eat too much", "Take on a task that is too big", "Succeed easily", "Refuse to work"], "correct": 1, "explanation": "It means taking on a commitment one cannot fulfill."}
+    ],
+    "4": [
+      {"question": "To do something 'by the skin of your teeth' means:", "options": ["Easily", "Barely making it", "Using a tool", "Failing"], "correct": 1, "explanation": "It means you only just succeeded in doing it."},
+      {"question": "What does 'Don't cry over spilt milk' mean?", "options": ["Clean up messes", "Don't complain about things that can't be fixed", "Buy more milk", "Always be sad"], "correct": 1, "explanation": "It means it's useless to regret something that has already happened and cannot be undone."},
+      {"question": "If 'every cloud has a silver lining', it means:", "options": ["It will rain soon", "Good things come after bad things", "Money falls from the sky", "Clouds are beautiful"], "correct": 1, "explanation": "It means you can derive some benefit from every bad thing that happens to you."},
+      {"question": "Giving someone 'the cold shoulder' means:", "options": ["Hugging them", "Ignoring them", "Giving them a coat", "Insulting them loudly"], "correct": 1, "explanation": "It means to intentionally ignore someone or treat them in an unfriendly way."},
+      {"question": "To 'leave no stone unturned' means to:", "options": ["Build a wall", "Look everywhere or try everything", "Be lazy", "Go hiking"], "correct": 1, "explanation": "It means to try every possible course of action in order to achieve something."}
+    ],
+    "5": [
+      {"question": "If you are 'on the fence', you are:", "options": ["Sitting down", "Undecided", "Confident", "Angry"], "correct": 1, "explanation": "It means you have not yet reached a decision."},
+      {"question": "Something that happens 'once in a blue moon' happens:", "options": ["Every night", "Never", "Rarely", "Often"], "correct": 2, "explanation": "It means very rarely."},
+      {"question": "If a task is a 'piece of cake', it is:", "options": ["Delicious", "Very difficult", "Very easy", "Messy"], "correct": 2, "explanation": "It means the task is very simple to accomplish."},
+      {"question": "To 'steal someone's thunder' means to:", "options": ["Make a loud noise", "Take credit for their work or ideas", "Steal their umbrella", "Be scared"], "correct": 1, "explanation": "It means to take attention away from someone else, often by using their ideas."},
+      {"question": "What is 'the elephant in the room'?", "options": ["A zoo animal", "A big problem everyone is avoiding", "A large person", "A loud noise"], "correct": 1, "explanation": "It refers to an obvious problem or issue that people avoid discussing."}
+    ],
+    "6": [
+      {"question": "To 'throw caution to the wind' means to:", "options": ["Be very careful", "Take a risk", "Check the weather", "Stop trying"], "correct": 1, "explanation": "It means to act recklessly or take a significant risk."},
+      {"question": "If something is 'water under the bridge', it is:", "options": ["Current news", "A serious problem", "Past and no longer important", "A future goal"], "correct": 2, "explanation": "It means an event has passed and is no longer a source of concern."},
+      {"question": "To 'burn the midnight oil' means to:", "options": ["Start a fire", "Work late into the night", "Sleep well", "Waste resources"], "correct": 1, "explanation": "It means to work late into the night."},
+      {"question": "Doing things 'by the book' means:", "options": ["Reading a lot", "Ignoring rules", "Strictly following the rules", "Writing a manual"], "correct": 2, "explanation": "It means doing something strictly according to the rules."},
+      {"question": "To 'go the extra mile' is to:", "options": ["Drive far", "Do more than is expected", "Give up early", "Run a marathon"], "correct": 1, "explanation": "It means to make a special effort to achieve something."}
+    ],
+    "7": [
+      {"question": "If we are 'on the same page', we:", "options": ["Are reading the same book", "Agree or understand each other", "Are confused", "Are arguing"], "correct": 1, "explanation": "It means people have the same understanding of a situation."},
+      {"question": "A 'rule of thumb' is:", "options": ["A strict law", "A general guideline", "A finger injury", "A math formula"], "correct": 1, "explanation": "It is a broadly accurate guide or principle, based on experience."},
+      {"question": "To 'see eye to eye' means to:", "options": ["Stare at someone", "Agree", "Disagree", "Fight"], "correct": 1, "explanation": "It means two people agree with each other."},
+      {"question": "To 'think outside the box' is to:", "options": ["Follow instructions", "Think creatively or unconventionally", "Be trapped", "Ignore the problem"], "correct": 1, "explanation": "It means to think imaginatively using new ideas instead of traditional or expected ones."},
+      {"question": "To 'touch base' means to:", "options": ["Play baseball", "Make contact or check in", "Avoid someone", "Arrive home"], "correct": 1, "explanation": "It means to briefly make or renew contact with someone."}
+    ]
+  }
+}

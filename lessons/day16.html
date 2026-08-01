@@ -1,0 +1,1952 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 16: System Design Communication & Scalability Concepts - English Communication Master</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f1f5f9; margin: 0; padding: 0; }
+        .topbar { display: flex; justify-content: space-between; padding: 1rem 2rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .topbar a { text-decoration: none; color: #333; margin-left: 1rem; font-weight: 500; }
+        .topbar .active { color: #2563eb; }
+        
+        .lesson-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; }
+        .day-pill { background: rgba(255,255,255,0.2); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; }
+         if (<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 16: System Design Communication & Scalability Concepts - English Communication Master</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f1f5f9; margin: 0; padding: 0; }
+        .topbar { display: flex; justify-content: space-between; padding: 1rem 2rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .topbar a { text-decoration: none; color: #333; margin-left: 1rem; font-weight: 500; }
+        .topbar .active { color: #2563eb; }
+        
+        .lesson-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; }
+        .day-pill { background: rgba(255,255,255,0.2); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; }
+        .lesson-layout { display: flex;display: flex; gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .lesson-content { flex: 3; min-width: 0; }
+        .toc-sidebar { flex: 0 0 260px; width: 260px; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .toc-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: #475569; text-decoration: none; }
+        .toc-link.active { color: #2563eb; font-weight: bold; }
+        .toc-icon { font-size: 1.2rem; }
+        
+        .module-section { background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .module-title { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; color: #1e293b; }
+        
+        .vocab-grid, .idiom-grid, .phrasal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .vocab-card, .idiom-card, .phrasal-card, .pronunciation-card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; background: #fafaf9; }
+        
+        .tag { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; background: #e2e8f0; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .tag-interview { background: #dbeafe; color: #1e40af; }
+        .tag-tech { background: #dcfce7; color: #166534; }
+        .tag-corp { background: #fef3c7; color: #92400e; }
+        .tag-daily { background: #f3e8ff; color: #6b21a8; }
+        
+        .mistake-block { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin-bottom: 1rem; }
+        
+        .dialogue-container { display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px; }
+        .dialogue-bubble { max-width: 70%; padding: 1rem; border-radius: 12px; }
+        .dialogue-left { background: #e0f2fe; align-self: flex-start; border-bottom-left-radius: 0; }
+        .dialogue-right { background: #dcfce7; align-self: flex-end; border-bottom-right-radius: 0; }
+        
+        textarea, input[type="text"] { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 0.5rem; font-family: inherit; box-sizing: border-box; }
+        .btn { background: #2563eb; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; font-weight: 500; }
+        .btn:hover { background: #1d4ed8; }
+        .btn-success { background: #16a34a; }
+        .btn-success:hover { background: #15803d; }
+        .btn-large { padding: 1rem 2rem; font-size: 1.2rem; width: 100%; }
+        
+        .code-block { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; font-family: monospace; white-space: pre-wrap; }
+        
+        .bottom-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="brand"><a href="../index.html">English Comm Master</a></div>
+        <div class="nav-links">
+            <a href="../dashboard.html">Dashboard</a>
+            <a href="../roadmap.html">Roadmap</a>
+            <a href="../lessons/day01.html" class="active">Start Learning</a>
+        </div>
+    </nav>
+
+    <div class="lesson-layout">
+        <main class="lesson-content">
+            <section class="lesson-hero">
+                <div class="breadcrumb">Home > Dashboard > Day 16</div>
+                <br>
+                <span class="day-pill">DAY 16 OF 30</span>
+                <h1 style="margin-top: 1rem; font-size: 2.5rem;">System Design Communication & Scalability Concepts</h1>
+                <div class="meta-info" style="margin-top: 1rem; opacity: 0.9;">Duration: 60-90 min | 21 Modules | Tier: Professional</div>
+                <div class="progress-bar-container" style="background: rgba(255,255,255,0.2); height: 8px; border-radius: 4px; margin-top: 1.5rem;">
+                    <div id="hero-progress" style="background: #4ade80; height: 100%; width: 0%; border-radius: 4px; transition: width 0.3s;"></div>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between;">
+                    <button class="btn" style="background: rgba(255,255,255,0.2);" onclick="window.location.href='day15.html'">Prev: Day 15</button>
+                    <button class="btn" style="background: white; color: #2563eb;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+                </div>
+            </section>
+            
+            <section id="module-1" class="module-section">
+                <h2 class="module-title">Module 1: Daily Motivation</h2>
+                <div style="border-left: 4px solid #3b82f6; padding: 1.5rem; background: linear-gradient(to right, #eff6ff, white); border-radius: 0 8px 8px 0;">
+                    <blockquote style="font-size: 1.25rem; font-style: italic; color: #1e3a8a;">"Success is not final, failure is not fatal: it is the courage to continue that counts."</blockquote>
+                    <p>Welcome to Day 16! Today we focus on Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies. Keep pushing forward, your communication is improving daily!</p>
+                </div>
+            </section>
+            
+            <section id="module-2" class="module-section">
+                <h2 class="module-title">Module 2: Warm-up Conversation</h2>
+                <p>Answer the following questions aloud, then type a summary of your answer.</p>
+                <div style="margin-bottom: 1rem;"><p>1. How do you explain 'scalability' to a non-technical person?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. What is the main difference between horizontal and vertical scaling?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>3. Can you describe a scenario where you'd use a load balancer?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>4. What are the benefits of caching?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>5. Have you ever encountered a database bottleneck?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <button class="btn" onclick="alert('Great job!')">Submit</button>
+            </section>
+            
+            <section id="module-3" class="module-section">
+                <h2 class="module-title">Module 3: Vocabulary (25 words)</h2>
+                <div class="vocab-grid">
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Distributed <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Distributed')">🔊</button></h3><p><strong>Definition:</strong> Spread across multiple systems or locations.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Scalable <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Scalable')">🔊</button></h3><p><strong>Definition:</strong> Able to grow or handle more work.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Horizontal <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Horizontal')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more machines.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Vertical <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Vertical')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more power (CPU, RAM).</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Partition <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Partition')">🔊</button></h3><p><strong>Definition:</strong> Dividing a system or database into parts.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <!-- Assuming 20 more words would follow -->
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Throughput <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3><p><strong>Definition:</strong> The amount of data successfully moved in a given time.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Latency <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Latency')">🔊</button></h3><p><strong>Definition:</strong> The time it takes for data to travel.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                </div>
+            </section>
+            
+            <section id="module-4" class="module-section">
+                <h2 class="module-title">Module 4: Phrasal Verbs</h2>
+                <div class="phrasal-grid">
+                    <div class="phrasal-card">
+                        <h3>Scale up</h3>
+                        <p><strong>Meaning:</strong> Increase the size, amount, or importance of something (vertical scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                    <div class="phrasal-card">
+                        <h3>Scale out</h3>
+                        <p><strong>Meaning:</strong> Add more resources of the same type (horizontal scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-5" class="module-section">
+                <h2 class="module-title">Module 5: Idioms</h2>
+                <div class="idiom-grid">
+                    <div class="idiom-card">
+                        <h3>Bottleneck</h3>
+                        <p><strong>Meaning:</strong> A point of congestion in a system that slows down the overall process.</p>
+                        <p><span class="tag tag-tech">Technical</span> "The database is the bottleneck."</p>
+                    </div>
+                    <div class="idiom-card">
+                        <h3>Single point of failure</h3>
+                        <p><strong>Meaning:</strong> A part of a system that, if it fails, will stop the entire system from working.</p>
+                        <p><span class="tag tag-tech">Technical</span> "We must avoid a single point of failure."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-6" class="module-section">
+                <h2 class="module-title">Module 6: Grammar — Causal connectors</h2>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+                    <p><strong>Topic:</strong> Causal connectors (because, since, therefore, consequently, as a result)</p>
+                    <p>Proper usage of these constructs elevates your English to a professional standard. They help explain relationships between architectural decisions and outcomes.</p>
+                    <div class="code-block" style="margin: 1rem 0;">Example: We implemented caching; consequently, the latency dropped.</div>
+                    <input type="text" placeholder="I chose microservices ___ we needed independent deployments."><br>
+                    <button class="btn">Check Answers</button>
+                </div>
+            </section>
+            
+            <section id="module-7" class="module-section">
+                <h2 class="module-title">Module 7: Speaking Practice</h2>
+                <div style="margin-bottom: 1rem;"><p>1. Explain the CAP theorem in 2 minutes.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. Describe how a CDN works and its benefits.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+            </section>
+            
+            <section id="module-8" class="module-section">
+                <h2 class="module-title">Module 8: Role-Play Conversations</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3>Role-Play: Technical Discussion</h3>
+                    <div class="dialogue-container">
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> Can you explain your architectural choices for handling high traffic?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> Certainly. I chose a load-balanced microservices architecture because it maximizes horizontal scalability.</div>
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> How does it handle failovers?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> We implemented redundancy across multiple availability zones and stateless services. Therefore, if one node fails, the load balancer redirects traffic.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-9" class="module-section">
+                <h2 class="module-title">Module 9: Pronunciation</h2>
+                <div class="vocab-grid">
+                    <div class="pronunciation-card">
+                        <h3 style="display: flex; justify-content: space-between; margin-top:0;">Throughput <button class="btn" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3>
+                        <p><strong>Shadowing:</strong> "Our goal is to increase the throughput."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-10" class="module-section">
+                <h2 class="module-title">Module 10: Reading Practice</h2>
+                <h3>Reading Article: The CAP Theorem and Distributed Systems</h3>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px; line-height: 1.6;">
+                    <p>In modern software engineering and corporate environments, clear communication is just as critical as technical proficiency. When discussing complex architectures like distributed systems, understanding the CAP theorem is essential. It states that a distributed data store can only simultaneously provide two out of the following three guarantees: Consistency, Availability, and Partition tolerance...</p>
+                </div>
+                <h4>Questions</h4>
+                <textarea rows="2" placeholder="What are the three guarantees of the CAP theorem?"></textarea>
+                <textarea rows="2" placeholder="Why is Partition tolerance essential in distributed systems?"></textarea>
+            </section>
+            
+            <section id="module-11" class="module-section">
+                <h2 class="module-title">Module 11: Listening Practice</h2>
+                <p><strong>Recommendation:</strong> Listen to a technical or professional podcast regarding Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies.</p>
+                <div style="background: #e2e8f0; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <button class="btn btn-large" style="width: auto;">Load Audio Embed</button>
+                </div>
+                <h4>Focus Questions</h4>
+                <textarea rows="2" placeholder="Q1 Answer..."></textarea>
+            </section>
+            
+            <section id="module-12" class="module-section">
+                <h2 class="module-title">Module 12: Writing Practice</h2>
+                <p><strong>Task:</strong> Write a 150-word proposal to migrate from a monolithic application to microservices.</p>
+                <textarea rows="8" placeholder="Your attempt here..."></textarea>
+            </section>
+            
+            <section id="module-13" class="module-section">
+                <h2 class="module-title">Module 13: HR Interview Coaching</h2>
+                <h3>Question: Describe how you would design a URL shortening service like bit.ly.</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #fef2f2; border: 1px solid #ef4444; border-radius: 8px;">
+                        <h4 style="color: #ef4444; margin-top:0;">Poor Response</h4>
+                        <p>"I would use a database to store URLs and a web server."</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #f0fdf4; border: 1px solid #22c55e; border-radius: 8px;">
+                        <h4 style="color: #22c55e; margin-top:0;">Excellent Response</h4>
+                        <p>"In my approach, I'd first clarify the requirements (read-heavy). I'd propose a load-balanced API gateway routing to stateless servers. For storage, a NoSQL database or sharded relational DB, supplemented by a distributed cache like Redis to minimize latency for frequent reads."</p>
+                    </div>
+                </div>
+                <textarea rows="4" placeholder="Draft your personalized answer..."></textarea>
+            </section>
+            
+            <section id="module-14" class="module-section">
+                <h2 class="module-title">Module 14: Technical Communication</h2>
+                <p><strong>Key Concepts:</strong> Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies</p>
+                <div class="code-block">
+Explain these concepts clearly as if to a junior developer or a stakeholder. Use analogies.
+                </div>
+                <textarea rows="6" placeholder="Your explanation..."></textarea>
+            </section>
+            
+            <section id="module-15" class="module-section">
+                <h2 class="module-title">Module 15: Group Discussion</h2>
+                <h3>Topic: Cloud Computing vs Edge Computing: The Future of Data Processing</h3>
+                <p><strong>Opening Statement:</strong> To initiate the discussion on Cloud Computing vs Edge Computing: The Future of Data Processing, I believe...</p>
+                <p><strong>Supporting Points:</strong></p>
+                <ul>
+                    <li>Edge computing significantly reduces latency for real-time applications (IoT).</li>
+                    <li>Cloud computing provides unparalleled centralized scalability and data aggregation.</li>
+                </ul>
+                <p><strong>Conclusion:</strong> Ultimately, finding a balance is key. A hybrid approach utilizing edge for immediate processing and cloud for deep analytics will dominate.</p>
+                <p><strong>Useful Vocab:</strong> Leverage, mitigate, latency, bandwidth, edge devices.</p>
+            </section>
+            
+            <section id="module-16" class="module-section">
+                <h2 class="module-title">Module 16: Storytelling Challenge</h2>
+                <p><strong>Prompt:</strong> Tell a 2-minute story about a time you utilized concepts from System Design Communication & Scalability Concepts.</p>
+                <div style="text-align: center; padding: 2rem; background: #1e293b; color: white; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 id="timer-display" style="margin:0; font-size: 3rem;">02:00</h2>
+                    <button class="btn btn-success" onclick="startTimer()" style="margin-top: 1rem; padding: 0.5rem 2rem; font-size: 1.1rem;">Start Timer</button>
+                </div>
+                <textarea rows="6" placeholder="Write your story script here..."></textarea>
+            </section>
+            
+            <section id="module-17" class="module-section">
+                <h2 class="module-title">Module 17: Rapid Fire Challenge (20 Questions)</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="text" placeholder="Q1: Define Latency" style="margin-bottom:0.5rem;" class="rf-input" id="rf-1">
+                    <input type="text" placeholder="Q2: Define Throughput" style="margin-bottom:0.5rem;" class="rf-input" id="rf-2">
+                </div>
+            </section>
+            
+            <section id="module-18" class="module-section">
+                <h2 class="module-title">Module 18: Common Indian English Mistakes</h2>
+                <div class="mistake-block">
+                    <strong>Wrong:</strong> I am having a doubt regarding scalability.<br>
+                    <strong>Correct:</strong> I have a question regarding scalability.<br>
+                    <strong>Explanation:</strong> 'Doubt' implies suspicion. Use 'question' or 'concern' in professional contexts.
+                </div>
+            </section>
+            
+            <section id="module-19" class="module-section">
+                <h2 class="module-title">Module 19: Daily Revision Quiz</h2>
+                <div class="quiz-container" style="background: #f8fafc; padding: 2rem; border-radius: 8px;">
+                    <p>5 Vocabulary Questions + 3 Grammar Questions.</p>
+                    <div id="quiz-ui">
+                        <h4>Q1: Which term means scaling by adding more machines?</h4>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#22c55e'; this.style.color='white';">A) Horizontal Scaling</button>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#ef4444'; this.style.color='white';">B) Vertical Scaling</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-20" class="module-section">
+                <h2 class="module-title">Module 20: Homework</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 1. Review flashcards</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 2. Read 1 article about System Design Communication & Scalability Concepts</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 3. Record HR answer</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 4. Write 5 sentences using new vocabulary</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 5. Complete Grammar exercises</label></div>
+                </div>
+            </section>
+            
+            <section id="module-21" class="module-section">
+                <h2 class="module-title">Module 21: Daily Evaluation</h2>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <canvas id="evalChart"></canvas>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+                        <label>Grammar: <input type="range" min="1" max="10" value="5" oninput="updateChart(0, this.value)" style="width:100%"></label>
+                        <label>Vocabulary: <input type="range" min="1" max="10" value="5" oninput="updateChart(1, this.value)" style="width:100%"></label>
+                        <label>Pronunciation: <input type="range" min="1" max="10" value="5" oninput="updateChart(2, this.value)" style="width:100%"></label>
+                        <label>Fluency: <input type="range" min="1" max="10" value="5" oninput="updateChart(3, this.value)" style="width:100%"></label>
+                        <label>Confidence: <input type="range" min="1" max="10" value="5" oninput="updateChart(4, this.value)" style="width:100%"></label>
+                        <label>Communication: <input type="range" min="1" max="10" value="5" oninput="updateChart(5, this.value)" style="width:100%"></label>
+                        <label>Professional English: <input type="range" min="1" max="10" value="5" oninput="updateChart(6, this.value)" style="width:100%"></label>
+                        <label>Interview Readiness: <input type="range" min="1" max="10" value="5" oninput="updateChart(7, this.value)" style="width:100%"></label>
+                        <button class="btn btn-success" onclick="saveEvaluation()">Save Evaluation</button>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <div id="feedback-display" style="margin-bottom: 1rem; color: #16a34a; font-weight: bold;"></div>
+                    <button class="btn btn-success btn-large" style="font-size: 1.5rem; padding: 1.5rem 3rem;" onclick="markComplete()">Mark Day 16 Complete</button>
+                </div>
+            </section>
+        </main>
+
+            
+            <aside class="toc-sidebar">
+                <h3 style="margin-top: 0;">Modules</h3>
+                <div class="toc-list">
+                    <a href="#module-1" class="toc-link" id="toc-module-1"><span class="toc-icon">○</span> 1. Daily Motivation</a>
+                    <a href="#module-2" class="toc-link" id="toc-module-2"><span class="toc-icon">○</span> 2. Warm-up Conversation</a>
+                    <a href="#module-3" class="toc-link" id="toc-module-3"><span class="toc-icon">○</span> 3. Vocabulary (25 words)</a>
+                    <a href="#module-4" class="toc-link" id="toc-module-4"><span class="toc-icon">○</span> 4. Phrasal Verbs</a>
+                    <a href="#module-5" class="toc-link" id="toc-module-5"><span class="toc-icon">○</span> 5. Idioms</a>
+                    <a href="#module-6" class="toc-link" id="toc-module-6"><span class="toc-icon">○</span> 6. Grammar: Causal connectors (because, since, therefore, consequently, as a result)</a>
+                    <a href="#module-7" class="toc-link" id="toc-module-7"><span class="toc-icon">○</span> 7. Speaking Practice</a>
+                    <a href="#module-8" class="toc-link" id="toc-module-8"><span class="toc-icon">○</span> 8. Role-Play</a>
+                    <a href="#module-9" class="toc-link" id="toc-module-9"><span class="toc-icon">○</span> 9. Pronunciation</a>
+                    <a href="#module-10" class="toc-link" id="toc-module-10"><span class="toc-icon">○</span> 10. Reading Practice</a>
+                    <a href="#module-11" class="toc-link" id="toc-module-11"><span class="toc-icon">○</span> 11. Listening Practice</a>
+                    <a href="#module-12" class="toc-link" id="toc-module-12"><span class="toc-icon">○</span> 12. Writing Practice</a>
+                    <a href="#module-13" class="toc-link" id="toc-module-13"><span class="toc-icon">○</span> 13. HR Interview</a>
+                    <a href="#module-14" class="toc-link" id="toc-module-14"><span class="toc-icon">○</span> 14. Technical Communication</a>
+                    <a href="#module-15" class="toc-link" id="toc-module-15"><span class="toc-icon">○</span> 15. Group Discussion</a>
+                    <a href="#module-16" class="toc-link" id="toc-module-16"><span class="toc-icon">○</span> 16. Storytelling Challenge</a>
+                    <a href="#module-17" class="toc-link" id="toc-module-17"><span class="toc-icon">○</span> 17. Rapid Fire Challenge</a>
+                    <a href="#module-18" class="toc-link" id="toc-module-18"><span class="toc-icon">○</span> 18. Common Indian English Mistakes</a>
+                    <a href="#module-19" class="toc-link" id="toc-module-19"><span class="toc-icon">○</span> 19. Daily Revision Quiz</a>
+                    <a href="#module-20" class="toc-link" id="toc-module-20"><span class="toc-icon">○</span> 20. Homework</a>
+                    <a href="#module-21" class="toc-link" id="toc-module-21"><span class="toc-icon">○</span> 21. Daily Evaluation</a>
+                </div>
+            </aside>
+    </div>
+    
+    <div class="bottom-nav" style="padding: 2rem; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between;">
+        <button class="btn btn-large" style="background: #cbd5e1; width: 48%; color: #333;" onclick="window.location.href='day15.html'">Previous Day</button>
+        <button class="btn btn-large" style="width: 48%;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+    <script>
+        let timerInterval;
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timeLeft = 120;
+            const display = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    display.innerHTML = "Time's up!";
+                } else {
+                    let m = Math.floor(timeLeft/60).toString().padStart(2, '0');
+                    let s = (timeLeft%60).toString().padStart(2, '0');
+                    display.innerHTML = m + ':' + s;
+                }
+                timeLeft -= 1;
+            }, 1000);
+        }
+
+        let evalChart;
+        function initChart() {
+            const ctx = document.getElementById('evalChart')?.getContext('2d');
+            if(!ctx) return;
+            evalChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Grammar', 'Vocabulary', 'Pronunciation', 'Fluency', 'Confidence', 'Communication', 'Professional English', 'Interview Readiness'],
+                    datasets: [{
+                        label: 'Self Evaluation',
+                        data: [5, 5, 5, 5, 5, 5, 5, 5],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)'
+                    }]
+                },
+                options: {
+                    scales: { r: { min: 0, max: 10, ticks: { stepSize: 1 } } }
+                }
+            });
+        }
+        
+        function updateChart(index, value) {
+            if(evalChart) {
+                evalChart.data.datasets[0].data[index] = parseInt(value);
+                evalChart.update();
+            }
+        }
+        
+        function saveEvaluation() {
+            if(evalChart) {
+                localStorage.setItem('day16_eval', JSON.stringify(evalChart.data.datasets[0].data));
+                document.getElementById('feedback-display').innerText = "Evaluation saved! Great effort today.";
+            }
+        }
+
+        function markComplete() {
+            localStorage.setItem('day16_completed', 'true');
+            const confettiScript = document.createElement('script');
+            confettiScript.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+            confettiScript.onload = () => {
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            };
+            document.head.appendChild(confettiScript);
+            
+            const toast = document.createElement('div');
+            toast.textContent = "Day 16 Complete! Excellent Job!";
+            toast.style.cssText = "position:fixed; bottom:20px; right:20px; background:#16a34a; color:white; padding:1rem 2rem; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-weight:bold; z-index:9999;";
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 4000);
+            
+            document.querySelectorAll('.toc-link').forEach(l => {
+                l.querySelector('.toc-icon').innerHTML = '✓';
+                l.querySelector('.toc-icon').style.color = '#16a34a';
+            });
+        }
+        
+        function saveProgress() {}
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.module-section');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (window.pageYOffset / docHeight) * 100;
+            const bar = document.getElementById('hero-progress');
+            if(bar) bar.style.width = progress + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            if (window.Pronunciation) window.Pronunciation.init();
+            
+            const rfInputs = document.querySelectorAll('.rf-input');
+            rfInputs.forEach((input, idx) => {
+                input.addEventListener('focus', () => {
+                    setTimeout(() => {
+                        if(idx + 1 < rfInputs.length) {
+                            rfInputs[idx + 1].focus();
+                        }
+                    }, 5000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+.Value -notmatch 'align-items') { <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 16: System Design Communication & Scalability Concepts - English Communication Master</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f1f5f9; margin: 0; padding: 0; }
+        .topbar { display: flex; justify-content: space-between; padding: 1rem 2rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .topbar a { text-decoration: none; color: #333; margin-left: 1rem; font-weight: 500; }
+        .topbar .active { color: #2563eb; }
+        
+        .lesson-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; }
+        .day-pill { background: rgba(255,255,255,0.2); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; }
+        .lesson-layout { display: flex;display: flex; gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .lesson-content { flex: 3; min-width: 0; }
+        .toc-sidebar { flex: 0 0 260px; width: 260px; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .toc-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: #475569; text-decoration: none; }
+        .toc-link.active { color: #2563eb; font-weight: bold; }
+        .toc-icon { font-size: 1.2rem; }
+        
+        .module-section { background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .module-title { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; color: #1e293b; }
+        
+        .vocab-grid, .idiom-grid, .phrasal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .vocab-card, .idiom-card, .phrasal-card, .pronunciation-card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; background: #fafaf9; }
+        
+        .tag { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; background: #e2e8f0; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .tag-interview { background: #dbeafe; color: #1e40af; }
+        .tag-tech { background: #dcfce7; color: #166534; }
+        .tag-corp { background: #fef3c7; color: #92400e; }
+        .tag-daily { background: #f3e8ff; color: #6b21a8; }
+        
+        .mistake-block { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin-bottom: 1rem; }
+        
+        .dialogue-container { display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px; }
+        .dialogue-bubble { max-width: 70%; padding: 1rem; border-radius: 12px; }
+        .dialogue-left { background: #e0f2fe; align-self: flex-start; border-bottom-left-radius: 0; }
+        .dialogue-right { background: #dcfce7; align-self: flex-end; border-bottom-right-radius: 0; }
+        
+        textarea, input[type="text"] { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 0.5rem; font-family: inherit; box-sizing: border-box; }
+        .btn { background: #2563eb; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; font-weight: 500; }
+        .btn:hover { background: #1d4ed8; }
+        .btn-success { background: #16a34a; }
+        .btn-success:hover { background: #15803d; }
+        .btn-large { padding: 1rem 2rem; font-size: 1.2rem; width: 100%; }
+        
+        .code-block { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; font-family: monospace; white-space: pre-wrap; }
+        
+        .bottom-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="brand"><a href="../index.html">English Comm Master</a></div>
+        <div class="nav-links">
+            <a href="../dashboard.html">Dashboard</a>
+            <a href="../roadmap.html">Roadmap</a>
+            <a href="../lessons/day01.html" class="active">Start Learning</a>
+        </div>
+    </nav>
+
+    <div class="lesson-layout">
+        <main class="lesson-content">
+            <section class="lesson-hero">
+                <div class="breadcrumb">Home > Dashboard > Day 16</div>
+                <br>
+                <span class="day-pill">DAY 16 OF 30</span>
+                <h1 style="margin-top: 1rem; font-size: 2.5rem;">System Design Communication & Scalability Concepts</h1>
+                <div class="meta-info" style="margin-top: 1rem; opacity: 0.9;">Duration: 60-90 min | 21 Modules | Tier: Professional</div>
+                <div class="progress-bar-container" style="background: rgba(255,255,255,0.2); height: 8px; border-radius: 4px; margin-top: 1.5rem;">
+                    <div id="hero-progress" style="background: #4ade80; height: 100%; width: 0%; border-radius: 4px; transition: width 0.3s;"></div>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between;">
+                    <button class="btn" style="background: rgba(255,255,255,0.2);" onclick="window.location.href='day15.html'">Prev: Day 15</button>
+                    <button class="btn" style="background: white; color: #2563eb;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+                </div>
+            </section>
+            
+            <section id="module-1" class="module-section">
+                <h2 class="module-title">Module 1: Daily Motivation</h2>
+                <div style="border-left: 4px solid #3b82f6; padding: 1.5rem; background: linear-gradient(to right, #eff6ff, white); border-radius: 0 8px 8px 0;">
+                    <blockquote style="font-size: 1.25rem; font-style: italic; color: #1e3a8a;">"Success is not final, failure is not fatal: it is the courage to continue that counts."</blockquote>
+                    <p>Welcome to Day 16! Today we focus on Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies. Keep pushing forward, your communication is improving daily!</p>
+                </div>
+            </section>
+            
+            <section id="module-2" class="module-section">
+                <h2 class="module-title">Module 2: Warm-up Conversation</h2>
+                <p>Answer the following questions aloud, then type a summary of your answer.</p>
+                <div style="margin-bottom: 1rem;"><p>1. How do you explain 'scalability' to a non-technical person?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. What is the main difference between horizontal and vertical scaling?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>3. Can you describe a scenario where you'd use a load balancer?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>4. What are the benefits of caching?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>5. Have you ever encountered a database bottleneck?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <button class="btn" onclick="alert('Great job!')">Submit</button>
+            </section>
+            
+            <section id="module-3" class="module-section">
+                <h2 class="module-title">Module 3: Vocabulary (25 words)</h2>
+                <div class="vocab-grid">
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Distributed <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Distributed')">🔊</button></h3><p><strong>Definition:</strong> Spread across multiple systems or locations.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Scalable <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Scalable')">🔊</button></h3><p><strong>Definition:</strong> Able to grow or handle more work.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Horizontal <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Horizontal')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more machines.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Vertical <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Vertical')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more power (CPU, RAM).</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Partition <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Partition')">🔊</button></h3><p><strong>Definition:</strong> Dividing a system or database into parts.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <!-- Assuming 20 more words would follow -->
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Throughput <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3><p><strong>Definition:</strong> The amount of data successfully moved in a given time.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Latency <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Latency')">🔊</button></h3><p><strong>Definition:</strong> The time it takes for data to travel.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                </div>
+            </section>
+            
+            <section id="module-4" class="module-section">
+                <h2 class="module-title">Module 4: Phrasal Verbs</h2>
+                <div class="phrasal-grid">
+                    <div class="phrasal-card">
+                        <h3>Scale up</h3>
+                        <p><strong>Meaning:</strong> Increase the size, amount, or importance of something (vertical scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                    <div class="phrasal-card">
+                        <h3>Scale out</h3>
+                        <p><strong>Meaning:</strong> Add more resources of the same type (horizontal scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-5" class="module-section">
+                <h2 class="module-title">Module 5: Idioms</h2>
+                <div class="idiom-grid">
+                    <div class="idiom-card">
+                        <h3>Bottleneck</h3>
+                        <p><strong>Meaning:</strong> A point of congestion in a system that slows down the overall process.</p>
+                        <p><span class="tag tag-tech">Technical</span> "The database is the bottleneck."</p>
+                    </div>
+                    <div class="idiom-card">
+                        <h3>Single point of failure</h3>
+                        <p><strong>Meaning:</strong> A part of a system that, if it fails, will stop the entire system from working.</p>
+                        <p><span class="tag tag-tech">Technical</span> "We must avoid a single point of failure."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-6" class="module-section">
+                <h2 class="module-title">Module 6: Grammar — Causal connectors</h2>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+                    <p><strong>Topic:</strong> Causal connectors (because, since, therefore, consequently, as a result)</p>
+                    <p>Proper usage of these constructs elevates your English to a professional standard. They help explain relationships between architectural decisions and outcomes.</p>
+                    <div class="code-block" style="margin: 1rem 0;">Example: We implemented caching; consequently, the latency dropped.</div>
+                    <input type="text" placeholder="I chose microservices ___ we needed independent deployments."><br>
+                    <button class="btn">Check Answers</button>
+                </div>
+            </section>
+            
+            <section id="module-7" class="module-section">
+                <h2 class="module-title">Module 7: Speaking Practice</h2>
+                <div style="margin-bottom: 1rem;"><p>1. Explain the CAP theorem in 2 minutes.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. Describe how a CDN works and its benefits.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+            </section>
+            
+            <section id="module-8" class="module-section">
+                <h2 class="module-title">Module 8: Role-Play Conversations</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3>Role-Play: Technical Discussion</h3>
+                    <div class="dialogue-container">
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> Can you explain your architectural choices for handling high traffic?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> Certainly. I chose a load-balanced microservices architecture because it maximizes horizontal scalability.</div>
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> How does it handle failovers?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> We implemented redundancy across multiple availability zones and stateless services. Therefore, if one node fails, the load balancer redirects traffic.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-9" class="module-section">
+                <h2 class="module-title">Module 9: Pronunciation</h2>
+                <div class="vocab-grid">
+                    <div class="pronunciation-card">
+                        <h3 style="display: flex; justify-content: space-between; margin-top:0;">Throughput <button class="btn" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3>
+                        <p><strong>Shadowing:</strong> "Our goal is to increase the throughput."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-10" class="module-section">
+                <h2 class="module-title">Module 10: Reading Practice</h2>
+                <h3>Reading Article: The CAP Theorem and Distributed Systems</h3>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px; line-height: 1.6;">
+                    <p>In modern software engineering and corporate environments, clear communication is just as critical as technical proficiency. When discussing complex architectures like distributed systems, understanding the CAP theorem is essential. It states that a distributed data store can only simultaneously provide two out of the following three guarantees: Consistency, Availability, and Partition tolerance...</p>
+                </div>
+                <h4>Questions</h4>
+                <textarea rows="2" placeholder="What are the three guarantees of the CAP theorem?"></textarea>
+                <textarea rows="2" placeholder="Why is Partition tolerance essential in distributed systems?"></textarea>
+            </section>
+            
+            <section id="module-11" class="module-section">
+                <h2 class="module-title">Module 11: Listening Practice</h2>
+                <p><strong>Recommendation:</strong> Listen to a technical or professional podcast regarding Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies.</p>
+                <div style="background: #e2e8f0; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <button class="btn btn-large" style="width: auto;">Load Audio Embed</button>
+                </div>
+                <h4>Focus Questions</h4>
+                <textarea rows="2" placeholder="Q1 Answer..."></textarea>
+            </section>
+            
+            <section id="module-12" class="module-section">
+                <h2 class="module-title">Module 12: Writing Practice</h2>
+                <p><strong>Task:</strong> Write a 150-word proposal to migrate from a monolithic application to microservices.</p>
+                <textarea rows="8" placeholder="Your attempt here..."></textarea>
+            </section>
+            
+            <section id="module-13" class="module-section">
+                <h2 class="module-title">Module 13: HR Interview Coaching</h2>
+                <h3>Question: Describe how you would design a URL shortening service like bit.ly.</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #fef2f2; border: 1px solid #ef4444; border-radius: 8px;">
+                        <h4 style="color: #ef4444; margin-top:0;">Poor Response</h4>
+                        <p>"I would use a database to store URLs and a web server."</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #f0fdf4; border: 1px solid #22c55e; border-radius: 8px;">
+                        <h4 style="color: #22c55e; margin-top:0;">Excellent Response</h4>
+                        <p>"In my approach, I'd first clarify the requirements (read-heavy). I'd propose a load-balanced API gateway routing to stateless servers. For storage, a NoSQL database or sharded relational DB, supplemented by a distributed cache like Redis to minimize latency for frequent reads."</p>
+                    </div>
+                </div>
+                <textarea rows="4" placeholder="Draft your personalized answer..."></textarea>
+            </section>
+            
+            <section id="module-14" class="module-section">
+                <h2 class="module-title">Module 14: Technical Communication</h2>
+                <p><strong>Key Concepts:</strong> Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies</p>
+                <div class="code-block">
+Explain these concepts clearly as if to a junior developer or a stakeholder. Use analogies.
+                </div>
+                <textarea rows="6" placeholder="Your explanation..."></textarea>
+            </section>
+            
+            <section id="module-15" class="module-section">
+                <h2 class="module-title">Module 15: Group Discussion</h2>
+                <h3>Topic: Cloud Computing vs Edge Computing: The Future of Data Processing</h3>
+                <p><strong>Opening Statement:</strong> To initiate the discussion on Cloud Computing vs Edge Computing: The Future of Data Processing, I believe...</p>
+                <p><strong>Supporting Points:</strong></p>
+                <ul>
+                    <li>Edge computing significantly reduces latency for real-time applications (IoT).</li>
+                    <li>Cloud computing provides unparalleled centralized scalability and data aggregation.</li>
+                </ul>
+                <p><strong>Conclusion:</strong> Ultimately, finding a balance is key. A hybrid approach utilizing edge for immediate processing and cloud for deep analytics will dominate.</p>
+                <p><strong>Useful Vocab:</strong> Leverage, mitigate, latency, bandwidth, edge devices.</p>
+            </section>
+            
+            <section id="module-16" class="module-section">
+                <h2 class="module-title">Module 16: Storytelling Challenge</h2>
+                <p><strong>Prompt:</strong> Tell a 2-minute story about a time you utilized concepts from System Design Communication & Scalability Concepts.</p>
+                <div style="text-align: center; padding: 2rem; background: #1e293b; color: white; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 id="timer-display" style="margin:0; font-size: 3rem;">02:00</h2>
+                    <button class="btn btn-success" onclick="startTimer()" style="margin-top: 1rem; padding: 0.5rem 2rem; font-size: 1.1rem;">Start Timer</button>
+                </div>
+                <textarea rows="6" placeholder="Write your story script here..."></textarea>
+            </section>
+            
+            <section id="module-17" class="module-section">
+                <h2 class="module-title">Module 17: Rapid Fire Challenge (20 Questions)</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="text" placeholder="Q1: Define Latency" style="margin-bottom:0.5rem;" class="rf-input" id="rf-1">
+                    <input type="text" placeholder="Q2: Define Throughput" style="margin-bottom:0.5rem;" class="rf-input" id="rf-2">
+                </div>
+            </section>
+            
+            <section id="module-18" class="module-section">
+                <h2 class="module-title">Module 18: Common Indian English Mistakes</h2>
+                <div class="mistake-block">
+                    <strong>Wrong:</strong> I am having a doubt regarding scalability.<br>
+                    <strong>Correct:</strong> I have a question regarding scalability.<br>
+                    <strong>Explanation:</strong> 'Doubt' implies suspicion. Use 'question' or 'concern' in professional contexts.
+                </div>
+            </section>
+            
+            <section id="module-19" class="module-section">
+                <h2 class="module-title">Module 19: Daily Revision Quiz</h2>
+                <div class="quiz-container" style="background: #f8fafc; padding: 2rem; border-radius: 8px;">
+                    <p>5 Vocabulary Questions + 3 Grammar Questions.</p>
+                    <div id="quiz-ui">
+                        <h4>Q1: Which term means scaling by adding more machines?</h4>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#22c55e'; this.style.color='white';">A) Horizontal Scaling</button>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#ef4444'; this.style.color='white';">B) Vertical Scaling</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-20" class="module-section">
+                <h2 class="module-title">Module 20: Homework</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 1. Review flashcards</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 2. Read 1 article about System Design Communication & Scalability Concepts</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 3. Record HR answer</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 4. Write 5 sentences using new vocabulary</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 5. Complete Grammar exercises</label></div>
+                </div>
+            </section>
+            
+            <section id="module-21" class="module-section">
+                <h2 class="module-title">Module 21: Daily Evaluation</h2>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <canvas id="evalChart"></canvas>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+                        <label>Grammar: <input type="range" min="1" max="10" value="5" oninput="updateChart(0, this.value)" style="width:100%"></label>
+                        <label>Vocabulary: <input type="range" min="1" max="10" value="5" oninput="updateChart(1, this.value)" style="width:100%"></label>
+                        <label>Pronunciation: <input type="range" min="1" max="10" value="5" oninput="updateChart(2, this.value)" style="width:100%"></label>
+                        <label>Fluency: <input type="range" min="1" max="10" value="5" oninput="updateChart(3, this.value)" style="width:100%"></label>
+                        <label>Confidence: <input type="range" min="1" max="10" value="5" oninput="updateChart(4, this.value)" style="width:100%"></label>
+                        <label>Communication: <input type="range" min="1" max="10" value="5" oninput="updateChart(5, this.value)" style="width:100%"></label>
+                        <label>Professional English: <input type="range" min="1" max="10" value="5" oninput="updateChart(6, this.value)" style="width:100%"></label>
+                        <label>Interview Readiness: <input type="range" min="1" max="10" value="5" oninput="updateChart(7, this.value)" style="width:100%"></label>
+                        <button class="btn btn-success" onclick="saveEvaluation()">Save Evaluation</button>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <div id="feedback-display" style="margin-bottom: 1rem; color: #16a34a; font-weight: bold;"></div>
+                    <button class="btn btn-success btn-large" style="font-size: 1.5rem; padding: 1.5rem 3rem;" onclick="markComplete()">Mark Day 16 Complete</button>
+                </div>
+            </section>
+        </main>
+
+            
+            <aside class="toc-sidebar">
+                <h3 style="margin-top: 0;">Modules</h3>
+                <div class="toc-list">
+                    <a href="#module-1" class="toc-link" id="toc-module-1"><span class="toc-icon">○</span> 1. Daily Motivation</a>
+                    <a href="#module-2" class="toc-link" id="toc-module-2"><span class="toc-icon">○</span> 2. Warm-up Conversation</a>
+                    <a href="#module-3" class="toc-link" id="toc-module-3"><span class="toc-icon">○</span> 3. Vocabulary (25 words)</a>
+                    <a href="#module-4" class="toc-link" id="toc-module-4"><span class="toc-icon">○</span> 4. Phrasal Verbs</a>
+                    <a href="#module-5" class="toc-link" id="toc-module-5"><span class="toc-icon">○</span> 5. Idioms</a>
+                    <a href="#module-6" class="toc-link" id="toc-module-6"><span class="toc-icon">○</span> 6. Grammar: Causal connectors (because, since, therefore, consequently, as a result)</a>
+                    <a href="#module-7" class="toc-link" id="toc-module-7"><span class="toc-icon">○</span> 7. Speaking Practice</a>
+                    <a href="#module-8" class="toc-link" id="toc-module-8"><span class="toc-icon">○</span> 8. Role-Play</a>
+                    <a href="#module-9" class="toc-link" id="toc-module-9"><span class="toc-icon">○</span> 9. Pronunciation</a>
+                    <a href="#module-10" class="toc-link" id="toc-module-10"><span class="toc-icon">○</span> 10. Reading Practice</a>
+                    <a href="#module-11" class="toc-link" id="toc-module-11"><span class="toc-icon">○</span> 11. Listening Practice</a>
+                    <a href="#module-12" class="toc-link" id="toc-module-12"><span class="toc-icon">○</span> 12. Writing Practice</a>
+                    <a href="#module-13" class="toc-link" id="toc-module-13"><span class="toc-icon">○</span> 13. HR Interview</a>
+                    <a href="#module-14" class="toc-link" id="toc-module-14"><span class="toc-icon">○</span> 14. Technical Communication</a>
+                    <a href="#module-15" class="toc-link" id="toc-module-15"><span class="toc-icon">○</span> 15. Group Discussion</a>
+                    <a href="#module-16" class="toc-link" id="toc-module-16"><span class="toc-icon">○</span> 16. Storytelling Challenge</a>
+                    <a href="#module-17" class="toc-link" id="toc-module-17"><span class="toc-icon">○</span> 17. Rapid Fire Challenge</a>
+                    <a href="#module-18" class="toc-link" id="toc-module-18"><span class="toc-icon">○</span> 18. Common Indian English Mistakes</a>
+                    <a href="#module-19" class="toc-link" id="toc-module-19"><span class="toc-icon">○</span> 19. Daily Revision Quiz</a>
+                    <a href="#module-20" class="toc-link" id="toc-module-20"><span class="toc-icon">○</span> 20. Homework</a>
+                    <a href="#module-21" class="toc-link" id="toc-module-21"><span class="toc-icon">○</span> 21. Daily Evaluation</a>
+                </div>
+            </aside>
+    </div>
+    
+    <div class="bottom-nav" style="padding: 2rem; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between;">
+        <button class="btn btn-large" style="background: #cbd5e1; width: 48%; color: #333;" onclick="window.location.href='day15.html'">Previous Day</button>
+        <button class="btn btn-large" style="width: 48%;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+    <script>
+        let timerInterval;
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timeLeft = 120;
+            const display = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    display.innerHTML = "Time's up!";
+                } else {
+                    let m = Math.floor(timeLeft/60).toString().padStart(2, '0');
+                    let s = (timeLeft%60).toString().padStart(2, '0');
+                    display.innerHTML = m + ':' + s;
+                }
+                timeLeft -= 1;
+            }, 1000);
+        }
+
+        let evalChart;
+        function initChart() {
+            const ctx = document.getElementById('evalChart')?.getContext('2d');
+            if(!ctx) return;
+            evalChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Grammar', 'Vocabulary', 'Pronunciation', 'Fluency', 'Confidence', 'Communication', 'Professional English', 'Interview Readiness'],
+                    datasets: [{
+                        label: 'Self Evaluation',
+                        data: [5, 5, 5, 5, 5, 5, 5, 5],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)'
+                    }]
+                },
+                options: {
+                    scales: { r: { min: 0, max: 10, ticks: { stepSize: 1 } } }
+                }
+            });
+        }
+        
+        function updateChart(index, value) {
+            if(evalChart) {
+                evalChart.data.datasets[0].data[index] = parseInt(value);
+                evalChart.update();
+            }
+        }
+        
+        function saveEvaluation() {
+            if(evalChart) {
+                localStorage.setItem('day16_eval', JSON.stringify(evalChart.data.datasets[0].data));
+                document.getElementById('feedback-display').innerText = "Evaluation saved! Great effort today.";
+            }
+        }
+
+        function markComplete() {
+            localStorage.setItem('day16_completed', 'true');
+            const confettiScript = document.createElement('script');
+            confettiScript.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+            confettiScript.onload = () => {
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            };
+            document.head.appendChild(confettiScript);
+            
+            const toast = document.createElement('div');
+            toast.textContent = "Day 16 Complete! Excellent Job!";
+            toast.style.cssText = "position:fixed; bottom:20px; right:20px; background:#16a34a; color:white; padding:1rem 2rem; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-weight:bold; z-index:9999;";
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 4000);
+            
+            document.querySelectorAll('.toc-link').forEach(l => {
+                l.querySelector('.toc-icon').innerHTML = '✓';
+                l.querySelector('.toc-icon').style.color = '#16a34a';
+            });
+        }
+        
+        function saveProgress() {}
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.module-section');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (window.pageYOffset / docHeight) * 100;
+            const bar = document.getElementById('hero-progress');
+            if(bar) bar.style.width = progress + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            if (window.Pronunciation) window.Pronunciation.init();
+            
+            const rfInputs = document.querySelectorAll('.rf-input');
+            rfInputs.forEach((input, idx) => {
+                input.addEventListener('focus', () => {
+                    setTimeout(() => {
+                        if(idx + 1 < rfInputs.length) {
+                            rfInputs[idx + 1].focus();
+                        }
+                    }, 5000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+.Value -replace '(\})', "    align-items: flex-start;`n        `.lesson-layout { display: flex;display: flex; gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem; " } else { <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 16: System Design Communication & Scalability Concepts - English Communication Master</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f1f5f9; margin: 0; padding: 0; }
+        .topbar { display: flex; justify-content: space-between; padding: 1rem 2rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .topbar a { text-decoration: none; color: #333; margin-left: 1rem; font-weight: 500; }
+        .topbar .active { color: #2563eb; }
+        
+        .lesson-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; }
+        .day-pill { background: rgba(255,255,255,0.2); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; }
+        .lesson-layout { display: flex;display: flex; gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .lesson-content { flex: 3; min-width: 0; }
+        .toc-sidebar { flex: 0 0 260px; width: 260px; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .toc-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: #475569; text-decoration: none; }
+        .toc-link.active { color: #2563eb; font-weight: bold; }
+        .toc-icon { font-size: 1.2rem; }
+        
+        .module-section { background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .module-title { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; color: #1e293b; }
+        
+        .vocab-grid, .idiom-grid, .phrasal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .vocab-card, .idiom-card, .phrasal-card, .pronunciation-card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; background: #fafaf9; }
+        
+        .tag { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; background: #e2e8f0; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .tag-interview { background: #dbeafe; color: #1e40af; }
+        .tag-tech { background: #dcfce7; color: #166534; }
+        .tag-corp { background: #fef3c7; color: #92400e; }
+        .tag-daily { background: #f3e8ff; color: #6b21a8; }
+        
+        .mistake-block { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin-bottom: 1rem; }
+        
+        .dialogue-container { display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px; }
+        .dialogue-bubble { max-width: 70%; padding: 1rem; border-radius: 12px; }
+        .dialogue-left { background: #e0f2fe; align-self: flex-start; border-bottom-left-radius: 0; }
+        .dialogue-right { background: #dcfce7; align-self: flex-end; border-bottom-right-radius: 0; }
+        
+        textarea, input[type="text"] { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 0.5rem; font-family: inherit; box-sizing: border-box; }
+        .btn { background: #2563eb; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; font-weight: 500; }
+        .btn:hover { background: #1d4ed8; }
+        .btn-success { background: #16a34a; }
+        .btn-success:hover { background: #15803d; }
+        .btn-large { padding: 1rem 2rem; font-size: 1.2rem; width: 100%; }
+        
+        .code-block { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; font-family: monospace; white-space: pre-wrap; }
+        
+        .bottom-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="brand"><a href="../index.html">English Comm Master</a></div>
+        <div class="nav-links">
+            <a href="../dashboard.html">Dashboard</a>
+            <a href="../roadmap.html">Roadmap</a>
+            <a href="../lessons/day01.html" class="active">Start Learning</a>
+        </div>
+    </nav>
+
+    <div class="lesson-layout">
+        <main class="lesson-content">
+            <section class="lesson-hero">
+                <div class="breadcrumb">Home > Dashboard > Day 16</div>
+                <br>
+                <span class="day-pill">DAY 16 OF 30</span>
+                <h1 style="margin-top: 1rem; font-size: 2.5rem;">System Design Communication & Scalability Concepts</h1>
+                <div class="meta-info" style="margin-top: 1rem; opacity: 0.9;">Duration: 60-90 min | 21 Modules | Tier: Professional</div>
+                <div class="progress-bar-container" style="background: rgba(255,255,255,0.2); height: 8px; border-radius: 4px; margin-top: 1.5rem;">
+                    <div id="hero-progress" style="background: #4ade80; height: 100%; width: 0%; border-radius: 4px; transition: width 0.3s;"></div>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between;">
+                    <button class="btn" style="background: rgba(255,255,255,0.2);" onclick="window.location.href='day15.html'">Prev: Day 15</button>
+                    <button class="btn" style="background: white; color: #2563eb;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+                </div>
+            </section>
+            
+            <section id="module-1" class="module-section">
+                <h2 class="module-title">Module 1: Daily Motivation</h2>
+                <div style="border-left: 4px solid #3b82f6; padding: 1.5rem; background: linear-gradient(to right, #eff6ff, white); border-radius: 0 8px 8px 0;">
+                    <blockquote style="font-size: 1.25rem; font-style: italic; color: #1e3a8a;">"Success is not final, failure is not fatal: it is the courage to continue that counts."</blockquote>
+                    <p>Welcome to Day 16! Today we focus on Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies. Keep pushing forward, your communication is improving daily!</p>
+                </div>
+            </section>
+            
+            <section id="module-2" class="module-section">
+                <h2 class="module-title">Module 2: Warm-up Conversation</h2>
+                <p>Answer the following questions aloud, then type a summary of your answer.</p>
+                <div style="margin-bottom: 1rem;"><p>1. How do you explain 'scalability' to a non-technical person?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. What is the main difference between horizontal and vertical scaling?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>3. Can you describe a scenario where you'd use a load balancer?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>4. What are the benefits of caching?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>5. Have you ever encountered a database bottleneck?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <button class="btn" onclick="alert('Great job!')">Submit</button>
+            </section>
+            
+            <section id="module-3" class="module-section">
+                <h2 class="module-title">Module 3: Vocabulary (25 words)</h2>
+                <div class="vocab-grid">
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Distributed <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Distributed')">🔊</button></h3><p><strong>Definition:</strong> Spread across multiple systems or locations.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Scalable <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Scalable')">🔊</button></h3><p><strong>Definition:</strong> Able to grow or handle more work.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Horizontal <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Horizontal')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more machines.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Vertical <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Vertical')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more power (CPU, RAM).</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Partition <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Partition')">🔊</button></h3><p><strong>Definition:</strong> Dividing a system or database into parts.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <!-- Assuming 20 more words would follow -->
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Throughput <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3><p><strong>Definition:</strong> The amount of data successfully moved in a given time.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Latency <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Latency')">🔊</button></h3><p><strong>Definition:</strong> The time it takes for data to travel.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                </div>
+            </section>
+            
+            <section id="module-4" class="module-section">
+                <h2 class="module-title">Module 4: Phrasal Verbs</h2>
+                <div class="phrasal-grid">
+                    <div class="phrasal-card">
+                        <h3>Scale up</h3>
+                        <p><strong>Meaning:</strong> Increase the size, amount, or importance of something (vertical scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                    <div class="phrasal-card">
+                        <h3>Scale out</h3>
+                        <p><strong>Meaning:</strong> Add more resources of the same type (horizontal scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-5" class="module-section">
+                <h2 class="module-title">Module 5: Idioms</h2>
+                <div class="idiom-grid">
+                    <div class="idiom-card">
+                        <h3>Bottleneck</h3>
+                        <p><strong>Meaning:</strong> A point of congestion in a system that slows down the overall process.</p>
+                        <p><span class="tag tag-tech">Technical</span> "The database is the bottleneck."</p>
+                    </div>
+                    <div class="idiom-card">
+                        <h3>Single point of failure</h3>
+                        <p><strong>Meaning:</strong> A part of a system that, if it fails, will stop the entire system from working.</p>
+                        <p><span class="tag tag-tech">Technical</span> "We must avoid a single point of failure."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-6" class="module-section">
+                <h2 class="module-title">Module 6: Grammar — Causal connectors</h2>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+                    <p><strong>Topic:</strong> Causal connectors (because, since, therefore, consequently, as a result)</p>
+                    <p>Proper usage of these constructs elevates your English to a professional standard. They help explain relationships between architectural decisions and outcomes.</p>
+                    <div class="code-block" style="margin: 1rem 0;">Example: We implemented caching; consequently, the latency dropped.</div>
+                    <input type="text" placeholder="I chose microservices ___ we needed independent deployments."><br>
+                    <button class="btn">Check Answers</button>
+                </div>
+            </section>
+            
+            <section id="module-7" class="module-section">
+                <h2 class="module-title">Module 7: Speaking Practice</h2>
+                <div style="margin-bottom: 1rem;"><p>1. Explain the CAP theorem in 2 minutes.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. Describe how a CDN works and its benefits.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+            </section>
+            
+            <section id="module-8" class="module-section">
+                <h2 class="module-title">Module 8: Role-Play Conversations</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3>Role-Play: Technical Discussion</h3>
+                    <div class="dialogue-container">
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> Can you explain your architectural choices for handling high traffic?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> Certainly. I chose a load-balanced microservices architecture because it maximizes horizontal scalability.</div>
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> How does it handle failovers?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> We implemented redundancy across multiple availability zones and stateless services. Therefore, if one node fails, the load balancer redirects traffic.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-9" class="module-section">
+                <h2 class="module-title">Module 9: Pronunciation</h2>
+                <div class="vocab-grid">
+                    <div class="pronunciation-card">
+                        <h3 style="display: flex; justify-content: space-between; margin-top:0;">Throughput <button class="btn" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3>
+                        <p><strong>Shadowing:</strong> "Our goal is to increase the throughput."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-10" class="module-section">
+                <h2 class="module-title">Module 10: Reading Practice</h2>
+                <h3>Reading Article: The CAP Theorem and Distributed Systems</h3>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px; line-height: 1.6;">
+                    <p>In modern software engineering and corporate environments, clear communication is just as critical as technical proficiency. When discussing complex architectures like distributed systems, understanding the CAP theorem is essential. It states that a distributed data store can only simultaneously provide two out of the following three guarantees: Consistency, Availability, and Partition tolerance...</p>
+                </div>
+                <h4>Questions</h4>
+                <textarea rows="2" placeholder="What are the three guarantees of the CAP theorem?"></textarea>
+                <textarea rows="2" placeholder="Why is Partition tolerance essential in distributed systems?"></textarea>
+            </section>
+            
+            <section id="module-11" class="module-section">
+                <h2 class="module-title">Module 11: Listening Practice</h2>
+                <p><strong>Recommendation:</strong> Listen to a technical or professional podcast regarding Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies.</p>
+                <div style="background: #e2e8f0; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <button class="btn btn-large" style="width: auto;">Load Audio Embed</button>
+                </div>
+                <h4>Focus Questions</h4>
+                <textarea rows="2" placeholder="Q1 Answer..."></textarea>
+            </section>
+            
+            <section id="module-12" class="module-section">
+                <h2 class="module-title">Module 12: Writing Practice</h2>
+                <p><strong>Task:</strong> Write a 150-word proposal to migrate from a monolithic application to microservices.</p>
+                <textarea rows="8" placeholder="Your attempt here..."></textarea>
+            </section>
+            
+            <section id="module-13" class="module-section">
+                <h2 class="module-title">Module 13: HR Interview Coaching</h2>
+                <h3>Question: Describe how you would design a URL shortening service like bit.ly.</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #fef2f2; border: 1px solid #ef4444; border-radius: 8px;">
+                        <h4 style="color: #ef4444; margin-top:0;">Poor Response</h4>
+                        <p>"I would use a database to store URLs and a web server."</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #f0fdf4; border: 1px solid #22c55e; border-radius: 8px;">
+                        <h4 style="color: #22c55e; margin-top:0;">Excellent Response</h4>
+                        <p>"In my approach, I'd first clarify the requirements (read-heavy). I'd propose a load-balanced API gateway routing to stateless servers. For storage, a NoSQL database or sharded relational DB, supplemented by a distributed cache like Redis to minimize latency for frequent reads."</p>
+                    </div>
+                </div>
+                <textarea rows="4" placeholder="Draft your personalized answer..."></textarea>
+            </section>
+            
+            <section id="module-14" class="module-section">
+                <h2 class="module-title">Module 14: Technical Communication</h2>
+                <p><strong>Key Concepts:</strong> Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies</p>
+                <div class="code-block">
+Explain these concepts clearly as if to a junior developer or a stakeholder. Use analogies.
+                </div>
+                <textarea rows="6" placeholder="Your explanation..."></textarea>
+            </section>
+            
+            <section id="module-15" class="module-section">
+                <h2 class="module-title">Module 15: Group Discussion</h2>
+                <h3>Topic: Cloud Computing vs Edge Computing: The Future of Data Processing</h3>
+                <p><strong>Opening Statement:</strong> To initiate the discussion on Cloud Computing vs Edge Computing: The Future of Data Processing, I believe...</p>
+                <p><strong>Supporting Points:</strong></p>
+                <ul>
+                    <li>Edge computing significantly reduces latency for real-time applications (IoT).</li>
+                    <li>Cloud computing provides unparalleled centralized scalability and data aggregation.</li>
+                </ul>
+                <p><strong>Conclusion:</strong> Ultimately, finding a balance is key. A hybrid approach utilizing edge for immediate processing and cloud for deep analytics will dominate.</p>
+                <p><strong>Useful Vocab:</strong> Leverage, mitigate, latency, bandwidth, edge devices.</p>
+            </section>
+            
+            <section id="module-16" class="module-section">
+                <h2 class="module-title">Module 16: Storytelling Challenge</h2>
+                <p><strong>Prompt:</strong> Tell a 2-minute story about a time you utilized concepts from System Design Communication & Scalability Concepts.</p>
+                <div style="text-align: center; padding: 2rem; background: #1e293b; color: white; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 id="timer-display" style="margin:0; font-size: 3rem;">02:00</h2>
+                    <button class="btn btn-success" onclick="startTimer()" style="margin-top: 1rem; padding: 0.5rem 2rem; font-size: 1.1rem;">Start Timer</button>
+                </div>
+                <textarea rows="6" placeholder="Write your story script here..."></textarea>
+            </section>
+            
+            <section id="module-17" class="module-section">
+                <h2 class="module-title">Module 17: Rapid Fire Challenge (20 Questions)</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="text" placeholder="Q1: Define Latency" style="margin-bottom:0.5rem;" class="rf-input" id="rf-1">
+                    <input type="text" placeholder="Q2: Define Throughput" style="margin-bottom:0.5rem;" class="rf-input" id="rf-2">
+                </div>
+            </section>
+            
+            <section id="module-18" class="module-section">
+                <h2 class="module-title">Module 18: Common Indian English Mistakes</h2>
+                <div class="mistake-block">
+                    <strong>Wrong:</strong> I am having a doubt regarding scalability.<br>
+                    <strong>Correct:</strong> I have a question regarding scalability.<br>
+                    <strong>Explanation:</strong> 'Doubt' implies suspicion. Use 'question' or 'concern' in professional contexts.
+                </div>
+            </section>
+            
+            <section id="module-19" class="module-section">
+                <h2 class="module-title">Module 19: Daily Revision Quiz</h2>
+                <div class="quiz-container" style="background: #f8fafc; padding: 2rem; border-radius: 8px;">
+                    <p>5 Vocabulary Questions + 3 Grammar Questions.</p>
+                    <div id="quiz-ui">
+                        <h4>Q1: Which term means scaling by adding more machines?</h4>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#22c55e'; this.style.color='white';">A) Horizontal Scaling</button>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#ef4444'; this.style.color='white';">B) Vertical Scaling</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-20" class="module-section">
+                <h2 class="module-title">Module 20: Homework</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 1. Review flashcards</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 2. Read 1 article about System Design Communication & Scalability Concepts</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 3. Record HR answer</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 4. Write 5 sentences using new vocabulary</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 5. Complete Grammar exercises</label></div>
+                </div>
+            </section>
+            
+            <section id="module-21" class="module-section">
+                <h2 class="module-title">Module 21: Daily Evaluation</h2>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <canvas id="evalChart"></canvas>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+                        <label>Grammar: <input type="range" min="1" max="10" value="5" oninput="updateChart(0, this.value)" style="width:100%"></label>
+                        <label>Vocabulary: <input type="range" min="1" max="10" value="5" oninput="updateChart(1, this.value)" style="width:100%"></label>
+                        <label>Pronunciation: <input type="range" min="1" max="10" value="5" oninput="updateChart(2, this.value)" style="width:100%"></label>
+                        <label>Fluency: <input type="range" min="1" max="10" value="5" oninput="updateChart(3, this.value)" style="width:100%"></label>
+                        <label>Confidence: <input type="range" min="1" max="10" value="5" oninput="updateChart(4, this.value)" style="width:100%"></label>
+                        <label>Communication: <input type="range" min="1" max="10" value="5" oninput="updateChart(5, this.value)" style="width:100%"></label>
+                        <label>Professional English: <input type="range" min="1" max="10" value="5" oninput="updateChart(6, this.value)" style="width:100%"></label>
+                        <label>Interview Readiness: <input type="range" min="1" max="10" value="5" oninput="updateChart(7, this.value)" style="width:100%"></label>
+                        <button class="btn btn-success" onclick="saveEvaluation()">Save Evaluation</button>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <div id="feedback-display" style="margin-bottom: 1rem; color: #16a34a; font-weight: bold;"></div>
+                    <button class="btn btn-success btn-large" style="font-size: 1.5rem; padding: 1.5rem 3rem;" onclick="markComplete()">Mark Day 16 Complete</button>
+                </div>
+            </section>
+        </main>
+
+            
+            <aside class="toc-sidebar">
+                <h3 style="margin-top: 0;">Modules</h3>
+                <div class="toc-list">
+                    <a href="#module-1" class="toc-link" id="toc-module-1"><span class="toc-icon">○</span> 1. Daily Motivation</a>
+                    <a href="#module-2" class="toc-link" id="toc-module-2"><span class="toc-icon">○</span> 2. Warm-up Conversation</a>
+                    <a href="#module-3" class="toc-link" id="toc-module-3"><span class="toc-icon">○</span> 3. Vocabulary (25 words)</a>
+                    <a href="#module-4" class="toc-link" id="toc-module-4"><span class="toc-icon">○</span> 4. Phrasal Verbs</a>
+                    <a href="#module-5" class="toc-link" id="toc-module-5"><span class="toc-icon">○</span> 5. Idioms</a>
+                    <a href="#module-6" class="toc-link" id="toc-module-6"><span class="toc-icon">○</span> 6. Grammar: Causal connectors (because, since, therefore, consequently, as a result)</a>
+                    <a href="#module-7" class="toc-link" id="toc-module-7"><span class="toc-icon">○</span> 7. Speaking Practice</a>
+                    <a href="#module-8" class="toc-link" id="toc-module-8"><span class="toc-icon">○</span> 8. Role-Play</a>
+                    <a href="#module-9" class="toc-link" id="toc-module-9"><span class="toc-icon">○</span> 9. Pronunciation</a>
+                    <a href="#module-10" class="toc-link" id="toc-module-10"><span class="toc-icon">○</span> 10. Reading Practice</a>
+                    <a href="#module-11" class="toc-link" id="toc-module-11"><span class="toc-icon">○</span> 11. Listening Practice</a>
+                    <a href="#module-12" class="toc-link" id="toc-module-12"><span class="toc-icon">○</span> 12. Writing Practice</a>
+                    <a href="#module-13" class="toc-link" id="toc-module-13"><span class="toc-icon">○</span> 13. HR Interview</a>
+                    <a href="#module-14" class="toc-link" id="toc-module-14"><span class="toc-icon">○</span> 14. Technical Communication</a>
+                    <a href="#module-15" class="toc-link" id="toc-module-15"><span class="toc-icon">○</span> 15. Group Discussion</a>
+                    <a href="#module-16" class="toc-link" id="toc-module-16"><span class="toc-icon">○</span> 16. Storytelling Challenge</a>
+                    <a href="#module-17" class="toc-link" id="toc-module-17"><span class="toc-icon">○</span> 17. Rapid Fire Challenge</a>
+                    <a href="#module-18" class="toc-link" id="toc-module-18"><span class="toc-icon">○</span> 18. Common Indian English Mistakes</a>
+                    <a href="#module-19" class="toc-link" id="toc-module-19"><span class="toc-icon">○</span> 19. Daily Revision Quiz</a>
+                    <a href="#module-20" class="toc-link" id="toc-module-20"><span class="toc-icon">○</span> 20. Homework</a>
+                    <a href="#module-21" class="toc-link" id="toc-module-21"><span class="toc-icon">○</span> 21. Daily Evaluation</a>
+                </div>
+            </aside>
+    </div>
+    
+    <div class="bottom-nav" style="padding: 2rem; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between;">
+        <button class="btn btn-large" style="background: #cbd5e1; width: 48%; color: #333;" onclick="window.location.href='day15.html'">Previous Day</button>
+        <button class="btn btn-large" style="width: 48%;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+    <script>
+        let timerInterval;
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timeLeft = 120;
+            const display = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    display.innerHTML = "Time's up!";
+                } else {
+                    let m = Math.floor(timeLeft/60).toString().padStart(2, '0');
+                    let s = (timeLeft%60).toString().padStart(2, '0');
+                    display.innerHTML = m + ':' + s;
+                }
+                timeLeft -= 1;
+            }, 1000);
+        }
+
+        let evalChart;
+        function initChart() {
+            const ctx = document.getElementById('evalChart')?.getContext('2d');
+            if(!ctx) return;
+            evalChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Grammar', 'Vocabulary', 'Pronunciation', 'Fluency', 'Confidence', 'Communication', 'Professional English', 'Interview Readiness'],
+                    datasets: [{
+                        label: 'Self Evaluation',
+                        data: [5, 5, 5, 5, 5, 5, 5, 5],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)'
+                    }]
+                },
+                options: {
+                    scales: { r: { min: 0, max: 10, ticks: { stepSize: 1 } } }
+                }
+            });
+        }
+        
+        function updateChart(index, value) {
+            if(evalChart) {
+                evalChart.data.datasets[0].data[index] = parseInt(value);
+                evalChart.update();
+            }
+        }
+        
+        function saveEvaluation() {
+            if(evalChart) {
+                localStorage.setItem('day16_eval', JSON.stringify(evalChart.data.datasets[0].data));
+                document.getElementById('feedback-display').innerText = "Evaluation saved! Great effort today.";
+            }
+        }
+
+        function markComplete() {
+            localStorage.setItem('day16_completed', 'true');
+            const confettiScript = document.createElement('script');
+            confettiScript.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+            confettiScript.onload = () => {
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            };
+            document.head.appendChild(confettiScript);
+            
+            const toast = document.createElement('div');
+            toast.textContent = "Day 16 Complete! Excellent Job!";
+            toast.style.cssText = "position:fixed; bottom:20px; right:20px; background:#16a34a; color:white; padding:1rem 2rem; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-weight:bold; z-index:9999;";
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 4000);
+            
+            document.querySelectorAll('.toc-link').forEach(l => {
+                l.querySelector('.toc-icon').innerHTML = '✓';
+                l.querySelector('.toc-icon').style.color = '#16a34a';
+            });
+        }
+        
+        function saveProgress() {}
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.module-section');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (window.pageYOffset / docHeight) * 100;
+            const bar = document.getElementById('hero-progress');
+            if(bar) bar.style.width = progress + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            if (window.Pronunciation) window.Pronunciation.init();
+            
+            const rfInputs = document.querySelectorAll('.rf-input');
+            rfInputs.forEach((input, idx) => {
+                input.addEventListener('focus', () => {
+                    setTimeout(() => {
+                        if(idx + 1 < rfInputs.length) {
+                            rfInputs[idx + 1].focus();
+                        }
+                    }, 5000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+.Value } 
+        .lesson-content { flex: 3; min-width: 0; }
+        .toc-sidebar { flex: 0 0 260px; width: 260px; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .toc-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: #475569; text-decoration: none; }
+        .toc-link.active { color: #2563eb; font-weight: bold; }
+        .toc-icon { font-size: 1.2rem; }
+        
+        .module-section { background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .module-title { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; color: #1e293b; }
+        
+        .vocab-grid, .idiom-grid, .phrasal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .vocab-card, .idiom-card, .phrasal-card, .pronunciation-card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; background: #fafaf9; }
+        
+        .tag { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; background: #e2e8f0; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .tag-interview { background: #dbeafe; color: #1e40af; }
+        .tag-tech { background: #dcfce7; color: #166534; }
+        .tag-corp { background: #fef3c7; color: #92400e; }
+        .tag-daily { background: #f3e8ff; color: #6b21a8; }
+        
+        .mistake-block { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin-bottom: 1rem; }
+        
+        .dialogue-container { display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px; }
+        .dialogue-bubble { max-width: 70%; padding: 1rem; border-radius: 12px; }
+        .dialogue-left { background: #e0f2fe; align-self: flex-start; border-bottom-left-radius: 0; }
+        .dialogue-right { background: #dcfce7; align-self: flex-end; border-bottom-right-radius: 0; }
+        
+        textarea, input[type="text"] { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 0.5rem; font-family: inherit; box-sizing: border-box; }
+        .btn { background: #2563eb; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; font-weight: 500; }
+        .btn:hover { background: #1d4ed8; }
+        .btn-success { background: #16a34a; }
+        .btn-success:hover { background: #15803d; }
+        .btn-large { padding: 1rem 2rem; font-size: 1.2rem; width: 100%; }
+        
+        .code-block { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; font-family: monospace; white-space: pre-wrap; }
+        
+        .bottom-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="brand"><a href="../index.html">English Comm Master</a></div>
+        <div class="nav-links">
+            <a href="../dashboard.html">Dashboard</a>
+            <a href="../roadmap.html">Roadmap</a>
+            <a href="../lessons/day01.html" class="active">Start Learning</a>
+        </div>
+    </nav>
+
+    <div class="lesson-layout">
+        <main class="lesson-content">
+            <section class="lesson-hero">
+                <div class="breadcrumb">Home > Dashboard > Day 16</div>
+                <br>
+                <span class="day-pill">DAY 16 OF 30</span>
+                <h1 style="margin-top: 1rem; font-size: 2.5rem;">System Design Communication & Scalability Concepts</h1>
+                <div class="meta-info" style="margin-top: 1rem; opacity: 0.9;">Duration: 60-90 min | 21 Modules | Tier: Professional</div>
+                <div class="progress-bar-container" style="background: rgba(255,255,255,0.2); height: 8px; border-radius: 4px; margin-top: 1.5rem;">
+                    <div id="hero-progress" style="background: #4ade80; height: 100%; width: 0%; border-radius: 4px; transition: width 0.3s;"></div>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between;">
+                    <button class="btn" style="background: rgba(255,255,255,0.2);" onclick="window.location.href='day15.html'">Prev: Day 15</button>
+                    <button class="btn" style="background: white; color: #2563eb;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+                </div>
+            </section>
+            
+            <section id="module-1" class="module-section">
+                <h2 class="module-title">Module 1: Daily Motivation</h2>
+                <div style="border-left: 4px solid #3b82f6; padding: 1.5rem; background: linear-gradient(to right, #eff6ff, white); border-radius: 0 8px 8px 0;">
+                    <blockquote style="font-size: 1.25rem; font-style: italic; color: #1e3a8a;">"Success is not final, failure is not fatal: it is the courage to continue that counts."</blockquote>
+                    <p>Welcome to Day 16! Today we focus on Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies. Keep pushing forward, your communication is improving daily!</p>
+                </div>
+            </section>
+            
+            <section id="module-2" class="module-section">
+                <h2 class="module-title">Module 2: Warm-up Conversation</h2>
+                <p>Answer the following questions aloud, then type a summary of your answer.</p>
+                <div style="margin-bottom: 1rem;"><p>1. How do you explain 'scalability' to a non-technical person?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. What is the main difference between horizontal and vertical scaling?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>3. Can you describe a scenario where you'd use a load balancer?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>4. What are the benefits of caching?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>5. Have you ever encountered a database bottleneck?</p><textarea rows="2" placeholder="Your answer..."></textarea></div>
+                <button class="btn" onclick="alert('Great job!')">Submit</button>
+            </section>
+            
+            <section id="module-3" class="module-section">
+                <h2 class="module-title">Module 3: Vocabulary (25 words)</h2>
+                <div class="vocab-grid">
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Distributed <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Distributed')">🔊</button></h3><p><strong>Definition:</strong> Spread across multiple systems or locations.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Scalable <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Scalable')">🔊</button></h3><p><strong>Definition:</strong> Able to grow or handle more work.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Horizontal <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Horizontal')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more machines.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Vertical <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Vertical')">🔊</button></h3><p><strong>Definition:</strong> Scaling by adding more power (CPU, RAM).</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Partition <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Partition')">🔊</button></h3><p><strong>Definition:</strong> Dividing a system or database into parts.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <!-- Assuming 20 more words would follow -->
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Throughput <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3><p><strong>Definition:</strong> The amount of data successfully moved in a given time.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                    <div class="vocab-card"><h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center;">Latency <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;" onclick="window.Pronunciation?.speak('Latency')">🔊</button></h3><p><strong>Definition:</strong> The time it takes for data to travel.</p><textarea rows="2" placeholder="Sentence..."></textarea></div>
+                </div>
+            </section>
+            
+            <section id="module-4" class="module-section">
+                <h2 class="module-title">Module 4: Phrasal Verbs</h2>
+                <div class="phrasal-grid">
+                    <div class="phrasal-card">
+                        <h3>Scale up</h3>
+                        <p><strong>Meaning:</strong> Increase the size, amount, or importance of something (vertical scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                    <div class="phrasal-card">
+                        <h3>Scale out</h3>
+                        <p><strong>Meaning:</strong> Add more resources of the same type (horizontal scaling).</p>
+                        <input type="text" placeholder="Fill in the blank...">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-5" class="module-section">
+                <h2 class="module-title">Module 5: Idioms</h2>
+                <div class="idiom-grid">
+                    <div class="idiom-card">
+                        <h3>Bottleneck</h3>
+                        <p><strong>Meaning:</strong> A point of congestion in a system that slows down the overall process.</p>
+                        <p><span class="tag tag-tech">Technical</span> "The database is the bottleneck."</p>
+                    </div>
+                    <div class="idiom-card">
+                        <h3>Single point of failure</h3>
+                        <p><strong>Meaning:</strong> A part of a system that, if it fails, will stop the entire system from working.</p>
+                        <p><span class="tag tag-tech">Technical</span> "We must avoid a single point of failure."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-6" class="module-section">
+                <h2 class="module-title">Module 6: Grammar — Causal connectors</h2>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+                    <p><strong>Topic:</strong> Causal connectors (because, since, therefore, consequently, as a result)</p>
+                    <p>Proper usage of these constructs elevates your English to a professional standard. They help explain relationships between architectural decisions and outcomes.</p>
+                    <div class="code-block" style="margin: 1rem 0;">Example: We implemented caching; consequently, the latency dropped.</div>
+                    <input type="text" placeholder="I chose microservices ___ we needed independent deployments."><br>
+                    <button class="btn">Check Answers</button>
+                </div>
+            </section>
+            
+            <section id="module-7" class="module-section">
+                <h2 class="module-title">Module 7: Speaking Practice</h2>
+                <div style="margin-bottom: 1rem;"><p>1. Explain the CAP theorem in 2 minutes.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+                <div style="margin-bottom: 1rem;"><p>2. Describe how a CDN works and its benefits.</p><button class="btn" style="background:#ef4444;" onclick="this.innerHTML='🎙️ Recording...'">🎤 Record</button><textarea rows="2" placeholder="Or type your notes..."></textarea></div>
+            </section>
+            
+            <section id="module-8" class="module-section">
+                <h2 class="module-title">Module 8: Role-Play Conversations</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3>Role-Play: Technical Discussion</h3>
+                    <div class="dialogue-container">
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> Can you explain your architectural choices for handling high traffic?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> Certainly. I chose a load-balanced microservices architecture because it maximizes horizontal scalability.</div>
+                        <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> How does it handle failovers?</div>
+                        <div class="dialogue-bubble dialogue-right"><strong>You:</strong> We implemented redundancy across multiple availability zones and stateless services. Therefore, if one node fails, the load balancer redirects traffic.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-9" class="module-section">
+                <h2 class="module-title">Module 9: Pronunciation</h2>
+                <div class="vocab-grid">
+                    <div class="pronunciation-card">
+                        <h3 style="display: flex; justify-content: space-between; margin-top:0;">Throughput <button class="btn" onclick="window.Pronunciation?.speak('Throughput')">🔊</button></h3>
+                        <p><strong>Shadowing:</strong> "Our goal is to increase the throughput."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-10" class="module-section">
+                <h2 class="module-title">Module 10: Reading Practice</h2>
+                <h3>Reading Article: The CAP Theorem and Distributed Systems</h3>
+                <div style="padding: 1.5rem; background: #f8fafc; border-radius: 8px; line-height: 1.6;">
+                    <p>In modern software engineering and corporate environments, clear communication is just as critical as technical proficiency. When discussing complex architectures like distributed systems, understanding the CAP theorem is essential. It states that a distributed data store can only simultaneously provide two out of the following three guarantees: Consistency, Availability, and Partition tolerance...</p>
+                </div>
+                <h4>Questions</h4>
+                <textarea rows="2" placeholder="What are the three guarantees of the CAP theorem?"></textarea>
+                <textarea rows="2" placeholder="Why is Partition tolerance essential in distributed systems?"></textarea>
+            </section>
+            
+            <section id="module-11" class="module-section">
+                <h2 class="module-title">Module 11: Listening Practice</h2>
+                <p><strong>Recommendation:</strong> Listen to a technical or professional podcast regarding Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies.</p>
+                <div style="background: #e2e8f0; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <button class="btn btn-large" style="width: auto;">Load Audio Embed</button>
+                </div>
+                <h4>Focus Questions</h4>
+                <textarea rows="2" placeholder="Q1 Answer..."></textarea>
+            </section>
+            
+            <section id="module-12" class="module-section">
+                <h2 class="module-title">Module 12: Writing Practice</h2>
+                <p><strong>Task:</strong> Write a 150-word proposal to migrate from a monolithic application to microservices.</p>
+                <textarea rows="8" placeholder="Your attempt here..."></textarea>
+            </section>
+            
+            <section id="module-13" class="module-section">
+                <h2 class="module-title">Module 13: HR Interview Coaching</h2>
+                <h3>Question: Describe how you would design a URL shortening service like bit.ly.</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #fef2f2; border: 1px solid #ef4444; border-radius: 8px;">
+                        <h4 style="color: #ef4444; margin-top:0;">Poor Response</h4>
+                        <p>"I would use a database to store URLs and a web server."</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 1rem; background: #f0fdf4; border: 1px solid #22c55e; border-radius: 8px;">
+                        <h4 style="color: #22c55e; margin-top:0;">Excellent Response</h4>
+                        <p>"In my approach, I'd first clarify the requirements (read-heavy). I'd propose a load-balanced API gateway routing to stateless servers. For storage, a NoSQL database or sharded relational DB, supplemented by a distributed cache like Redis to minimize latency for frequent reads."</p>
+                    </div>
+                </div>
+                <textarea rows="4" placeholder="Draft your personalized answer..."></textarea>
+            </section>
+            
+            <section id="module-14" class="module-section">
+                <h2 class="module-title">Module 14: Technical Communication</h2>
+                <p><strong>Key Concepts:</strong> Microservices vs Monolith, Load balancing, CAP theorem, horizontal/vertical scaling, API gateway, database sharding, CDN, caching strategies</p>
+                <div class="code-block">
+Explain these concepts clearly as if to a junior developer or a stakeholder. Use analogies.
+                </div>
+                <textarea rows="6" placeholder="Your explanation..."></textarea>
+            </section>
+            
+            <section id="module-15" class="module-section">
+                <h2 class="module-title">Module 15: Group Discussion</h2>
+                <h3>Topic: Cloud Computing vs Edge Computing: The Future of Data Processing</h3>
+                <p><strong>Opening Statement:</strong> To initiate the discussion on Cloud Computing vs Edge Computing: The Future of Data Processing, I believe...</p>
+                <p><strong>Supporting Points:</strong></p>
+                <ul>
+                    <li>Edge computing significantly reduces latency for real-time applications (IoT).</li>
+                    <li>Cloud computing provides unparalleled centralized scalability and data aggregation.</li>
+                </ul>
+                <p><strong>Conclusion:</strong> Ultimately, finding a balance is key. A hybrid approach utilizing edge for immediate processing and cloud for deep analytics will dominate.</p>
+                <p><strong>Useful Vocab:</strong> Leverage, mitigate, latency, bandwidth, edge devices.</p>
+            </section>
+            
+            <section id="module-16" class="module-section">
+                <h2 class="module-title">Module 16: Storytelling Challenge</h2>
+                <p><strong>Prompt:</strong> Tell a 2-minute story about a time you utilized concepts from System Design Communication & Scalability Concepts.</p>
+                <div style="text-align: center; padding: 2rem; background: #1e293b; color: white; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 id="timer-display" style="margin:0; font-size: 3rem;">02:00</h2>
+                    <button class="btn btn-success" onclick="startTimer()" style="margin-top: 1rem; padding: 0.5rem 2rem; font-size: 1.1rem;">Start Timer</button>
+                </div>
+                <textarea rows="6" placeholder="Write your story script here..."></textarea>
+            </section>
+            
+            <section id="module-17" class="module-section">
+                <h2 class="module-title">Module 17: Rapid Fire Challenge (20 Questions)</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="text" placeholder="Q1: Define Latency" style="margin-bottom:0.5rem;" class="rf-input" id="rf-1">
+                    <input type="text" placeholder="Q2: Define Throughput" style="margin-bottom:0.5rem;" class="rf-input" id="rf-2">
+                </div>
+            </section>
+            
+            <section id="module-18" class="module-section">
+                <h2 class="module-title">Module 18: Common Indian English Mistakes</h2>
+                <div class="mistake-block">
+                    <strong>Wrong:</strong> I am having a doubt regarding scalability.<br>
+                    <strong>Correct:</strong> I have a question regarding scalability.<br>
+                    <strong>Explanation:</strong> 'Doubt' implies suspicion. Use 'question' or 'concern' in professional contexts.
+                </div>
+            </section>
+            
+            <section id="module-19" class="module-section">
+                <h2 class="module-title">Module 19: Daily Revision Quiz</h2>
+                <div class="quiz-container" style="background: #f8fafc; padding: 2rem; border-radius: 8px;">
+                    <p>5 Vocabulary Questions + 3 Grammar Questions.</p>
+                    <div id="quiz-ui">
+                        <h4>Q1: Which term means scaling by adding more machines?</h4>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#22c55e'; this.style.color='white';">A) Horizontal Scaling</button>
+                        <button class="btn" style="display:block; width:100%; text-align:left; background: white; color: black; border: 1px solid #ccc; margin-bottom: 0.5rem;" onclick="this.style.background='#ef4444'; this.style.color='white';">B) Vertical Scaling</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="module-20" class="module-section">
+                <h2 class="module-title">Module 20: Homework</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 1. Review flashcards</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 2. Read 1 article about System Design Communication & Scalability Concepts</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 3. Record HR answer</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 4. Write 5 sentences using new vocabulary</label></div>
+                    <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;"><label><input type="checkbox" onchange="saveProgress()"> 5. Complete Grammar exercises</label></div>
+                </div>
+            </section>
+            
+            <section id="module-21" class="module-section">
+                <h2 class="module-title">Module 21: Daily Evaluation</h2>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <canvas id="evalChart"></canvas>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+                        <label>Grammar: <input type="range" min="1" max="10" value="5" oninput="updateChart(0, this.value)" style="width:100%"></label>
+                        <label>Vocabulary: <input type="range" min="1" max="10" value="5" oninput="updateChart(1, this.value)" style="width:100%"></label>
+                        <label>Pronunciation: <input type="range" min="1" max="10" value="5" oninput="updateChart(2, this.value)" style="width:100%"></label>
+                        <label>Fluency: <input type="range" min="1" max="10" value="5" oninput="updateChart(3, this.value)" style="width:100%"></label>
+                        <label>Confidence: <input type="range" min="1" max="10" value="5" oninput="updateChart(4, this.value)" style="width:100%"></label>
+                        <label>Communication: <input type="range" min="1" max="10" value="5" oninput="updateChart(5, this.value)" style="width:100%"></label>
+                        <label>Professional English: <input type="range" min="1" max="10" value="5" oninput="updateChart(6, this.value)" style="width:100%"></label>
+                        <label>Interview Readiness: <input type="range" min="1" max="10" value="5" oninput="updateChart(7, this.value)" style="width:100%"></label>
+                        <button class="btn btn-success" onclick="saveEvaluation()">Save Evaluation</button>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <div id="feedback-display" style="margin-bottom: 1rem; color: #16a34a; font-weight: bold;"></div>
+                    <button class="btn btn-success btn-large" style="font-size: 1.5rem; padding: 1.5rem 3rem;" onclick="markComplete()">Mark Day 16 Complete</button>
+                </div>
+            </section>
+        </main>
+
+            
+            <aside class="toc-sidebar">
+                <h3 style="margin-top: 0;">Modules</h3>
+                <div class="toc-list">
+                    <a href="#module-1" class="toc-link" id="toc-module-1"><span class="toc-icon">○</span> 1. Daily Motivation</a>
+                    <a href="#module-2" class="toc-link" id="toc-module-2"><span class="toc-icon">○</span> 2. Warm-up Conversation</a>
+                    <a href="#module-3" class="toc-link" id="toc-module-3"><span class="toc-icon">○</span> 3. Vocabulary (25 words)</a>
+                    <a href="#module-4" class="toc-link" id="toc-module-4"><span class="toc-icon">○</span> 4. Phrasal Verbs</a>
+                    <a href="#module-5" class="toc-link" id="toc-module-5"><span class="toc-icon">○</span> 5. Idioms</a>
+                    <a href="#module-6" class="toc-link" id="toc-module-6"><span class="toc-icon">○</span> 6. Grammar: Causal connectors (because, since, therefore, consequently, as a result)</a>
+                    <a href="#module-7" class="toc-link" id="toc-module-7"><span class="toc-icon">○</span> 7. Speaking Practice</a>
+                    <a href="#module-8" class="toc-link" id="toc-module-8"><span class="toc-icon">○</span> 8. Role-Play</a>
+                    <a href="#module-9" class="toc-link" id="toc-module-9"><span class="toc-icon">○</span> 9. Pronunciation</a>
+                    <a href="#module-10" class="toc-link" id="toc-module-10"><span class="toc-icon">○</span> 10. Reading Practice</a>
+                    <a href="#module-11" class="toc-link" id="toc-module-11"><span class="toc-icon">○</span> 11. Listening Practice</a>
+                    <a href="#module-12" class="toc-link" id="toc-module-12"><span class="toc-icon">○</span> 12. Writing Practice</a>
+                    <a href="#module-13" class="toc-link" id="toc-module-13"><span class="toc-icon">○</span> 13. HR Interview</a>
+                    <a href="#module-14" class="toc-link" id="toc-module-14"><span class="toc-icon">○</span> 14. Technical Communication</a>
+                    <a href="#module-15" class="toc-link" id="toc-module-15"><span class="toc-icon">○</span> 15. Group Discussion</a>
+                    <a href="#module-16" class="toc-link" id="toc-module-16"><span class="toc-icon">○</span> 16. Storytelling Challenge</a>
+                    <a href="#module-17" class="toc-link" id="toc-module-17"><span class="toc-icon">○</span> 17. Rapid Fire Challenge</a>
+                    <a href="#module-18" class="toc-link" id="toc-module-18"><span class="toc-icon">○</span> 18. Common Indian English Mistakes</a>
+                    <a href="#module-19" class="toc-link" id="toc-module-19"><span class="toc-icon">○</span> 19. Daily Revision Quiz</a>
+                    <a href="#module-20" class="toc-link" id="toc-module-20"><span class="toc-icon">○</span> 20. Homework</a>
+                    <a href="#module-21" class="toc-link" id="toc-module-21"><span class="toc-icon">○</span> 21. Daily Evaluation</a>
+                </div>
+            </aside>
+    </div>
+    
+    <div class="bottom-nav" style="padding: 2rem; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between;">
+        <button class="btn btn-large" style="background: #cbd5e1; width: 48%; color: #333;" onclick="window.location.href='day15.html'">Previous Day</button>
+        <button class="btn btn-large" style="width: 48%;" onclick="window.location.href='day17.html'">Next: Day 17</button>
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+    <script>
+        let timerInterval;
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timeLeft = 120;
+            const display = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    display.innerHTML = "Time's up!";
+                } else {
+                    let m = Math.floor(timeLeft/60).toString().padStart(2, '0');
+                    let s = (timeLeft%60).toString().padStart(2, '0');
+                    display.innerHTML = m + ':' + s;
+                }
+                timeLeft -= 1;
+            }, 1000);
+        }
+
+        let evalChart;
+        function initChart() {
+            const ctx = document.getElementById('evalChart')?.getContext('2d');
+            if(!ctx) return;
+            evalChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Grammar', 'Vocabulary', 'Pronunciation', 'Fluency', 'Confidence', 'Communication', 'Professional English', 'Interview Readiness'],
+                    datasets: [{
+                        label: 'Self Evaluation',
+                        data: [5, 5, 5, 5, 5, 5, 5, 5],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)'
+                    }]
+                },
+                options: {
+                    scales: { r: { min: 0, max: 10, ticks: { stepSize: 1 } } }
+                }
+            });
+        }
+        
+        function updateChart(index, value) {
+            if(evalChart) {
+                evalChart.data.datasets[0].data[index] = parseInt(value);
+                evalChart.update();
+            }
+        }
+        
+        function saveEvaluation() {
+            if(evalChart) {
+                localStorage.setItem('day16_eval', JSON.stringify(evalChart.data.datasets[0].data));
+                document.getElementById('feedback-display').innerText = "Evaluation saved! Great effort today.";
+            }
+        }
+
+        function markComplete() {
+            localStorage.setItem('day16_completed', 'true');
+            const confettiScript = document.createElement('script');
+            confettiScript.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+            confettiScript.onload = () => {
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            };
+            document.head.appendChild(confettiScript);
+            
+            const toast = document.createElement('div');
+            toast.textContent = "Day 16 Complete! Excellent Job!";
+            toast.style.cssText = "position:fixed; bottom:20px; right:20px; background:#16a34a; color:white; padding:1rem 2rem; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-weight:bold; z-index:9999;";
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 4000);
+            
+            document.querySelectorAll('.toc-link').forEach(l => {
+                l.querySelector('.toc-icon').innerHTML = '✓';
+                l.querySelector('.toc-icon').style.color = '#16a34a';
+            });
+        }
+        
+        function saveProgress() {}
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.module-section');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (window.pageYOffset / docHeight) * 100;
+            const bar = document.getElementById('hero-progress');
+            if(bar) bar.style.width = progress + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            if (window.Pronunciation) window.Pronunciation.init();
+            
+            const rfInputs = document.querySelectorAll('.rf-input');
+            rfInputs.forEach((input, idx) => {
+                input.addEventListener('focus', () => {
+                    setTimeout(() => {
+                        if(idx + 1 < rfInputs.length) {
+                            rfInputs[idx + 1].focus();
+                        }
+                    }, 5000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

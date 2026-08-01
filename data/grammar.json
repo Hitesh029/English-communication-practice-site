@@ -1,0 +1,341 @@
+{
+  "days": {
+    "1": {
+      "topic": "Present Simple & Present Continuous",
+      "definition": "Present Simple is used for facts, habits, and permanent situations. Present Continuous is used for actions happening now, temporary situations, and future arrangements.",
+      "rules": [
+        "Use Present Simple for general truths and routines.",
+        "Use Present Continuous for actions at the moment of speaking.",
+        "Stative verbs (like, know, believe) are generally not used in continuous forms."
+      ],
+      "structure": "S + V1(s/es) | S + am/is/are + V-ing",
+      "formula": "Present Simple: S + V(s/es). Present Continuous: S + to be + V-ing.",
+      "timeline": "Present Simple: Continuous across time. Present Continuous: Right now.",
+      "common_errors": [
+        {
+          "wrong": "I am working here since 5 years.",
+          "correct": "I have worked here for 5 years.",
+          "explanation": "Do not use present continuous for actions that started in the past and continue to the present."
+        },
+        {
+          "wrong": "She is knowing the answer.",
+          "correct": "She knows the answer.",
+          "explanation": "'Know' is a stative verb."
+        }
+      ],
+      "examples_interview": [
+        "I develop scalable applications (habitual).",
+        "Currently, I am leading a team of five engineers (temporary/ongoing)."
+      ],
+      "examples_tech": [
+        "The system processes 1000 requests per second.",
+        "We are migrating the database to AWS this week."
+      ],
+      "examples_corporate": [
+        "Our company values integrity.",
+        "We are expanding our market presence in Europe."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "The compiler _____ (check/is checking) for syntax errors before running the code.", "answer": "checks"},
+          {"q": "Right now, the server _____ (experiences/is experiencing) heavy load.", "answer": "is experiencing"}
+        ],
+        "error_detection": [
+          {"sentence": "I am believing that this is the best approach.", "error": "am believing", "correction": "believe"}
+        ],
+        "sentence_correction": [
+          {"wrong": "He is work as a developer.", "correct": "He works as a developer."}
+        ]
+      }
+    },
+    "2": {
+      "topic": "Past Simple & Present Perfect",
+      "definition": "Past Simple describes completed actions in the past at a specific time. Present Perfect connects the past to the present, focusing on the result or experience without a specific past time.",
+      "rules": [
+        "Use Past Simple with specific time markers (yesterday, last year, in 2020).",
+        "Use Present Perfect for experiences, recent changes, or actions with a result in the present.",
+        "Never use Present Perfect with a specific past time."
+      ],
+      "structure": "S + V2 | S + have/has + V3",
+      "formula": "Past Simple: S + V-ed/Irregular. Present Perfect: S + have/has + Past Participle.",
+      "timeline": "Past Simple: Specific point in past. Present Perfect: Past action continuing to or affecting present.",
+      "common_errors": [
+        {
+          "wrong": "I have finished the project yesterday.",
+          "correct": "I finished the project yesterday.",
+          "explanation": "'Yesterday' is a specific past time, so use Past Simple."
+        },
+        {
+          "wrong": "I didn't saw the bug.",
+          "correct": "I didn't see the bug.",
+          "explanation": "Use base verb after 'did not'."
+        }
+      ],
+      "examples_interview": [
+        "I graduated in 2021 (Past Simple).",
+        "I have worked on several microservices architectures (Present Perfect)."
+      ],
+      "examples_tech": [
+        "The system crashed at 2 AM.",
+        "We have successfully deployed the new feature."
+      ],
+      "examples_corporate": [
+        "The company acquired a startup last year.",
+        "Our profits have increased significantly this quarter."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "I _____ (fixed/have fixed) the bug yesterday.", "answer": "fixed"},
+          {"q": "She _____ (worked/has worked) here since 2018.", "answer": "has worked"}
+        ],
+        "error_detection": [
+          {"sentence": "We have launched the product in 2022.", "error": "have launched", "correction": "launched"}
+        ],
+        "sentence_correction": [
+          {"wrong": "Did you finished the report?", "correct": "Did you finish the report?"}
+        ]
+      }
+    },
+    "3": {
+      "topic": "Modal Verbs",
+      "definition": "Auxiliary verbs used to express ability, possibility, permission, or obligation.",
+      "rules": [
+        "Modals do not take '-s' in the third person.",
+        "They are followed by the base form of the verb without 'to'.",
+        "Form questions by inverting the modal and subject."
+      ],
+      "structure": "S + Modal + V(base)",
+      "formula": "Modal + Verb (e.g., can run, must deploy)",
+      "timeline": "Applicable across timeframes, though primarily present/future.",
+      "common_errors": [
+        {
+          "wrong": "He can to write Python.",
+          "correct": "He can write Python.",
+          "explanation": "Never use 'to' after a modal verb."
+        },
+        {
+          "wrong": "You must to test your code.",
+          "correct": "You must test your code.",
+          "explanation": "Drop 'to' after must."
+        }
+      ],
+      "examples_interview": [
+        "I can develop full-stack applications.",
+        "You should see an improvement in performance."
+      ],
+      "examples_tech": [
+        "The API must handle 10,000 concurrent requests.",
+        "We might need to scale the database."
+      ],
+      "examples_corporate": [
+        "Employees must wear badges.",
+        "We should invest more in R&D."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "You _____ (must/can) commit your changes before pushing.", "answer": "must"},
+          {"q": "We _____ (might/should) delay the launch if the bug isn't fixed.", "answer": "might"}
+        ],
+        "error_detection": [
+          {"sentence": "She could speaks three languages.", "error": "speaks", "correction": "speak"}
+        ],
+        "sentence_correction": [
+          {"wrong": "I might to go to the conference.", "correct": "I might go to the conference."}
+        ]
+      }
+    },
+    "4": {
+      "topic": "Passive Voice",
+      "definition": "Used when the focus is on the action or the object receiving the action, rather than who performed it.",
+      "rules": [
+        "Formed with the verb 'to be' + Past Participle.",
+        "Use when the actor is unknown, unimportant, or obvious.",
+        "Maintains the tense of the active sentence."
+      ],
+      "structure": "Object + to be + V3 (+ by Subject)",
+      "formula": "Object + Auxiliary 'to be' + Past Participle.",
+      "timeline": "Matches the active tense.",
+      "common_errors": [
+        {
+          "wrong": "The code was wrote by John.",
+          "correct": "The code was written by John.",
+          "explanation": "Use the past participle 'written', not the past simple 'wrote'."
+        },
+        {
+          "wrong": "The server updated.",
+          "correct": "The server was updated.",
+          "explanation": "The server cannot update itself in this context; it receives the action."
+        }
+      ],
+      "examples_interview": [
+        "My project was nominated for an award.",
+        "The legacy system was entirely replaced."
+      ],
+      "examples_tech": [
+        "The data is encrypted before transmission.",
+        "The bug was fixed in the latest patch."
+      ],
+      "examples_corporate": [
+        "The quarterly report will be published tomorrow.",
+        "The decision was made by the board."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "The application _____ (is deploying/is being deployed) right now.", "answer": "is being deployed"},
+          {"q": "The database _____ (was backed/backed) up yesterday.", "answer": "was backed"}
+        ],
+        "error_detection": [
+          {"sentence": "The new feature will be release next week.", "error": "release", "correction": "released"}
+        ],
+        "sentence_correction": [
+          {"wrong": "The test run by the QA team.", "correct": "The test is run by the QA team."}
+        ]
+      }
+    },
+    "5": {
+      "topic": "Conditional Sentences (Types 0, 1, 2)",
+      "definition": "Sentences expressing factual implications, or hypothetical situations and their consequences.",
+      "rules": [
+        "Type 0 (General Truth): If + Present, Present.",
+        "Type 1 (Real Future): If + Present, will + Verb.",
+        "Type 2 (Unreal Present/Future): If + Past, would + Verb."
+      ],
+      "structure": "If clause + Main clause",
+      "formula": "Type 1: If S+V1, S+will+V1. Type 2: If S+V2, S+would+V1.",
+      "timeline": "Zero: Always. First: Future possibility. Second: Hypothetical present/future.",
+      "common_errors": [
+        {
+          "wrong": "If I will find a bug, I will fix it.",
+          "correct": "If I find a bug, I will fix it.",
+          "explanation": "Do not use 'will' in the 'if' clause for Type 1 conditionals."
+        },
+        {
+          "wrong": "If I am you, I would refactor this.",
+          "correct": "If I were you, I would refactor this.",
+          "explanation": "Use 'were' for all subjects in Type 2 conditional."
+        }
+      ],
+      "examples_interview": [
+        "If I don't know the answer, I research it (Type 0).",
+        "If you hire me, I will bring my AWS expertise to the team (Type 1)."
+      ],
+      "examples_tech": [
+        "If the server crashes, the load balancer redirects traffic (Type 0).",
+        "If we optimize this query, latency will decrease (Type 1).",
+        "If we had more memory, the process would be faster (Type 2)."
+      ],
+      "examples_corporate": [
+        "If profits increase, we will expand (Type 1).",
+        "If we changed our strategy, we would see better results (Type 2)."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "If the test fails, the build _____ (will break/breaks).", "answer": "breaks"},
+          {"q": "If I _____ (have/had) more time, I would write more tests.", "answer": "had"}
+        ],
+        "error_detection": [
+          {"sentence": "If we will launch tomorrow, we will need all hands on deck.", "error": "will launch", "correction": "launch"}
+        ],
+        "sentence_correction": [
+          {"wrong": "If I was the manager, I would approve this.", "correct": "If I were the manager, I would approve this."}
+        ]
+      }
+    },
+    "6": {
+      "topic": "Reported Speech / Indirect Speech",
+      "definition": "Used to communicate what someone else said, without quoting them directly.",
+      "rules": [
+        "Tenses generally shift back one step into the past (Present -> Past).",
+        "Pronouns change to match the perspective of the reporter.",
+        "Time and place expressions change (e.g., 'now' -> 'then', 'here' -> 'there')."
+      ],
+      "structure": "S + said/told + (that) + Reported Clause",
+      "formula": "Shift tense back: e.g., 'I am working' -> He said he was working.",
+      "timeline": "Reflects the past statement of a previous action.",
+      "common_errors": [
+        {
+          "wrong": "He said that he will come.",
+          "correct": "He said that he would come.",
+          "explanation": "'Will' changes to 'would' in reported speech."
+        },
+        {
+          "wrong": "She told to me the server is down.",
+          "correct": "She told me the server was down.",
+          "explanation": "'Tell' takes a direct object without 'to'."
+        }
+      ],
+      "examples_interview": [
+        "My manager said that my code quality was excellent.",
+        "They asked if I had experience with Kubernetes."
+      ],
+      "examples_tech": [
+        "The QA engineer reported that the tests had failed.",
+        "The client stated that they wanted a new feature."
+      ],
+      "examples_corporate": [
+        "The CEO announced that the company would merge.",
+        "He mentioned that budgets were tight."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "He said he _____ (will/would) finish the task by Friday.", "answer": "would"},
+          {"q": "She told _____ (to me/me) that the PR was approved.", "answer": "me"}
+        ],
+        "error_detection": [
+          {"sentence": "The lead developer said that the API is working perfectly yesterday.", "error": "is", "correction": "was"}
+        ],
+        "sentence_correction": [
+          {"wrong": "They asked me what is my name.", "correct": "They asked me what my name was."}
+        ]
+      }
+    },
+    "7": {
+      "topic": "Articles (a, an, the) & Determiners",
+      "definition": "Articles modify nouns to indicate specificity. 'The' is definite, 'a/an' are indefinite.",
+      "rules": [
+        "Use 'a/an' for non-specific, singular countable nouns.",
+        "Use 'the' for specific nouns known to the listener.",
+        "Use no article for plural or uncountable nouns talking generally."
+      ],
+      "structure": "Article + (Adjective) + Noun",
+      "formula": "A/An + singular countable. The + specific noun.",
+      "timeline": "N/A",
+      "common_errors": [
+        {
+          "wrong": "I am working as software engineer.",
+          "correct": "I am working as a software engineer.",
+          "explanation": "Professions require an indefinite article."
+        },
+        {
+          "wrong": "He gave me an advice.",
+          "correct": "He gave me some advice.",
+          "explanation": "Advice is an uncountable noun."
+        }
+      ],
+      "examples_interview": [
+        "I am looking for a challenging role in a dynamic company.",
+        "The project I led increased revenue by 20%."
+      ],
+      "examples_tech": [
+        "We need an API gateway to manage the traffic.",
+        "The database crashed due to a memory leak."
+      ],
+      "examples_corporate": [
+        "The CEO delivered an inspiring speech.",
+        "We need a new strategy for the upcoming quarter."
+      ],
+      "exercises": {
+        "fill_blanks": [
+          {"q": "I found _____ (a/the) bug you mentioned.", "answer": "the"},
+          {"q": "She is _____ (a/an) honest worker.", "answer": "an"}
+        ],
+        "error_detection": [
+          {"sentence": "We need to hire an developer.", "error": "an", "correction": "a"}
+        ],
+        "sentence_correction": [
+          {"wrong": "The information are on the website.", "correct": "The information is on the website."}
+        ]
+      }
+    }
+  }
+}

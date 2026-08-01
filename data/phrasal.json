@@ -1,0 +1,648 @@
+{
+  "days": {
+    "1": [
+      {
+        "verb": "Set up",
+        "meaning": "Establish or configure something",
+        "usage": "Used when establishing environments",
+        "example_interview": "I set up the entire CI/CD pipeline for the project.",
+        "example_office": "Please set up the meeting room.",
+        "example_tech": "I need to set up the local development environment.",
+        "exercise": "Please _____ the test server before testing."
+      },
+      {
+        "verb": "Look into",
+        "meaning": "Investigate or research",
+        "usage": "Used when analyzing issues or bugs",
+        "example_interview": "I always look into the root cause of the problem.",
+        "example_office": "Can you look into why the printer isn't working?",
+        "example_tech": "I will look into the latency issue we noticed yesterday.",
+        "exercise": "We need to _____ the error logs."
+      },
+      {
+        "verb": "Bring up",
+        "meaning": "Introduce a topic",
+        "usage": "Used when suggesting ideas or mentioning issues",
+        "example_interview": "I brought up the idea of using microservices.",
+        "example_office": "He brought up the budget during the meeting.",
+        "example_tech": "I will bring up the security flaw in the next stand-up.",
+        "exercise": "Feel free to _____ any concerns."
+      },
+      {
+        "verb": "Follow up",
+        "meaning": "Pursue an issue further",
+        "usage": "Used to check on progress",
+        "example_interview": "I made sure to follow up with the client after the demo.",
+        "example_office": "I'll follow up with you on Friday.",
+        "example_tech": "I need to follow up on that pull request review.",
+        "exercise": "Please _____ with the design team."
+      },
+      {
+        "verb": "Point out",
+        "meaning": "Call attention to something",
+        "usage": "Used when identifying specific details",
+        "example_interview": "I pointed out a potential bottleneck in the architecture.",
+        "example_office": "She pointed out a typo in the report.",
+        "example_tech": "The linter pointed out several syntax errors.",
+        "exercise": "He was quick to _____ the flaw."
+      },
+      {
+        "verb": "Figure out",
+        "meaning": "Understand or solve something",
+        "usage": "Used for problem-solving",
+        "example_interview": "I managed to figure out how to optimize the query.",
+        "example_office": "We need to figure out a better schedule.",
+        "example_tech": "I couldn't figure out why the deployment failed.",
+        "exercise": "Let's _____ how to fix this."
+      },
+      {
+        "verb": "Carry out",
+        "meaning": "Perform a task",
+        "usage": "Used for executing plans or tests",
+        "example_interview": "I carried out extensive testing before release.",
+        "example_office": "She carries out her duties diligently.",
+        "example_tech": "We will carry out the server migration tonight.",
+        "exercise": "We must _____ the plan carefully."
+      },
+      {
+        "verb": "Rule out",
+        "meaning": "Eliminate a possibility",
+        "usage": "Used during debugging",
+        "example_interview": "I ruled out a hardware failure before checking the software.",
+        "example_office": "We can't rule out the possibility of a delay.",
+        "example_tech": "Let's rule out network issues first.",
+        "exercise": "We should _____ the simplest causes first."
+      },
+      {
+        "verb": "Break down",
+        "meaning": "Divide into smaller parts",
+        "usage": "Used for analyzing complex tasks",
+        "example_interview": "I break down large features into manageable tasks.",
+        "example_office": "Let's break down the budget into categories.",
+        "example_tech": "We need to break down the monolith into microservices.",
+        "exercise": "Can you _____ the project phases?"
+      },
+      {
+        "verb": "Come up with",
+        "meaning": "Produce an idea or plan",
+        "usage": "Used for brainstorming",
+        "example_interview": "I came up with a new algorithm that improved speed by 20%.",
+        "example_office": "She came up with a great marketing strategy.",
+        "example_tech": "We need to come up with a workaround.",
+        "exercise": "Who _____ that brilliant idea?"
+      }
+    ],
+    "2": [
+      {
+        "verb": "Back up",
+        "meaning": "Make a copy of data",
+        "usage": "Used in data management",
+        "example_interview": "I always back up my work before committing.",
+        "example_office": "Please back up these files.",
+        "example_tech": "The database backs up automatically every night.",
+        "exercise": "Don't forget to _____ your database."
+      },
+      {
+        "verb": "Roll out",
+        "meaning": "Launch a new product or feature",
+        "usage": "Used in deployment",
+        "example_interview": "I led the team that rolled out the new UI.",
+        "example_office": "The company will roll out the new policy next week.",
+        "example_tech": "We plan to roll out the update in stages.",
+        "exercise": "When will we _____ the new feature?"
+      },
+      {
+        "verb": "Phase out",
+        "meaning": "Gradually stop using something",
+        "usage": "Used in deprecation",
+        "example_interview": "I managed the project to phase out the legacy system.",
+        "example_office": "They are phasing out the old dress code.",
+        "example_tech": "We need to phase out this deprecated API.",
+        "exercise": "We will _____ the old software next year."
+      },
+      {
+        "verb": "Scale up",
+        "meaning": "Increase capacity or size",
+        "usage": "Used in infrastructure",
+        "example_interview": "I helped scale up the infrastructure to handle a 10x traffic increase.",
+        "example_office": "The company is scaling up its operations.",
+        "example_tech": "We can scale up the server cluster dynamically.",
+        "exercise": "We need to _____ to meet demand."
+      },
+      {
+        "verb": "Knock out",
+        "meaning": "Complete a task quickly",
+        "usage": "Used for finishing work",
+        "example_interview": "I can easily knock out small bug fixes.",
+        "example_office": "Let's knock out this paperwork.",
+        "example_tech": "I'll knock out this script by lunchtime.",
+        "exercise": "We can _____ these tasks today."
+      },
+      {
+        "verb": "Iron out",
+        "meaning": "Resolve small problems",
+        "usage": "Used in final stages of a project",
+        "example_interview": "I spent the week ironing out the remaining bugs.",
+        "example_office": "We need to iron out the details of the contract.",
+        "example_tech": "There are still some UI glitches to iron out.",
+        "exercise": "Let's _____ the wrinkles in the plan."
+      },
+      {
+        "verb": "Draft up",
+        "meaning": "Create a preliminary document",
+        "usage": "Used in planning",
+        "example_interview": "I drafted up the initial architecture documentation.",
+        "example_office": "Can you draft up a proposal?",
+        "example_tech": "I'll draft up a quick script to test the idea.",
+        "exercise": "Please _____ a summary report."
+      },
+      {
+        "verb": "Flesh out",
+        "meaning": "Add details to a plan or idea",
+        "usage": "Used in design",
+        "example_interview": "I worked with the product manager to flesh out the requirements.",
+        "example_office": "We need to flesh out this concept.",
+        "example_tech": "Let's flesh out the API design before coding.",
+        "exercise": "We must _____ the details."
+      },
+      {
+        "verb": "Hand over",
+        "meaning": "Transfer responsibility",
+        "usage": "Used in project management",
+        "example_interview": "I successfully handed over the project to the maintenance team.",
+        "example_office": "He handed over his duties when he resigned.",
+        "example_tech": "I will hand over the deployment process to DevOps.",
+        "exercise": "Please _____ the keys."
+      },
+      {
+        "verb": "Take over",
+        "meaning": "Assume control",
+        "usage": "Used in management or operations",
+        "example_interview": "I took over the project when the lead developer left.",
+        "example_office": "The new manager will take over next week.",
+        "example_tech": "The backup server takes over if the primary fails.",
+        "exercise": "Who will _____ the meeting?"
+      }
+    ],
+    "3": [
+      {
+        "verb": "Wrap up",
+        "meaning": "Finish a meeting or task",
+        "usage": "Used for concluding",
+        "example_interview": "I wrapped up the sprint with a successful demo.",
+        "example_office": "Let's wrap up this meeting.",
+        "example_tech": "I'm just wrapping up this pull request.",
+        "exercise": "It's time to _____ the discussion."
+      },
+      {
+        "verb": "Run by",
+        "meaning": "Tell someone about an idea for feedback",
+        "usage": "Used for seeking approval",
+        "example_interview": "I always run my designs by a senior engineer.",
+        "example_office": "I'll run this idea by the boss.",
+        "example_tech": "Let me run this logic by you.",
+        "exercise": "Can I _____ a thought _____ you?"
+      },
+      {
+        "verb": "Check in",
+        "meaning": "Report status or arrive",
+        "usage": "Used for updates",
+        "example_interview": "I check in with my manager weekly.",
+        "example_office": "Please check in at the front desk.",
+        "example_tech": "I check in my code frequently.",
+        "exercise": "We need to _____ with the client."
+      },
+      {
+        "verb": "Check out",
+        "meaning": "Investigate or borrow",
+        "usage": "Used for version control or research",
+        "example_interview": "I checked out the new framework.",
+        "example_office": "You can check out a laptop from IT.",
+        "example_tech": "I need to check out the latest branch.",
+        "exercise": "Please _____ this link."
+      },
+      {
+        "verb": "Drop in",
+        "meaning": "Visit briefly",
+        "usage": "Used for informal meetings",
+        "example_interview": "My manager dropped in to say great job.",
+        "example_office": "Feel free to drop in if you have questions.",
+        "example_tech": "I'll drop in on the architecture meeting.",
+        "exercise": "I might _____ later today."
+      },
+      {
+        "verb": "Hold up",
+        "meaning": "Delay",
+        "usage": "Used for blockers",
+        "example_interview": "I identified what was holding up the release.",
+        "example_office": "Traffic held me up.",
+        "example_tech": "The database lock is holding up the transaction.",
+        "exercise": "What is _____ the project?"
+      },
+      {
+        "verb": "Catch up",
+        "meaning": "Reach the same point as others",
+        "usage": "Used for progress",
+        "example_interview": "I quickly caught up on the project status.",
+        "example_office": "Let's catch up over coffee.",
+        "example_tech": "The secondary node needs to catch up to the primary.",
+        "exercise": "I need to _____ on my emails."
+      },
+      {
+        "verb": "Keep up",
+        "meaning": "Maintain pace",
+        "usage": "Used for continuous learning",
+        "example_interview": "I keep up with the latest industry trends.",
+        "example_office": "It's hard to keep up with all the changes.",
+        "example_tech": "The server couldn't keep up with the traffic.",
+        "exercise": "You must _____ the good work."
+      },
+      {
+        "verb": "Put off",
+        "meaning": "Delay or postpone",
+        "usage": "Used for scheduling",
+        "example_interview": "I don't put off difficult tasks; I tackle them first.",
+        "example_office": "We put off the meeting until tomorrow.",
+        "example_tech": "We can't put off this refactoring any longer.",
+        "exercise": "Don't _____ until tomorrow what you can do today."
+      },
+      {
+        "verb": "Call off",
+        "meaning": "Cancel",
+        "usage": "Used for events",
+        "example_interview": "We had to call off the deployment due to a critical bug.",
+        "example_office": "The picnic was called off.",
+        "example_tech": "I'll call off the script if it takes too long.",
+        "exercise": "They decided to _____ the strike."
+      }
+    ],
+    "4": [
+      {
+        "verb": "Look forward to",
+        "meaning": "Anticipate with pleasure",
+        "usage": "Used for future events",
+        "example_interview": "I look forward to the opportunity to join your team.",
+        "example_office": "I look forward to our meeting.",
+        "example_tech": "I look forward to using the new API.",
+        "exercise": "We _____ seeing you."
+      },
+      {
+        "verb": "Get back to",
+        "meaning": "Respond later",
+        "usage": "Used for communication",
+        "example_interview": "If I don't know the answer, I'll find out and get back to you.",
+        "example_office": "I'll get back to you on that figure.",
+        "example_tech": "Let me research that bug and get back to you.",
+        "exercise": "Please _____ me ASAP."
+      },
+      {
+        "verb": "Take on",
+        "meaning": "Accept responsibility",
+        "usage": "Used for new tasks",
+        "example_interview": "I am eager to take on leadership responsibilities.",
+        "example_office": "She took on the extra workload.",
+        "example_tech": "We need to take on the challenge of migrating databases.",
+        "exercise": "Don't _____ too much."
+      },
+      {
+        "verb": "Sort out",
+        "meaning": "Resolve a problem or organize",
+        "usage": "Used for organizing",
+        "example_interview": "I sorted out the messy legacy codebase.",
+        "example_office": "Can you sort out these files?",
+        "example_tech": "We need to sort out the merge conflicts.",
+        "exercise": "Let's _____ this mess."
+      },
+      {
+        "verb": "Back out",
+        "meaning": "Withdraw from a commitment",
+        "usage": "Used for agreements",
+        "example_interview": "I never back out of a project once I've committed.",
+        "example_office": "The client backed out of the deal.",
+        "example_tech": "We had to back out the changes because they broke production.",
+        "exercise": "He tried to _____ of the bet."
+      },
+      {
+        "verb": "Go over",
+        "meaning": "Review",
+        "usage": "Used for documents or code",
+        "example_interview": "I'd like to go over my resume with you.",
+        "example_office": "Let's go over the presentation.",
+        "example_tech": "Can we go over the PR one more time?",
+        "exercise": "Please _____ your work."
+      },
+      {
+        "verb": "Stand out",
+        "meaning": "Be noticeable",
+        "usage": "Used for qualities",
+        "example_interview": "What makes me stand out is my dedication.",
+        "example_office": "Her performance stands out.",
+        "example_tech": "The new design really stands out.",
+        "exercise": "Make your resume _____."
+      },
+      {
+        "verb": "Fill in",
+        "meaning": "Substitute or provide information",
+        "usage": "Used for forms or absences",
+        "example_interview": "I filled in for the team lead while he was on vacation.",
+        "example_office": "Please fill in this form.",
+        "example_tech": "I need you to fill in the missing data.",
+        "exercise": "Can you _____ for me today?"
+      },
+      {
+        "verb": "Turn down",
+        "meaning": "Decline or reject",
+        "usage": "Used for offers",
+        "example_interview": "I had to turn down another offer because this company aligns better with my goals.",
+        "example_office": "They turned down my proposal.",
+        "example_tech": "The server turned down the connection request.",
+        "exercise": "Why did you _____ the job?"
+      },
+      {
+        "verb": "Write up",
+        "meaning": "Create a formal document",
+        "usage": "Used for reporting",
+        "example_interview": "I wrote up the technical specifications for the project.",
+        "example_office": "She was written up for being late.",
+        "example_tech": "I'll write up a post-mortem on the outage.",
+        "exercise": "Please _____ a report."
+      }
+    ],
+    "5": [
+      {
+        "verb": "Kick off",
+        "meaning": "Start something",
+        "usage": "Used for projects or meetings",
+        "example_interview": "I organized the meeting to kick off the new sprint.",
+        "example_office": "The conference kicks off at 9 AM.",
+        "example_tech": "We will kick off the database migration tonight.",
+        "exercise": "Let's _____ the meeting."
+      },
+      {
+        "verb": "Wind down",
+        "meaning": "Gradually end or relax",
+        "usage": "Used for ending operations",
+        "example_interview": "We are winding down the old project as we transition to the new one.",
+        "example_office": "The party is winding down.",
+        "example_tech": "The server process is winding down.",
+        "exercise": "It's time to _____."
+      },
+      {
+        "verb": "Log in",
+        "meaning": "Access a system",
+        "usage": "Used for authentication",
+        "example_interview": "I implemented secure methods to log in.",
+        "example_office": "Please log in to your account.",
+        "example_tech": "I need to log in to the remote server via SSH.",
+        "exercise": "You must _____ first."
+      },
+      {
+        "verb": "Log out",
+        "meaning": "Exit a system",
+        "usage": "Used for security",
+        "example_interview": "I ensured that users are logged out after 15 minutes of inactivity.",
+        "example_office": "Don't forget to log out.",
+        "example_tech": "The script logs out automatically when finished.",
+        "exercise": "Always _____ when you leave."
+      },
+      {
+        "verb": "Boot up",
+        "meaning": "Start a computer system",
+        "usage": "Used for hardware/OS",
+        "example_interview": "I wrote a script that runs every time the server boots up.",
+        "example_office": "My laptop takes forever to boot up.",
+        "example_tech": "The virtual machine is booting up.",
+        "exercise": "Wait for the computer to _____."
+      },
+      {
+        "verb": "Shut down",
+        "meaning": "Turn off a system",
+        "usage": "Used for hardware/servers",
+        "example_interview": "I safely shut down the services during the maintenance window.",
+        "example_office": "The factory shut down for the holidays.",
+        "example_tech": "We need to shut down the cluster.",
+        "exercise": "Please _____ the machine."
+      },
+      {
+        "verb": "Wipe out",
+        "meaning": "Erase completely",
+        "usage": "Used for data destruction",
+        "example_interview": "I accidentally wiped out a test database once, and learned the value of backups.",
+        "example_office": "The storm wiped out the town.",
+        "example_tech": "We need to wipe out the old logs.",
+        "exercise": "The virus can _____ your hard drive."
+      },
+      {
+        "verb": "Plug in",
+        "meaning": "Connect to a power source or system",
+        "usage": "Used for hardware or modules",
+        "example_interview": "Our architecture allows us to plug in new modules easily.",
+        "example_office": "Please plug in the projector.",
+        "example_tech": "I need to plug in the USB drive.",
+        "exercise": "Did you _____ the cable?"
+      },
+      {
+        "verb": "Filter out",
+        "meaning": "Remove unwanted elements",
+        "usage": "Used for data processing",
+        "example_interview": "I wrote a function to filter out spam emails.",
+        "example_office": "We need to filter out the noise.",
+        "example_tech": "The firewall filters out malicious traffic.",
+        "exercise": "The app can _____ bad words."
+      },
+      {
+        "verb": "Zero in on",
+        "meaning": "Focus closely on",
+        "usage": "Used for targeting issues",
+        "example_interview": "I zeroed in on the memory leak using profiling tools.",
+        "example_office": "We need to zero in on our target audience.",
+        "example_tech": "Let's zero in on the specific line of code causing the crash.",
+        "exercise": "We must _____ the problem."
+      }
+    ],
+    "6": [
+      {
+        "verb": "Fall through",
+        "meaning": "Fail to happen",
+        "usage": "Used for plans",
+        "example_interview": "When the original plan fell through, I had a backup ready.",
+        "example_office": "The deal fell through at the last minute.",
+        "example_tech": "If the primary database connection falls through, it uses the secondary.",
+        "exercise": "I hope our plans don't _____."
+      },
+      {
+        "verb": "Step in",
+        "meaning": "Intervene",
+        "usage": "Used for helping",
+        "example_interview": "I stepped in to help the junior developer fix the bug.",
+        "example_office": "The manager had to step in.",
+        "example_tech": "I'll step in if the script fails.",
+        "exercise": "Thanks for _____ to help."
+      },
+      {
+        "verb": "Step down",
+        "meaning": "Resign",
+        "usage": "Used for roles",
+        "example_interview": "When the lead stepped down, I took over his responsibilities.",
+        "example_office": "The CEO is stepping down.",
+        "example_tech": "We will step down the server gracefully.",
+        "exercise": "He decided to _____ from his post."
+      },
+      {
+        "verb": "Weigh in",
+        "meaning": "Give an opinion",
+        "usage": "Used for discussions",
+        "example_interview": "I asked the security team to weigh in on the architecture.",
+        "example_office": "Does anyone else want to weigh in?",
+        "example_tech": "The senior dev weighed in on the code review.",
+        "exercise": "Please _____ on this topic."
+      },
+      {
+        "verb": "Opt in",
+        "meaning": "Choose to participate",
+        "usage": "Used for subscriptions",
+        "example_interview": "We implemented an opt-in system for the newsletter.",
+        "example_office": "You can opt in to the new health plan.",
+        "example_tech": "Users must opt in to data collection.",
+        "exercise": "Click here to _____."
+      },
+      {
+        "verb": "Opt out",
+        "meaning": "Choose not to participate",
+        "usage": "Used for subscriptions",
+        "example_interview": "I ensured users had a clear way to opt out of emails.",
+        "example_office": "I'm going to opt out of the secret Santa this year.",
+        "example_tech": "You can opt out in the settings menu.",
+        "exercise": "Users have the right to _____."
+      },
+      {
+        "verb": "Draw up",
+        "meaning": "Prepare a document",
+        "usage": "Used for contracts",
+        "example_interview": "I drew up a plan for the migration.",
+        "example_office": "The lawyer drew up the contract.",
+        "example_tech": "I drew up the API specifications.",
+        "exercise": "Please _____ a list."
+      },
+      {
+        "verb": "Lay off",
+        "meaning": "Dismiss employees",
+        "usage": "Used for employment",
+        "example_interview": "During the pandemic, the company sadly had to lay off staff.",
+        "example_office": "They laid off 100 workers.",
+        "example_tech": "Lay off the keyboard, you're typing too loud.",
+        "exercise": "The factory had to _____ workers."
+      },
+      {
+        "verb": "Rely on",
+        "meaning": "Depend on",
+        "usage": "Used for trust",
+        "example_interview": "My team can rely on me to deliver high-quality code.",
+        "example_office": "We rely on you.",
+        "example_tech": "This function relies on an external library.",
+        "exercise": "You can always _____ me."
+      },
+      {
+        "verb": "Speed up",
+        "meaning": "Make faster",
+        "usage": "Used for optimization",
+        "example_interview": "I managed to speed up the rendering time by 30%.",
+        "example_office": "We need to speed up the process.",
+        "example_tech": "Caching will speed up the application.",
+        "exercise": "Can you _____ a bit?"
+      }
+    ],
+    "7": [
+      {
+        "verb": "Keep track of",
+        "meaning": "Monitor",
+        "usage": "Used for monitoring",
+        "example_interview": "I use Jira to keep track of my tasks.",
+        "example_office": "Please keep track of your hours.",
+        "example_tech": "The system keeps track of user sessions.",
+        "exercise": "It's hard to _____ everything."
+      },
+      {
+        "verb": "Hold on",
+        "meaning": "Wait",
+        "usage": "Used for pausing",
+        "example_interview": "I told the client to hold on while I checked the logs.",
+        "example_office": "Hold on a minute, I'll be right there.",
+        "example_tech": "Hold on, the compiler is still running.",
+        "exercise": "Please _____ while I transfer your call."
+      },
+      {
+        "verb": "Build up",
+        "meaning": "Accumulate",
+        "usage": "Used for growth",
+        "example_interview": "I slowly built up my knowledge of AWS.",
+        "example_office": "The tension built up in the room.",
+        "example_tech": "Garbage collection prevents memory from building up.",
+        "exercise": "You need to _____ your strength."
+      },
+      {
+        "verb": "Cut down on",
+        "meaning": "Reduce",
+        "usage": "Used for optimization",
+        "example_interview": "I cut down on boilerplate code by using macros.",
+        "example_office": "We need to cut down on expenses.",
+        "example_tech": "We cut down on API calls by using Redis.",
+        "exercise": "I'm trying to _____ sugar."
+      },
+      {
+        "verb": "Pay off",
+        "meaning": "Yield good results",
+        "usage": "Used for effort",
+        "example_interview": "Learning that new language really paid off.",
+        "example_office": "His hard work paid off with a promotion.",
+        "example_tech": "The refactoring paid off in easier maintenance.",
+        "exercise": "Hard work will eventually _____."
+      },
+      {
+        "verb": "Show up",
+        "meaning": "Arrive or appear",
+        "usage": "Used for presence",
+        "example_interview": "I always show up early for meetings.",
+        "example_office": "He didn't show up for work today.",
+        "example_tech": "The error showed up in the console.",
+        "exercise": "What time did you _____?"
+      },
+      {
+        "verb": "Bring about",
+        "meaning": "Cause to happen",
+        "usage": "Used for changes",
+        "example_interview": "I helped bring about a culture of testing in the team.",
+        "example_office": "The new CEO brought about many changes.",
+        "example_tech": "The update brought about a significant performance boost.",
+        "exercise": "What will this new policy _____?"
+      },
+      {
+        "verb": "Stick to",
+        "meaning": "Adhere to",
+        "usage": "Used for plans",
+        "example_interview": "I prefer to stick to the agreed-upon architecture.",
+        "example_office": "Let's stick to the agenda.",
+        "example_tech": "Stick to the coding conventions.",
+        "exercise": "You should _____ your guns."
+      },
+      {
+        "verb": "Look over",
+        "meaning": "Examine quickly",
+        "usage": "Used for reviews",
+        "example_interview": "Can you look over my pull request?",
+        "example_office": "I'll look over your report tonight.",
+        "example_tech": "Look over the logs to find the error.",
+        "exercise": "Please _____ these documents."
+      },
+      {
+        "verb": "Deal with",
+        "meaning": "Handle a problem",
+        "usage": "Used for management",
+        "example_interview": "I have experience dealing with difficult clients.",
+        "example_office": "I'll deal with this issue tomorrow.",
+        "example_tech": "The load balancer deals with incoming traffic spikes.",
+        "exercise": "How will you _____ this?"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: Professional Background & Past Projects - English Communication Master</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/dark.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Inline custom styles for specific modules */
+        .vocab-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 8px; background: #fff; }
+        .vocab-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .pos-badge { background: #007bff; color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.8em; }
+        .ipa { color: #666; font-size: 0.9em; }
+        .dialogue-bubble { padding: 10px 15px; border-radius: 20px; margin-bottom: 10px; max-width: 80%; }
+        .dialogue-left { background: #f1f1f1; align-self: flex-start; }
+        .dialogue-right { background: #007bff; color: white; align-self: flex-end; }
+        .dialogue-container { display: flex; flex-direction: column; margin-bottom: 20px; }
+        .answer-card { padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .answer-bad { background: #ffebee; border-left: 5px solid #f44336; }
+        .answer-good { background: #fff8e1; border-left: 5px solid #ff9800; }
+        .answer-excellent { background: #e8f5e9; border-left: 5px solid #4caf50; }
+        .mistake-block { background: #fff; padding: 15px; border: 1px solid #eee; margin-bottom: 15px; border-radius: 8px; }
+        .wrong-text { color: #d32f2f; text-decoration: line-through; margin-bottom: 5px; }
+        .correct-text { color: #388e3c; font-weight: bold; margin-bottom: 5px; }
+        .toc { position: sticky; top: 20px; max-height: 90vh; overflow-y: auto; background: #f9f9f9; padding: 20px; border-radius: 8px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin-bottom: 10px; }
+        .toc a { text-decoration: none; color: #333; }
+        .toc a.active { font-weight: bold; color: #007bff; }
+        .quiz-container, .rapid-fire-container { background: #f9f9f9; padding: 20px; border-radius: 8px; }
+        .quiz-question, .rf-question { margin-bottom: 20px; }
+        .quiz-options button { display: block; width: 100%; margin-bottom: 10px; padding: 10px; text-align: left; background: #fff; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; }
+        .quiz-options button:hover { background: #f1f1f1; }
+        .quiz-options button.correct { background: #d4edda; border-color: #c3e6cb; }
+        .quiz-options button.incorrect { background: #f8d7da; border-color: #f5c6cb; }
+        .explanation { display: none; margin-top: 10px; padding: 10px; background: #e9ecef; border-radius: 5px; }
+        .timer-display { font-size: 2em; font-weight: bold; color: #d32f2f; text-align: center; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <div class="logo">ECM</div>
+        <nav class="desktop-nav">
+            <a href="../index.html">Home</a>
+            <a href="../dashboard.html">Dashboard</a>
+            <button id="search-btn">Search</button>
+        </nav>
+        <button class="mobile-menu-toggle">☰</button>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" style="display: none;">
+        <a href="../index.html">Home</a>
+        <a href="../dashboard.html">Dashboard</a>
+    </nav>
+
+    <!-- Search Modal -->
+    <div id="search-modal" style="display: none;">
+        <input type="text" id="search-input" placeholder="Search lessons...">
+        <button id="close-search">X</button>
+    </div>
+
+    <!-- Lesson Hero -->
+    <section class="lesson-hero">
+        <div class="breadcrumb"><a href="../index.html">Home</a> > <a href="../lessons.html">Lessons</a> > Day 2</div>
+        <div class="day-pill">Day 2</div>
+        <h1>Professional Background & Past Projects</h1>
+        <div class="meta">Duration: 90 mins | Level: Intermediate</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="lesson-progress" style="width: 0%;"></div>
+        </div>
+        <div class="nav-links">
+            <a href="day01.html" class="btn-prev">← Prev Day</a>
+            <a href="day03.html" class="btn-next">Next Day →</a>
+        </div>
+    </section>
+
+    <div class="layout-container" style="display: flex; gap: 30px; padding: 40px;">
+        
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-col" style="flex: 0 0 250px;">
+            <nav class="toc">
+                <h3>Modules</h3>
+                <ul id="toc-list">
+                    <li><a href="#mod1">1. Introduction</a></li>
+                    <li><a href="#mod2">2. Grammar: Past Simple vs Present Perfect</a></li>
+                    <li><a href="#mod3">3. Vocabulary</a></li>
+                    <li><a href="#mod4">4. Reading Comprehension</a></li>
+                    <li><a href="#mod5">5. Listening Practice</a></li>
+                    <li><a href="#mod6">6. Speaking Frameworks</a></li>
+                    <li><a href="#mod7">7. Writing Professional Summaries</a></li>
+                    <li><a href="#mod8">8. Role-Play Dialogues</a></li>
+                    <li><a href="#mod9">9. Pronunciation Drill</a></li>
+                    <li><a href="#mod10">10. Idioms & Phrasal Verbs</a></li>
+                    <li><a href="#mod11">11. Presentation Skills</a></li>
+                    <li><a href="#mod12">12. Email Etiquette</a></li>
+                    <li><a href="#mod13">13. HR Interview Coaching</a></li>
+                    <li><a href="#mod14">14. Technical Communication</a></li>
+                    <li><a href="#mod15">15. Group Discussion</a></li>
+                    <li><a href="#mod16">16. Cross-Cultural Nuances</a></li>
+                    <li><a href="#mod17">17. Rapid Fire</a></li>
+                    <li><a href="#mod18">18. Common Indian English Mistakes</a></li>
+                    <li><a href="#mod19">19. Quiz</a></li>
+                    <li><a href="#mod20">20. Assignment</a></li>
+                    <li><a href="#mod21">21. Self-Evaluation</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content-col" style="flex: 1;">
+
+            <section id="mod1">
+                <h2>1. Introduction</h2>
+                <p>Welcome to Day 2. Today, we focus on confidently discussing your professional background and past projects. Being able to articulate what you have achieved, how you achieved it, and the impact it created is crucial for interviews and professional networking.</p>
+            </section>
+
+            <section id="mod2">
+                <h2>2. Grammar: Past Simple vs Present Perfect</h2>
+                <p>Understanding when to use the Past Simple versus the Present Perfect is essential when discussing your background.</p>
+                <ul>
+                    <li><strong>Past Simple:</strong> Used for completed actions at a specific time in the past. <em>(e.g., "I graduated in 2020.")</em></li>
+                    <li><strong>Present Perfect:</strong> Used for actions that started in the past and continue to the present, or past actions with a result in the present. <em>(e.g., "I have worked here for 3 years.")</em></li>
+                </ul>
+            </section>
+
+            <section id="mod3">
+                <h2>3. Vocabulary (25 Key Words)</h2>
+                <div id="vocab-list">
+                    <!-- Vocab 1 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>1. Accomplished <span class="ipa">/əˈkʌm.plɪʃt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Highly trained or skilled in a particular activity; having achieved a lot.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> skilled, proficient, expert, successful</p>
+                            <p><strong>Antonyms:</strong> amateur, inexperienced, incapable</p>
+                            <p><strong>Collocations:</strong> accomplished professional, highly accomplished</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "As an accomplished developer, I led the migration..."</p>
+                            <p><strong>Technical:</strong> "The accomplished engineering team resolved the server issue."</p>
+                            <p><strong>Corporate:</strong> "We are looking to hire accomplished managers."</p>
+                            <p><strong>Daily:</strong> "She is an accomplished pianist."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 2 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>2. Benchmark <span class="ipa">/ˈbentʃ.mɑːrk/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Noun/Verb</span>
+                        </div>
+                        <p class="definition">A standard or point of reference against which things may be compared or assessed.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> standard, yardstick, reference, baseline</p>
+                            <p><strong>Antonyms:</strong> anomaly, outlier</p>
+                            <p><strong>Collocations:</strong> set a benchmark, industry benchmark</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "My previous project set a new benchmark for quality."</p>
+                            <p><strong>Technical:</strong> "We benchmarked our API response times against competitors."</p>
+                            <p><strong>Corporate:</strong> "This quarter's sales will serve as a benchmark."</p>
+                            <p><strong>Daily:</strong> "His performance is the benchmark for the class."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 3 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>3. Capable <span class="ipa">/ˈkeɪ.pə.bəl/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Having the ability, fitness, or quality necessary to do or achieve a specified thing.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> competent, able, qualified, proficient</p>
+                            <p><strong>Antonyms:</strong> incapable, incompetent, unable</p>
+                            <p><strong>Collocations:</strong> highly capable, fully capable</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I am fully capable of handling tight deadlines."</p>
+                            <p><strong>Technical:</strong> "The new server is capable of processing 10k TPS."</p>
+                            <p><strong>Corporate:</strong> "She is a capable leader who inspires her team."</p>
+                            <p><strong>Daily:</strong> "He is capable of cooking a great meal."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 4 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>4. Dedicated <span class="ipa">/ˈded.ɪ.keɪ.tɪd/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Devoted to a task or purpose; having single-minded loyalty or integrity.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> committed, devoted, steadfast, loyal</p>
+                            <p><strong>Antonyms:</strong> apathetic, indifferent, uncommitted</p>
+                            <p><strong>Collocations:</strong> highly dedicated, dedicated resource, dedicated team</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I am a dedicated professional who thrives on challenges."</p>
+                            <p><strong>Technical:</strong> "We allocated a dedicated server for the database."</p>
+                            <p><strong>Corporate:</strong> "The dedicated task force solved the crisis."</p>
+                            <p><strong>Daily:</strong> "She is a dedicated mother."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 5 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>5. Efficient <span class="ipa">/ɪˈfɪʃ.ənt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Achieving maximum productivity with minimum wasted effort or expense.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> effective, productive, streamlined, economical</p>
+                            <p><strong>Antonyms:</strong> inefficient, wasteful, unproductive</p>
+                            <p><strong>Collocations:</strong> highly efficient, cost-efficient, efficient manner</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I built an efficient workflow that saved 10 hours a week."</p>
+                            <p><strong>Technical:</strong> "The new algorithm is O(n log n), making it very efficient."</p>
+                            <p><strong>Corporate:</strong> "We need more efficient resource allocation."</p>
+                            <p><strong>Daily:</strong> "He is very efficient at doing chores."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 6 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>6. Feasible <span class="ipa">/ˈfiː.zə.bəl/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Possible to do easily or conveniently; likely or probable.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> practical, viable, achievable, attainable</p>
+                            <p><strong>Antonyms:</strong> impossible, unfeasible, impractical</p>
+                            <p><strong>Collocations:</strong> commercially feasible, technically feasible</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I always ensure my proposed solutions are feasible."</p>
+                            <p><strong>Technical:</strong> "It's not technically feasible to rebuild the core in two weeks."</p>
+                            <p><strong>Corporate:</strong> "The feasibility study showed positive results."</p>
+                            <p><strong>Daily:</strong> "It's not feasible to drive there in an hour."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 7 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>7. Generate <span class="ipa">/ˈdʒen.ə.reɪt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">To cause something to exist; produce or create.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> produce, create, cause, originate</p>
+                            <p><strong>Antonyms:</strong> destroy, halt, prevent</p>
+                            <p><strong>Collocations:</strong> generate revenue, generate interest, generate reports</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "My campaign managed to generate a 20% increase in leads."</p>
+                            <p><strong>Technical:</strong> "The script generates a daily automated report."</p>
+                            <p><strong>Corporate:</strong> "The new product line will generate significant revenue."</p>
+                            <p><strong>Daily:</strong> "Wind turbines generate electricity."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 8 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>8. Implement <span class="ipa">/ˈɪm.plɪ.ment/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Put a decision, plan, agreement, or effect into action.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> execute, apply, enact, carry out</p>
+                            <p><strong>Antonyms:</strong> cancel, delay, ignore</p>
+                            <p><strong>Collocations:</strong> implement a strategy, implement changes, fully implemented</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I successfully implemented the new agile framework."</p>
+                            <p><strong>Technical:</strong> "We implemented an OAuth2 authentication flow."</p>
+                            <p><strong>Corporate:</strong> "The board decided to implement the cost-cutting measures."</p>
+                            <p><strong>Daily:</strong> "We need to implement these rules at home."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 9 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>9. Justify <span class="ipa">/ˈdʒʌs.tɪ.faɪ/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Show or prove to be right or reasonable.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> validate, defend, vindicate, warrant</p>
+                            <p><strong>Antonyms:</strong> condemn, invalidate</p>
+                            <p><strong>Collocations:</strong> justify the cost, justify actions, hard to justify</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I can justify my design choices through A/B testing data."</p>
+                            <p><strong>Technical:</strong> "The performance gains justify the memory overhead."</p>
+                            <p><strong>Corporate:</strong> "The ROI justifies the initial capital expenditure."</p>
+                            <p><strong>Daily:</strong> "You can't justify that kind of behavior."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 10 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>10. Knowledge <span class="ipa">/ˈnɒl.ɪdʒ/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Noun</span>
+                        </div>
+                        <p class="definition">Facts, information, and skills acquired through experience or education.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> understanding, comprehension, expertise, wisdom</p>
+                            <p><strong>Antonyms:</strong> ignorance, misunderstanding</p>
+                            <p><strong>Collocations:</strong> in-depth knowledge, working knowledge, gain knowledge</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I have a strong working knowledge of cloud architectures."</p>
+                            <p><strong>Technical:</strong> "Domain knowledge is crucial for designing this database schema."</p>
+                            <p><strong>Corporate:</strong> "We promote knowledge sharing across departments."</p>
+                            <p><strong>Daily:</strong> "Reading books expands your knowledge."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 11 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>11. Leverage <span class="ipa">/ˈliː.vər.ɪdʒ/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb/Noun</span>
+                        </div>
+                        <p class="definition">Use something to maximum advantage.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> utilize, exploit, capitalize on, maximize</p>
+                            <p><strong>Antonyms:</strong> waste, ignore</p>
+                            <p><strong>Collocations:</strong> leverage technology, leverage resources, leverage expertise</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I leveraged my network to secure three new clients."</p>
+                            <p><strong>Technical:</strong> "We leveraged AWS Lambda for serverless compute."</p>
+                            <p><strong>Corporate:</strong> "The merger will allow us to leverage our combined assets."</p>
+                            <p><strong>Daily:</strong> "Leverage your free time to learn a new skill."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 12 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>12. Mitigate <span class="ipa">/ˈmɪt.ɪ.ɡeɪt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Make less severe, serious, or painful.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> alleviate, reduce, diminish, lessen</p>
+                            <p><strong>Antonyms:</strong> aggravate, exacerbate, intensify</p>
+                            <p><strong>Collocations:</strong> mitigate risk, mitigate impact, mitigate damage</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I proposed a backup plan to mitigate potential downtime."</p>
+                            <p><strong>Technical:</strong> "The load balancer helps mitigate DDoS attacks."</p>
+                            <p><strong>Corporate:</strong> "We have strict policies to mitigate financial risks."</p>
+                            <p><strong>Daily:</strong> "Taking aspirin can mitigate a headache."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 13 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>13. Navigate <span class="ipa">/ˈnæv.ɪ.ɡeɪt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">To deal effectively with a difficult situation; to find one's way.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> steer, maneuver, handle, guide</p>
+                            <p><strong>Antonyms:</strong> flounder, get lost</p>
+                            <p><strong>Collocations:</strong> navigate challenges, navigate the complex, navigate carefully</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I successfully navigated the complex stakeholder requirements."</p>
+                            <p><strong>Technical:</strong> "The user can easily navigate the new app interface."</p>
+                            <p><strong>Corporate:</strong> "The CEO helped the company navigate through the recession."</p>
+                            <p><strong>Daily:</strong> "I used GPS to navigate the city."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 14 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>14. Objective <span class="ipa">/əbˈdʒek.tɪv/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Noun/Adjective</span>
+                        </div>
+                        <p class="definition">A thing aimed at or sought; a goal. (Also: not influenced by personal feelings).</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> goal, target, aim, impartial</p>
+                            <p><strong>Antonyms:</strong> subjective, biased</p>
+                            <p><strong>Collocations:</strong> primary objective, achieve an objective, stay objective</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "My primary objective is to drive user growth."</p>
+                            <p><strong>Technical:</strong> "The objective of this refactor is reducing technical debt."</p>
+                            <p><strong>Corporate:</strong> "Our quarterly objective was met ahead of schedule."</p>
+                            <p><strong>Daily:</strong> "Try to remain objective during the argument."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 15 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>15. Prioritize <span class="ipa">/praɪˈɒr.ɪ.taɪz/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Determine the order for dealing with a series of items or tasks according to their relative importance.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> rank, arrange, focus on, highlight</p>
+                            <p><strong>Antonyms:</strong> neglect, disregard</p>
+                            <p><strong>Collocations:</strong> prioritize tasks, prioritize requirements, prioritize effectively</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I prioritize my tasks using the Eisenhower Matrix."</p>
+                            <p><strong>Technical:</strong> "The OS kernel prioritizes critical processes."</p>
+                            <p><strong>Corporate:</strong> "We must prioritize employee well-being."</p>
+                            <p><strong>Daily:</strong> "You should prioritize your health over work."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 16 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>16. Quantify <span class="ipa">/ˈkwɒn.tɪ.faɪ/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Express or measure the quantity of something.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> measure, calculate, evaluate, assess</p>
+                            <p><strong>Antonyms:</strong> guess, estimate loosely</p>
+                            <p><strong>Collocations:</strong> quantify results, quantify impact, difficult to quantify</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I can quantify my success by the 15% increase in sales."</p>
+                            <p><strong>Technical:</strong> "We need to quantify the performance bottleneck."</p>
+                            <p><strong>Corporate:</strong> "It is hard to quantify the value of brand loyalty."</p>
+                            <p><strong>Daily:</strong> "It's hard to quantify how much I love this show."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 17 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>17. Robust <span class="ipa">/rəʊˈbʌst/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Strong and healthy; vigorous; able to withstand adverse conditions.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> strong, sturdy, resilient, reliable</p>
+                            <p><strong>Antonyms:</strong> fragile, weak, vulnerable</p>
+                            <p><strong>Collocations:</strong> robust system, robust growth, robust defense</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I designed a robust strategy that handled market volatility."</p>
+                            <p><strong>Technical:</strong> "The new backend architecture is much more robust."</p>
+                            <p><strong>Corporate:</strong> "The economy showed robust growth this quarter."</p>
+                            <p><strong>Daily:</strong> "He has a very robust immune system."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 18 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>18. Streamline <span class="ipa">/ˈstriːm.laɪn/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Make an organization or system more efficient and effective by employing faster or simpler working methods.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> simplify, rationalize, consolidate, expedite</p>
+                            <p><strong>Antonyms:</strong> complicate, entangle</p>
+                            <p><strong>Collocations:</strong> streamline processes, streamline operations, streamline workflow</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I streamlined the onboarding process, reducing it from 2 weeks to 3 days."</p>
+                            <p><strong>Technical:</strong> "We streamlined the CI/CD pipeline."</p>
+                            <p><strong>Corporate:</strong> "The company is streamlining its operations to cut costs."</p>
+                            <p><strong>Daily:</strong> "I streamlined my morning routine to sleep in longer."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 19 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>19. Thorough <span class="ipa">/ˈθʌr.ə/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Adjective</span>
+                        </div>
+                        <p class="definition">Complete with regard to every detail; not superficial or partial.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> comprehensive, exhaustive, rigorous, meticulous</p>
+                            <p><strong>Antonyms:</strong> superficial, incomplete, careless</p>
+                            <p><strong>Collocations:</strong> thorough analysis, thorough understanding, thorough investigation</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I conducted a thorough market research study before launching."</p>
+                            <p><strong>Technical:</strong> "The QA team performed thorough testing of the application."</p>
+                            <p><strong>Corporate:</strong> "A thorough review of the budget is required."</p>
+                            <p><strong>Daily:</strong> "She gave the house a thorough cleaning."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 20 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>20. Utilize <span class="ipa">/ˈjuː.tɪ.laɪz/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Make practical and effective use of.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> use, employ, apply, harness</p>
+                            <p><strong>Antonyms:</strong> waste, ignore</p>
+                            <p><strong>Collocations:</strong> utilize resources, fully utilize, utilize technology</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I utilized my previous experience to solve the new problem."</p>
+                            <p><strong>Technical:</strong> "The software utilizes all available CPU cores."</p>
+                            <p><strong>Corporate:</strong> "We must better utilize our talent pool."</p>
+                            <p><strong>Daily:</strong> "Utilize this time to rest."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 21 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>21. Validate <span class="ipa">/ˈvæl.ɪ.deɪt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Check or prove the validity or accuracy of something.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> verify, prove, authenticate, confirm</p>
+                            <p><strong>Antonyms:</strong> invalidate, disprove, reject</p>
+                            <p><strong>Collocations:</strong> validate data, validate assumptions, validate findings</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I validated the user feedback before making changes."</p>
+                            <p><strong>Technical:</strong> "The backend script validates the form input."</p>
+                            <p><strong>Corporate:</strong> "The pilot program validated our business model."</p>
+                            <p><strong>Daily:</strong> "Please validate your parking ticket."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 22 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>22. Workflow <span class="ipa">/ˈwɜːk.fləʊ/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Noun</span>
+                        </div>
+                        <p class="definition">The sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> process, procedure, operation, system</p>
+                            <p><strong>Antonyms:</strong> bottleneck, stagnation</p>
+                            <p><strong>Collocations:</strong> smooth workflow, improve workflow, automate workflow</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I designed a new workflow that removed bottlenecks."</p>
+                            <p><strong>Technical:</strong> "We automated the CI/CD workflow using Jenkins."</p>
+                            <p><strong>Corporate:</strong> "The new software improves document workflow."</p>
+                            <p><strong>Daily:</strong> "My morning workflow involves coffee first."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 23 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>23. Execute <span class="ipa">/ˈek.sɪ.kjuːt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Carry out or put into effect a plan, order, or course of action.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> implement, perform, accomplish, complete</p>
+                            <p><strong>Antonyms:</strong> abort, neglect, fail</p>
+                            <p><strong>Collocations:</strong> execute a plan, execute perfectly, execute a strategy</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I successfully executed the marketing campaign on budget."</p>
+                            <p><strong>Technical:</strong> "The processor executes billions of instructions per second."</p>
+                            <p><strong>Corporate:</strong> "We have a great plan; now we need to execute."</p>
+                            <p><strong>Daily:</strong> "He executed the dance move perfectly."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 24 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>24. Demonstrate <span class="ipa">/ˈdem.ən.streɪt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Clearly show the existence or truth of something by giving proof or evidence.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> show, display, prove, indicate</p>
+                            <p><strong>Antonyms:</strong> conceal, hide, hide</p>
+                            <p><strong>Collocations:</strong> demonstrate ability, clearly demonstrate, demonstrate potential</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "My past projects demonstrate my leadership abilities."</p>
+                            <p><strong>Technical:</strong> "The prototype demonstrates the feasibility of the concept."</p>
+                            <p><strong>Corporate:</strong> "Sales figures demonstrate a clear upward trend."</p>
+                            <p><strong>Daily:</strong> "Can you demonstrate how this machine works?"</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+
+                    <!-- Vocab 25 -->
+                    <div class="vocab-card">
+                        <div class="vocab-header">
+                            <h3>25. Integrate <span class="ipa">/ˈɪn.tɪ.ɡreɪt/</span></h3>
+                            <button class="pronounce-btn">🔊</button>
+                            <span class="pos-badge">Verb</span>
+                        </div>
+                        <p class="definition">Combine one thing with another so that they become a whole.</p>
+                        <div class="vocab-relations">
+                            <p><strong>Synonyms:</strong> combine, merge, unify, assimilate</p>
+                            <p><strong>Antonyms:</strong> separate, divide, segregate</p>
+                            <p><strong>Collocations:</strong> integrate fully, integrate into, seamlessly integrate</p>
+                        </div>
+                        <div class="domain-examples">
+                            <p><strong>Interview:</strong> "I integrated the new software into our daily operations."</p>
+                            <p><strong>Technical:</strong> "We integrated the payment gateway via API."</p>
+                            <p><strong>Corporate:</strong> "The acquired company was successfully integrated."</p>
+                            <p><strong>Daily:</strong> "Try to integrate exercise into your daily routine."</p>
+                        </div>
+                        <textarea placeholder="Practice using this word..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod4">
+                <h2>4. Reading Comprehension</h2>
+                <p>Read the following excerpt describing a professional project and identify the use of past simple and present perfect tenses.</p>
+                <div style="background: #eef2f5; padding: 15px; border-radius: 5px;">
+                    <p>"I have worked in the tech industry for over five years. During my time at XYZ Corp, I <strong>led</strong> a major infrastructure upgrade. We <strong>migrated</strong> our servers to the cloud, which <strong>reduced</strong> costs by 20%. Since then, I <strong>have overseen</strong> the maintenance of these cloud environments and <strong>have implemented</strong> several security patches."</p>
+                </div>
+            </section>
+
+            <section id="mod5">
+                <h2>5. Listening Practice</h2>
+                <p>Listen to the audio clip (mock text below) of a project manager describing a challenge.</p>
+                <p><em>Transcript: "The biggest challenge we faced was scope creep. The client kept adding features. We had to sit down and prioritize the deliverables to ensure we met the deadline."</em></p>
+                <p><strong>Key takeaway:</strong> Notice how the speaker uses "faced", "kept", "had to" to describe completed past events.</p>
+            </section>
+
+            <section id="mod6">
+                <h2>6. Speaking Frameworks (The STAR Method)</h2>
+                <p>When discussing past projects, always use the STAR method:</p>
+                <ul>
+                    <li><strong>Situation:</strong> Set the context.</li>
+                    <li><strong>Task:</strong> What was your goal?</li>
+                    <li><strong>Action:</strong> What exactly did YOU do?</li>
+                    <li><strong>Result:</strong> What was the quantified outcome?</li>
+                </ul>
+            </section>
+
+            <section id="mod7">
+                <h2>7. Writing Professional Summaries</h2>
+                <p>Practice writing a 2-sentence summary of your most recent project using action verbs (e.g., Developed, Streamlined, Led, Executed).</p>
+            </section>
+
+            <section id="mod8">
+                <h2>8. Role-Play Dialogues</h2>
+                
+                <div class="dialogue-container">
+                    <h4>Dialogue 1: General Project Discussion</h4>
+                    <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> Can you tell me about a project you worked on recently?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Candidate:</strong> Certainly. I recently led a project to redesign our internal employee portal.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> What was your specific role in that?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Candidate:</strong> I was the lead UI developer. I collaborated with HR to gather requirements and then built the frontend using React.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Interviewer:</strong> How did it turn out?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Candidate:</strong> It was very successful. We increased employee engagement by 40% and reduced HR tickets by 20%.</div>
+                </div>
+
+                <div class="dialogue-container">
+                    <h4>Dialogue 2: Handling Failure</h4>
+                    <div class="dialogue-bubble dialogue-left"><strong>Manager:</strong> Tell me about a time a project didn't go as planned.</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Employee:</strong> Last year, we missed a product launch deadline because we underestimated the API integration time.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Manager:</strong> How did you handle it?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Employee:</strong> I immediately communicated the delay to stakeholders, prioritized the core features, and we launched an MVP two weeks later.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Manager:</strong> What did you learn from that?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Employee:</strong> I learned the importance of buffering time for external dependencies during the planning phase.</div>
+                </div>
+
+                <div class="dialogue-container">
+                    <h4>Dialogue 3: Discussing Teamwork</h4>
+                    <div class="dialogue-bubble dialogue-left"><strong>Colleague:</strong> How do you handle working with a difficult team member?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>You:</strong> On my last project, one developer was consistently missing deadlines, which affected our workflow.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Colleague:</strong> Did you escalate it to management?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>You:</strong> No, I first had a private 1-on-1 with him. It turned out he was overwhelmed with another task. We reallocated some of his workload, and his performance improved immediately.</div>
+                </div>
+
+                <div class="dialogue-container">
+                    <h4>Dialogue 4: Explaining Technical Concepts to Non-Tech</h4>
+                    <div class="dialogue-bubble dialogue-left"><strong>Client:</strong> Why did this feature take so long to build? I thought it was just a simple button.</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Developer:</strong> I understand it looks simple on the surface. However, that button needed to securely connect to three different legacy databases.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Client:</strong> I see. Was there a way to do it faster?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Developer:</strong> We could have bypassed security protocols to do it faster, but ensuring data integrity was our top priority. We spent extra time to make it robust.</div>
+                </div>
+
+                <div class="dialogue-container">
+                    <h4>Dialogue 5: Showcasing Initiative</h4>
+                    <div class="dialogue-bubble dialogue-left"><strong>Director:</strong> Give me an example of when you went above and beyond.</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Candidate:</strong> While working on the CRM migration, I noticed our data cleaning process was highly manual.</div>
+                    <div class="dialogue-bubble dialogue-left"><strong>Director:</strong> What did you do?</div>
+                    <div class="dialogue-bubble dialogue-right"><strong>Candidate:</strong> On my own time, I wrote a Python script to automate the data scrubbing. It saved the team about 15 hours a week and eliminated human error.</div>
+                </div>
+            </section>
+
+            <section id="mod9">
+                <h2>9. Pronunciation Drill</h2>
+                <p>Focus on past tense 'ed' endings: /t/, /d/, /ɪd/.</p>
+                <ul>
+                    <li>Worked /t/</li>
+                    <li>Played /d/</li>
+                    <li>Completed /ɪd/</li>
+                </ul>
+            </section>
+
+            <section id="mod10">
+                <h2>10. Idioms & Phrasal Verbs</h2>
+                <p>Useful phrases for projects:</p>
+                <ul>
+                    <li><strong>Get off the ground:</strong> Start a project.</li>
+                    <li><strong>Back to the drawing board:</strong> Start over.</li>
+                    <li><strong>Wrap up:</strong> Finish a task.</li>
+                </ul>
+            </section>
+
+            <section id="mod11">
+                <h2>11. Presentation Skills</h2>
+                <p>When presenting a project portfolio, use visual aids effectively. Don't read from slides; elaborate on the bullet points with concrete examples and data.</p>
+            </section>
+
+            <section id="mod12">
+                <h2>12. Email Etiquette</h2>
+                <p>Writing a project handover email: Keep it concise, link to documentation, list pending tasks clearly, and provide emergency contact info.</p>
+            </section>
+
+            <section id="mod13">
+                <h2>13. HR Interview Coaching</h2>
+                <p><strong>HR Question:</strong> "Tell me about a project you're most proud of."</p>
+
+                <div class="answer-card answer-bad">
+                    <h4>Bad Answer (Too brief, no details)</h4>
+                    <p>"I am proud of the website I made last year. It was hard, but me and my team finished it on time and the client was happy. I wrote a lot of code for it."</p>
+                    <p><em>Coaching: This lacks specifics, uses poor grammar ("me and my team"), and provides no quantifiable results.</em></p>
+                </div>
+
+                <div class="answer-card answer-good">
+                    <h4>Good Answer (Clear, but lacks deep impact)</h4>
+                    <p>"I'm most proud of leading the redesign of our company's e-commerce platform. We had a strict deadline of three months. I coordinated with the design and backend teams to ensure smooth integration. We successfully launched it on time, and it resulted in a better user experience and fewer bugs compared to the old system."</p>
+                    <p><em>Coaching: Good structure. It explains the project and outcome, but could use more powerful vocabulary and exact metrics.</em></p>
+                </div>
+
+                <div class="answer-card answer-excellent">
+                    <h4>Excellent Answer (Full STAR method, quantified)</h4>
+                    <p>"The project I'm most proud of is the automated inventory management system I developed last year. <strong>(Situation)</strong> Our warehouse was using manual spreadsheets, leading to a 10% error rate in stock levels and delayed shipments. <strong>(Task)</strong> My goal was to build a robust, automated system to track inventory in real-time. <strong>(Action)</strong> I took the initiative to learn React and Node.js, and built a custom dashboard. I collaborated closely with the warehouse staff to understand their workflow and ensure the UI was intuitive. I also implemented barcode scanning integration. <strong>(Result)</strong> Post-launch, we reduced inventory errors from 10% to under 1%. Furthermore, the streamlined process saved the team roughly 20 hours per week in manual data entry, significantly boosting overall operational efficiency."</p>
+                    <p><em>Coaching: Perfect execution. Clear STAR structure, excellent vocabulary (robust, streamlined, implemented), and highly quantified results (10% to 1%, 20 hours/week).</em></p>
+                </div>
+            </section>
+
+            <section id="mod14">
+                <h2>14. Technical Communication</h2>
+                <p>Explaining technical achievements requires a balance of detail and clarity.</p>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex:1; padding: 15px; background: #feebeb; border: 1px solid #f5c6cb;">
+                        <h4>Basic (Too informal/vague)</h4>
+                        <p>"I made the database faster because it was slow. I changed some queries and added indexes so it didn't crash as much when a lot of users logged in."</p>
+                    </div>
+                    <div style="flex:1; padding: 15px; background: #e2f3e5; border: 1px solid #c3e6cb;">
+                        <h4>Professional</h4>
+                        <p>"I optimized our database performance to handle high traffic loads. By refactoring complex SQL queries and implementing strategic indexing, I reduced average query execution time by 40% and improved system stability during peak usage."</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod15">
+                <h2>15. Group Discussion</h2>
+                <div style="background: #f4f7f6; padding: 20px; border-radius: 8px;">
+                    <h3>Topic: "Should Final Year Projects Be Industry-Driven?"</h3>
+                    <p><strong>Topic Brief:</strong> Academic institutions often allow students to choose theoretical final-year projects. However, tech companies complain that graduates lack practical, industry-ready skills. Should universities mandate that all projects solve real-world industry problems?</p>
+                    
+                    <h4>Model Opening</h4>
+                    <p>"Good morning everyone. The topic for our discussion today is whether final year projects should be industry-driven. I believe this is a highly relevant topic given the current skill gap in the job market. I stand in favor of making projects industry-driven, as it bridges the gap between academia and corporate expectations."</p>
+
+                    <div style="display: flex; gap: 20px; margin-top: 15px;">
+                        <div style="flex:1;">
+                            <h4>Pro Points (In Favor)</h4>
+                            <ul>
+                                <li>Increases employability of graduates.</li>
+                                <li>Exposes students to real-world constraints (deadlines, budgets).</li>
+                                <li>Teaches modern tools and agile methodologies.</li>
+                                <li>Builds professional networking and mentorship opportunities.</li>
+                                <li>Creates actual value rather than theoretical documents.</li>
+                            </ul>
+                        </div>
+                        <div style="flex:1;">
+                            <h4>Con Points (Against)</h4>
+                            <ul>
+                                <li>Stifles pure innovation and fundamental research.</li>
+                                <li>Puts too much pressure on students; academic freedom is lost.</li>
+                                <li>Not all institutions have access to industry tie-ups.</li>
+                                <li>Companies might exploit students for free labor.</li>
+                                <li>Theoretical foundations are just as important as practical application.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4>10 Useful GD Vocabulary Words</h4>
+                    <p>Pragmatic, Theoretical, Synergy, Employability, Exploit, Innovation, Bridge the gap, Mandate, Hands-on, Viable.</p>
+
+                    <h4>Model Conclusion</h4>
+                    <p>"To conclude our discussion, while there are valid concerns about stifling fundamental research and potential exploitation, the consensus leans towards a balanced approach. While industry-driven projects significantly enhance employability and practical skills, academic institutions should retain some flexibility for students genuinely pursuing pure research. Ultimately, a strong industry-academia synergy is the way forward."</p>
+                </div>
+            </section>
+
+            <section id="mod16">
+                <h2>16. Cross-Cultural Nuances</h2>
+                <p>When discussing achievements with international clients or interviewers, tone matters. In the US, self-promotion is expected and normalized. In many Asian cultures, extreme modesty is preferred. Aim for "confident humility"—state facts and data clearly without arrogance, and always acknowledge team contributions.</p>
+            </section>
+
+            <section id="mod17">
+                <h2>17. Rapid Fire Practice</h2>
+                <p>Answer the following 20 questions aloud. You have 5 seconds per question. (Timer will start when you click 'Start').</p>
+                
+                <div class="rapid-fire-container">
+                    <div id="rf-timer" class="timer-display">05</div>
+                    <div id="rf-question" class="rf-question" style="font-size: 1.2em; font-weight: bold; text-align: center;">Click Start to begin.</div>
+                    <button id="start-rf-btn" style="display: block; margin: 0 auto; padding: 10px 20px; font-size: 1.1em; cursor: pointer;">Start Rapid Fire</button>
+                </div>
+
+                <!-- Hidden questions list -->
+                <script>
+                    const rfQuestions = [
+                        "What was your first project?",
+                        "What is your biggest professional achievement?",
+                        "Name one time you failed.",
+                        "What is your favorite tech stack?",
+                        "Describe a difficult client you handled.",
+                        "How do you prioritize tasks?",
+                        "What project are you working on now?",
+                        "Have you ever missed a deadline?",
+                        "How do you handle scope creep?",
+                        "What is the most complex problem you solved?",
+                        "Describe your leadership style.",
+                        "How do you give feedback?",
+                        "How do you receive criticism?",
+                        "What did you learn from your last job?",
+                        "What tool do you use for project management?",
+                        "Tell me about a time you took initiative.",
+                        "How do you handle team conflicts?",
+                        "What motivates you to work hard?",
+                        "Where do you see yourself in 3 years?",
+                        "Summarize your career in one sentence."
+                    ];
+                </script>
+            </section>
+
+            <section id="mod18">
+                <h2>18. Common Indian English Mistakes</h2>
+                <p>Avoid these common pitfalls when discussing your background in professional settings.</p>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "I have graduated in 2020."</p>
+                    <p class="correct-text">✔ "I graduated in 2020."</p>
+                    <p><em>Explanation: Do not use the present perfect with a specific past time (2020). Use the past simple.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "I didn't went to the meeting."</p>
+                    <p class="correct-text">✔ "I didn't go to the meeting."</p>
+                    <p><em>Explanation: After "didn't", always use the base form of the verb.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "I am having 3 years of experience."</p>
+                    <p class="correct-text">✔ "I have 3 years of experience."</p>
+                    <p><em>Explanation: Stative verbs like "have" (when showing possession) are not used in continuous (-ing) forms.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "Myself Rahul, I am a developer."</p>
+                    <p class="correct-text">✔ "I am Rahul, a developer." OR "My name is Rahul."</p>
+                    <p><em>Explanation: Starting an introduction with "Myself" is grammatically incorrect.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "I am working here since 2018."</p>
+                    <p class="correct-text">✔ "I have been working here since 2018."</p>
+                    <p><em>Explanation: For an action that started in the past and continues to the present, use the Present Perfect Continuous.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "He asked me to do the needful."</p>
+                    <p class="correct-text">✔ "He asked me to take the necessary action."</p>
+                    <p><em>Explanation: "Do the needful" is an archaic phrase mostly used in Indian English. Modern global English prefers clearer action phrases.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "Let us pre-pone the meeting."</p>
+                    <p class="correct-text">✔ "Let's bring the meeting forward." OR "Let's advance the meeting."</p>
+                    <p><em>Explanation: "Prepone" is an Indian English invention. Native speakers say "bring forward".</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "I belong to Mumbai."</p>
+                    <p class="correct-text">✔ "I am from Mumbai."</p>
+                    <p><em>Explanation: "Belong to" implies ownership. Use "from" for places of origin.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "We discussed about the project."</p>
+                    <p class="correct-text">✔ "We discussed the project."</p>
+                    <p><em>Explanation: "Discuss" means "talk about", so adding "about" is redundant.</em></p>
+                </div>
+
+                <div class="mistake-block">
+                    <p class="wrong-text">✖ "I will revert back to you."</p>
+                    <p class="correct-text">✔ "I will revert to you." OR "I will get back to you."</p>
+                    <p><em>Explanation: "Revert" already means go back or reply. Adding "back" is redundant.</em></p>
+                </div>
+            </section>
+
+            <section id="mod19">
+                <h2>19. Quiz</h2>
+                <div class="quiz-container">
+                    <!-- Q1 -->
+                    <div class="quiz-question" data-answer="1">
+                        <p><strong>1. Which word means "to achieve maximum productivity with minimum wasted effort"?</strong></p>
+                        <div class="quiz-options">
+                            <button>A) Feasible</button>
+                            <button>B) Efficient</button>
+                            <button>C) Robust</button>
+                            <button>D) Mitigate</button>
+                        </div>
+                        <div class="explanation">Correct! Efficient means working well without wasting time or energy.</div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="quiz-question" data-answer="2">
+                        <p><strong>2. What is a synonym for "Implement"?</strong></p>
+                        <div class="quiz-options">
+                            <button>A) Neglect</button>
+                            <button>B) Destroy</button>
+                            <button>C) Execute</button>
+                            <button>D) Justify</button>
+                        </div>
+                        <div class="explanation">Correct! Execute and Implement both mean to carry out a plan.</div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="quiz-question" data-answer="0">
+                        <p><strong>3. Which word means "to make less severe or painful"?</strong></p>
+                        <div class="quiz-options">
+                            <button>A) Mitigate</button>
+                            <button>B) Leverage</button>
+                            <button>C) Validate</button>
+                            <button>D) Streamline</button>
+                        </div>
+                        <div class="explanation">Correct! Mitigate is often used when talking about risk.</div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="quiz-question" data-answer="3">
+                        <p><strong>4. "I _______ my skills to improve team performance."</strong></p>
+                        <div class="quiz-options">
+                            <button>A) benchmarked</button>
+                            <button>B) mitigated</button>
+                            <button>C) generated</button>
+                            <button>D) leveraged</button>
+                        </div>
+                        <div class="explanation">Correct! Leverage means to use something to maximum advantage.</div>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="quiz-question" data-answer="2">
+                        <p><strong>5. Choose the grammatically correct sentence:</strong></p>
+                        <div class="quiz-options">
+                            <button>A) I have finished the project yesterday.</button>
+                            <button>B) I finished the project since yesterday.</button>
+                            <button>C) I finished the project yesterday.</button>
+                            <button>D) I am finishing the project yesterday.</button>
+                        </div>
+                        <div class="explanation">Correct! Use past simple with a specific past time (yesterday).</div>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="quiz-question" data-answer="1">
+                        <p><strong>6. "I ______ here for five years."</strong></p>
+                        <div class="quiz-options">
+                            <button>A) am working</button>
+                            <button>B) have been working</button>
+                            <button>C) worked</button>
+                            <button>D) work</button>
+                        </div>
+                        <div class="explanation">Correct! Present Perfect Continuous is used for an action that started in the past and continues now.</div>
+                    </div>
+                    <!-- Q7 -->
+                    <div class="quiz-question" data-answer="0">
+                        <p><strong>7. What does the 'S' in the STAR method stand for?</strong></p>
+                        <div class="quiz-options">
+                            <button>A) Situation</button>
+                            <button>B) System</button>
+                            <button>C) Structure</button>
+                            <button>D) Strategy</button>
+                        </div>
+                        <div class="explanation">Correct! Situation, Task, Action, Result.</div>
+                    </div>
+                    <!-- Q8 -->
+                    <div class="quiz-question" data-answer="2">
+                        <p><strong>8. Instead of saying "Myself John", you should say:</strong></p>
+                        <div class="quiz-options">
+                            <button>A) I myself am John.</button>
+                            <button>B) Me is John.</button>
+                            <button>C) I am John.</button>
+                            <button>D) John myself.</button>
+                        </div>
+                        <div class="explanation">Correct! "I am [Name]" or "My name is [Name]" is the proper introduction.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod20">
+                <h2>20. Assignment</h2>
+                <p>Record a 2-minute video of yourself answering: "Tell me about a time a project didn't go as planned." Use the STAR method and at least 3 vocabulary words from today's lesson. Upload it to the community forum for peer review.</p>
+            </section>
+
+            <section id="mod21">
+                <h2>21. Self-Evaluation</h2>
+                <p>Rate yourself on a scale of 1-10 for today's concepts.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <label>Vocabulary Retention: <input type="range" id="eval-vocab" min="1" max="10" value="5"> <span id="val-vocab">5</span></label><br>
+                        <label>Grammar Accuracy: <input type="range" id="eval-grammar" min="1" max="10" value="5"> <span id="val-grammar">5</span></label><br>
+                        <label>STAR Method Fluency: <input type="range" id="eval-star" min="1" max="10" value="5"> <span id="val-star">5</span></label><br>
+                        <label>Pronunciation: <input type="range" id="eval-pron" min="1" max="10" value="5"> <span id="val-pron">5</span></label><br>
+                        <label>Confidence in Tech Comm: <input type="range" id="eval-tech" min="1" max="10" value="5"> <span id="val-tech">5</span></label><br>
+                        <label>Group Discussion Skills: <input type="range" id="eval-gd" min="1" max="10" value="5"> <span id="val-gd">5</span></label><br>
+                        <label>Avoiding Common Mistakes: <input type="range" id="eval-mistakes" min="1" max="10" value="5"> <span id="val-mistakes">5</span></label><br>
+                        <label>Overall Engagement: <input type="range" id="eval-engage" min="1" max="10" value="5"> <span id="val-engage">5</span></label><br>
+                        
+                        <button id="save-eval" style="margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Save Evaluation & Update Chart</button>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <button id="mark-complete" style="padding: 15px 30px; font-size: 1.2em; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer;">✔ Mark Day 2 Complete</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Back to top -->
+    <button id="back-to-top" style="position: fixed; bottom: 20px; right: 20px; display: none; padding: 10px; border-radius: 50%; cursor: pointer;">↑</button>
+
+    <footer>
+        <p>&copy; 2026 English Communication Master. All rights reserved.</p>
+    </footer>
+
+    <!-- External JS Scripts -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/flashcards.js"></script>
+    <script src="../js/pronunciation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Inline JS for Specific Module Interactivity -->
+    <script>
+        // TOC Scroll Spy
+        const tocLinks = document.querySelectorAll('.toc a');
+        const sections = document.querySelectorAll('main section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Back to top button visibility
+            const btt = document.getElementById('back-to-top');
+            if(scrollY > 500) { btt.style.display = 'block'; }
+            else { btt.style.display = 'none'; }
+        });
+
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Rapid Fire Timer Logic
+        let rfIndex = 0;
+        let rfTimer;
+        let timeLeft = 5;
+        const startBtn = document.getElementById('start-rf-btn');
+        const rfQuestionEl = document.getElementById('rf-question');
+        const rfTimerEl = document.getElementById('rf-timer');
+
+        function nextQuestion() {
+            if (rfIndex >= rfQuestions.length) {
+                rfQuestionEl.innerText = "Great Job! You finished the Rapid Fire.";
+                rfTimerEl.innerText = "00";
+                startBtn.style.display = "block";
+                startBtn.innerText = "Restart";
+                rfIndex = 0;
+                return;
+            }
+            rfQuestionEl.innerText = rfQuestions[rfIndex];
+            timeLeft = 5;
+            rfTimerEl.innerText = "05";
+            rfTimer = setInterval(() => {
+                timeLeft--;
+                rfTimerEl.innerText = "0" + timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(rfTimer);
+                    rfIndex++;
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+
+        startBtn.addEventListener('click', () => {
+            startBtn.style.display = 'none';
+            rfIndex = 0;
+            nextQuestion();
+        });
+
+        // Quiz Logic
+        const quizQuestions = document.querySelectorAll('.quiz-question');
+        quizQuestions.forEach(q => {
+            const buttons = q.querySelectorAll('button');
+            const answerIndex = parseInt(q.getAttribute('data-answer'));
+            const explanation = q.querySelector('.explanation');
+            
+            buttons.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    // disable all buttons in this question
+                    buttons.forEach(b => b.disabled = true);
+                    
+                    if (index === answerIndex) {
+                        btn.classList.add('correct');
+                    } else {
+                        btn.classList.add('incorrect');
+                        buttons[answerIndex].classList.add('correct');
+                    }
+                    explanation.style.display = 'block';
+                });
+            });
+        });
+
+        // Radar Chart Setup
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Vocab', 'Grammar', 'STAR', 'Pronunciation', 'Tech Comm', 'GD Skills', 'Mistakes', 'Engagement'],
+                datasets: [{
+                    label: 'Day 2 Skills Evaluation',
+                    data: [5, 5, 5, 5, 5, 5, 5, 5],
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    pointBackgroundColor: 'rgba(0, 123, 255, 1)',
+                }]
+            },
+            options: {
+                scales: {
+                    r: { min: 0, max: 10, ticks: { stepSize: 2 } }
+                }
+            }
+        });
+
+        // Update values on slider move
+        const sliders = ['vocab', 'grammar', 'star', 'pron', 'tech', 'gd', 'mistakes', 'engage'];
+        sliders.forEach((s, index) => {
+            const input = document.getElementById(`eval-${s}`);
+            const span = document.getElementById(`val-${s}`);
+            input.addEventListener('input', (e) => {
+                span.innerText = e.target.value;
+            });
+        });
+
+        // Save Evaluation and update chart
+        document.getElementById('save-eval').addEventListener('click', () => {
+            const newData = sliders.map(s => parseInt(document.getElementById(`eval-${s}`).value));
+            radarChart.data.datasets[0].data = newData;
+            radarChart.update();
+            localStorage.setItem('day02-eval', JSON.stringify(newData));
+            alert('Evaluation saved successfully!');
+        });
+
+        // Load saved eval if exists
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('day02-eval');
+            if (saved) {
+                const data = JSON.parse(saved);
+                sliders.forEach((s, i) => {
+                    document.getElementById(`eval-${s}`).value = data[i];
+                    document.getElementById(`val-${s}`).innerText = data[i];
+                });
+                radarChart.data.datasets[0].data = data;
+                radarChart.update();
+            }
+            
+            // Lesson progress (mockup, e.g. based on scroll)
+            window.addEventListener('scroll', () => {
+                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = window.scrollY;
+                const progress = Math.min((scrolled / scrollable) * 100, 100);
+                document.getElementById('lesson-progress').style.width = progress + '%';
+            });
+        });
+
+        // Mark Complete + Confetti
+        document.getElementById('mark-complete').addEventListener('click', () => {
+            localStorage.setItem('day02-complete', 'true');
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            document.getElementById('mark-complete').innerText = "✔ Completed!";
+            document.getElementById('mark-complete').style.background = "#218838";
+        });
+
+    </script>
+</body>
+</html>

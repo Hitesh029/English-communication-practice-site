@@ -17,11 +17,15 @@
     async buildIndex() {
       if (this.built) return;
       try {
+        // Support both root-level pages (index.html, dashboard.html) and lessons/dayXX.html
+        const isLesson = window.location.pathname.includes('/lessons/');
+        const base = isLesson ? '../data/' : 'data/';
+
         const [vocabRes, idiomRes, phrasalRes, grammarRes] = await Promise.all([
-          fetch('../data/vocabulary.json').then(r => r.json()).catch(() => null),
-          fetch('../data/idioms.json').then(r => r.json()).catch(() => null),
-          fetch('../data/phrasal.json').then(r => r.json()).catch(() => null),
-          fetch('../data/grammar.json').then(r => r.json()).catch(() => null)
+          fetch(base + 'vocabulary.json').then(r => r.json()).catch(() => null),
+          fetch(base + 'idioms.json').then(r => r.json()).catch(() => null),
+          fetch(base + 'phrasal.json').then(r => r.json()).catch(() => null),
+          fetch(base + 'grammar.json').then(r => r.json()).catch(() => null)
         ]);
 
         // Index vocabulary
@@ -196,13 +200,19 @@
       const modal = document.getElementById('search-modal');
       if (!modal) return;
 
-      const input = modal.querySelector('input[type="text"], input[type="search"]');
-      const resultsContainer = modal.querySelector('.search-results') || (() => {
-        const div = document.createElement('div');
-        div.className = 'search-results';
-        modal.querySelector('.search-modal-inner')?.appendChild(div) || modal.appendChild(div);
-        return div;
-      })();
+      // Find input — try by ID first, then by type
+      const input = document.getElementById('search-input') ||
+                    modal.querySelector('input[type="text"], input[type="search"], input');
+
+      // Find or create results container — search-results class OR search-results-list id
+      let resultsContainer = modal.querySelector('.search-results') ||
+                             document.getElementById('search-results');
+      if (!resultsContainer) {
+        resultsContainer = document.createElement('div');
+        resultsContainer.className = 'search-results';
+        const inner = modal.querySelector('.modal-dialog, .search-modal');
+        (inner || modal).appendChild(resultsContainer);
+      }
 
       if (!input) return;
 
@@ -243,12 +253,13 @@
         if (e.key === 'Enter' && focused) focused.click();
       });
 
-      // Build index when modal opens
-      modal.addEventListener('transitionend', () => {
+      // Build index when modal becomes active (observe class changes)
+      const observer = new MutationObserver(() => {
         if (modal.classList.contains('active') && !this.built) {
           this.buildIndex();
         }
       });
+      observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
     },
 
     debounce(fn, ms) {

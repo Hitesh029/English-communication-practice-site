@@ -159,15 +159,20 @@
           if (modal) {
             modal.classList.toggle('active');
             if (modal.classList.contains('active')) {
+              // Build search index immediately when opening
+              if (window.Search && !window.Search.built) window.Search.buildIndex();
               const inp = modal.querySelector('input');
               if (inp) setTimeout(() => inp.focus(), 100);
             }
           }
         }
         if (e.key === 'Escape') {
-          document.querySelectorAll('.modal.active, #search-modal.active').forEach(m => {
-            m.classList.remove('active');
-          });
+          // Close search modal
+          const searchModal = document.getElementById('search-modal');
+          if (searchModal) searchModal.classList.remove('active');
+          // Close any other modals
+          document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
+          // Close mobile nav
           const mobileNav = document.getElementById('mobile-nav');
           if (mobileNav) mobileNav.classList.remove('open');
         }
@@ -175,31 +180,44 @@
     },
 
     initMobileNav() {
-      const toggle = document.querySelector('.mobile-menu-toggle');
+      // Accept both id and class selectors for robustness
+      const toggle = document.getElementById('mobile-menu-toggle') || document.querySelector('.mobile-menu-toggle');
       const nav = document.getElementById('mobile-nav');
       if (!toggle || !nav) return;
-      toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+      });
       nav.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') nav.classList.remove('open');
       });
     },
 
     initSearchModal() {
-      const toggleBtns = document.querySelectorAll('.search-toggle');
       const modal = document.getElementById('search-modal');
       if (!modal) return;
-      toggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          modal.classList.toggle('active');
-          if (modal.classList.contains('active')) {
-            const inp = modal.querySelector('input');
-            if (inp) setTimeout(() => inp.focus(), 100);
-          }
-        });
+
+      // Bind all search-toggle buttons (by class) + the main search-toggle button (by id)
+      const openSearch = () => {
+        modal.classList.add('active');
+        // Build search index on first open
+        if (window.Search && !window.Search.built) window.Search.buildIndex();
+        const inp = modal.querySelector('input');
+        if (inp) setTimeout(() => inp.focus(), 80);
+      };
+
+      document.querySelectorAll('.search-toggle, #search-toggle').forEach(btn => {
+        btn.addEventListener('click', openSearch);
       });
+
+      // Close on backdrop click
       modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.remove('active');
       });
+
+      // Close button (also handled via onclick in HTML, this is a redundant safety)
+      const closeBtn = document.getElementById('search-close');
+      if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
     }
   };
 

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Indian Language Dictionary — Translate and find meanings between English and 15+ Indian languages including Hindi, Bengali, Tamil, Telugu, Marathi and more.">
+  <title>Indian Dictionary | English Communication Master Course</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dark.css">
+
+  <script>
+    (function(){
+      var t = localStorage.getItem('ecm-theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+    function ecmToggleTheme(){
+      var h = document.documentElement, n = h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      h.setAttribute('data-theme', n); localStorage.setItem('ecm-theme', n);
+      document.querySelectorAll('.theme-icon, #theme-icon').forEach(function(i){ i.className = n === 'dark' ? 'fas fa-sun' : 'fas fa-moon'; });
+    }
+  </script>
+
+  <style>
+    .dict-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #312e81 70%, #4c1d95 100%);
+      padding: 5rem 1.5rem 3.5rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .dict-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 120%, rgba(99,102,241,.35) 0%, transparent 70%);
+    }
+    .dict-badge {
+      display: inline-flex; align-items: center; gap: .5rem; background: rgba(99,102,241,.2);
+      border: 1px solid rgba(99,102,241,.4); color: #a5b4fc; padding: .35rem 1rem;
+      border-radius: 99px; font-size: .8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.25rem;
+    }
+    .dict-hero h1 {
+      font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900;
+      color: #fff; margin-bottom: .75rem; line-height: 1.1; position: relative;
+    }
+    .dict-hero h1 span { background: linear-gradient(90deg,#818cf8,#c084fc,#f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .dict-hero p { color: #94a3b8; font-size: 1.05rem; max-width: 540px; margin: 0 auto 1.5rem; position: relative; }
+    .lang-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; margin-bottom: 2.5rem; position: relative; }
+    .lang-pill { padding: .2rem .75rem; border-radius: 99px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: #cbd5e1; font-size: .75rem; font-weight: 500; }
+    
+    .dict-card {
+      background: var(--bg-surface, #fff); border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,.3);
+      max-width: 840px; margin: 0 auto; overflow: hidden; position: relative; z-index: 2; text-align: left;
+    }
+    .dict-tabs { display: flex; background: var(--bg-elevated, #f8fafc); border-bottom: 1px solid var(--border-subtle, #e2e8f0); }
+    .dict-tab {
+      flex: 1; padding: .9rem 1rem; background: none; border: none; cursor: pointer; font-size: .88rem;
+      font-weight: 600; color: var(--text-tertiary, #94a3b8); transition: all .2s; position: relative;
+      display: flex; align-items: center; justify-content: center; gap: .4rem;
+    }
+    .dict-tab.active { color: #6366f1; background: var(--bg-surface, #fff); }
+    .dict-tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #6366f1; }
+    
+    .dict-lang-row { display: flex; align-items: center; gap: .75rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-subtle, #e2e8f0); background: var(--bg-surface, #fff); }
+    .dict-select {
+      flex: 1; padding: .65rem .9rem; border: 1px solid var(--border-default, #cbd5e1); border-radius: 10px;
+      background: var(--bg-elevated, #f8fafc); color: var(--text-primary, #0f172a); font-size: .92rem;
+      font-weight: 600; cursor: pointer; outline: none; font-family: inherit;
+    }
+    .swap-btn {
+      width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border: none; cursor: pointer; color: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; transition: transform .3s; flex-shrink: 0;
+    }
+    .swap-btn:hover { transform: rotate(180deg); }
+
+    .dict-input-area { padding: 1.25rem; border-bottom: 1px solid var(--border-subtle, #e2e8f0); }
+    .dict-input-wrap { position: relative; }
+    .dict-input {
+      width: 100%; padding: 1rem 3rem 1rem 1rem; border: 2px solid var(--border-default, #cbd5e1);
+      border-radius: 12px; font-size: 1.1rem; color: var(--text-primary, #0f172a); background: var(--bg-base, #fff);
+      outline: none; transition: border-color .2s; font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+      resize: none; min-height: 56px; max-height: 140px;
+    }
+    .dict-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.12); }
+    .dict-clear { position: absolute; right: .75rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 1rem; }
+    
+    .dict-action-row { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; align-items: center; }
+    .dbtn { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1.1rem; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; border: none; transition: all .2s; }
+    .dbtn-primary { background: linear-gradient(135deg,#6366f1,#8b5cf6); color: #fff; }
+    .dbtn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(99,102,241,.4); }
+    .dbtn-ghost { background: var(--bg-elevated,#f8fafc); border: 1px solid var(--border-subtle,#e2e8f0); color: var(--text-secondary,#475569); }
+    .dbtn-ghost:hover { background: var(--bg-elevated,#f1f5f9); }
+
+    .dict-results { padding: 1.5rem; min-height: 120px; }
+    .dict-empty { text-align: center; padding: 2.5rem 1rem; color: var(--text-tertiary,#94a3b8); }
+    .dict-empty i { font-size: 2.5rem; display: block; margin-bottom: .75rem; opacity: .4; }
+    
+    .trans-card { background: linear-gradient(135deg,rgba(99,102,241,.06),rgba(139,92,246,.06)); border: 1px solid rgba(99,102,241,.2); border-radius: 14px; padding: 1.25rem; margin-bottom: 1rem; }
+    .trans-text { font-size: 1.6rem; font-weight: 700; color: var(--text-primary,#0f172a); line-height: 1.4; }
+
+    .word-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(145px,1fr)); gap: .6rem; }
+    .word-chip { padding: .65rem 1rem; background: var(--bg-surface,#fff); border: 1px solid var(--border-subtle,#e2e8f0); border-radius: 10px; cursor: pointer; transition: all .2s; text-align: center; }
+    .word-chip:hover { border-color: #6366f1; transform: translateY(-2px); background: rgba(99,102,241,.05); }
+
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); gap: 1rem; }
+    .lang-card { padding: 1.25rem; border-radius: 14px; background: var(--bg-surface,#fff); border: 1px solid var(--border-subtle,#e2e8f0); cursor: pointer; transition: all .2s; }
+    .lang-card:hover { border-color: #6366f1; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,.1); }
+
+    [data-theme="dark"] .dict-card { background: var(--neutral-900); }
+    [data-theme="dark"] .dict-tabs { background: var(--neutral-800); }
+    [data-theme="dark"] .dict-tab.active { background: var(--neutral-900); }
+    [data-theme="dark"] .dict-select, [data-theme="dark"] .dict-input { background: var(--neutral-800); border-color: var(--neutral-700); color: #fff; }
+    [data-theme="dark"] .word-chip, [data-theme="dark"] .lang-card { background: var(--neutral-900); border-color: var(--neutral-800); }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar Navigation -->
+  <nav id="topbar" role="navigation" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="Home">
+        <div class="brand-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="brand-name">English Master <span>30-Day Course</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+        <li><a href="roadmap.html" class="nav-link"><i class="fas fa-route"></i> Roadmap</a></li>
+        <li><a href="lessons/day01.html" class="nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+        <li><a href="dictionary.html" class="nav-link active" aria-current="page"><i class="fas fa-language"></i> Dictionary</a></li>
+        <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+      </ul>
+      <div class="topbar-actions">
+        <button id="theme-toggle" class="theme-toggle" onclick="ecmToggleTheme()" title="Toggle theme">
+          <i class="fas fa-moon theme-icon" id="theme-icon"></i>
+        </button>
+        <button class="mobile-menu-toggle" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div id="mobile-nav" role="navigation" aria-hidden="true">
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="roadmap.html" class="mobile-nav-link"><i class="fas fa-route"></i> Roadmap</a></li>
+      <li><a href="lessons/day01.html" class="mobile-nav-link"><i class="fas fa-book-open"></i> Start Learning</a></li>
+      <li><a href="dictionary.html" class="mobile-nav-link active"><i class="fas fa-language"></i> Dictionary</a></li>
+      <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero & Dictionary Card -->
+  <section class="dict-hero">
+    <div class="dict-badge"><i class="fas fa-language"></i> 15+ Indian Languages</div>
+    <h1>Indian <span>Language</span> Dictionary</h1>
+    <p>Translate and look up word meanings between English and 15+ Indian languages — fast & free.</p>
+    <div class="lang-pills">
+      <span class="lang-pill">🇮🇳 Hindi</span><span class="lang-pill">Bengali</span><span class="lang-pill">Telugu</span>
+      <span class="lang-pill">Tamil</span><span class="lang-pill">Marathi</span><span class="lang-pill">Gujarati</span>
+      <span class="lang-pill">Kannada</span><span class="lang-pill">Malayalam</span><span class="lang-pill">Punjabi</span>
+      <span class="lang-pill">Urdu</span><span class="lang-pill">Odia</span><span class="lang-pill">Assamese</span>
+      <span class="lang-pill">Sanskrit</span><span class="lang-pill">Nepali</span><span class="lang-pill">Sindhi</span>
+    </div>
+
+    <!-- Dictionary Card -->
+    <div class="dict-card">
+      <div class="dict-tabs">
+        <button class="dict-tab active" id="tab-translate" onclick="switchTab('translate')">
+          <i class="fas fa-exchange-alt"></i> Translate
+        </button>
+        <button class="dict-tab" id="tab-meaning" onclick="switchTab('meaning')">
+          <i class="fas fa-book"></i> English Meaning
+        </button>
+        <button class="dict-tab" id="tab-both" onclick="switchTab('both')">
+          <i class="fas fa-globe"></i> Full Lookup
+        </button>
+      </div>
+
+      <div class="dict-lang-row" id="lang-row">
+        <select id="lang-from" class="dict-select" onchange="onLangChange()">
+          <option value="en">🇬🇧 English</option>
+          <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
+          <option value="bn">Bengali (বাংলা)</option>
+          <option value="te">Telugu (తెలుగు)</option>
+          <option value="ta">Tamil (தமிழ்)</option>
+          <option value="mr">Marathi (मराठी)</option>
+          <option value="gu">Gujarati (ગુજરાતી)</option>
+          <option value="kn">Kannada (ಕನ್ನಡ)</option>
+          <option value="ml">Malayalam (മലയാളം)</option>
+          <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+          <option value="ur">Urdu (اردو)</option>
+          <option value="or">Odia (ଓଡ଼ିଆ)</option>
+          <option value="as">Assamese (অসমীয়া)</option>
+          <option value="sa">Sanskrit (संस्कृत)</option>
+          <option value="ne">Nepali (नेपाली)</option>
+          <option value="sd">Sindhi (سنڌي)</option>
+        </select>
+        <button class="swap-btn" onclick="swapLanguages()" title="Swap languages">
+          <i class="fas fa-arrow-right-arrow-left"></i>
+        </button>
+        <select id="lang-to" class="dict-select" onchange="onLangChange()">
+          <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="bn">Bengali (বাংলা)</option>
+          <option value="te">Telugu (తెలుగు)</option>
+          <option value="ta">Tamil (தமிழ்)</option>
+          <option value="mr">Marathi (मराठी)</option>
+          <option value="gu">Gujarati (ગુજરાતી)</option>
+          <option value="kn">Kannada (ಕನ್ನಡ)</option>
+          <option value="ml">Malayalam (മലയാളം)</option>
+          <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+          <option value="ur">Urdu (اردو)</option>
+          <option value="or">Odia (ଓଡ଼ିଆ)</option>
+          <option value="as">Assamese (অসমীয়া)</option>
+          <option value="sa">Sanskrit (संस्कृत)</option>
+          <option value="ne">Nepali (नेपाली)</option>
+          <option value="sd">Sindhi (سنڌي)</option>
+        </select>
+      </div>
+
+      <div class="dict-input-area">
+        <div class="dict-input-wrap">
+          <textarea id="dict-input" class="dict-input" rows="1" placeholder="Type a word or sentence..." oninput="onInput(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();doLookup();}"></textarea>
+          <button class="dict-clear" id="dict-clear-btn" onclick="clearInput()" style="display:none;" title="Clear"><i class="fas fa-times-circle"></i></button>
+        </div>
+        <div class="dict-action-row">
+          <button class="dbtn dbtn-primary" onclick="doLookup()"><i class="fas fa-search"></i> Look Up</button>
+          <button class="dbtn dbtn-ghost" onclick="speakInput()"><i class="fas fa-volume-up"></i> Listen</button>
+          <button class="dbtn dbtn-ghost" id="copy-btn" onclick="copyResult()" style="display:none;"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+      </div>
+
+      <div id="dict-results" class="dict-results">
+        <div class="dict-empty">
+          <i class="fas fa-language"></i>
+          <div style="font-weight:600;color:var(--text-secondary,#475569);margin-bottom:.3rem;">Type a word or sentence to begin</div>
+          <div style="font-size:.85rem;">English ↔ 15 Indian languages</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Words Section -->
+  <div style="max-width:840px;margin:2.5rem auto;padding:0 1rem;">
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;"><i class="fas fa-star" style="color:#f59e0b;margin-right:.4rem;"></i> Popular Course Words</h3>
+    <div class="word-grid" id="featured-grid"></div>
+  </div>
+
+  <!-- Supported Languages Section -->
+  <div style="max-width:840px;margin:2.5rem auto;padding:0 1rem;">
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;"><i class="fas fa-globe-asia" style="color:#6366f1;margin-right:.4rem;"></i> Supported Languages</h3>
+    <div class="lang-grid" id="lang-grid"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background:var(--bg-surface,#f8fafc);border-top:1px solid var(--border-subtle,#e2e8f0);margin-top:3rem;padding:2rem;text-align:center;">
+    <p style="color:var(--text-tertiary,#94a3b8);font-size:.85rem;">
+      &copy; 2026 English Communication Master Course &bull; Created by <strong>Hitesh Choukiker</strong> &bull;
+      <a href="https://github.com/Hitesh029" target="_blank" rel="noopener" style="color:#6366f1;"><i class="fab fa-github"></i> Hitesh029</a>
+    </p>
+  </footer>
+
+  <script src="js/dictionary.js"></script>
+  <script>
+    let curTab = 'translate';
+    let lastResult = '';
+    let debounceTimer = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFeatured();
+      renderLangs();
+    });
+
+    function switchTab(t) {
+      curTab = t;
+      ['translate','meaning','both'].forEach(x => {
+        const el = document.getElementById('tab-' + x);
+        if (el) el.classList.toggle('active', x === t);
+      });
+      const lr = document.getElementById('lang-row');
+      if (t === 'meaning') {
+        lr.style.opacity = '.4'; lr.style.pointerEvents = 'none';
+        document.getElementById('lang-from').value = 'en';
+      } else {
+        lr.style.opacity = '1'; lr.style.pointerEvents = 'auto';
+      }
+      if (document.getElementById('dict-input').value.trim().length >= 2) doLookup();
+    }
+
+    function swapLanguages() {
+      const f = document.getElementById('lang-from'), t = document.getElementById('lang-to');
+      const tmp = f.value; f.value = t.value; t.value = tmp;
+      if (document.getElementById('dict-input').value.trim().length >= 2) doLookup();
+    }
+
+    function onLangChange() {
+      if (document.getElementById('dict-input').value.trim().length >= 2) doLookup();
+    }
+
+    function onInput(el) {
+      document.getElementById('dict-clear-btn').style.display = el.value ? 'block' : 'none';
+      clearTimeout(debounceTimer);
+      if (el.value.trim().length >= 2) debounceTimer = setTimeout(doLookup, 500);
+      else showEmpty();
+    }
+
+    function clearInput() {
+      const inp = document.getElementById('dict-input');
+      inp.value = ''; document.getElementById('dict-clear-btn').style.display = 'none';
+      document.getElementById('copy-btn').style.display = 'none';
+      showEmpty(); inp.focus();
+    }
+
+    async function doLookup() {
+      const q = document.getElementById('dict-input').value.trim();
+      if (!q) return;
+      const from = document.getElementById('lang-from').value;
+      const to = document.getElementById('lang-to').value;
+      
+      showLoading();
+      try {
+        if (curTab === 'meaning') {
+          const m = await ECM_Dictionary.getMeaning(q);
+          renderMeaning(m, q);
+        } else if (curTab === 'translate') {
+          const tr = await ECM_Dictionary.translate(q, from, to);
+          renderTrans(tr, q, from, to);
+        } else {
+          const [tr, m] = await Promise.all([
+            ECM_Dictionary.translate(q, from, to),
+            from === 'en' ? ECM_Dictionary.getMeaning(q) : Promise.resolve(null)
+          ]);
+          renderBoth(tr, m, q, from, to);
+        }
+      } catch(e) {
+        showError('Search failed. Please try again.');
+      }
+    }
+
+    function renderTrans(tr, q, from, to) {
+      if (!tr) { showError('Translation not found.'); return; }
+      const fromMeta = ECM_Dictionary.LANG_META[from] || { name: from, flag: '🌐' };
+      const toMeta = ECM_Dictionary.LANG_META[to] || { name: to, flag: '🌐' };
+      
+      lastResult = tr.translatedText;
+      document.getElementById('copy-btn').style.display = 'inline-flex';
+      
+      document.getElementById('dict-results').innerHTML = `
+        <div class="trans-card">
+          <div style="font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:.3rem;">
+            ${toMeta.flag} ${toMeta.name} Translation
+          </div>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">
+            <div class="trans-text">${esc(tr.translatedText)}</div>
+            <button class="dbtn dbtn-primary" style="width:38px;height:38px;padding:0;border-radius:50%;justify-content:center;" onclick="ECM_Dictionary.speak('${ea(tr.translatedText)}','${to}')"><i class="fas fa-volume-up"></i></button>
+          </div>
+          ${tr.match ? `<div style="font-size:.75rem;color:#94a3b8;margin-top:.4rem;"><i class="fas fa-check-circle" style="color:#10b981;"></i> Match: ${Math.round(tr.match*100)}%</div>` : ''}
+        </div>
+      `;
+    }
+
+    function renderMeaning(m, q) {
+      if (!m || !m[0]) { showError('Meaning not found in dictionary.'); return; }
+      const entry = m[0];
+      lastResult = entry.word;
+      
+      let html = `<div style="margin-bottom:1rem;">
+        <div style="font-size:1.8rem;font-weight:800;color:var(--text-primary,#0f172a);">${esc(entry.word)}</div>
+      </div>`;
+
+      entry.meanings.forEach(mObj => {
+        html += `<div style="margin-bottom:1rem;">
+          <span style="display:inline-block;padding:.2rem .6rem;background:rgba(99,102,241,.1);color:#6366f1;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;margin-bottom:.5rem;">${esc(mObj.partOfSpeech)}</span>
+          ${mObj.definitions.slice(0,3).map((d,i) => `
+            <div style="margin-bottom:.4rem;font-size:.95rem;"><strong>${i+1}.</strong> ${esc(d.definition)}</div>
+            ${d.example ? `<div style="font-style:italic;color:#64748b;font-size:.85rem;margin-left:1rem;">"${esc(d.example)}"</div>` : ''}
+          `).join('')}
+        </div>`;
+      });
+
+      document.getElementById('dict-results').innerHTML = html;
+    }
+
+    function renderBoth(tr, m, q, from, to) {
+      let html = '';
+      if (tr) {
+        const toMeta = ECM_Dictionary.LANG_META[to] || { name: to, flag: '🌐' };
+        html += `<div class="trans-card" style="margin-bottom:1.5rem;">
+          <div style="font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:.3rem;">${toMeta.flag} ${toMeta.name} Translation</div>
+          <div style="font-size:1.5rem;font-weight:700;">${esc(tr.translatedText)}</div>
+        </div>`;
+      }
+      if (m && m[0]) {
+        html += `<div style="font-size:1.3rem;font-weight:800;margin-bottom:.5rem;">English Definition: ${esc(m[0].word)}</div>`;
+        m[0].meanings.slice(0,2).forEach(mObj => {
+          html += `<div style="margin-bottom:.75rem;">
+            <span style="font-size:.75rem;font-weight:700;color:#6366f1;text-transform:uppercase;">${esc(mObj.partOfSpeech)}</span>
+            <div style="font-size:.9rem;margin-top:.2rem;">${esc(mObj.definitions[0].definition)}</div>
+          </div>`;
+        });
+      }
+      document.getElementById('dict-results').innerHTML = html || 'No results.';
+    }
+
+    function speakInput() {
+      const q = document.getElementById('dict-input').value.trim();
+      const from = document.getElementById('lang-from').value;
+      if (q) ECM_Dictionary.speak(q, from);
+    }
+
+    function copyResult() {
+      if (lastResult) navigator.clipboard.writeText(lastResult);
+    }
+
+    function renderFeatured() {
+      const grid = document.getElementById('featured-grid');
+      grid.innerHTML = ECM_Dictionary.FEATURED_WORDS.map(w => `
+        <div class="word-chip" onclick="searchWord('${ea(w.en)}')">
+          <div style="font-weight:700;">${esc(w.en)}</div>
+          <div style="font-size:.8rem;color:#94a3b8;">${esc(w.hi)}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderLangs() {
+      const grid = document.getElementById('lang-grid');
+      grid.innerHTML = Object.keys(ECM_Dictionary.LANG_META).map(code => {
+        const m = ECM_Dictionary.LANG_META[code];
+        return `
+          <div class="lang-card" onclick="setTargetLang('${code}')">
+            <div style="font-size:1.8rem;margin-bottom:.3rem;">${m.flag}</div>
+            <div style="font-weight:700;">${m.name}</div>
+            <div style="font-size:.85rem;color:#94a3b8;">${m.native}</div>
+            <div style="font-size:.75rem;color:#6366f1;margin-top:.3rem;">${m.speakers}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setTargetLang(code) {
+      document.getElementById('lang-from').value = 'en';
+      document.getElementById('lang-to').value = code;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('dict-input').focus();
+    }
+
+    function searchWord(w) {
+      document.getElementById('dict-input').value = w;
+      doLookup();
+    }
+
+    function showLoading() { document.getElementById('dict-results').innerHTML = '<div style="text-align:center;padding:2rem;color:#94a3b8;"><i class="fas fa-circle-notch fa-spin"></i> Searching...</div>'; }
+    function showEmpty() { document.getElementById('dict-results').innerHTML = '<div class="dict-empty"><i class="fas fa-language"></i><div style="font-weight:600;color:#475569;">Type a word or sentence to begin</div></div>'; }
+    function showError(msg) { document.getElementById('dict-results').innerHTML = `<div style="text-align:center;padding:2rem;color:#ef4444;">${esc(msg)}</div>`; }
+
+    function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function ea(s) { return String(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
+  </script>
+</body>
+</html>

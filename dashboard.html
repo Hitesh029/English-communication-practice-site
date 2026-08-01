@@ -197,6 +197,45 @@
       .dashboard-layout-grid { grid-template-columns: 1fr; }
     }
   </style>
+
+  <!-- Immediate theme fix -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('ecm-theme') ||
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+    function ecmToggleTheme() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('ecm-theme', next);
+      document.querySelectorAll('.theme-icon, #theme-icon').forEach(function(ic) {
+        ic.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      });
+      if (window.Theme) window.Theme.current = next;
+    }
+    function ecmOpenSearch() {
+      var m = document.getElementById('search-modal');
+      if (!m) return;
+      m.style.display = 'flex';
+      setTimeout(function() { m.classList.add('active'); m.style.opacity = '1'; }, 10);
+      var inp = document.getElementById('search-input');
+      if (inp) setTimeout(function() { inp.focus(); }, 120);
+      if (window.Search && !window.Search.built) window.Search.buildIndex();
+    }
+    function ecmCloseSearch() {
+      var m = document.getElementById('search-modal');
+      if (!m) return;
+      m.classList.remove('active');
+      m.style.opacity = '0';
+      setTimeout(function() { m.style.display = 'none'; }, 280);
+    }
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); ecmOpenSearch(); }
+      if (e.key === 'Escape') ecmCloseSearch();
+    });
+  </script>
 </head>
 <body>
 
@@ -222,19 +261,24 @@
         <li><a href="dashboard.html" class="nav-link active" aria-current="page"><i class="fas fa-th-large" aria-hidden="true"></i> Dashboard</a></li>
         <li><a href="roadmap.html"   class="nav-link"><i class="fas fa-route" aria-hidden="true"></i> Roadmap</a></li>
         <li><a href="lessons/day01.html" class="nav-link"><i class="fas fa-book-open" aria-hidden="true"></i> Start Learning</a></li>
+        <li><a href="dictionary.html" class="nav-link"><i class="fas fa-language" aria-hidden="true"></i> Dictionary</a></li>
         <li><a href="about.html"     class="nav-link"><i class="fas fa-info-circle" aria-hidden="true"></i> About</a></li>
       </ul>
       <!-- Topbar Actions -->
       <div class="topbar-actions">
-        <button id="search-toggle" aria-label="Open search (Ctrl+K)" title="Search (Ctrl+K)">
+        <button id="search-toggle" class="search-toggle" onclick="ecmOpenSearch()"
+                aria-label="Open search" title="Search (Ctrl+K)">
           <i class="fas fa-search" aria-hidden="true"></i>
           <span>Search...</span>
-          <kbd class="search-kbd">⌘K</kbd>
+          <kbd class="search-kbd">Ctrl+K</kbd>
         </button>
-        <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
-          <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
+        <button id="theme-toggle" class="theme-toggle" onclick="ecmToggleTheme()"
+                aria-label="Toggle dark/light mode" title="Toggle theme">
+          <i class="fas fa-moon theme-icon" id="theme-icon" aria-hidden="true"></i>
         </button>
-        <button id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle"
+                aria-label="Toggle mobile menu"
+                onclick="(function(){var n=document.getElementById('mobile-nav');n&&n.classList.toggle('open');})()">
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
@@ -254,20 +298,24 @@
   </div>
 
   <!-- Search Modal -->
-  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
-    <div class="modal-dialog search-modal">
-      <div class="search-input-wrapper">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <input type="text" id="search-input" placeholder="Search words, grammar, idioms, lessons..." autocomplete="off" spellcheck="false" aria-label="Search course content">
-        <button class="btn btn-ghost btn-xs" id="search-close" aria-label="Close search">
-          <kbd>Esc</kbd>
-        </button>
+  <div id="search-modal" role="dialog" aria-modal="true" aria-label="Search"
+       style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);
+              z-index:9000;align-items:flex-start;justify-content:center;padding:5rem 1rem;
+              opacity:0;transition:opacity .25s ease;"
+       onclick="if(event.target===this) ecmCloseSearch()">
+    <div style="background:var(--bg-surface,#fff);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.4);
+                width:100%;max-width:660px;overflow:hidden;
+                transform:translateY(-20px);transition:transform .25s ease;">
+      <div style="display:flex;align-items:center;gap:12px;padding:18px 20px;
+                  border-bottom:1px solid var(--border-subtle,#e2e8f0);">
+        <i class="fas fa-search" style="color:#94a3b8;"></i>
+        <input id="search-input" type="text" placeholder="Search vocabulary, grammar, idioms, lessons..."
+               autocomplete="off" spellcheck="false"
+               style="flex:1;border:none;outline:none;background:none;font-size:1.05rem;color:var(--text-primary,#0f172a);font-family:inherit;"
+               oninput="ecmDoSearch(this.value)">
+        <button onclick="ecmCloseSearch()" style="background:none;border:1px solid var(--border-subtle,#e2e8f0);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:.75rem;color:var(--text-secondary,#475569);">Esc</button>
       </div>
-      <div id="search-results" class="search-results-list" role="listbox" aria-label="Search results"></div>
-      <div id="search-empty" style="display:none; padding: 2rem; text-align:center; color:var(--text-tertiary);">
-        <i class="fas fa-search" style="font-size:2rem; margin-bottom:0.5rem; display:block;"></i>
-        No results found. Try different keywords.
-      </div>
+      <div id="search-results" class="search-results" style="max-height:420px;overflow-y:auto;"></div>
     </div>
   </div>
 
@@ -322,7 +370,7 @@
       <div class="sidebar-nav-section">
         <h4>Settings</h4>
         <ul class="sidebar-nav-list">
-          <li><a href="#" id="sidebar-theme-toggle"><i class="fas fa-moon"></i> Dark Mode</a></li>
+          <li><a href="#" id="sidebar-theme-toggle" class="theme-toggle" onclick="event.preventDefault(); window.Theme && window.Theme.toggle()"><i class="fas fa-moon"></i> Dark Mode</a></li>
           <li><a href="#"><i class="fas fa-download"></i> Export Progress</a></li>
           <li><a href="#"><i class="fas fa-file-pdf"></i> Download PDF</a></li>
         </ul>
@@ -1047,6 +1095,59 @@
         renderAchievements(e.detail);
       });
     });
+  </script>
+
+  <!-- Global search function used by inline oninput handler -->
+  <script>
+    // Sync icon on load
+    (function() {
+      var cur = document.documentElement.getAttribute('data-theme') || 'light';
+      document.querySelectorAll('.theme-icon, #theme-icon').forEach(function(ic) {
+        ic.className = cur === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      });
+    })();
+
+    function ecmDoSearch(query) {
+      var container = document.getElementById('search-results');
+      if (!container) return;
+      if (!query || query.length < 2) { container.innerHTML = ''; return; }
+
+      var dictBanner = '<div style="padding:10px 16px;background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(139,92,246,.1));border-bottom:1px solid var(--border-subtle,#e2e8f0);display:flex;align-items:center;justify-content:space-between;gap:12px;">' +
+        '<div style="display:flex;align-items:center;gap:8px;">' +
+          '<i class="fas fa-language" style="color:#6366f1;font-size:1.1rem;"></i>' +
+          '<div><div style="font-size:.85rem;font-weight:700;color:var(--text-primary,#0f172a);">Translate / Dictionary</div>' +
+          '<div style="font-size:.75rem;color:var(--text-secondary,#475569);">Look up "<strong>' + query.replace(/</g,'&lt;') + '</strong>" in Hindi & 15 Indian languages</div></div>' +
+        '</div>' +
+        '<a href="dictionary.html" style="background:#6366f1;color:#fff;padding:6px 14px;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap;">Open Dictionary</a>' +
+      '</div>';
+
+      if (!window.Search || !window.Search.built) {
+        container.innerHTML = dictBanner + '<div style="padding:1.5rem;text-align:center;color:#94a3b8;"><i class="fas fa-circle-notch fa-spin"></i> Building index...</div>';
+        if (window.Search) window.Search.buildIndex().then(function() { ecmDoSearch(query); });
+        return;
+      }
+      var results = window.Search.search(query);
+      if (!results || results.length === 0) {
+        container.innerHTML = dictBanner + '<div style="padding:2rem;text-align:center;color:#94a3b8;"><i class="fas fa-search" style="font-size:2rem;display:block;margin-bottom:.5rem;"></i>No course lessons found for <strong>"' + query + '"</strong></div>';
+        return;
+      }
+      var groups = {};
+      results.forEach(function(r) { if (!groups[r.type]) groups[r.type] = []; groups[r.type].push(r); });
+      var html = dictBanner + '<div style="padding:8px 16px;font-size:.75rem;color:#94a3b8;border-bottom:1px solid var(--border-subtle,#e2e8f0);">' + results.length + ' results for <strong>"' + query + '"</strong></div>';
+      Object.keys(groups).forEach(function(type) {
+        html += '<div><div style="padding:6px 16px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#94a3b8;">' + type + '</div>';
+        groups[type].slice(0, 5).forEach(function(item) {
+          var q = query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+          var title = item.title.replace(new RegExp('(' + q + ')', 'gi'), '<mark style="background:rgba(99,102,241,.2);color:#6366f1;border-radius:2px;padding:0 2px;">$1</mark>');
+          html += '<a href="' + item.link + '" style="display:flex;align-items:center;gap:12px;padding:10px 16px;text-decoration:none;" onmouseover="this.style.background=\'var(--bg-elevated,#f8fafc)\'" onmouseout="this.style.background=\'\'">';
+          html += '<div><div style="font-weight:600;color:var(--text-primary,#0f172a);font-size:.9rem;">' + title + '</div>';
+          if (item.detail) html += '<div style="font-size:.8rem;color:var(--text-secondary,#475569);">' + item.detail.substring(0,80) + '...</div>';
+          html += '</div><span style="margin-left:auto;font-size:.75rem;color:#94a3b8;">Day ' + item.day + '</span></a>';
+        });
+        html += '</div>';
+      });
+      container.innerHTML = html;
+    }
   </script>
 </body>
 </html>
